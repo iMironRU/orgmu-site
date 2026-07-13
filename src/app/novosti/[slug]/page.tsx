@@ -9,6 +9,7 @@ import {
   kindStyle,
   newsKind,
 } from "@/lib/content/news";
+import { NewsGallery } from "@/components/NewsGallery";
 
 export const dynamicParams = false;
 
@@ -41,7 +42,11 @@ export default async function ArticlePage({
 
   const k = kindStyle(newsKind(item));
   const related = getRelatedNews(item);
-  const cover = item.cover?.remote;
+  // Слайдер сверху: обложка + все фото галереи, без дублей.
+  const galleryImages = [
+    ...(item.cover?.remote ? [item.cover.remote] : []),
+    ...item.gallery.map((g) => g.remote),
+  ].filter((url, idx, arr) => arr.indexOf(url) === idx);
 
   return (
     <main className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border max-[768px]:px-5 max-[768px]:pt-6">
@@ -77,44 +82,15 @@ export default async function ArticlePage({
             {item.title}
           </h1>
 
-          {cover && (
-            <>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={cover}
-                alt=""
-                className="w-full max-h-[440px] object-cover rounded-xl mb-2"
-              />
-              <div className="text-[14px] text-ink-3 mt-[6px] mb-7">
-                Фото: {item.author || "пресс-служба ОрГМУ"}
-              </div>
-            </>
-          )}
+          <NewsGallery
+            images={galleryImages}
+            caption={`Фото: ${item.author || "пресс-служба ОрГМУ"}`}
+          />
 
           <div
             className="prose-news"
             dangerouslySetInnerHTML={{ __html: item.body_html }}
           />
-
-          {item.gallery.length > 0 && (
-            <div className="mt-8">
-              <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">
-                Фотогалерея
-              </h2>
-              <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-3">
-                {item.gallery.map((g, i) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={i}
-                    src={g.remote}
-                    alt=""
-                    loading="lazy"
-                    className="w-full aspect-square object-cover rounded-lg border border-line"
-                  />
-                ))}
-              </div>
-            </div>
-          )}
 
           <div className="mt-8 pt-6 border-t border-line">
             <a
