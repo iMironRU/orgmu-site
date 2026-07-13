@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;500;700&family=Sofia+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;background:rgb(251,251,251);}
+    ::selection{background:rgba(184,57,4,0.3);}
+    a{color:rgb(184,57,4);}
+    a:hover{color:rgb(0,101,155);}
+    @media(max-width:900px){.bb-body{grid-template-columns:1fr!important;padding:24px 20px!important;gap:24px!important}.bb-aside{position:static!important}.bb-nav{display:none!important}}
+  </style>
+</helmet>
+<div style="font-family:'Roboto Condensed',sans-serif; color:rgb(49,49,49); background:rgb(251,251,251); min-height:100vh;">
+  <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+  <!-- Title band -->
+  <div style="background:rgb(0,101,155); color:#fff;">
+    <div style="max-width:1146px; margin:0 auto; padding:36px 40px 40px; box-sizing:border-box;">
+      <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:16px; flex-wrap:wrap;">
+        <a href="index.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+        <a href="Styleguide.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Дизайн-система</a><span>/</span>
+        <span>Брендбук</span>
+      </div>
+      <h1 style="margin:0 0 12px; font-family:'Inter',sans-serif; font-weight:700; font-size:42px; line-height:1.1;">Брендбук ОрГМУ</h1>
+      <p style="margin:0; max-width:760px; font-size:19px; line-height:1.55; color:rgba(255,255,255,0.88);">Официальное руководство по использованию элементов фирменного стиля университета: логотип, цвета, шрифты, фотографии и носители — по материалам утверждённого документа.</p>
+    </div>
+  </div>
+
+  <div class="bb-body" style="max-width:1146px; width:100%; margin:0 auto; padding:40px; box-sizing:border-box; display:grid; grid-template-columns:264px 1fr; gap:40px; align-items:start;">
+
+    <!-- Section nav -->
+    <aside class="bb-aside" style="position:sticky; top:24px;">
+      <div class="bb-nav" style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; overflow:hidden;">
+        <div style="padding:16px 20px; background:rgb(251,251,251); border-bottom:1px solid rgb(238,238,238); font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:0.04em; color:rgb(103,103,103);">В разделе</div>
+        <nav style="display:flex; flex-direction:column; padding:8px;">
+          <a href="#bb-logo" style="padding:10px 14px; border-radius:8px; font-size:16px; font-weight:700; color:rgb(0,101,155); text-decoration:none;" style-hover="background:rgb(251,251,251);">Логотип</a>
+          <a href="#bb-misuse" style="padding:10px 14px; border-radius:8px; font-size:16px; font-weight:700; color:rgb(0,101,155); text-decoration:none;" style-hover="background:rgb(251,251,251);">Недопустимое использование</a>
+          <a href="#bb-colors" style="padding:10px 14px; border-radius:8px; font-size:16px; font-weight:700; color:rgb(0,101,155); text-decoration:none;" style-hover="background:rgb(251,251,251);">Фирменные цвета</a>
+          <a href="#bb-type" style="padding:10px 14px; border-radius:8px; font-size:16px; font-weight:700; color:rgb(0,101,155); text-decoration:none;" style-hover="background:rgb(251,251,251);">Шрифт</a>
+          <a href="#bb-photo" style="padding:10px 14px; border-radius:8px; font-size:16px; font-weight:700; color:rgb(0,101,155); text-decoration:none;" style-hover="background:rgb(251,251,251);">Фотографии корпусов</a>
+          <a href="#bb-carriers" style="padding:10px 14px; border-radius:8px; font-size:16px; font-weight:700; color:rgb(0,101,155); text-decoration:none;" style-hover="background:rgb(251,251,251);">Носители фирменного стиля</a>
+          <a href="#bb-slides" style="padding:10px 14px; border-radius:8px; font-size:16px; font-weight:700; color:rgb(0,101,155); text-decoration:none;" style-hover="background:rgb(251,251,251);">Шаблоны презентаций</a>
+        </nav>
+      </div>
+      <div style="background:rgb(0,101,155); border-radius:12px; padding:20px; color:#fff; margin-top:16px;">
+        <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:17px; margin-bottom:6px;">Источник</div>
+        <div style="font-size:15px; line-height:1.5; color:rgba(255,255,255,0.85);">PDF-руководство по фирменному стилю, 33 стр. Значения цвета и правил приведены как в оригинале.</div>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <article style="min-width:0; display:flex; flex-direction:column; gap:56px; font-size:18px; line-height:1.6; color:rgb(49,49,49);">
+
+      <!-- LOGO -->
+      <section id="bb-logo" style="display:flex; flex-direction:column; gap:20px;">
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:30px; color:rgb(0,101,155);">Логотип</h2>
+        <p style="margin:0; max-width:820px; color:rgb(50,100,150);">Основная версия — круговая надпись «Оренбургский государственный медицинский университет» с гербовой эмблемой и словом «ОрГМУ». Минимальная ширина — 25 мм; для меньших размеров используется упрощённая версия.</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:28px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <img src="assets/orgma-logo.png" alt="ОрГМУ — основная версия" style="width:180px; height:180px; object-fit:contain;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Основная версия</div>
+            <div style="font-size:14px; color:rgb(150,150,150); text-align:center;">Минимальная ширина — 25 мм</div>
+          </div>
+          <div style="background:rgb(0,101,155); border-radius:14px; padding:28px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <img src="assets/orgma-logo.png" alt="ОрГМУ — на тёмном фоне" style="width:180px; height:180px; object-fit:contain; filter:brightness(0) invert(1);">
+            <div style="font-weight:700; font-size:16px; color:#fff;">На тёмном фоне</div>
+            <div style="font-size:14px; color:rgba(255,255,255,0.7); text-align:center;">Плейсхолдер: белый вариант получен фильтром — нужен исходный векторный ассет</div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;">
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:24px; display:flex; flex-direction:column; align-items:center; gap:12px;">
+            <img src="assets/orgma-logo.png" alt="Дополнительная версия" style="width:110px; height:110px; object-fit:contain;">
+            <div style="font-weight:700; font-size:15px; color:rgb(103,103,103); text-align:center;">Дополнительная версия</div>
+            <div style="font-size:13px; color:rgb(150,150,150); text-align:center;">Плейсхолдер — компоновка по брендбуку требует отдельного макета</div>
+          </div>
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:24px; display:flex; flex-direction:column; align-items:center; gap:12px;">
+            <img src="assets/orgma-logo.png" alt="Версия с подписью" style="width:110px; height:110px; object-fit:contain;">
+            <div style="font-weight:700; font-size:15px; color:rgb(103,103,103); text-align:center;">Версия с подписью</div>
+            <div style="font-size:13px; color:rgb(150,150,150); text-align:center;">Для визиток и бланков конкретного сотрудника</div>
+          </div>
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:24px; display:flex; flex-direction:column; align-items:center; gap:12px;">
+            <img src="assets/orgma-logo.png" alt="Упрощённая версия" style="width:64px; height:64px; object-fit:contain;">
+            <div style="font-weight:700; font-size:15px; color:rgb(103,103,103); text-align:center;">Упрощённая версия</div>
+            <div style="font-size:13px; color:rgb(150,150,150); text-align:center;">Для размеров &lt; 10 мм — сувенирная продукция, нагрудный знак</div>
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:32px; display:flex; align-items:center; gap:36px; flex-wrap:wrap;">
+          <div style="position:relative; flex:0 0 auto; padding:36px;">
+            <div style="position:absolute; inset:0; border:1.5px dashed rgb(137,191,234); border-radius:8px;"></div>
+            <img src="assets/orgma-logo.png" alt="Охранное поле" style="width:130px; height:130px; object-fit:contain; position:relative;">
+          </div>
+          <div style="flex:1; min-width:240px;">
+            <div style="font-weight:700; font-size:18px; color:rgb(0,101,155); margin-bottom:8px;">Охранное поле</div>
+            <p style="margin:0; font-size:16px; color:rgb(50,100,150);">Вокруг логотипа сохраняется свободное пространство — другие элементы (текст, изображения, края макета) не должны попадать внутрь пунктирной границы, размер поля пропорционален высоте надписи логотипа.</p>
+          </div>
+        </div>
+
+        <div style="background:rgb(0,101,155); border-radius:14px; padding:32px; display:flex; align-items:center; gap:36px; flex-wrap:wrap; color:#fff;">
+          <div style="flex:0 0 auto; background:#fff; border-radius:10px; padding:20px;">
+            <img src="assets/orgma-logo.png" alt="Подложка" style="width:110px; height:110px; object-fit:contain;">
+          </div>
+          <div style="flex:1; min-width:240px;">
+            <div style="font-weight:700; font-size:18px; margin-bottom:8px;">Подложка на тёмном фоне</div>
+            <p style="margin:0; font-size:16px; color:rgba(255,255,255,0.85);">При размещении на тёмном фоне логотип ставится на белую подложку. Толщина подложки равна высоте букв надписи «Оренбургский государственный медицинский университет».</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MISUSE -->
+      <section id="bb-misuse" style="display:flex; flex-direction:column; gap:20px;">
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:30px; color:rgb(0,101,155);">Недопустимое использование</h2>
+        <p style="margin:0; max-width:820px; color:rgb(50,100,150);">Восемь правил из брендбука — каждое демонстрируется на реальном логотипе университета.</p>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+          <sc-for list="{{ prohibitions }}" as="p" hint-placeholder-count="7">
+            <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; overflow:hidden;">
+              <div style="height:120px; position:relative; display:flex; align-items:center; justify-content:center; background:{{ p.bg }};">
+                <img src="assets/orgma-logo.png" alt="{{ p.title }}" style="width:74px; height:74px; object-fit:contain; {{ p.imgStyle }}">
+                <span style="position:absolute; top:8px; right:8px; width:26px; height:26px; border-radius:50%; background:rgb(255,59,48); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;">✕</span>
+              </div>
+              <div style="padding:14px 16px; font-size:14px; line-height:1.4; color:rgb(103,103,103);">{{ p.title }}</div>
+            </div>
+          </sc-for>
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; overflow:hidden;">
+            <div style="height:120px; position:relative; display:flex; align-items:center; justify-content:center; background:rgb(251,251,251);">
+              <span style="font-family:Georgia,serif; font-weight:700; font-size:30px; color:rgb(0,101,155);">ОрГМУ</span>
+              <span style="position:absolute; top:8px; right:8px; width:26px; height:26px; border-radius:50%; background:rgb(255,59,48); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;">✕</span>
+            </div>
+            <div style="padding:14px 16px; font-size:14px; line-height:1.4; color:rgb(103,103,103);">Запрещается набирать текстовую часть другим шрифтом</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLORS -->
+      <section id="bb-colors" style="display:flex; flex-direction:column; gap:20px;">
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:30px; color:rgb(0,101,155);">Фирменные цвета</h2>
+        <p style="margin:0; max-width:820px; color:rgb(50,100,150);">Семь цветов из утверждённого брендбука с указанием CMYK, RGB и HEX. Основной синий, терракотовый (акцент), голубой и бронзовый — уже используются в токенах сайта (<span style="font-family:'Inter',sans-serif; font-size:14px; background:rgb(238,238,238); padding:1px 6px; border-radius:4px;">--c-brand</span>, <span style="font-family:'Inter',sans-serif; font-size:14px; background:rgb(238,238,238); padding:1px 6px; border-radius:4px;">--c-accent</span>, <span style="font-family:'Inter',sans-serif; font-size:14px; background:rgb(238,238,238); padding:1px 6px; border-radius:4px;">--c-sky-soft</span>, <span style="font-family:'Inter',sans-serif; font-size:14px; background:rgb(238,238,238); padding:1px 6px; border-radius:4px;">--c-brown</span>); коралловый и песочный пока не задействованы.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:16px;">
+          <sc-for list="{{ colors }}" as="c" hint-placeholder-count="7">
+            <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; overflow:hidden;">
+              <div style="height:80px; background:{{ c.hex }};"></div>
+              <div style="padding:12px 14px;">
+                <div style="font-weight:700; font-size:16px; color:rgb(49,49,49); margin-bottom:6px;">{{ c.name }}</div>
+                <div style="font-family:'Inter',sans-serif; font-size:12px; color:rgb(150,150,150); line-height:1.6;">
+                  <div>HEX {{ c.hex }}</div>
+                  <div>RGB {{ c.rgb }}</div>
+                  <div>CMYK {{ c.cmyk }}</div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- TYPE -->
+      <section id="bb-type" style="display:flex; flex-direction:column; gap:20px;">
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:30px; color:rgb(0,101,155);">Шрифт</h2>
+        <p style="margin:0; max-width:820px; color:rgb(50,100,150);">Официальный шрифт бренда — Sofia Sans Condensed (заголовки) и Arial (наборный текст). Показан здесь для справки: сайт-прототип использует другую пару — Inter и Roboto Condensed — под плотный интерфейс с большим объёмом контента.</p>
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; overflow:hidden;">
+          <div style="padding:26px 28px; border-bottom:1px solid rgb(238,238,238);">
+            <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:rgb(103,103,103); margin-bottom:10px;">Sofia Sans Condensed — основной (заголовки)</div>
+            <div style="font-family:'Sofia Sans Condensed',sans-serif; font-weight:700; font-size:34px; color:rgb(0,101,155); margin-bottom:6px;">Оренбургский государственный медицинский университет</div>
+            <div style="font-family:'Sofia Sans Condensed',sans-serif; font-weight:400; font-size:20px; color:rgb(49,49,49);">АаБбВвГгДдЕеЖжЗз Ии Йй Кк Лл Мм Нн 0123456789</div>
+          </div>
+          <div style="padding:26px 28px;">
+            <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.05em; color:rgb(103,103,103); margin-bottom:10px;">Arial — наборный (текст)</div>
+            <div style="font-family:Arial,sans-serif; font-weight:700; font-size:26px; color:rgb(0,101,155); margin-bottom:6px;">Оренбургский государственный медицинский университет</div>
+            <div style="font-family:Arial,sans-serif; font-weight:400; font-size:18px; color:rgb(49,49,49);">АаБбВвГгДдЕеЖжЗз Ии Йй Кк Лл Мм Нн 0123456789</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHOTOS -->
+      <section id="bb-photo" style="display:flex; flex-direction:column; gap:20px;">
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:30px; color:rgb(0,101,155);">Фотографии учебных корпусов</h2>
+        <p style="margin:0; max-width:820px; color:rgb(50,100,150);">Изображения корпусов используются как элемент оформления и узнаваемости — на сайте, полиграфии, пропусках.</p>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+          <div style="border-radius:12px; overflow:hidden; border:1px solid rgb(238,238,238);">
+            <img src="assets/corpus.jpg" alt="Корпус 1" style="width:100%; height:180px; object-fit:cover; display:block;">
+            <div style="padding:10px 14px; font-size:15px; font-weight:700; color:rgb(103,103,103);">1 корпус</div>
+          </div>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid rgb(238,238,238);">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bb-corpus-2" shape="rect" style="width:100%; height:180px;" placeholder="Фото 2 корпуса" hint-size="100%,180px"></x-import>
+            <div style="padding:10px 14px; font-size:15px; font-weight:700; color:rgb(103,103,103);">2 корпус</div>
+          </div>
+          <div style="border-radius:12px; overflow:hidden; border:1px solid rgb(238,238,238);">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bb-corpus-3" shape="rect" style="width:100%; height:180px;" placeholder="Фото 3 корпуса" hint-size="100%,180px"></x-import>
+            <div style="padding:10px 14px; font-size:15px; font-weight:700; color:rgb(103,103,103);">3 корпус</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARRIERS -->
+      <section id="bb-carriers" style="display:flex; flex-direction:column; gap:20px;">
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:30px; color:rgb(0,101,155);">Носители фирменного стиля</h2>
+        <p style="margin:0; max-width:820px; color:rgb(50,100,150);">Упрощённые макеты по описанию из брендбука — для ориентира по композиции, не финальные печатные файлы.</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+
+          <!-- Business card -->
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Визитка</div>
+            <div style="width:100%; aspect-ratio:1.75; background:#fff; border:1px solid rgb(217,217,217); border-radius:8px; padding:18px; display:flex; flex-direction:column; justify-content:space-between;">
+              <img src="assets/orgma-logo.png" style="width:44px; height:44px; object-fit:contain;">
+              <div>
+                <div style="font-weight:700; font-size:15px; color:rgb(0,101,155);">Григорьев Михаил Александрович</div>
+                <div style="font-size:12px; color:rgb(103,103,103); margin-top:2px;">Заведующий кафедрой, профессор</div>
+                <div style="font-size:11px; color:rgb(150,150,150); margin-top:6px;">+7 (3532) 50-06-06 · info@orgma.ru</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Envelope -->
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Конверт</div>
+            <div style="width:100%; aspect-ratio:2.1; background:#fff; border:1px solid rgb(217,217,217); border-radius:8px; padding:18px; display:flex; align-items:flex-end; justify-content:space-between;">
+              <img src="assets/orgma-logo.png" style="width:52px; height:52px; object-fit:contain; align-self:flex-start;">
+              <div style="font-size:11px; color:rgb(103,103,103); text-align:right; line-height:1.5;">Россия, 460000, г. Оренбург,<br>ул. Советская, 6<br>Тел. +7 (3532) 50-06-20</div>
+            </div>
+          </div>
+
+          <!-- Thank-you letter -->
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Благодарность</div>
+            <div style="width:100%; aspect-ratio:1.4; background:rgb(0,101,155); border-radius:8px; padding:24px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; color:#fff;">
+              <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; letter-spacing:0.06em;">БЛАГОДАРНОСТЬ</div>
+              <img src="assets/orgma-logo.png" style="width:56px; height:56px; object-fit:contain; filter:brightness(0) invert(1); margin:6px 0;">
+              <div style="font-size:12px; color:rgba(255,255,255,0.8); line-height:1.5;">Оренбургский государственный медицинский университет выражает благодарность за сотрудничество</div>
+            </div>
+          </div>
+
+          <!-- Pass / badge -->
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Пропуск</div>
+            <div style="width:170px; aspect-ratio:0.63; background:#fff; border:1px solid rgb(217,217,217); border-radius:10px; padding:14px; display:flex; flex-direction:column; align-items:center; gap:8px; margin:0 auto;">
+              <img src="assets/orgma-logo.png" style="width:34px; height:34px; object-fit:contain;">
+              <div style="width:56px; height:56px; border-radius:50%; background:rgb(238,238,238);"></div>
+              <div style="font-weight:700; font-size:13px; color:rgb(0,101,155); text-align:center;">Иванова Лариса Константиновна</div>
+              <div style="font-size:11px; color:rgb(150,150,150); text-align:center;">Студент · Лечебный факультет</div>
+              <div style="font-size:10px; color:rgb(199,199,204); margin-top:auto;">23 01234</div>
+            </div>
+          </div>
+
+          <!-- T-shirts / caps -->
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Футболки и кепки</div>
+            <div style="display:flex; gap:16px; align-items:center; justify-content:center; padding:10px 0;">
+              <div style="width:90px; height:100px; background:rgb(0,101,155); border-radius:14px 14px 6px 6px; position:relative; display:flex; align-items:center; justify-content:center;">
+                <img src="assets/orgma-logo.png" style="width:34px; height:34px; object-fit:contain; filter:brightness(0) invert(1);">
+              </div>
+              <div style="width:70px; height:44px; background:rgb(0,101,155); border-radius:40px 40px 4px 4px; position:relative; display:flex; align-items:center; justify-content:center;">
+                <img src="assets/orgma-logo.png" style="width:22px; height:22px; object-fit:contain; filter:brightness(0) invert(1);">
+              </div>
+            </div>
+          </div>
+
+          <!-- Bags -->
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Пакеты</div>
+            <div style="display:flex; justify-content:center; padding:8px 0;">
+              <div style="width:120px; height:130px; background:rgb(0,101,155); clip-path:polygon(12% 0,88% 0,100% 100%,0 100%); display:flex; align-items:center; justify-content:center; padding-top:16px;">
+                <img src="assets/orgma-logo.png" style="width:44px; height:44px; object-fit:contain; filter:brightness(0) invert(1);">
+              </div>
+            </div>
+          </div>
+
+          <!-- Flag -->
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Флаг</div>
+            <div style="display:flex; align-items:flex-start; gap:0; justify-content:center; padding:10px 0;">
+              <div style="width:4px; height:120px; background:rgb(150,150,150); border-radius:2px;"></div>
+              <div style="width:150px; height:100px; background:rgb(0,101,155); display:flex; align-items:center; justify-content:center;">
+                <img src="assets/orgma-logo.png" style="width:56px; height:56px; object-fit:contain; filter:brightness(0) invert(1);">
+              </div>
+            </div>
+          </div>
+
+          <!-- Screensavers -->
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Заставки на экран</div>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div style="width:100%; aspect-ratio:1.78; background:rgb(0,101,155); border-radius:8px; display:flex; align-items:center; justify-content:center;">
+                <img src="assets/orgma-logo.png" style="width:14%; object-fit:contain; filter:brightness(0) invert(1);">
+              </div>
+              <div style="width:100%; aspect-ratio:1.78; background:rgb(0,101,155); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;">
+                <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:11px; color:#fff; letter-spacing:0.08em;">ВЕБИНАР</span>
+                <img src="assets/orgma-logo.png" style="width:12%; object-fit:contain; filter:brightness(0) invert(1);">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PRESENTATION TEMPLATES -->
+      <section id="bb-slides" style="display:flex; flex-direction:column; gap:20px;">
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:30px; color:rgb(0,101,155);">Шаблоны презентаций</h2>
+        <p style="margin:0; max-width:820px; color:rgb(50,100,150);">Формат 16:9. Размер шрифта информационного текста — 18–22 пт (менее 16 пт плохо читается при проекции). Отступы для разрешения 1920×1080: снизу/слева/справа — 100 px, сверху — 200 px.</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div style="background:rgb(0,101,155); border-radius:12px; aspect-ratio:1.78; padding:7% 8%; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; color:#fff;">
+            <img src="assets/orgma-logo.png" style="width:52px; height:52px; object-fit:contain; filter:brightness(0) invert(1); align-self:flex-start; margin-bottom:auto;">
+            <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:clamp(16px,2.6vw,28px); line-height:1.15;">Итоги 2022–2023 учебного года и перспективы развития университета</div>
+            <div style="font-size:clamp(10px,1.1vw,14px); color:rgba(255,255,255,0.8);">И.И. Иванов, доктор медицинских наук, профессор · Оренбург, 1 сентября 2023</div>
+          </div>
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; aspect-ratio:1.78; padding:6% 7%; display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid rgb(137,191,234); padding-bottom:8px;">
+              <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:clamp(12px,1.6vw,18px); color:rgb(0,101,155);">Основные итоги работы 2022–2023 учебного года</div>
+              <img src="assets/orgma-logo.png" style="width:34px; height:34px; object-fit:contain;">
+            </div>
+            <div style="flex:1; border:1.5px dashed rgb(217,217,217); border-radius:8px; display:flex; align-items:center; justify-content:center; color:rgb(150,150,150); font-size:clamp(10px,1.2vw,14px); text-align:center; padding:8px;">Поле для текста, графиков и фотографий</div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+  <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const colors = [
+      { name: "Основной синий", hex: "#00659b", rgb: "0, 101, 155", cmyk: "100, 50, 20, 0" },
+      { name: "Терракотовый", hex: "#b83904", rgb: "184, 57, 4", cmyk: "0, 85, 100, 25" },
+      { name: "Голубой", hex: "#89bfea", rgb: "137, 191, 234", cmyk: "50, 10, 0, 0" },
+      { name: "Коралловый", hex: "#f08d6e", rgb: "240, 141, 110", cmyk: "0, 55, 55, 0" },
+      { name: "Бронзовый", hex: "#aa8863", rgb: "170, 136, 99", cmyk: "0, 30, 50, 40" },
+      { name: "Песочный", hex: "#e5b481", rgb: "229, 180, 129", cmyk: "0, 30, 50, 10" },
+      { name: "Серый", hex: "#bec8ce", rgb: "190, 200, 206", cmyk: "10, 0, 0, 25" },
+    ];
+
+    const prohibitions = [
+      { title: "Запрещается менять цвета логотипа или его элементов", bg: "#fff", imgStyle: "filter:hue-rotate(150deg) saturate(4);" },
+      { title: "Запрещается зеркалить логотип и элементы", bg: "#fff", imgStyle: "transform:scaleX(-1);" },
+      { title: "Запрещается использовать логотип без подложки на ярком фоне", bg: "rgb(255,204,0)", imgStyle: "" },
+      { title: "Запрещается использовать логотип без подложки на цветном фоне с узором", bg: "repeating-linear-gradient(45deg, rgb(240,141,110) 0 10px, rgb(48,176,199) 10px 20px, rgb(255,204,0) 20px 30px)", imgStyle: "" },
+      { title: "Запрещается ставить логотип без подложки на фотографию", bg: "center/cover url(assets/corpus.jpg)", imgStyle: "" },
+      { title: "Запрещается менять соотношение размеров элементов и шрифтов", bg: "#fff", imgStyle: "transform:scale(1.8,0.55);" },
+      { title: "Запрещается менять геометрию логотипа", bg: "#fff", imgStyle: "transform:skew(-16deg,8deg);" },
+    ];
+
+    return { colors, prohibitions };
+  }
+}
+
+</script>
+</body>
+</html>

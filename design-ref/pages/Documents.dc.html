@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;background:rgb(251,251,251);}
+    @media(max-width:900px){.rail-col{display:none!important}}
+    @media(max-width:680px){.dc-main{padding:24px 16px 48px!important}.dc-filters{flex-direction:column!important}.dc-field{width:100%!important}.dc-row{flex-wrap:wrap!important}.dc-meta{width:100%!important;justify-content:flex-start!important;padding-left:44px!important}}
+  </style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div style="max-width:1146px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <a href="Svedenia.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Сведения об организации</a><span>/</span>
+          <span>Документы</span>
+        </div>
+        <h1 style="margin:0 0 8px; font-family:'Inter',sans-serif; font-weight:700; font-size:38px; line-height:1.12;">Документы</h1>
+        <p style="margin:0; max-width:760px; font-size:17px; color:rgba(255,255,255,0.85);">Устав, лицензия, аккредитация, локальные нормативные акты и отчётность. Документы подписаны электронной подписью и несут машиночитаемую разметку по спецификации.</p>
+      </div>
+    </div>
+
+    <main class="dc-main" style="max-width:1146px; width:100%; margin:0 auto; padding:28px 40px 64px; box-sizing:border-box; flex:1;">
+      <!-- Filters -->
+      <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:16px 18px; box-shadow:0 1px 2px rgba(0,0,0,0.05); margin-bottom:16px;">
+        <div class="dc-filters" style="display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end;">
+          <label class="dc-field" style="flex:1 1 280px; min-width:200px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-weight:700; font-size:14px; color:rgb(103,103,103);">Поиск по документам</span>
+            <input type="text" value="{{ query }}" onInput="{{ onSearch }}" placeholder="Название документа…" style="font-family:'Roboto Condensed',sans-serif; font-size:16px; color:rgb(49,49,49); padding:11px 14px; border:1px solid rgb(217,217,217); border-radius:9px; outline:none;" style-focus="border-color:rgb(184,57,4); box-shadow:0 0 0 3px rgba(184,57,4,0.18);">
+          </label>
+          <div class="dc-field" style="flex:1 1 240px; min-width:180px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-weight:700; font-size:14px; color:rgb(103,103,103);">Категория</span>
+            <dc-import name="FilterSelect" options="{{ catOpts }}" value="{{ catSel }}" multi="{{ true }}" searchable="{{ false }}" placeholder="Все категории" on-change="{{ onCat }}" style="width:100%;" hint-size="100%,48px"></dc-import>
+          </div>
+          <label style="display:flex; align-items:center; gap:10px; cursor:pointer; user-select:none; padding:11px 0;">
+            <input type="checkbox" checked="{{ ecpOnly }}" onChange="{{ onEcp }}" style="width:19px; height:19px; accent-color:rgb(0,101,155); cursor:pointer;">
+            <span style="font-weight:700; font-size:15px; color:rgb(50,100,150);">Только с ЭЦП</span>
+          </label>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; flex-wrap:wrap;">
+        <div style="font-size:16px; color:rgb(103,103,103);">Документов: <b style="color:rgb(0,101,155);">{{ count }}</b></div>
+        <sc-if value="{{ isFiltered }}" hint-placeholder-val="{{ false }}"><button onClick="{{ reset }}" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:15px; color:rgb(184,57,4); background:none; border:none; cursor:pointer;">Сбросить ✕</button></sc-if>
+      </div>
+
+      <!-- Groups -->
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        <sc-for list="{{ groups }}" as="g" hint-placeholder-count="4">
+          <section>
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">{{ g.title }}</h2>
+              <span style="font-size:14px; font-weight:700; color:rgb(150,150,150); background:rgb(240,243,246); border-radius:999px; padding:3px 11px;">{{ g.countLabel }}</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <sc-for list="{{ g.docs }}" as="d" hint-placeholder-count="3">
+                <a href="#" class="dc-row" style="display:flex; align-items:center; gap:16px; text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:10px; padding:14px 18px; box-shadow:0 1px 2px rgba(0,0,0,0.05); transition:box-shadow 200ms, transform 200ms;" style-hover="box-shadow:0 6px 16px rgba(0,0,0,0.09); transform:translateY(-1px);">
+                  <span style="flex:0 0 auto; display:flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:8px; background:{{ d.fmtBg }}; color:{{ d.fmtFg }}; font-family:'Inter',sans-serif; font-weight:700; font-size:11px;">{{ d.fmt }}</span>
+                  <span style="flex:1; min-width:0; display:flex; flex-direction:column; gap:3px;">
+                    <span style="font-weight:700; font-size:17px; line-height:1.25; color:rgb(50,100,150);">{{ d.title }}</span>
+                    <sc-if value="{{ d.hasNote }}" hint-placeholder-val="{{ false }}"><span style="font-size:14px; color:rgb(150,150,150);">{{ d.note }}</span></sc-if>
+                  </span>
+                  <span class="dc-meta" style="flex:0 0 auto; display:flex; align-items:center; gap:16px; justify-content:flex-end;">
+                    <sc-if value="{{ d.ecp }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex; align-items:center; gap:5px; color:rgb(30,160,80); font-size:13px; font-weight:700;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"></path><path d="M9 12l2 2 4-4"></path></svg>ЭЦП</span></sc-if>
+                    <span style="font-size:14px; color:rgb(150,150,150); white-space:nowrap;">{{ d.date }}</span>
+                    <span style="font-size:14px; color:rgb(180,180,180); white-space:nowrap; min-width:64px; text-align:right;">{{ d.size }}</span>
+                    <span style="flex:0 0 auto; color:rgb(184,57,4);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg></span>
+                  </span>
+                </a>
+              </sc-for>
+            </div>
+          </section>
+        </sc-for>
+        <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:48px 24px; text-align:center; background:#fff; border:1px dashed rgb(217,217,217); border-radius:12px;"><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; color:rgb(0,101,155); margin-bottom:6px;">Ничего не найдено</div><div style="font-size:16px; color:rgb(103,103,103);">Измените параметры фильтра.</div></div>
+        </sc-if>
+      </div>
+
+      <div style="margin-top:28px; background:rgb(240,246,250); border:1px solid rgb(214,230,240); border-radius:12px; padding:18px 22px; display:flex; gap:14px; align-items:flex-start;">
+        <span style="flex:0 0 auto; color:rgb(0,101,155); margin-top:1px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01M11 12h1v4h1"></path></svg></span>
+        <div style="font-size:15px; line-height:1.5; color:rgb(50,100,150);"><b style="color:rgb(0,101,155);">Каждый документ подписан усиленной квалифицированной ЭП</b> — при скачивании прилагается файл открепленной подписи (.sig). Раздел закрывает обязательные подпункты «Документы» приказа Рособрнадзора и несёт машиночитаемую разметку для автоматического сбора данных.</div>
+      </div>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { q: "", cat: [], ecpOnly: false };
+
+  renderVals() {
+    const FMT = {
+      pdf: { fmt: "PDF", fmtBg: "rgba(255,59,48,0.10)", fmtFg: "rgb(214,54,44)" },
+      doc: { fmt: "DOC", fmtBg: "rgba(66,133,244,0.12)", fmtFg: "rgb(40,103,178)" },
+      xls: { fmt: "XLSX", fmtBg: "rgba(30,160,80,0.12)", fmtFg: "rgb(24,128,64)" },
+    };
+
+    const data = [
+      { key: "found", title: "Учредительные документы", docs: [
+        { title: "Устав университета", fmt: "pdf", date: "12.03.2024", size: "2,4 МБ", ecp: true },
+        { title: "Изменения в устав (лист записи)", fmt: "pdf", date: "12.03.2024", size: "480 КБ", ecp: true },
+        { title: "Свидетельство о постановке на учёт (ИНН)", fmt: "pdf", date: "05.02.2001", size: "310 КБ", ecp: true },
+      ]},
+      { key: "lic", title: "Лицензия и аккредитация", docs: [
+        { title: "Лицензия на осуществление образовательной деятельности", fmt: "pdf", date: "18.06.2022", size: "1,1 МБ", ecp: true, note: "Бессрочно" },
+        { title: "Приложения к лицензии (перечень образовательных программ)", fmt: "pdf", date: "18.06.2022", size: "3,7 МБ", ecp: true },
+        { title: "Свидетельство о государственной аккредитации", fmt: "pdf", date: "24.05.2023", size: "980 КБ", ecp: true, note: "Действует до 24.05.2029" },
+        { title: "Приложения к свидетельству об аккредитации", fmt: "pdf", date: "24.05.2023", size: "2,9 МБ", ecp: true },
+      ]},
+      { key: "local", title: "Локальные нормативные акты", docs: [
+        { title: "Правила приёма обучающихся", fmt: "pdf", date: "01.11.2024", size: "1,6 МБ", ecp: true },
+        { title: "Режим занятий обучающихся", fmt: "pdf", date: "30.08.2024", size: "620 КБ", ecp: true },
+        { title: "Формы, периодичность и порядок текущего контроля и промежуточной аттестации", fmt: "pdf", date: "30.08.2024", size: "740 КБ", ecp: true },
+        { title: "Порядок и основания перевода, отчисления и восстановления обучающихся", fmt: "pdf", date: "30.08.2024", size: "690 КБ", ecp: true },
+        { title: "Порядок оформления возникновения, приостановления и прекращения отношений", fmt: "pdf", date: "30.08.2024", size: "560 КБ", ecp: true },
+      ]},
+      { key: "order", title: "Правила распорядка и коллективный договор", docs: [
+        { title: "Правила внутреннего трудового распорядка", fmt: "pdf", date: "15.01.2024", size: "820 КБ", ecp: true },
+        { title: "Правила внутреннего распорядка обучающихся", fmt: "pdf", date: "15.01.2024", size: "780 КБ", ecp: true },
+        { title: "Коллективный договор", fmt: "pdf", date: "10.01.2024", size: "1,9 МБ", ecp: true, note: "На 2024–2027 гг." },
+      ]},
+      { key: "paid", title: "Платные образовательные услуги", docs: [
+        { title: "Порядок оказания платных образовательных услуг", fmt: "pdf", date: "20.06.2024", size: "910 КБ", ecp: true },
+        { title: "Образец договора об оказании платных образовательных услуг", fmt: "doc", date: "20.06.2024", size: "240 КБ", ecp: false },
+        { title: "Документ об утверждении стоимости обучения по программам", fmt: "pdf", date: "20.06.2024", size: "1,3 МБ", ecp: true },
+      ]},
+      { key: "report", title: "Отчётность и государственный контроль", docs: [
+        { title: "Отчёт о результатах самообследования", fmt: "pdf", date: "18.04.2024", size: "6,2 МБ", ecp: true, note: "За 2023 год" },
+        { title: "План финансово-хозяйственной деятельности", fmt: "xls", date: "29.12.2023", size: "540 КБ", ecp: true, note: "На 2024 год" },
+        { title: "Предписания органов госконтроля и отчёты об их исполнении", fmt: "pdf", date: "07.02.2024", size: "1,1 МБ", ecp: true },
+      ]},
+    ];
+
+    const catOpts = data.map(g => ({ value: g.key, label: g.title }));
+
+    const st = this.state;
+    const q = st.q.trim().toLowerCase();
+    const catSet = st.cat;
+
+    let total = 0;
+    const groups = data
+      .filter(g => catSet.length === 0 || catSet.includes(g.key))
+      .map(g => {
+        const docs = g.docs
+          .filter(d => !st.ecpOnly || d.ecp)
+          .filter(d => !q || d.title.toLowerCase().includes(q))
+          .map(d => {
+            const f = FMT[d.fmt] || FMT.pdf;
+            return { title: d.title, fmt: f.fmt, fmtBg: f.fmtBg, fmtFg: f.fmtFg, date: d.date, size: d.size, ecp: !!d.ecp, hasNote: !!d.note, note: d.note || "" };
+          });
+        total += docs.length;
+        return { title: g.title, countLabel: String(docs.length), docs, _n: docs.length };
+      })
+      .filter(g => g._n > 0);
+
+    const isFiltered = !!q || catSet.length > 0 || st.ecpOnly;
+
+    return {
+      groups, count: total, empty: total === 0,
+      catOpts, catSel: st.cat, query: st.q, ecpOnly: st.ecpOnly, isFiltered,
+      onSearch: (e) => this.setState({ q: e.target.value }),
+      onCat: (vals) => this.setState({ cat: vals }),
+      onEcp: (e) => this.setState({ ecpOnly: e.target.checked }),
+      reset: () => this.setState({ q: "", cat: [], ecpOnly: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;background:rgb(251,251,251);}
+    @media(max-width:768px){
+      .rail-col{display:none!important}
+      .pv-body{grid-template-columns:1fr!important;padding:24px 20px 48px!important;gap:24px!important}
+      .pv-aside{position:static!important}
+    }
+    @media print {
+      .rail-col, .sh-nav, .sh-burger, .pv-aside, .pv-noprint, footer { display:none!important; }
+      .pv-body { grid-template-columns:1fr!important; padding:0!important; }
+      body { background:#fff!important; }
+    }
+  </style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <!-- Title band -->
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div style="max-width:1146px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <span>Политика конфиденциальности</span>
+        </div>
+        <h1 style="margin:0 0 10px; font-family:'Inter',sans-serif; font-weight:700; font-size:40px; line-height:1.1;">Политика конфиденциальности</h1>
+        <p style="margin:0 0 14px; max-width:720px; font-size:18px; line-height:1.5; color:rgba(255,255,255,0.85);">Настоящая Политика определяет принципы и порядок обработки персональных данных в ФГБОУ ВО «Оренбургский государственный медицинский университет» Минздрава России, включая обработку данных на сайте orgma.ru.</p>
+        <div style="font-size:15px; color:rgba(255,255,255,0.7);">Действует с 1 сентября 2024 г. · Актуальная редакция от 15 января 2026 г.</div>
+      </div>
+    </div>
+
+    <div class="pv-body" style="max-width:1146px; width:100%; margin:0 auto; padding:40px; box-sizing:border-box; display:grid; grid-template-columns:280px 1fr; gap:40px; flex:1; align-items:start;">
+
+      <!-- TOC + quick contact -->
+      <aside class="pv-aside" style="position:sticky; top:24px; display:flex; flex-direction:column; gap:16px;">
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; overflow:hidden;">
+          <div style="padding:16px 20px; background:rgb(251,251,251); border-bottom:1px solid rgb(238,238,238); font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:0.04em; color:rgb(103,103,103);">Содержание</div>
+          <nav style="display:flex; flex-direction:column; padding:8px; max-height:62vh; overflow-y:auto;">
+            <sc-for list="{{ toc }}" as="t" hint-placeholder-count="13">
+              <a href="{{ t.href }}" onClick="{{ t.onClick }}" style="padding:10px 14px; border-radius:8px; font-size:15.5px; line-height:1.3; font-weight:{{ t.weight }}; color:{{ t.color }}; background:{{ t.bg }}; text-decoration:none;" style-hover="background:rgb(251,251,251);"><span style="opacity:0.65; margin-right:6px;">{{ t.num }}.</span>{{ t.label }}</a>
+            </sc-for>
+          </nav>
+        </div>
+
+        <div style="background:rgb(0,101,155); border-radius:12px; padding:20px; color:#fff;">
+          <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:18px; margin-bottom:6px;">Вопросы по ПДн?</div>
+          <div style="font-size:16px; color:rgba(255,255,255,0.85); margin-bottom:14px;">pdn@orgma.ru</div>
+          <a href="mailto:pdn@orgma.ru" style="display:inline-block; font-weight:700; font-size:15px; color:rgb(0,101,155); background:#fff; border-radius:8px; padding:9px 16px; text-decoration:none;">Написать →</a>
+        </div>
+
+        <button class="pv-noprint" onClick="{{ doPrint }}" style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; box-sizing:border-box; font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:16px; color:rgb(50,100,150); background:#fff; border:2px solid rgb(217,217,217); border-radius:8px; padding:12px 16px; cursor:pointer;" style-hover="border-color:rgb(184,57,4); color:rgb(0,101,155);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-2M6 14h12v7H6v-7Z"></path></svg>
+          Версия для печати
+        </button>
+      </aside>
+
+      <!-- Rich content -->
+      <article style="min-width:0; display:flex; flex-direction:column; gap:22px; font-size:19px; line-height:1.65; color:rgb(49,49,49);">
+
+        <p style="margin:0; font-weight:500; font-size:22px; line-height:1.5; color:rgb(50,100,150);">Университет обрабатывает персональные данные абитуриентов, обучающихся, работников, пациентов Клиники ОрГМУ и посетителей сайта в соответствии с законодательством Российской Федерации и настоящей Политикой.</p>
+
+        <h2 id="pv-sec-1" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">1. Общие положения</h2>
+        <p style="margin:0;">Настоящая Политика в отношении обработки персональных данных (далее — Политика) разработана в соответствии с Конституцией Российской Федерации, Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных», Федеральным законом от 27.07.2006 № 149-ФЗ «Об информации, информационных технологиях и о защите информации» и Уставом Университета.</p>
+        <p style="margin:0;">Политика распространяется на все персональные данные, которые Университет обрабатывает при взаимодействии с абитуриентами, обучающимися, работниками, пациентами Клиники ОрГМУ, контрагентами и посетителями сайта orgma.ru и подсайтов Университета.</p>
+        <p style="margin:0;">Используя сайт и его сервисы, оставляя заявку через формы обратной связи или подавая документы в приёмную комиссию, субъект персональных данных подтверждает ознакомление с настоящей Политикой и условиями обработки своих данных, изложенными в ней.</p>
+
+        <h2 id="pv-sec-2" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">2. Термины и определения</h2>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <sc-for list="{{ terms }}" as="t" hint-placeholder-count="6">
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <span style="font-weight:700; color:rgb(0,101,155); flex:0 0 auto;">{{ t.term }} —</span>
+              <span style="color:rgb(49,49,49);">{{ t.def }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <h2 id="pv-sec-3" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">3. Оператор персональных данных</h2>
+        <p style="margin:0;">Оператором персональных данных, обрабатываемых на сайте orgma.ru и в информационных системах Университета, является:</p>
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:6px;">
+          <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:18px; color:rgb(0,101,155);">ФГБОУ ВО «Оренбургский государственный медицинский университет» Минздрава России</div>
+          <div style="font-size:17px; color:rgb(50,100,150);">460000, г. Оренбург, ул. Советская, д. 6</div>
+          <div style="font-size:17px; color:rgb(50,100,150);">Тел.: <a href="tel:+73532500620" style="color:rgb(50,100,150); text-decoration:none; font-weight:700;">+7 (3532) 50-06-20</a> · E-mail: <a href="mailto:office@orgma.ru" style="color:rgb(50,100,150); text-decoration:none; font-weight:700;">office@orgma.ru</a></div>
+          <a href="Svedenia.dc.html" style="margin-top:8px; align-self:flex-start; font-weight:700; font-size:15px; color:rgb(184,57,4); text-decoration:none;">Полные реквизиты — «Сведения об образовательной организации» →</a>
+        </div>
+
+        <h2 id="pv-sec-4" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">4. Какие данные мы обрабатываем</h2>
+        <p style="margin:0;">Состав обрабатываемых персональных данных зависит от того, в каком качестве субъект взаимодействует с Университетом:</p>
+        <div style="overflow-x:auto; border:1px solid rgb(238,238,238); border-radius:12px;">
+          <table style="width:100%; border-collapse:collapse; font-size:16.5px;">
+            <thead>
+              <tr style="background:rgb(251,251,251);">
+                <th style="text-align:left; padding:14px 18px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Категория субъектов</th>
+                <th style="text-align:left; padding:14px 18px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Состав данных</th>
+                <th style="text-align:left; padding:14px 18px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Особенности</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ dataRows }}" as="r" hint-placeholder-count="5">
+                <tr>
+                  <td style="padding:13px 18px; border-bottom:1px solid rgb(238,238,238); color:rgb(49,49,49); font-weight:700; white-space:nowrap;">{{ r.a }}</td>
+                  <td style="padding:13px 18px; border-bottom:1px solid rgb(238,238,238); color:rgb(49,49,49);">{{ r.b }}</td>
+                  <td style="padding:13px 18px; border-bottom:1px solid rgb(238,238,238); color:rgb(50,100,150);">{{ r.c }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="pv-sec-5" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">5. Цели обработки персональных данных</h2>
+        <ul style="margin:0; padding-left:22px; display:flex; flex-direction:column; gap:8px;">
+          <sc-for list="{{ purposes }}" as="p" hint-placeholder-count="7">
+            <li>{{ p }}</li>
+          </sc-for>
+        </ul>
+
+        <h2 id="pv-sec-6" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">6. Правовые основания обработки</h2>
+        <p style="margin:0;">Университет обрабатывает персональные данные на основании: согласия субъекта персональных данных; заключённого с субъектом договора, в том числе договора об образовании, трудового договора или договора на оказание медицинских услуг; необходимости исполнения возложенных законодательством Российской Федерации функций и полномочий; иных оснований, предусмотренных статьёй 6 Федерального закона № 152-ФЗ.</p>
+
+        <h2 id="pv-sec-7" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">7. Сбор, хранение и уничтожение данных</h2>
+        <p style="margin:0;">Персональные данные обрабатываются и хранятся на территории Российской Федерации с соблюдением требований Федерального закона от 21.07.2014 № 242-ФЗ.</p>
+        <p style="margin:0;">Срок хранения определяется целью обработки, условиями договора и требованиями законодательства об архивном деле. По истечении срока хранения либо при отзыве согласия персональные данные уничтожаются или обезличиваются.</p>
+        <p style="margin:0;">Уничтожение персональных данных производится способом, исключающим дальнейшую возможность их обработки с сохранением возможности идентификации субъекта.</p>
+
+        <h2 id="pv-sec-8" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">8. Передача данных третьим лицам</h2>
+        <p style="margin:0;">Университет не передаёт персональные данные третьим лицам для целей, не связанных с их обработкой, и не осуществляет их продажу. Передача данных возможна только:</p>
+        <ul style="margin:0; padding-left:22px; display:flex; flex-direction:column; gap:8px;">
+          <sc-for list="{{ transfers }}" as="p" hint-placeholder-count="3">
+            <li>{{ p }}</li>
+          </sc-for>
+        </ul>
+
+        <h2 id="pv-sec-9" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">9. Файлы cookie и веб-аналитика</h2>
+        <div style="overflow-x:auto; border:1px solid rgb(238,238,238); border-radius:12px;">
+          <table style="width:100%; border-collapse:collapse; font-size:16.5px;">
+            <thead>
+              <tr style="background:rgb(251,251,251);">
+                <th style="text-align:left; padding:14px 18px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Тип</th>
+                <th style="text-align:left; padding:14px 18px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Назначение</th>
+                <th style="text-align:left; padding:14px 18px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Срок хранения</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ cookieRows }}" as="r" hint-placeholder-count="3">
+                <tr>
+                  <td style="padding:13px 18px; border-bottom:1px solid rgb(238,238,238); color:rgb(49,49,49); font-weight:700; white-space:nowrap;">{{ r.a }}</td>
+                  <td style="padding:13px 18px; border-bottom:1px solid rgb(238,238,238); color:rgb(49,49,49);">{{ r.b }}</td>
+                  <td style="padding:13px 18px; border-bottom:1px solid rgb(238,238,238); color:rgb(50,100,150); white-space:nowrap;">{{ r.c }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin:0; font-size:17px; color:rgb(103,103,103);">Cookie-файлы можно ограничить или удалить в настройках браузера — это не повлияет на доступность основных разделов сайта, но может отключить сохранение персональных настроек, включая <a href="Accessibility.dc.html" style="color:rgb(184,57,4); font-weight:700; text-decoration:none;">версию для слабовидящих</a>.</p>
+
+        <h2 id="pv-sec-10" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">10. Права субъекта персональных данных</h2>
+        <p style="margin:0;">Субъект персональных данных вправе:</p>
+        <ul style="margin:0; padding-left:22px; display:flex; flex-direction:column; gap:8px;">
+          <sc-for list="{{ rights }}" as="p" hint-placeholder-count="5">
+            <li>{{ p }}</li>
+          </sc-for>
+        </ul>
+        <div style="display:flex; gap:14px; padding:18px 20px; background:rgba(184,57,4,0.10); border-radius:10px;">
+          <span style="flex:0 0 auto; color:rgb(184,57,4); display:flex;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 7.5v.01"></path></svg></span>
+          <div style="font-size:17px; color:rgb(50,100,150);">Уполномоченный орган по защите прав субъектов персональных данных — Роскомнадзор: <a href="https://pd.rkn.gov.ru/" target="_blank" rel="noopener" style="color:rgb(0,101,155); font-weight:700; text-decoration:none;">pd.rkn.gov.ru</a>.</div>
+        </div>
+
+        <h2 id="pv-sec-11" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">11. Меры по защите персональных данных</h2>
+        <ul style="margin:0; padding-left:22px; display:flex; flex-direction:column; gap:8px;">
+          <sc-for list="{{ security }}" as="p" hint-placeholder-count="5">
+            <li>{{ p }}</li>
+          </sc-for>
+        </ul>
+
+        <h2 id="pv-sec-12" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">12. Срок действия и изменение Политики</h2>
+        <p style="margin:0;">Политика действует бессрочно до замены её новой редакцией. Университет вправе вносить изменения в Политику; актуальная редакция всегда размещена на этой странице с указанием даты вступления в силу. Рекомендуем периодически знакомиться с текстом Политики.</p>
+
+        <h2 id="pv-sec-13" style="margin:8px 0 0; scroll-margin-top:100px; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">13. Контакты по вопросам обработки персональных данных</h2>
+        <p style="margin:0;">По вопросам обработки персональных данных, а также для реализации прав, указанных в разделе 10, обращайтесь:</p>
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:6px;">
+          <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:18px; color:rgb(0,101,155);">ФГБОУ ВО «Оренбургский государственный медицинский университет» Минздрава России</div>
+          <div style="font-size:17px; color:rgb(50,100,150);">460000, г. Оренбург, ул. Советская, д. 6</div>
+          <div style="font-size:17px; color:rgb(50,100,150);">E-mail: <a href="mailto:pdn@orgma.ru" style="color:rgb(50,100,150); text-decoration:none; font-weight:700;">pdn@orgma.ru</a> · Тел.: <a href="tel:+73532500620" style="color:rgb(50,100,150); text-decoration:none; font-weight:700;">+7 (3532) 50-06-20</a></div>
+          <a href="Contacts.dc.html" style="margin-top:8px; align-self:flex-start; font-weight:700; font-size:15px; color:rgb(184,57,4); text-decoration:none;">Все контакты университета →</a>
+        </div>
+
+        <a href="Home.dc.html" style="display:inline-block; margin-top:6px; font-weight:700; font-size:16px; color:rgb(184,57,4); text-decoration:none;">← На главную</a>
+      </article>
+    </div>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 1 };
+
+  sections = [
+    { id: 1,  label: "Общие положения" },
+    { id: 2,  label: "Термины и определения" },
+    { id: 3,  label: "Оператор" },
+    { id: 4,  label: "Обрабатываемые данные" },
+    { id: 5,  label: "Цели обработки" },
+    { id: 6,  label: "Правовые основания" },
+    { id: 7,  label: "Сбор и хранение" },
+    { id: 8,  label: "Передача третьим лицам" },
+    { id: 9,  label: "Cookie и аналитика" },
+    { id: 10, label: "Права субъекта ПДн" },
+    { id: 11, label: "Защита данных" },
+    { id: 12, label: "Изменения Политики" },
+    { id: 13, label: "Контакты по ПДн" },
+  ];
+
+  componentDidMount() {
+    this._onScroll = () => this.scheduleUpdate();
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    this.scheduleUpdate();
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this._onScroll);
+    if (this._raf) cancelAnimationFrame(this._raf);
+  }
+  scheduleUpdate() {
+    if (this._raf) return;
+    this._raf = requestAnimationFrame(() => {
+      this._raf = null;
+      const threshold = 140;
+      let current = this.sections[0].id;
+      for (const s of this.sections) {
+        const el = document.getElementById("pv-sec-" + s.id);
+        if (el && el.getBoundingClientRect().top - threshold <= 0) current = s.id;
+      }
+      if (current !== this.state.active) this.setState({ active: current });
+    });
+  }
+  goTo(id) {
+    return (e) => {
+      e.preventDefault();
+      const el = document.getElementById("pv-sec-" + id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 96;
+      window.scrollTo({ top, behavior: "smooth" });
+    };
+  }
+
+  renderVals() {
+    const toc = this.sections.map(s => ({
+      num: s.id, label: s.label, href: "#pv-sec-" + s.id,
+      onClick: this.goTo(s.id),
+      weight: this.state.active === s.id ? 700 : 400,
+      color: this.state.active === s.id ? "rgb(0,101,155)" : "rgb(50,100,150)",
+      bg: this.state.active === s.id ? "rgba(184,57,4,0.12)" : "transparent",
+    }));
+
+    const terms = [
+      { term: "Персональные данные", def: "любая информация, относящаяся к прямо или косвенно определённому физическому лицу." },
+      { term: "Обработка персональных данных", def: "любое действие с персональными данными: сбор, запись, систематизация, накопление, хранение, уточнение, извлечение, использование, передача, обезличивание, блокирование, удаление, уничтожение." },
+      { term: "Оператор", def: "Университет, самостоятельно или совместно с другими лицами организующий и осуществляющий обработку персональных данных." },
+      { term: "Субъект персональных данных", def: "физическое лицо, к которому относятся обрабатываемые персональные данные." },
+      { term: "Обезличивание персональных данных", def: "действия, в результате которых становится невозможным определить принадлежность данных конкретному субъекту." },
+      { term: "Cookie-файл", def: "небольшой фрагмент данных, который сайт сохраняет в браузере посетителя для распознавания устройства при повторных обращениях." },
+    ];
+
+    const dataRows = [
+      { a: "Посетители сайта", b: "Cookie-идентификаторы, IP-адрес, данные user-agent, сведения из форм обратной связи (ФИО, e-mail, телефон, текст обращения)", c: "Аналитика — в обезличенном виде; формы — с согласия" },
+      { a: "Абитуриенты", b: "ФИО, дата и место рождения, паспортные данные, СНИЛС, документ об образовании, результаты ЕГЭ, контактные данные, при необходимости медицинская справка формы 086/у", c: "Данные о здоровье обрабатываются только с отдельного согласия" },
+      { a: "Обучающиеся", b: "ФИО, номер зачётной книжки, данные об успеваемости, сведения о стипендии и общежитии, контактные данные", c: "В рамках договора об оказании образовательных услуг" },
+      { a: "Работники", b: "ФИО, паспортные данные, ИНН, СНИЛС, сведения об образовании и квалификации, трудовой стаж", c: "В рамках трудовых отношений" },
+      { a: "Пациенты Клиники ОрГМУ", b: "Сведения о состоянии здоровья, анамнез, результаты обследований и лечения", c: "Специальная категория данных, охраняется врачебной тайной" },
+    ];
+
+    const purposes = [
+      "организация приёма и зачисления абитуриентов, ведение личных дел обучающихся;",
+      "реализация образовательных программ и организация учебного процесса;",
+      "исполнение трудовых договоров и кадровый учёт работников;",
+      "оказание медицинской помощи в Клинике ОрГМУ и ведение медицинской документации;",
+      "обработка обращений через формы обратной связи и информационная поддержка посетителей сайта;",
+      "статистика посещаемости и улучшение работы сайта;",
+      "исполнение требований законодательства Российской Федерации.",
+    ];
+
+    const transfers = [
+      "государственным органам — по законному запросу в рамках их полномочий;",
+      "организациям, привлечённым Университетом для обработки данных по его поручению (например, для сопровождения информационных систем или хостинга сайта), — на основании договора, предусматривающего обязательство конфиденциальности;",
+      "медицинским и профильным организациям в случаях, предусмотренных законодательством об охране здоровья, — в отношении пациентов Клиники ОрГМУ.",
+    ];
+
+    const cookieRows = [
+      { a: "Технические", b: "Обеспечивают работу сайта и сохранение выбранных настроек, включая версию для слабовидящих", c: "Сессия / до сброса" },
+      { a: "Аналитические", b: "Сбор обезличенной статистики посещаемости для улучшения сайта", c: "До 12 месяцев" },
+      { a: "Настройки интерфейса", b: "Хранятся локально в браузере (localStorage) и не передаются Оператору", c: "До очистки данных браузера" },
+    ];
+
+    const rights = [
+      "получать информацию, касающуюся обработки своих персональных данных;",
+      "требовать уточнения, блокирования или уничтожения данных, если они неполны, устарели, неточны или получены незаконно;",
+      "отозвать согласие на обработку персональных данных, направив письменное заявление Оператору;",
+      "обжаловать действия или бездействие Оператора в уполномоченный орган по защите прав субъектов персональных данных или в судебном порядке;",
+      "требовать возмещения убытков и (или) компенсации морального вреда в судебном порядке.",
+    ];
+
+    const security = [
+      "назначение лица, ответственного за организацию обработки персональных данных;",
+      "ограничение и разграничение доступа к данным в информационных системах Университета;",
+      "использование средств защиты информации и шифрование каналов передачи данных;",
+      "утверждение локальных актов, регламентирующих порядок обработки и хранения данных;",
+      "ознакомление работников, допущенных к обработке персональных данных, с требованиями законодательства и локальных актов Университета.",
+    ];
+
+    return {
+      toc, terms, dataRows, purposes, transfers, cookieRows, rights, security,
+      doPrint: () => window.print(),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

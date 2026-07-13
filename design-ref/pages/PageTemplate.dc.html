@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;background:rgb(251,251,251);}@media(max-width:768px){.rail-col{display:none!important}.pt-body{grid-template-columns:1fr!important;padding:24px 20px!important;gap:24px!important}.pt-aside{position:static!important}}</style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <!-- Title band -->
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div style="max-width:1146px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <a href="#" style="color:rgba(255,255,255,0.9); text-decoration:none;">Раздел</a><span>/</span>
+          <span>Заголовок страницы</span>
+        </div>
+        <h1 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:40px; line-height:1.1;">Заголовок страницы</h1>
+      </div>
+    </div>
+
+    <div class="pt-body" style="max-width:1146px; width:100%; margin:0 auto; padding:40px; box-sizing:border-box; display:grid; grid-template-columns:264px 1fr; gap:40px; flex:1;">
+
+      <!-- Section nav -->
+      <aside>
+        <div class="pt-aside" style="position:sticky; top:24px; display:flex; flex-direction:column; gap:16px;">
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; overflow:hidden;">
+            <div style="padding:16px 20px; background:rgb(251,251,251); border-bottom:1px solid rgb(238,238,238); font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:0.04em; color:rgb(103,103,103);">В разделе</div>
+            <nav style="display:flex; flex-direction:column; padding:8px;">
+              <sc-for list="{{ nav }}" as="n" hint-placeholder-count="5">
+                <a href="#" style="padding:11px 14px; border-radius:8px; font-size:17px; font-weight:{{ n.weight }}; color:{{ n.color }}; background:{{ n.bg }}; text-decoration:none;" style-hover="background:rgb(251,251,251);">{{ n.label }}</a>
+              </sc-for>
+            </nav>
+          </div>
+          <div style="background:rgb(0,101,155); border-radius:12px; padding:20px; color:#fff;">
+            <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:18px; margin-bottom:6px;">Нужна помощь?</div>
+            <div style="font-size:16px; color:rgba(255,255,255,0.85); margin-bottom:14px;">Отдел по работе со студентами</div>
+            <a href="#" style="display:inline-block; font-weight:700; font-size:15px; color:rgb(0,101,155); background:#fff; border-radius:8px; padding:9px 16px; text-decoration:none;">Написать →</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Rich content -->
+      <article style="min-width:0; display:flex; flex-direction:column; gap:26px; font-size:19px; line-height:1.65; color:rgb(49,49,49);">
+        <p style="margin:0; font-weight:500; font-size:22px; line-height:1.5; color:rgb(50,100,150);">Лид-абзац: короткое вводное описание страницы, которое задаёт контекст и раскрывает суть раздела в одном-двух предложениях.</p>
+        <p style="margin:0;">Основной текстовый блок. Здесь размещается содержательная часть страницы — абзацы, списки, таблицы, вложения. Все элементы наследуют единую типографику и отступы дизайн-системы, поэтому любая страница выглядит согласованно.</p>
+
+        <h2 style="margin:8px 0 0; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">Заголовок второго уровня</h2>
+        <ul style="margin:0; padding-left:22px; display:flex; flex-direction:column; gap:8px;">
+          <li>Маркированный пункт списка с пояснением</li>
+          <li>Второй пункт — единый стиль для всех страниц</li>
+          <li>Третий пункт с ссылкой <a href="#" style="color:rgb(184,57,4); font-weight:700;">внутри текста</a></li>
+        </ul>
+
+        <!-- Info callout -->
+        <div style="display:flex; gap:14px; padding:18px 20px; background:rgba(184,57,4,0.10); border-radius:10px;">
+          <span style="flex:0 0 auto; color:rgb(184,57,4); display:flex;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 7.5v.01"></path></svg></span>
+          <div style="font-size:17px; color:rgb(50,100,150);">Врезка с важной информацией: обратите внимание на сроки подачи документов и режим работы приёмной комиссии.</div>
+        </div>
+
+        <!-- Table -->
+        <div style="overflow-x:auto; border:1px solid rgb(238,238,238); border-radius:12px;">
+          <table style="width:100%; border-collapse:collapse; font-size:17px;">
+            <thead>
+              <tr style="background:rgb(251,251,251);">
+                <th style="text-align:left; padding:14px 18px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Направление</th>
+                <th style="text-align:left; padding:14px 18px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Бюджет</th>
+                <th style="text-align:left; padding:14px 18px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Стоимость</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3">
+                <tr>
+                  <td style="padding:13px 18px; border-bottom:1px solid rgb(238,238,238); color:rgb(49,49,49);">{{ r.a }}</td>
+                  <td style="padding:13px 18px; border-bottom:1px solid rgb(238,238,238); color:rgb(50,100,150);">{{ r.b }}</td>
+                  <td style="padding:13px 18px; border-bottom:1px solid rgb(238,238,238); color:rgb(50,100,150);">{{ r.c }}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- File downloads -->
+        <h2 style="margin:8px 0 0; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">Документы</h2>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <sc-for list="{{ files }}" as="f" hint-placeholder-count="3">
+            <a href="#" style="display:flex; align-items:center; gap:14px; padding:14px 18px; background:#fff; border:1px solid rgb(238,238,238); border-radius:10px; text-decoration:none;" style-hover="border-color:rgb(184,57,4);">
+              <span style="flex:0 0 auto; display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:8px; background:rgba(184,57,4,0.12); color:rgb(184,57,4); font-weight:700; font-size:12px;">{{ f.ext }}</span>
+              <span style="flex:1; font-weight:700; font-size:17px; color:rgb(0,101,155);">{{ f.name }}</span>
+              <span style="font-size:15px; color:rgb(150,150,150);">{{ f.size }}</span>
+            </a>
+          </sc-for>
+        </div>
+
+        <!-- Accordion -->
+        <h2 style="margin:8px 0 0; font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">Частые вопросы</h2>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <sc-for list="{{ faq }}" as="q" hint-placeholder-count="3">
+            <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:10px; overflow:hidden;">
+              <button onClick="{{ q.toggle }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 20px; background:none; border:none; cursor:pointer; text-align:left; font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:18px; color:rgb(0,101,155);">{{ q.q }}<span style="color:rgb(137,191,234); font-size:22px;">{{ q.sign }}</span></button>
+              <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:0 20px 18px; font-size:17px; line-height:1.6; color:rgb(50,100,150);">{{ q.a }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </article>
+    </div>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { faq: 0 };
+  renderVals() {
+    const nav = [
+      { label: "Обзор", active: true }, { label: "Документы", active: false },
+      { label: "Порядок действий", active: false }, { label: "Сроки", active: false },
+      { label: "Контакты", active: false },
+    ].map(n => ({ label: n.label, weight: n.active ? 700 : 400,
+      color: n.active ? "rgb(0,101,155)" : "rgb(50,100,150)",
+      bg: n.active ? "rgba(184,57,4,0.12)" : "transparent" }));
+
+    const rows = [
+      { a: "Лечебное дело", b: "150 мест", c: "210 000 ₽/год" },
+      { a: "Педиатрия", b: "120 мест", c: "205 000 ₽/год" },
+      { a: "Стоматология", b: "40 мест", c: "260 000 ₽/год" },
+    ];
+    const files = [
+      { ext: "PDF", name: "Правила приёма на 2024/2025 учебный год", size: "1,2 МБ" },
+      { ext: "DOCX", name: "Образец заявления абитуриента", size: "48 КБ" },
+      { ext: "XLSX", name: "Расписание вступительных испытаний", size: "96 КБ" },
+    ];
+    const faqData = [
+      { q: "Какие документы нужны для поступления?", a: "Паспорт, документ об образовании, СНИЛС, фотографии и медицинская справка формы 086/у. Полный перечень — в разделе «Документы»." },
+      { q: "Можно ли подать документы онлайн?", a: "Да, через суперсервис «Поступление в вуз онлайн» на портале Госуслуг." },
+      { q: "Есть ли целевое обучение?", a: "Да, университет заключает договоры о целевом обучении с медицинскими организациями региона." },
+    ];
+    const faq = faqData.map((f, i) => ({ q: f.q, a: f.a,
+      open: this.state.faq === i, sign: this.state.faq === i ? "–" : "+",
+      toggle: () => this.setState(s => ({ faq: s.faq === i ? -1 : i })) }));
+
+    return { nav, rows, files, faq };
+  }
+}
+</script>
+</body>
+</html>

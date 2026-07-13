@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="staff-data.js"></script>
+  <style>body{margin:0;background:rgb(251,251,251);}
+    @media(max-width:900px){.rail-col{display:none!important}}
+    @media(max-width:640px){.ld-main{padding:24px 20px 48px!important}.ld-stats{grid-template-columns:1fr!important}.ld-tile{flex-direction:column!important;align-items:flex-start!important}.ld-stats-col{border-left:none!important;padding-left:0!important;border-top:1px solid rgb(238,238,238);padding-top:14px!important;width:100%}}
+  </style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div style="max-width:1146px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <a href="Svedenia.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Сведения об организации</a><span>/</span>
+          <span>Руководство</span>
+        </div>
+        <h1 style="margin:0 0 8px; font-family:'Inter',sans-serif; font-weight:700; font-size:38px; line-height:1.12;">Руководство</h1>
+        <p style="margin:0; max-width:700px; font-size:17px; color:rgba(255,255,255,0.85);">Руководитель, заместители и руководители подразделений. Карточка каждого ведёт в общий профиль сотрудника.</p>
+      </div>
+    </div>
+
+    <main class="ld-main" style="max-width:1146px; width:100%; margin:0 auto; padding:28px 40px 64px; box-sizing:border-box; flex:1;">
+      <!-- Stats -->
+      <div class="ld-stats" style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px;">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:18px 20px; display:flex; align-items:baseline; gap:3px 12px; flex-wrap:wrap;"><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:32px; line-height:1; color:rgb(0,101,155);">{{ s.n }}</div><div style="font-size:15px; color:rgb(103,103,103);">{{ s.l }}</div></div>
+        </sc-for>
+      </div>
+
+      <!-- Person tiles (identical to ППС) -->
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ leaders }}" as="p" hint-placeholder-count="6">
+          <dc-import name="PersonTile" person="{{ p }}" mode="lead" href="StaffMember.dc.html" hint-size="100%,110px"></dc-import>
+        </sc-for>
+      </div>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const DATA = window.STAFF_DATA || { people: [] };
+    const raw = DATA.people.filter(p => p.role === "lead");
+    const leaders = raw.map(p => {
+      const ped = window.STAFF_NUM(p.pedExp || "—"), tot = window.STAFF_NUM(p.totalExp || "—");
+      return {
+        initials: p.initials, fio: p.fio, leadRole: p.leadRole, isLead: true,
+        degree: p.degree || "—", position: p.position,
+        pedN: ped.num, pedU: ped.unit, totN: tot.num, totU: tot.unit,
+        accent: "rgb(175,82,222)", disciplines: [],
+        avatarBg: window.STAFF_AVATAR(p.fio),
+      };
+    });
+    const docs = raw.filter(p => /д\.[а-я]/i.test(p.degree || "")).length;
+    const cands = raw.filter(p => /к\.[а-я]/i.test(p.degree || "")).length;
+    return {
+      leaders,
+      stats: [
+        { n: String(raw.length), l: "в руководстве" },
+        { n: String(docs), l: "докторов наук" },
+        { n: String(cands), l: "кандидатов наук" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

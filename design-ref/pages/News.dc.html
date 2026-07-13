@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;background:rgb(251,251,251);}@media(max-width:768px){.rail-col{display:none!important}.pg-main{padding:24px 20px 48px!important}}</style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <main class="pg-main" style="max-width:1146px; width:100%; margin:0 auto; padding:36px 40px 64px; box-sizing:border-box; flex:1;">
+      <!-- Breadcrumbs -->
+      <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgb(150,150,150); margin-bottom:20px; flex-wrap:wrap;">
+        <a href="Home.dc.html" style="color:rgb(184,57,4); text-decoration:none;">Главная</a><span>/</span>
+        <span style="color:rgb(103,103,103);">Новости</span>
+      </div>
+
+      <h1 style="margin:0 0 24px; font-family:'Inter',sans-serif; font-weight:700; font-size:40px; color:rgb(0,101,155);">Новости и события</h1>
+
+      <!-- Filters -->
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:32px;">
+        <span style="font-size:15px; font-weight:500; color:#fff; background:rgb(184,57,4); border-radius:999px; padding:8px 18px; cursor:pointer;">Все</span>
+        <span style="font-size:15px; font-weight:500; color:rgb(50,100,150); background:#fff; border:1px solid rgb(217,217,217); border-radius:999px; padding:7px 17px; cursor:pointer;">Объявления</span>
+        <span style="font-size:15px; font-weight:500; color:rgb(50,100,150); background:#fff; border:1px solid rgb(217,217,217); border-radius:999px; padding:7px 17px; cursor:pointer;">События</span>
+        <span style="font-size:15px; font-weight:500; color:rgb(50,100,150); background:#fff; border:1px solid rgb(217,217,217); border-radius:999px; padding:7px 17px; cursor:pointer;">Поздравления</span>
+        <span style="font-size:15px; font-weight:500; color:rgb(50,100,150); background:#fff; border:1px solid rgb(217,217,217); border-radius:999px; padding:7px 17px; cursor:pointer;">Наука</span>
+        <span style="font-size:15px; font-weight:500; color:rgb(50,100,150); background:#fff; border:1px solid rgb(217,217,217); border-radius:999px; padding:7px 17px; cursor:pointer;">Подразделения</span>
+      </div>
+
+      <!-- Grid -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:20px;">
+        <sc-for list="{{ items }}" as="n" hint-placeholder-count="9">
+          <dc-import name="NewsCard" image="{{ n.img }}" date="{{ n.date }}" title="{{ n.title }}" excerpt="{{ n.excerpt }}" kind="{{ n.kind }}" hint-size="100%,360px"></dc-import>
+        </sc-for>
+      </div>
+
+      <!-- Pagination -->
+      <div style="display:flex; gap:6px; align-items:center; justify-content:center; margin-top:40px;">
+        <span style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(150,150,150); cursor:pointer;">‹</span>
+        <span style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:rgb(184,57,4); color:#fff; border-radius:8px; font-weight:700;">1</span>
+        <span style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(50,100,150); cursor:pointer;">2</span>
+        <span style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(50,100,150); cursor:pointer;">3</span>
+        <span style="color:rgb(150,150,150);">…</span>
+        <span style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(50,100,150); cursor:pointer;">12</span>
+        <span style="width:40px; height:40px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(50,100,150); cursor:pointer;">›</span>
+      </div>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const img = "assets/corpus.jpg";
+    const items = [
+      { img, date: "3 октября 2023", title: "Второй этап конкурса «Лучший врач педиатр участковый»", excerpt: "Прошло тестирование практических навыков врачей педиатров участковых.", kind: "event" },
+      { img, date: "26 сентября 2023", title: "Международные студенческие обмены. Опыт и перспективы", excerpt: "Встреча с представителями зарубежных вузов-партнёров.", kind: "event" },
+      { img, date: "16 сентября 2023", title: "Встреча выпускников 1983 года", excerpt: "В стенах альма-матер собрались выпускники лечебного факультета.", kind: "event" },
+      { img, date: "14 сентября 2023", title: "Противодействие идеологии терроризма и профилактика экстремизма", excerpt: "Семинар для студентов и сотрудников университета.", kind: "dept" },
+      { img, date: "8 сентября 2023", title: "Открытие обновлённого симуляционного центра", excerpt: "Новое оборудование для отработки клинических навыков.", kind: "event" },
+      { img, date: "1 сентября 2023", title: "Торжественная линейка, посвящённая Дню знаний", excerpt: "Первокурсники получили студенческие билеты.", kind: "event" },
+      { img, date: "28 августа 2023", title: "Итоги приёмной кампании 2023 года", excerpt: "Зачислены абитуриенты на все направления подготовки.", kind: "announce" },
+      { img, date: "20 августа 2023", title: "Научная конференция молодых учёных", excerpt: "Более 120 докладов по фундаментальной и клинической медицине.", kind: "science" },
+      { img, date: "12 августа 2023", title: "Волонтёры ОрГМУ на городском марафоне здоровья", excerpt: "Студенты провели скрининг для участников.", kind: "event" },
+    ];
+    return { items };
+  }
+}
+</script>
+</body>
+</html>

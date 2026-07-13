@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</helmet>
+<a href="{{ href }}" style="display:flex; flex-direction:column; height:100%; box-sizing:border-box; text-decoration:none; background:rgb(255,255,255); border:1px solid rgb(238,238,238); border-radius:12px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,0.08); transition:box-shadow 240ms cubic-bezier(0.4,0,0.2,1), transform 240ms cubic-bezier(0.4,0,0.2,1);" style-hover="box-shadow:0 10px 24px rgba(0,0,0,0.13); transform:translateY(-2px);">
+  <div style="position:relative; width:100%; aspect-ratio:3/2; background-color:rgb(0,101,155); background-image:{{ imageCss }}; background-size:cover; background-position:center;">
+    <div style="position:absolute; top:14px; left:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; width:60px; height:64px; border-radius:10px; background:#fff; box-shadow:0 4px 12px rgba(0,0,0,0.18);">
+      <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:26px; line-height:1; color:rgb(0,101,155);">{{ day }}</span>
+      <span style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:rgb(184,57,4);">{{ month }}</span>
+    </div>
+    <span style="position:absolute; top:16px; right:14px; font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.05em; text-transform:uppercase; color:#fff; background:{{ catColor }}; border-radius:6px; padding:5px 10px;">{{ category }}</span>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:10px; padding:16px 18px 18px; flex:1;">
+    <span style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:20px; line-height:1.15; color:rgb(0,101,155); text-wrap:pretty;">{{ title }}</span>
+    <div style="display:flex; flex-direction:column; gap:6px; margin-top:auto;">
+      <span style="display:flex; align-items:center; gap:8px; font-size:16px; color:rgb(50,100,150);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgb(137,191,234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5V12l3 2"></path></svg>{{ time }}
+      </span>
+      <span style="display:flex; align-items:center; gap:8px; font-size:16px; color:rgb(50,100,150);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgb(137,191,234)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>{{ place }}
+      </span>
+    </div>
+  </div>
+</a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:364,&quot;height&quot;:360},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;День открытых дверей ОрГМУ&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;day&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;20&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;month&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;апр&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;category&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Конференция&quot;,&quot;День открытых дверей&quot;,&quot;Концерт&quot;,&quot;Спорт&quot;,&quot;Лекция&quot;],&quot;default&quot;:&quot;День открытых дверей&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;time&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;11:00–15:00&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;place&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Главный корпус, актовый зал&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;image&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/corpus.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;EventDetail.dc.html&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const cats = {
+      "Конференция": "rgb(88,86,214)",
+      "День открытых дверей": "rgb(48,176,199)",
+      "Концерт": "rgb(175,82,222)",
+      "Спорт": "rgb(52,199,89)",
+      "Лекция": "rgb(184,57,4)",
+    };
+    const cat = this.props.category ?? "Конференция";
+    const img = this.props.image;
+    return {
+      href: this.props.href ?? "EventDetail.dc.html",
+      day: this.props.day ?? "20",
+      month: this.props.month ?? "апр",
+      category: cat,
+      catColor: cats[cat] ?? "rgb(184,57,4)",
+      title: this.props.title ?? "День открытых дверей ОрГМУ",
+      time: this.props.time ?? "11:00–15:00",
+      place: this.props.place ?? "Главный корпус, актовый зал",
+      imageCss: img ? `url("${img}")` : "none",
+    };
+  }
+}
+</script>
+</body>
+</html>

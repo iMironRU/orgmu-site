@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:flex; align-items:center; gap:20px; background:#fff; border:1px solid rgb(238,238,238); border-left:4px solid {{ accent }}; border-radius:10px; padding:16px 20px; box-shadow:0 1px 2px rgba(0,0,0,0.06); transition:box-shadow 200ms, transform 200ms; font-family:'Roboto Condensed',sans-serif;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.10); transform:translateY(-2px);">
+  <sc-if value="{{ clickable }}" hint-placeholder-val="{{ true }}">
+    <a href="{{ href }}" style="flex:0 0 auto; text-decoration:none;"><span style="display:flex; width:52px; height:66px; border-radius:10px; background:{{ p.avatarBg }}; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:19px; align-items:center; justify-content:center;">{{ p.initials }}</span></a>
+  </sc-if>
+  <sc-if value="{{ notClickable }}" hint-placeholder-val="{{ false }}">
+    <span style="flex:0 0 auto; display:flex; width:52px; height:66px; border-radius:10px; background:{{ p.avatarBg }}; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:19px; align-items:center; justify-content:center;">{{ p.initials }}</span>
+  </sc-if>
+  <div style="flex:1; min-width:0;">
+    <sc-if value="{{ clickable }}" hint-placeholder-val="{{ true }}">
+      <a href="{{ href }}" style="display:block; text-decoration:none;">
+        <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-bottom:3px;">
+          <sc-if value="{{ p.isLead }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:rgb(175,82,222); background:rgba(175,82,222,0.10); border-radius:5px; padding:3px 8px;">{{ p.leadRole }}</span></sc-if>
+          <span style="font-size:14px; color:rgb(150,150,150);">{{ p.degree }}</span>
+        </div>
+        <div style="font-weight:700; font-size:20px; line-height:1.15; color:rgb(0,101,155);">{{ p.fio }}</div>
+        <div style="font-size:15px; color:rgb(50,100,150); margin-top:2px;">{{ p.position }}</div>
+      </a>
+    </sc-if>
+    <sc-if value="{{ notClickable }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-bottom:3px;">
+          <sc-if value="{{ p.isLead }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:rgb(175,82,222); background:rgba(175,82,222,0.10); border-radius:5px; padding:3px 8px;">{{ p.leadRole }}</span></sc-if>
+          <span style="font-size:14px; color:rgb(150,150,150);">{{ p.degree }}</span>
+        </div>
+        <div style="font-weight:700; font-size:20px; line-height:1.15; color:rgb(0,101,155);">{{ p.fio }}</div>
+        <div style="font-size:15px; color:rgb(50,100,150); margin-top:2px;">{{ p.position }}</div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ showChips }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; gap:7px; margin-top:10px; flex-wrap:wrap;">
+        <sc-for list="{{ p.disciplines }}" as="d" hint-placeholder-count="2"><span style="font-size:13px; font-weight:700; color:rgb(50,100,150); background:rgb(251,251,251); border:1px solid rgb(228,232,236); border-radius:999px; padding:4px 11px;">{{ d.label }}</span></sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{ showButton }}" hint-placeholder-val="{{ false }}">
+      <a href="#" style="display:inline-flex; align-items:center; gap:8px; margin-top:11px; padding:8px 14px; border-radius:8px; background:rgba(184,57,4,0.12); color:rgb(0,101,155); text-decoration:none; font-weight:700; font-size:15px;" style-hover="background:rgba(184,57,4,0.20)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"></rect><path d="M3 9h18M8 2.5v4M16 2.5v4"></path></svg>Записаться на приём</a>
+    </sc-if>
+  </div>
+  <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
+    <div class="pt-stats" style="flex:0 0 auto; padding-left:20px; border-left:1px solid rgb(238,238,238);">
+      <dc-import name="StatPair" pairs="{{ statPairs }}" size="md" hint-size="180px,56px"></dc-import>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:720,&quot;height&quot;:110},&quot;person&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;object&quot;},&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;staff&quot;,&quot;options&quot;:[&quot;staff&quot;,&quot;lead&quot;,&quot;external&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;StaffMember.dc.html&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props.person || {};
+    const mode = this.props.mode || "staff";
+    const external = mode === "external";
+    return {
+      p,
+      href: this.props.href || "StaffMember.dc.html",
+      accent: p.accent || (p.isLead ? "rgb(175,82,222)" : "rgb(184,57,4)"),
+      showChips: mode === "staff" && (p.disciplines || []).length > 0,
+      showButton: mode === "lead",
+      showStats: !external,
+      clickable: !external,
+      notClickable: external,
+      statPairs: [
+        { label: "общий", num: p.totN, unit: p.totU },
+        { label: "пед. стаж", num: p.pedN, unit: p.pedU },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

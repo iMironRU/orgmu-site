@@ -24,6 +24,13 @@
 .DS_Store
 *.pem
 
+# входящие архивы (распакованы в design-ref/ и scripts/)
+/InBox/
+
+# python venv для скрапера
+.venv/
+__pycache__/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

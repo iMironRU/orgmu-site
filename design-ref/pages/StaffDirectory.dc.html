@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="staff-data.js"></script>
+  <style>body{margin:0;background:rgb(251,251,251);}
+    .sd-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b8299' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px!important;}
+    @media(max-width:900px){.rail-col{display:none!important}}
+    @media(max-width:640px){.sd-main{padding:24px 20px 48px!important}.sd-filters{flex-direction:column!important}.sd-field{width:100%!important}.sd-tile{flex-direction:column!important;align-items:flex-start!important}.sd-stats{border-left:none!important;padding-left:0!important;border-top:1px solid rgb(238,238,238);padding-top:14px!important;width:100%}.sd-stats-strip{grid-template-columns:1fr!important}}
+  </style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div style="max-width:1146px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <a href="Svedenia.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Сведения об организации</a><span>/</span>
+          <span>Педагогический состав</span>
+        </div>
+        <h1 style="margin:0 0 8px; font-family:'Inter',sans-serif; font-weight:700; font-size:38px; line-height:1.12;">Педагогический состав</h1>
+        <p style="margin:0; max-width:700px; font-size:17px; color:rgba(255,255,255,0.85);">Персональный состав научно‑педагогических работников. Каждая карточка — на человека и несёт машиночитаемую разметку по квалификации.</p>
+      </div>
+    </div>
+
+    <main class="sd-main" style="max-width:1146px; width:100%; margin:0 auto; padding:28px 40px 64px; box-sizing:border-box; flex:1;">
+      <!-- Stats -->
+      <div class="sd-stats-strip" style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:18px;">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:18px 20px; display:flex; align-items:baseline; gap:3px 12px; flex-wrap:wrap;"><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:32px; line-height:1; color:rgb(0,101,155);">{{ s.n }}</div><div style="font-size:15px; color:rgb(103,103,103);">{{ s.l }}</div></div>
+        </sc-for>
+      </div>
+      <!-- Filters -->
+      <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:16px 18px; box-shadow:0 1px 2px rgba(0,0,0,0.05); margin-bottom:14px;">
+        <div class="sd-filters" style="display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end;">
+          <label class="sd-field" style="flex:1 1 220px; min-width:180px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-weight:700; font-size:14px; color:rgb(103,103,103);">Поиск по ФИО</span>
+            <input type="text" value="{{ query }}" onInput="{{ onSearch }}" placeholder="Фамилия или дисциплина" style="font-family:'Roboto Condensed',sans-serif; font-size:16px; color:rgb(49,49,49); padding:11px 14px; border:1px solid rgb(217,217,217); border-radius:9px; outline:none;" style-focus="border-color:rgb(184,57,4); box-shadow:0 0 0 3px rgba(184,57,4,0.18);">
+          </label>
+          <sc-for list="{{ selects }}" as="s" hint-placeholder-count="3">
+            <div class="sd-field" style="flex:1 1 170px; min-width:150px; display:flex; flex-direction:column; gap:6px;">
+              <span style="font-weight:700; font-size:14px; color:rgb(103,103,103);">{{ s.name }}</span>
+              <dc-import name="FilterSelect" options="{{ s.options }}" value="{{ s.value }}" multi="{{ true }}" placeholder="{{ s.placeholder }}" on-change="{{ s.onChange }}" style="width:100%;" hint-size="100%,48px"></dc-import>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap;">
+        <div style="font-size:16px; color:rgb(103,103,103);">Найдено: <b style="color:rgb(0,101,155);">{{ count }}</b></div>
+        <sc-if value="{{ isFiltered }}" hint-placeholder-val="{{ false }}"><button onClick="{{ reset }}" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:15px; color:rgb(184,57,4); background:none; border:none; cursor:pointer;">Сбросить ✕</button></sc-if>
+      </div>
+
+      <!-- Person tiles -->
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ people }}" as="p" hint-placeholder-count="6">
+          <dc-import name="PersonTile" person="{{ p }}" mode="staff" href="StaffMember.dc.html" hint-size="100%,110px"></dc-import>
+        </sc-for>
+        <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:48px 24px; text-align:center; background:#fff; border:1px dashed rgb(217,217,217); border-radius:12px;"><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; color:rgb(0,101,155); margin-bottom:6px;">Никого не найдено</div><div style="font-size:16px; color:rgb(103,103,103);">Измените параметры фильтра.</div></div>
+        </sc-if>
+      </div>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { q: "", dept: [], pos: [], deg: [] };
+  renderVals() {
+    const DATA = window.STAFF_DATA || { people: [], departments: [], positions: [], degrees: [] };
+    const st = this.state;
+    const q = st.q.trim().toLowerCase();
+    const norm = (s) => s.toLowerCase().replace("заведующий кафедрой", "заведующ");
+    const filtered = DATA.people.filter(p =>
+      (st.dept.length === 0 || st.dept.includes(p.dept)) &&
+      (st.pos.length === 0 || st.pos.some(x => p.position.toLowerCase().includes(norm(x)))) &&
+      (st.deg.length === 0 || st.deg.some(x => (p.degree || "").includes(x))) &&
+      (!q || p.fio.toLowerCase().includes(q) || (p.disciplines || []).some(d => d.toLowerCase().includes(q)))
+    );
+    const people = filtered.map(p => {
+      const ped = window.STAFF_NUM(p.pedExp), tot = window.STAFF_NUM(p.totalExp);
+      return {
+        initials: p.initials, fio: p.fio, position: p.position, degree: p.degree,
+        isLead: p.role === "lead", leadRole: p.leadRole,
+        pedN: ped.num, pedU: ped.unit, totN: tot.num, totU: tot.unit,
+        accent: p.role === "lead" ? "rgb(175,82,222)" : "rgb(184,57,4)",
+        avatarBg: window.STAFF_AVATAR(p.fio),
+        disciplines: (p.disciplines || []).map(d => ({ label: d })),
+      };
+    });
+    const selects = [
+      { name: "Кафедра", value: st.dept, options: DATA.departments.slice(1), placeholder: "Все кафедры", onChange: (v) => this.setState({ dept: v }) },
+      { name: "Должность", value: st.pos, options: DATA.positions.slice(1), placeholder: "Все должности", onChange: (v) => this.setState({ pos: v }) },
+      { name: "Учёная степень", value: st.deg, options: DATA.degrees.slice(1), placeholder: "Любая степень", onChange: (v) => this.setState({ deg: v }) },
+    ];
+    return {
+      selects, people, count: people.length, empty: people.length === 0,
+      stats: [
+        { n: "742", l: "всего ППС" },
+        { n: "118", l: "докторов наук" },
+        { n: "421", l: "кандидатов наук" },
+      ],
+      query: st.q, onSearch: (e) => this.setState({ q: e.target.value }),
+      isFiltered: !!st.q || st.dept.length > 0 || st.pos.length > 0 || st.deg.length > 0,
+      reset: () => this.setState({ q: "", dept: [], pos: [], deg: [] }),
+    };
+  }
+}
+</script>
+</body>
+</html>

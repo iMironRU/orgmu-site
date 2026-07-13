@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;background:rgb(251,251,251);}
+    .pc-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b8299' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px!important;}
+    @media(max-width:900px){.rail-col{display:none!important}}
+    @media(max-width:760px){.pc-row{flex-wrap:wrap!important}.pc-mid,.pc-right{flex-basis:100%!important;border-left:none!important;padding-left:0!important;align-items:flex-start!important;border-top:1px solid rgb(238,238,238);padding-top:14px!important;margin-top:2px!important}}
+    @media(max-width:640px){.pc-main{padding:24px 20px 48px!important}.pc-filters{flex-direction:column!important;align-items:stretch!important}.pc-field{width:100%!important}}
+  </style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div style="max-width:1146px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <a href="#" style="color:rgba(255,255,255,0.9); text-decoration:none;">Сведения об организации</a><span>/</span>
+          <span>Образование</span>
+        </div>
+        <h1 style="margin:0 0 8px; font-family:'Inter',sans-serif; font-weight:700; font-size:40px; line-height:1.1;">Образование</h1>
+        <p style="margin:0; max-width:700px; font-size:18px; color:rgba(255,255,255,0.85);">Единый каталог образовательных программ всех уровней — он же обязательный подраздел сведений. Данные несут машиночитаемую разметку по спецификации.</p>
+      </div>
+    </div>
+
+    <main class="pc-main" style="max-width:1146px; width:100%; margin:0 auto; padding:28px 40px 64px; box-sizing:border-box; flex:1;">
+
+      <!-- Horizontal filter bar -->
+      <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:16px 18px; box-shadow:0 1px 2px rgba(0,0,0,0.05); margin-bottom:14px;">
+        <div class="pc-filters" style="display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end;">
+          <label class="pc-field" style="flex:1 1 220px; min-width:180px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-weight:700; font-size:14px; color:rgb(103,103,103);">Поиск</span>
+            <input type="text" value="{{ query }}" onInput="{{ onSearch }}" placeholder="Название или код" style="font-family:'Roboto Condensed',sans-serif; font-size:16px; color:rgb(49,49,49); padding:11px 14px; border:1px solid rgb(217,217,217); border-radius:9px; outline:none;" style-focus="border-color:rgb(184,57,4); box-shadow:0 0 0 3px rgba(184,57,4,0.18);">
+          </label>
+          <sc-for list="{{ selects }}" as="s" hint-placeholder-count="5">
+            <div class="pc-field" style="flex:1 1 160px; min-width:140px; display:flex; flex-direction:column; gap:6px;">
+              <span style="font-weight:700; font-size:14px; color:rgb(103,103,103);">{{ s.name }}</span>
+              <dc-import name="FilterSelect" options="{{ s.options }}" value="{{ s.value }}" multi="{{ s.multi }}" searchable="{{ s.searchable }}" placeholder="{{ s.placeholder }}" on-change="{{ s.onChange }}" style="width:100%;" hint-size="100%,48px"></dc-import>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Result bar -->
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap;">
+        <div style="font-size:16px; color:rgb(103,103,103);">Найдено программ: <b style="color:rgb(0,101,155);">{{ count }}</b></div>
+        <sc-if value="{{ filtered }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ reset }}" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:15px; color:rgb(184,57,4); background:none; border:none; cursor:pointer;">Сбросить фильтры ✕</button>
+        </sc-if>
+      </div>
+
+      <!-- Program list (full width) -->
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ programs }}" as="p" hint-placeholder-count="6">
+          <dc-import name="ProgramTile" program="{{ p }}" year="{{ year }}" href="ProgramPage.dc.html" hint-size="100%,150px"></dc-import>
+        </sc-for>
+
+        <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:48px 24px; text-align:center; background:#fff; border:1px dashed rgb(217,217,217); border-radius:12px;">
+            <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; color:rgb(0,101,155); margin-bottom:6px;">Программы не найдены</div>
+            <div style="font-size:16px; color:rgb(103,103,103);">Измените параметры фильтра или сбросьте их.</div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- Machine-readable note -->
+      <div style="margin-top:22px; display:flex; gap:12px; padding:16px 18px; background:rgba(48,176,199,0.08); border-radius:10px;">
+        <span style="flex:0 0 auto; color:rgb(48,176,199); display:flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 3 12l5 6M16 6l5 6-5 6M13 4l-2 16"></path></svg></span>
+        <div style="font-size:15px; line-height:1.5; color:rgb(50,100,150);"><b style="color:rgb(0,101,155);">Цифры — это план приёма (КЦП) на выбранный год набора</b>, а не число обучающихся. Формы и места берутся из данных этого года: если в год набора формы не было — её нет в списке. <b style="color:rgb(0,101,155);">Внутри карточки</b> — учебные планы, аннотации, практики, численность обучающихся, языки, доступная среда. Всё несёт машиночитаемую разметку, поэтому эта витрина закрывает обязательный подраздел «Образование».</div>
+      </div>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { year: "2024", level: [], form: [], faculty: [], basis: [], q: "" };
+
+  renderVals() {
+    const accentOf = { pre: "rgb(137,191,234)", spo: "rgb(48,176,199)", spec: "rgb(0,101,155)", bak: "rgb(184,57,4)", mag: "rgb(88,86,214)", ord: "rgb(175,82,222)", asp: "rgb(170,136,99)", dpo: "rgb(52,199,89)" };
+    const softOf = { pre: "rgba(137,191,234,0.16)", spo: "rgba(48,176,199,0.12)", spec: "rgba(0,101,155,0.10)", bak: "rgba(184,57,4,0.12)", mag: "rgba(88,86,214,0.12)", ord: "rgba(175,82,222,0.12)", asp: "rgba(170,136,99,0.14)", dpo: "rgba(52,199,89,0.14)" };
+    const labelOf = { pre: "Довуз", spo: "СПО", spec: "Специалитет", bak: "Бакалавриат", mag: "Магистратура", ord: "Ординатура", asp: "Аспирантура", dpo: "ДПО" };
+
+    // Каждая программа существует во времени; набор описан по годам (КЦП, формы, срок, проходной).
+    // Год без набора по программе → её просто нет в этом году. Формы могут отличаться по годам.
+    const all = [
+      { lk: "spec", code: "31.05.01", total: 940, title: "Лечебное дело", faculty: "Лечебный факультет", fk: "lech", dur: "6 лет", basis: "budget",
+        years: { "2024": { budget: 150, target: 90, paid: 200, forms: ["Очно"], score: 258 }, "2023": { budget: 145, target: 85, paid: 190, forms: ["Очно"], score: 254 } } },
+      { lk: "spec", code: "31.05.02", total: 720, title: "Педиатрия", faculty: "Педиатрический факультет", fk: "ped", dur: "6 лет", basis: "budget",
+        years: { "2024": { budget: 120, target: 70, paid: 90, forms: ["Очно"], score: 249 }, "2023": { budget: 118, target: 65, paid: 88, forms: ["Очно"], score: 245 } } },
+      { lk: "spec", code: "31.05.03", total: 210, title: "Стоматология", faculty: "Стоматологический факультет", fk: "stom", dur: "5 лет", basis: "budget",
+        years: { "2024": { budget: 40, target: 20, paid: 110, forms: ["Очно"], score: 271 }, "2023": { budget: 40, target: 18, paid: 105, forms: ["Очно"], score: 268 } } },
+      { lk: "bak", code: "34.03.01", total: 130, title: "Сестринское дело", faculty: "Факультет ВСО", fk: "ipo", dur: "4 года", basis: "budget",
+        years: { "2024": { budget: 25, target: 5, paid: 40, forms: ["Очно", "Заочно"], score: 198 }, "2023": { budget: 25, target: 5, paid: 35, forms: ["Очно"], score: 192 } } },
+      { lk: "mag", code: "32.04.01", total: 60, title: "Общественное здравоохранение", faculty: "Медико-профилактический ф-т", fk: "ipo", dur: "2 года", basis: "budget",
+        years: { "2024": { budget: 15, target: 3, paid: 20, forms: ["Очно", "Очно-заочно"], score: 176 }, "2023": { budget: 15, target: 2, paid: 18, forms: ["Очно"], score: 170 } } },
+      { lk: "ord", code: "31.08.49", total: 118, title: "Терапия (ординатура)", faculty: "Институт проф. образования", fk: "ipo", dur: "2 года", basis: "budget",
+        years: { "2024": { budget: 30, target: 22, paid: 45, forms: ["Очно"], score: 84 }, "2023": { budget: 28, target: 20, paid: 40, forms: ["Очно"], score: 80 } } },
+      { lk: "asp", code: "3.1.18", total: 42, title: "Внутренние болезни (аспирантура)", faculty: "Аспирантура", fk: "ipo", dur: "3 года", basis: "budget",
+        years: { "2024": { budget: 8, target: 0, paid: 6, forms: ["Очно"], score: null }, "2023": { budget: 8, target: 0, paid: 5, forms: ["Очно", "Заочно"], score: null } } },
+      { lk: "spo", code: "34.02.01", total: 340, title: "Сестринское дело (СПО)", faculty: "Медицинский колледж", fk: "spo", dur: "2 г. 10 мес.", basis: "budget",
+        years: { "2024": { budget: 50, target: 10, paid: 75, forms: ["Очно"], score: null }, "2023": { budget: 50, target: 8, paid: 70, forms: ["Очно", "Очно-заочно"], score: null } } },
+      { lk: "dpo", code: "ДПО", total: 85, title: "Повышение квалификации врачей", faculty: "Институт проф. образования", fk: "ipo", dur: "144 ч.", basis: "paid",
+        years: { "2024": { budget: 0, target: 0, paid: null, forms: ["Очно-заочно", "Заочно"], score: null }, "2023": { budget: 0, target: 0, paid: null, forms: ["Очно-заочно"], score: null } } },
+      { lk: "pre", code: "Довуз", total: 120, title: "Подготовительные курсы", faculty: "Довузовская подготовка", fk: "pre", dur: "9 мес.", basis: "paid",
+        years: { "2024": { budget: 0, target: 0, paid: null, forms: ["Очно", "Заочно"], score: null }, "2023": { budget: 0, target: 0, paid: null, forms: ["Очно"], score: null } } },
+    ];
+
+    const st = this.state;
+    const year = st.year;
+    const q = st.q.trim().toLowerCase();
+    const fMatch = (f, code) => (code === "o" && f === "Очно") || (code === "z" && f === "Заочно") || (code === "oz" && f === "Очно-заочно");
+    const filtered = all
+      .filter(p => p.years[year])                                       // есть набор в выбранном году
+      .filter(p =>
+        (st.level.length === 0 || st.level.includes(p.lk)) &&
+        (st.form.length === 0 || (p.years[year].forms || []).some(f => st.form.some(code => fMatch(f, code)))) &&
+        (st.faculty.length === 0 || st.faculty.includes(p.fk)) &&
+        (st.basis.length === 0 || st.basis.includes(p.basis)) &&
+        (!q || p.title.toLowerCase().includes(q) || p.code.toLowerCase().includes(q))
+      );
+
+    const lvlOpts = [
+      { value: "pre", label: "Довузовская" }, { value: "spo", label: "СПО" },
+      { value: "spec", label: "Специалитет" }, { value: "bak", label: "Бакалавриат" },
+      { value: "mag", label: "Магистратура" }, { value: "ord", label: "Ординатура" },
+      { value: "asp", label: "Аспирантура" }, { value: "dpo", label: "ДО / ДПО" },
+    ];
+
+    const selects = [
+      { name: "Приём (год набора)", value: st.year, multi: false, searchable: false, placeholder: "Год набора", options: [{ value: "2024", label: "Приём 2024" }, { value: "2023", label: "Приём 2023" }], onChange: (v) => this.setState({ year: v }) },
+      { name: "Уровень", value: st.level, multi: true, searchable: true, placeholder: "Все уровни", options: lvlOpts, onChange: (v) => this.setState({ level: v }) },
+      { name: "Форма", value: st.form, multi: true, searchable: false, placeholder: "Любая", options: [{ value: "o", label: "Очная" }, { value: "oz", label: "Очно-заочная" }, { value: "z", label: "Заочная" }], onChange: (v) => this.setState({ form: v }) },
+      { name: "Факультет", value: st.faculty, multi: true, searchable: true, placeholder: "Все", options: [{ value: "lech", label: "Лечебный" }, { value: "ped", label: "Педиатрический" }, { value: "stom", label: "Стоматологический" }, { value: "ipo", label: "ИПО" }, { value: "spo", label: "Колледж" }], onChange: (v) => this.setState({ faculty: v }) },
+      { name: "Основа", value: st.basis, multi: true, searchable: false, placeholder: "Любая", options: [{ value: "budget", label: "Бюджет" }, { value: "paid", label: "Договор" }], onChange: (v) => this.setState({ basis: v }) },
+    ];
+
+    const openYear = "2024";               // текущий открытый набор
+    const durYears = { "6 лет": 6, "5 лет": 5, "4 года": 4, "3 года": 3, "2 года": 2, "2 г. 10 мес.": 3, "144 ч.": 1, "9 мес.": 1 };
+    const isOpen = year === openYear;
+
+    const programs = filtered.map(p => {
+      const y = p.years[year];
+      const dash = "—";
+      // когорты, которые ещё учатся: от текущего открытого года набора вглубь на срок обучения
+      const n = durYears[p.dur] || 1;
+      const cohorts = [];
+      for (let i = 0; i < n && i < 6; i++) cohorts.push(String(parseInt(openYear, 10) - i));
+      return {
+        level: labelOf[p.lk], code: p.code, title: p.title, faculty: p.faculty, dur: p.dur,
+        accent: accentOf[p.lk], soft: softOf[p.lk],
+        forms: (y.forms || []).map(f => ({ label: f })),
+        cohorts, total: String(p.total),
+        isOpen, isClosed: !isOpen,
+        status: isOpen ? "Идёт набор" : "Набор завершён",
+        statusColor: isOpen ? "rgb(30,160,80)" : "rgb(150,150,150)",
+        statusBg: isOpen ? "rgba(52,199,89,0.14)" : "rgb(240,240,240)",
+        budget: y.budget > 0 ? String(y.budget) : dash,
+        target: y.target > 0 ? String(y.target) : dash,
+        paid: y.paid === null ? "по договору" : (y.paid > 0 ? String(y.paid) : dash),
+        hasScore: y.score != null,
+        score: y.score != null ? String(y.score) : "",
+      };
+    });
+    const isFiltered = st.level.length || st.form.length || st.faculty.length || st.basis.length || !!q;
+
+    return {
+      selects, programs, count: programs.length, year,
+      query: st.q, onSearch: (e) => this.setState({ q: e.target.value }),
+      filtered: isFiltered, empty: programs.length === 0,
+      reset: () => this.setState({ level: [], form: [], faculty: [], basis: [], q: "" }),
+    };
+  }
+}
+</script>
+</body>
+</html>

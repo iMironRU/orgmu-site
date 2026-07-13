@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;background:rgb(251,251,251);}@media(max-width:768px){.rail-col{display:none!important}.pg-main{padding:32px 20px 48px!important}.a11y-body{grid-template-columns:1fr!important}}</style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div style="max-width:1146px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <span>Настройки доступности</span>
+        </div>
+        <h1 style="margin:0 0 8px; font-family:'Inter',sans-serif; font-weight:700; font-size:40px; line-height:1.1;">Версия для слабовидящих</h1>
+        <p style="margin:0; max-width:640px; font-size:18px; color:rgba(255,255,255,0.85);">Настройте отображение сайта под свои потребности. Параметры сохраняются в браузере и применяются к предпросмотру ниже.</p>
+      </div>
+    </div>
+
+    <main class="pg-main" style="max-width:1146px; width:100%; margin:0 auto; padding:48px 40px 64px; box-sizing:border-box; flex:1;">
+      <div class="a11y-body" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start;">
+
+        <!-- Controls -->
+        <div style="display:flex; flex-direction:column; gap:20px;">
+
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:22px;">
+            <div style="font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:0.04em; color:rgb(103,103,103); margin-bottom:14px;">Размер шрифта</div>
+            <div style="display:flex; gap:10px;">
+              <sc-for list="{{ fontSizes }}" as="f" hint-placeholder-count="3">
+                <button onClick="{{ f.pick }}" style="flex:1; font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:{{ f.size }}; color:{{ f.color }}; background:{{ f.bg }}; border:2px solid {{ f.border }}; border-radius:8px; padding:12px 8px; cursor:pointer;">А</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:22px;">
+            <div style="font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:0.04em; color:rgb(103,103,103); margin-bottom:14px;">Цветовая схема</div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <sc-for list="{{ themes }}" as="t" hint-placeholder-count="4">
+                <button onClick="{{ t.pick }}" title="{{ t.name }}" style="display:flex; align-items:center; gap:8px; font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:15px; color:{{ t.labelColor }}; background:{{ t.swatch }}; border:3px solid {{ t.border }}; border-radius:8px; padding:10px 14px; cursor:pointer;">{{ t.name }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:22px;">
+            <div style="font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:0.04em; color:rgb(103,103,103); margin-bottom:14px;">Межбуквенный интервал</div>
+            <div style="display:flex; gap:10px;">
+              <sc-for list="{{ spacings }}" as="s" hint-placeholder-count="3">
+                <button onClick="{{ s.pick }}" style="flex:1; font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:16px; letter-spacing:{{ s.val }}; color:{{ s.color }}; background:{{ s.bg }}; border:2px solid {{ s.border }}; border-radius:8px; padding:12px 8px; cursor:pointer;">{{ s.name }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:22px; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+            <div>
+              <div style="font-weight:700; font-size:18px; color:rgb(0,101,155);">Отключить изображения</div>
+              <div style="font-size:15px; color:rgb(150,150,150);">Скрыть фото и декоративную графику</div>
+            </div>
+            <button onClick="{{ toggleImages }}" style="flex:0 0 auto; width:58px; height:32px; border-radius:999px; border:none; cursor:pointer; background:{{ imgToggleBg }}; position:relative; transition:background 150ms;">
+              <span style="position:absolute; top:3px; left:{{ imgKnobLeft }}; width:26px; height:26px; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.3); transition:left 150ms;"></span>
+            </button>
+          </div>
+
+          <div style="display:flex; gap:12px;">
+            <button onClick="{{ reset }}" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:17px; color:rgb(50,100,150); background:#fff; border:2px solid rgb(217,217,217); border-radius:8px; padding:12px 22px; cursor:pointer;">Сбросить настройки</button>
+            <a href="Home.dc.html" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:17px; color:#fff; background:rgb(184,57,4); border-radius:8px; padding:13px 22px; text-decoration:none;">Вернуться на сайт</a>
+          </div>
+        </div>
+
+        <!-- Live preview -->
+        <div style="position:sticky; top:24px; border-radius:12px; overflow:hidden; border:1px solid rgb(238,238,238);">
+          <div style="padding:10px 16px; background:rgb(251,251,251); border-bottom:1px solid rgb(238,238,238); font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:rgb(103,103,103);">Предпросмотр</div>
+          <div style="padding:28px; background:{{ pvBg }}; color:{{ pvText }}; transition:all 150ms;">
+            <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:{{ pvH }}; line-height:1.2; letter-spacing:{{ pvSpacing }}; margin-bottom:14px; color:{{ pvHead }};">Оренбургский медицинский университет</div>
+            <sc-if value="{{ pvShowImg }}" hint-placeholder-val="{{ true }}">
+              <div style="width:100%; height:140px; border-radius:8px; background:url('assets/corpus.jpg') center/cover no-repeat; margin-bottom:16px;"></div>
+            </sc-if>
+            <p style="margin:0 0 12px; font-size:{{ pvBody }}; line-height:1.6; letter-spacing:{{ pvSpacing }};">С 1944 года университет готовит врачей и ведёт научную деятельность. На сайте вы найдёте информацию для абитуриентов, обучающихся и сотрудников.</p>
+            <a href="#" style="font-size:{{ pvBody }}; font-weight:700; letter-spacing:{{ pvSpacing }}; color:{{ pvLink }};">Подробнее о поступлении →</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { font: 1, theme: "normal", spacing: 0, images: true };
+
+  componentDidMount() {
+    try {
+      const s = JSON.parse(localStorage.getItem("orgma_a11y") || "null");
+      if (s) this.setState(s);
+    } catch (e) {}
+  }
+  save(patch) {
+    const next = Object.assign({}, this.state, patch);
+    this.setState(patch);
+    try { localStorage.setItem("orgma_a11y", JSON.stringify({ font: next.font, theme: next.theme, spacing: next.spacing, images: next.images })); } catch (e) {}
+  }
+
+  renderVals() {
+    const themes = {
+      normal:   { bg: "#fff", text: "rgb(49,49,49)", head: "rgb(0,101,155)", link: "rgb(184,57,4)", swatch: "#fff", labelColor: "rgb(49,49,49)" },
+      darkblue: { bg: "rgb(9,42,66)", text: "rgb(214,231,242)", head: "#fff", link: "rgb(137,191,234)", swatch: "rgb(9,42,66)", labelColor: "#fff" },
+      contrast: { bg: "#000", text: "rgb(255,220,0)", head: "rgb(255,220,0)", link: "rgb(255,220,0)", swatch: "#000", labelColor: "rgb(255,220,0)" },
+      sepia:    { bg: "rgb(247,238,214)", text: "rgb(66,52,32)", head: "rgb(96,64,32)", link: "rgb(120,72,20)", swatch: "rgb(247,238,214)", labelColor: "rgb(66,52,32)" },
+    };
+    const th = themes[this.state.theme] || themes.normal;
+    const fontScale = [1, 1.25, 1.55][this.state.font] || 1;
+    const spaceVal = ["0", "0.08em", "0.16em"][this.state.spacing] || "0";
+
+    const fontSizes = [
+      { key: 0, size: "17px" }, { key: 1, size: "21px" }, { key: 2, size: "26px" },
+    ].map(f => ({ size: f.size,
+      color: this.state.font === f.key ? "#fff" : "rgb(50,100,150)",
+      bg: this.state.font === f.key ? "rgb(184,57,4)" : "#fff",
+      border: this.state.font === f.key ? "rgb(184,57,4)" : "rgb(217,217,217)",
+      pick: () => this.save({ font: f.key }) }));
+
+    const themeList = [
+      { key: "normal", name: "Обычная" }, { key: "darkblue", name: "Тёмная" },
+      { key: "contrast", name: "Ч/Ж" }, { key: "sepia", name: "Сепия" },
+    ].map(t => ({ name: t.name, swatch: themes[t.key].swatch, labelColor: themes[t.key].labelColor,
+      border: this.state.theme === t.key ? "rgb(184,57,4)" : "rgb(217,217,217)",
+      pick: () => this.save({ theme: t.key }) }));
+
+    const spacings = [
+      { key: 0, name: "Обычный", val: "0" }, { key: 1, name: "Средний", val: "0.08em" }, { key: 2, name: "Большой", val: "0.16em" },
+    ].map(s => ({ name: s.name, val: s.val,
+      color: this.state.spacing === s.key ? "#fff" : "rgb(50,100,150)",
+      bg: this.state.spacing === s.key ? "rgb(184,57,4)" : "#fff",
+      border: this.state.spacing === s.key ? "rgb(184,57,4)" : "rgb(217,217,217)",
+      pick: () => this.save({ spacing: s.key }) }));
+
+    return {
+      fontSizes, themes: themeList, spacings,
+      toggleImages: () => this.save({ images: !this.state.images }),
+      imgToggleBg: this.state.images ? "rgb(199,199,204)" : "rgb(184,57,4)",
+      imgKnobLeft: this.state.images ? "3px" : "29px",
+      reset: () => this.save({ font: 1, theme: "normal", spacing: 0, images: true }),
+      pvBg: th.bg, pvText: th.text, pvHead: th.head, pvLink: th.link,
+      pvShowImg: this.state.images,
+      pvH: (28 * fontScale) + "px",
+      pvBody: (17 * fontScale) + "px",
+      pvSpacing: spaceVal,
+    };
+  }
+}
+</script>
+</body>
+</html>

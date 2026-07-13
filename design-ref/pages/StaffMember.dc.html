@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="staff-data.js"></script>
+  <style>body{margin:0;background:rgb(251,251,251);}
+    @media(max-width:900px){.rail-col{display:none!important}}
+    @media(max-width:760px){.sm-main{padding:24px 20px 48px!important}.sm-grid{grid-template-columns:1fr!important}.sm-head{flex-direction:column!important;text-align:center!important;align-items:center!important}}
+  </style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <main class="sm-main" style="max-width:1000px; width:100%; margin:0 auto; padding:32px 40px 64px; box-sizing:border-box; flex:1;">
+      <!-- Breadcrumbs -->
+      <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgb(103,103,103); margin-bottom:20px; flex-wrap:wrap;">
+        <a href="Svedenia.dc.html" style="color:rgb(50,100,150); text-decoration:none;">Сведения об организации</a><span>/</span>
+        <a href="StaffDirectory.dc.html" style="color:rgb(50,100,150); text-decoration:none;">Педагогический состав</a><span>/</span>
+        <span>{{ p.fio }}</span>
+      </div>
+
+      <!-- Demo person switcher -->
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px; flex-wrap:wrap;">
+        <span style="font-size:14px; color:rgb(150,150,150);">Демо: выбрать персону</span>
+        <div style="width:280px; max-width:100%;"><dc-import name="FilterSelect" options="{{ peopleOpts }}" value="{{ currentId }}" multi="{{ false }}" searchable="{{ true }}" placeholder="Выбрать персону" on-change="{{ pickId }}" style="width:100%;" hint-size="280px,48px"></dc-import></div>
+      </div>
+
+      <!-- Header card -->
+      <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:16px; padding:28px; box-shadow:0 1px 2px rgba(0,0,0,0.05);">
+        <div class="sm-head" style="display:flex; gap:24px; align-items:flex-start;">
+          <div style="flex:0 0 auto; width:118px; height:150px; border-radius:14px; background:{{ p.avatarBg }}; color:#fff; font-family:'Inter',sans-serif; font-weight:700; font-size:38px; display:flex; align-items:center; justify-content:center;">{{ p.initials }}</div>
+          <div style="flex:1; min-width:0;">
+            <sc-if value="{{ p.isLead }}" hint-placeholder-val="{{ false }}">
+              <span style="display:inline-block; font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:rgb(175,82,222); background:rgba(175,82,222,0.10); border-radius:6px; padding:4px 10px; margin-bottom:8px;">{{ p.leadRole }}</span>
+            </sc-if>
+            <h1 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:30px; line-height:1.12; color:rgb(0,101,155);">{{ p.fio }}</h1>
+            <div style="font-size:19px; color:rgb(50,100,150); margin-top:6px;">{{ p.position }}</div>
+            <div style="font-size:17px; color:rgb(103,103,103); margin-top:4px;">{{ p.degree }}</div>
+            <a href="{{ p.deptHref }}" style="display:inline-flex; align-items:center; gap:7px; margin-top:12px; font-weight:700; font-size:16px; color:rgb(184,57,4); text-decoration:none;">{{ p.dept }}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reception (only leadership) -->
+      <sc-if value="{{ p.isLead }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:16px;">
+          <a href="#" style="flex:1; min-width:220px; display:flex; align-items:center; gap:12px; background:rgb(0,101,155); border-radius:12px; padding:18px 20px; text-decoration:none;" style-hover="background:rgb(0,86,132)"><span style="flex:0 0 auto; color:#fff; display:flex;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"></rect><path d="M3 9h18M8 2.5v4M16 2.5v4"></path></svg></span><span style="font-weight:700; font-size:18px; color:#fff;">Записаться на приём</span></a>
+          <div style="flex:1; min-width:200px; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:18px 20px;"><div style="font-size:14px; color:rgb(150,150,150); margin-bottom:4px;">Телефон</div><div style="font-weight:700; font-size:18px; color:rgb(0,101,155);">{{ p.phone }}</div></div>
+          <div style="flex:1; min-width:200px; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:18px 20px;"><div style="font-size:14px; color:rgb(150,150,150); margin-bottom:4px;">Эл. почта</div><div style="font-weight:700; font-size:18px; color:rgb(0,101,155);">{{ p.email }}</div></div>
+        </div>
+      </sc-if>
+
+      <!-- Two-column details -->
+      <div class="sm-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; align-items:start;">
+        <!-- Disciplines + experience -->
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:22px;">
+          <h3 style="margin:0 0 14px; font-family:'Inter',sans-serif; font-weight:700; font-size:18px; color:rgb(0,101,155);">Преподаваемые дисциплины</h3>
+          <sc-if value="{{ p.hasDisc }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              <sc-for list="{{ p.disciplineTree }}" as="g" hint-placeholder-count="1">
+                <div>
+                  <a href="{{ g.href }}" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; font-weight:700; font-size:16px; color:rgb(0,101,155);"><span style="flex:0 0 auto; color:rgb(184,57,4); display:flex;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l6-4 6 4v13"></path><path d="M9 21v-5h4v5M19 21V11l-4-2.6"></path></svg></span>{{ g.dept }}</a>
+                  <div style="margin-top:8px; margin-left:8px; padding-left:14px; border-left:2px solid rgb(228,232,236); display:flex; flex-direction:column; gap:8px;">
+                    <sc-for list="{{ g.items }}" as="d" hint-placeholder-count="2">
+                      <div style="display:flex; align-items:center; gap:9px; font-size:16px; color:rgb(50,100,150);"><span style="flex:0 0 auto; width:6px; height:6px; border-radius:50%; background:rgb(184,57,4);"></span>{{ d.label }}</div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ p.noDisc }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:16px; color:rgb(150,150,150);">Учебные дисциплины не закреплены.</div>
+          </sc-if>
+          <div style="display:flex; gap:24px; margin-top:20px; padding-top:18px; border-top:1px solid rgb(240,240,240);">
+            <div style="text-align:center; white-space:nowrap;"><div style="font-size:13px; color:rgb(150,150,150); margin-bottom:5px;">общий</div><div style="white-space:nowrap;"><span style="font-family:'Inter',sans-serif; font-weight:700; font-size:24px; color:rgb(0,101,155);">{{ p.totN }}</span> <span style="font-size:15px; color:rgb(50,100,150);">{{ p.totU }}</span></div></div>
+            <div style="text-align:center; white-space:nowrap;"><div style="font-size:13px; color:rgb(150,150,150); margin-bottom:5px;">пед. стаж</div><div style="white-space:nowrap;"><span style="font-family:'Inter',sans-serif; font-weight:700; font-size:24px; color:rgb(0,101,155);">{{ p.pedN }}</span> <span style="font-size:15px; color:rgb(50,100,150);">{{ p.pedU }}</span></div></div>
+          </div>
+        </div>
+        <!-- Education + retraining -->
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:22px;">
+          <h3 style="margin:0 0 12px; font-family:'Inter',sans-serif; font-weight:700; font-size:18px; color:rgb(0,101,155);">Образование и квалификация</h3>
+          <div style="font-size:16px; color:rgb(49,49,49); line-height:1.5;">{{ p.education }}</div>
+          <div style="font-size:14px; color:rgb(150,150,150); margin:16px 0 8px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em;">Повышение квалификации</div>
+          <ul style="margin:0; padding-left:20px; font-size:15px; color:rgb(50,100,150); line-height:1.7;">
+            <sc-for list="{{ p.retraining }}" as="r" hint-placeholder-count="2"><li>{{ r.label }}</li></sc-for>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Machine-readable footer -->
+      <div style="display:flex; gap:12px; padding:16px 18px; background:rgb(251,251,251); border:1px dashed rgb(217,217,217); border-radius:10px; margin-top:16px;">
+        <span style="flex:0 0 auto; color:rgb(48,176,199); display:flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M7 9h10M7 13h6"></path></svg></span>
+        <div style="font-size:14px; line-height:1.5; color:rgb(103,103,103);">Карточка размечена по спецификации Рособрнадзора (<span style="font-family:'Inter',sans-serif; color:rgb(50,100,150);">itemtype «Employees»</span>): должность, преподаваемые дисциплины, образование, повышение квалификации, стаж — извлекаются автоматически.</div>
+      </div>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { id: null };
+  renderVals() {
+    const data = (window.STAFF_DATA && window.STAFF_DATA.people) || [];
+    const id = this.state.id || (data[0] && data[0].id);
+    const raw = data.find(x => x.id === id) || data[0] || {};
+    const p = {
+      fio: raw.fio || "", initials: raw.initials || "", position: raw.position || "",
+      degree: raw.degree || "", dept: raw.dept || "", deptHref: raw.deptHref || "#",
+      isLead: raw.role === "lead", leadRole: raw.leadRole || "",
+      avatarBg: window.STAFF_AVATAR(raw.fio || ""),
+      reception: raw.reception || "—", phone: raw.phone || "—", email: raw.email || "—",
+      pedExp: raw.pedExp || "—", totalExp: raw.totalExp || "—", education: raw.education || "",
+      pedN: window.STAFF_NUM(raw.pedExp || "—").num, pedU: window.STAFF_NUM(raw.pedExp || "—").unit,
+      totN: window.STAFF_NUM(raw.totalExp || "—").num, totU: window.STAFF_NUM(raw.totalExp || "—").unit,
+      hasDisc: (raw.disciplines || []).length > 0,
+      noDisc: (raw.disciplines || []).length === 0,
+      disciplineTree: (raw.disciplines || []).length ? [{ dept: raw.dept || "—", href: raw.deptHref || "#", items: (raw.disciplines || []).map(d => ({ label: d })) }] : [],
+      disciplines: (raw.disciplines || []).map(d => ({ label: d })),
+      retraining: (raw.retraining || []).map(r => ({ label: r })),
+    };
+    return {
+      p,
+      peopleOpts: data.map(x => ({ value: x.id, label: x.fio })),
+      currentId: id,
+      pickId: (v) => this.setState({ id: v }),
+    };
+  }
+}
+</script>
+</body>
+</html>

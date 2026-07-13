@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;background:rgb(251,251,251);}
+    @media(max-width:900px){.rail-col{display:none!important}}
+    @media(max-width:680px){.lo-main{padding:24px 16px 48px!important}.lo-filters{flex-direction:column!important}.lo-field{width:100%!important}.lo-card{flex-direction:column!important}.lo-right{flex-basis:auto!important;border-left:none!important;border-top:1px solid rgb(238,238,238)!important}}
+  </style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div style="max-width:1146px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <a href="Svedenia.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Сведения об организации</a><span>/</span>
+          <span>Места осуществления деятельности</span>
+        </div>
+        <h1 style="margin:0 0 8px; font-family:'Inter',sans-serif; font-weight:700; font-size:38px; line-height:1.12;">Места осуществления образовательной деятельности</h1>
+        <p style="margin:0; max-width:740px; font-size:17px; color:rgba(255,255,255,0.85);">Учебные корпуса, клинические базы и иные объекты с адресами, размещёнными подразделениями и сведениями о доступной среде. Данные несут машиночитаемую разметку по спецификации.</p>
+      </div>
+    </div>
+
+    <main class="lo-main" style="max-width:1146px; width:100%; margin:0 auto; padding:28px 40px 64px; box-sizing:border-box; flex:1;">
+      <!-- Filters -->
+      <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:16px 18px; box-shadow:0 1px 2px rgba(0,0,0,0.05); margin-bottom:16px;">
+        <div class="lo-filters" style="display:flex; flex-wrap:wrap; gap:12px; align-items:flex-end;">
+          <label class="lo-field" style="flex:1 1 260px; min-width:200px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-weight:700; font-size:14px; color:rgb(103,103,103);">Поиск</span>
+            <input type="text" value="{{ query }}" onInput="{{ onSearch }}" placeholder="Адрес, корпус, подразделение…" style="font-family:'Roboto Condensed',sans-serif; font-size:16px; color:rgb(49,49,49); padding:11px 14px; border:1px solid rgb(217,217,217); border-radius:9px; outline:none;" style-focus="border-color:rgb(184,57,4); box-shadow:0 0 0 3px rgba(184,57,4,0.18);">
+          </label>
+          <div class="lo-field" style="flex:1 1 220px; min-width:180px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-weight:700; font-size:14px; color:rgb(103,103,103);">Тип объекта</span>
+            <dc-import name="FilterSelect" options="{{ typeOpts }}" value="{{ typeSel }}" multi="{{ true }}" searchable="{{ false }}" placeholder="Все типы" on-change="{{ onType }}" style="width:100%;" hint-size="100%,48px"></dc-import>
+          </div>
+          <label class="lo-field" style="flex:0 0 auto; display:flex; align-items:center; gap:9px; padding-bottom:11px; cursor:pointer;">
+            <input type="checkbox" checked="{{ a11yOnly }}" onChange="{{ onA11y }}" style="width:18px; height:18px; accent-color:rgb(184,57,4);">
+            <span style="font-weight:700; font-size:15px; color:rgb(50,100,150);">Только доступные для МГН</span>
+          </label>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap;">
+        <div style="font-size:16px; color:rgb(103,103,103);">Объектов: <b style="color:rgb(0,101,155);">{{ count }}</b></div>
+        <sc-if value="{{ isFiltered }}" hint-placeholder-val="{{ false }}"><button onClick="{{ reset }}" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:15px; color:rgb(184,57,4); background:none; border:none; cursor:pointer;">Сбросить ✕</button></sc-if>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ places }}" as="p" hint-placeholder-count="5">
+          <div class="lo-card" style="display:flex; align-items:stretch; gap:0; background:#fff; border:1px solid rgb(238,238,238); border-left:4px solid {{ p.color }}; border-radius:10px; box-shadow:0 1px 2px rgba(0,0,0,0.06); transition:box-shadow 200ms, transform 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.10); transform:translateY(-2px);">
+            <div style="flex:1; min-width:0; padding:16px 20px;">
+              <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-bottom:6px;">
+                <span style="font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:{{ p.color }}; background:{{ p.soft }}; border-radius:5px; padding:3px 9px;">{{ p.typeLabel }}</span>
+                <span style="font-size:14px; color:rgb(150,150,150);">{{ p.area }}</span>
+              </div>
+              <div style="font-weight:700; font-size:20px; line-height:1.15; color:rgb(0,101,155);">{{ p.name }}</div>
+              <div style="display:flex; align-items:center; gap:10px; margin-top:6px; flex-wrap:wrap;">
+                <span style="display:flex; align-items:center; gap:6px; font-size:16px; color:rgb(50,100,150);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>{{ p.address }}</span>
+                <a href="#" style="display:inline-flex; align-items:center; gap:5px; font-size:14px; font-weight:700; color:rgb(0,101,155); text-decoration:none;" style-hover="color:rgb(48,176,199)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5.5 2.5v-15L9 5m0 15 6-2.5M9 20V5m6 12.5L20.5 20v-15L15 7.5m0 10V7.5m0 0L9 5"></path></svg>Схема проезда</a>
+              </div>
+              <sc-if value="{{ p.hasUnits }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top:12px;">
+                  <div style="font-size:13px; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; color:rgb(150,150,150); margin-bottom:7px;">Размещённые подразделения</div>
+                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <sc-for list="{{ p.units }}" as="u" hint-placeholder-count="3">
+                      <a href="Structure.dc.html" style="display:inline-flex; align-items:center; gap:6px; text-decoration:none; font-size:14px; font-weight:700; color:rgb(50,100,150); background:rgb(251,251,251); border:1px solid rgb(228,232,236); border-radius:999px; padding:5px 13px;" style-hover="border-color:rgb(184,57,4); color:rgb(0,101,155)">{{ u.name }}</a>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+            <div class="lo-right" style="flex:0 0 300px; display:flex; flex-direction:column; justify-content:center; gap:10px; padding:16px 20px; border-left:1px solid rgb(238,238,238);">
+              <div style="font-size:13px; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; color:rgb(150,150,150);">Доступная среда</div>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <sc-for list="{{ p.a11y }}" as="a" hint-placeholder-count="4">
+                  <div style="display:flex; align-items:center; gap:9px; font-size:14px; color:{{ a.color }};">
+                    <span style="flex:0 0 auto; display:flex;">{{ a.icon }}</span>{{ a.label }}
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+
+        <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:48px 24px; text-align:center; background:#fff; border:1px dashed rgb(217,217,217); border-radius:12px;"><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; color:rgb(0,101,155); margin-bottom:6px;">Ничего не найдено</div><div style="font-size:16px; color:rgb(103,103,103);">Измените параметры фильтра.</div></div>
+        </sc-if>
+      </div>
+
+      <div style="margin-top:22px; display:flex; gap:12px; padding:16px 18px; background:rgba(48,176,199,0.08); border-radius:10px;">
+        <span style="flex:0 0 auto; color:rgb(48,176,199); display:flex;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 3 12l5 6M16 6l5 6-5 6M13 4l-2 16"></path></svg></span>
+        <div style="font-size:15px; line-height:1.5; color:rgb(50,100,150);">Каждый объект несёт машиночитаемую разметку: адрес, тип, площадь, перечень размещённых подразделений и признаки доступной среды. Тот же датасет закрывает подразделы «Материально-техническое обеспечение» и «Доступная среда».</div>
+      </div>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { q: "", types: [], a11yOnly: false };
+
+  icon(kind) {
+    const p = { pandus: "M3 20h7l8-12M14 4h4v4", lift: "M8 3h8v18H8zM12 7v10M9 10l3-3 3 3M9 14l3 3 3-3", wc: "M8 21v-6H6l2-6a2 2 0 0 1 4 0M17 21v-5M17 21v-5M15 11h4l-2-5", tactile: "M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8", park: "M6 4h6a4 4 0 0 1 0 8H6zM6 12v8" };
+    return React.createElement("svg", { width: 17, height: 17, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.9, strokeLinecap: "round", strokeLinejoin: "round" }, React.createElement("path", { d: p[kind] || p.tactile }));
+  }
+  yes() { return React.createElement("svg", { width: 17, height: 17, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2.2, strokeLinecap: "round", strokeLinejoin: "round" }, React.createElement("path", { d: "M20 6 9 17l-5-5" })); }
+  no() { return React.createElement("svg", { width: 17, height: 17, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2.2, strokeLinecap: "round", strokeLinejoin: "round" }, React.createElement("path", { d: "M18 6 6 18M6 6l12 12" })); }
+
+  renderVals() {
+    const colorOf = { corpus: "rgb(0,101,155)", clinic: "rgb(175,82,222)", sport: "rgb(52,199,89)", dorm: "rgb(170,136,99)" };
+    const softOf = { corpus: "rgba(0,101,155,0.10)", clinic: "rgba(175,82,222,0.12)", sport: "rgba(52,199,89,0.14)", dorm: "rgba(170,136,99,0.14)" };
+    const typeLabel = { corpus: "Учебный корпус", clinic: "Клиническая база", sport: "Спортобъект", dorm: "Общежитие" };
+
+    const data = [
+      { tk: "corpus", name: "Главный учебный корпус", address: "г. Оренбург, ул. Советская, д. 6", area: "8 400 м²", units: ["Ректорат", "Лечебный факультет", "Кафедра факультетской терапии"], a: { pandus: true, lift: true, wc: true, tactile: true, park: true } },
+      { tk: "corpus", name: "Морфологический корпус", address: "г. Оренбург, пр. Гагарина, д. 21", area: "5 200 м²", units: ["Кафедра анатомии", "Кафедра гистологии"], a: { pandus: true, lift: false, wc: true, tactile: false, park: true } },
+      { tk: "clinic", name: "Клиническая база (ГКБ №3)", address: "г. Оренбург, пр. Гагарина, д. 21", area: "12 000 м²", units: ["Кафедра факультетской терапии", "Кафедра хирургии"], a: { pandus: true, lift: true, wc: true, tactile: true, park: true } },
+      { tk: "clinic", name: "Стоматологическая клиника", address: "г. Оренбург, ул. Пушкинская, д. 12", area: "2 100 м²", units: ["Стоматологический факультет"], a: { pandus: true, lift: true, wc: true, tactile: false, park: false } },
+      { tk: "sport", name: "Спортивный комплекс «Пульс»", address: "г. Оренбург, ул. Аксакова, д. 8", area: "3 600 м²", units: ["Кафедра физической культуры"], a: { pandus: true, lift: false, wc: true, tactile: false, park: true } },
+      { tk: "dorm", name: "Общежитие №1", address: "г. Оренбург, ул. Юркина, д. 4", area: "6 800 м²", units: [], a: { pandus: true, lift: true, wc: true, tactile: false, park: true } },
+    ];
+
+    const a11yDefs = [{ k: "pandus", label: "Пандус / входная группа" }, { k: "lift", label: "Лифт для МГН" }, { k: "wc", label: "Санузел для МГН" }, { k: "tactile", label: "Тактильные средства" }, { k: "park", label: "Парковка для инвалидов" }];
+
+    const st = this.state;
+    const q = st.q.trim().toLowerCase();
+    const filtered = data.filter(p =>
+      (st.types.length === 0 || st.types.includes(p.tk)) &&
+      (!st.a11yOnly || (p.a.pandus && p.a.wc)) &&
+      (!q || p.name.toLowerCase().includes(q) || p.address.toLowerCase().includes(q) || p.units.some(u => u.toLowerCase().includes(q)))
+    );
+
+    const places = filtered.map(p => ({
+      color: colorOf[p.tk], soft: softOf[p.tk], typeLabel: typeLabel[p.tk],
+      name: p.name, address: p.address, area: p.area,
+      hasUnits: p.units.length > 0, units: p.units.map(n => ({ name: n })),
+      a11y: a11yDefs.map(d => ({ label: d.label, color: p.a[d.k] ? "rgb(30,150,80)" : "rgb(180,180,185)", icon: p.a[d.k] ? this.icon(d.k) : this.no() })),
+    }));
+
+    const typeOpts = Object.keys(typeLabel).map(k => ({ value: k, label: typeLabel[k] }));
+    const isFiltered = !!q || st.types.length > 0 || st.a11yOnly;
+
+    return {
+      places, count: places.length, empty: places.length === 0,
+      query: st.q, onSearch: (e) => this.setState({ q: e.target.value }),
+      typeOpts, typeSel: st.types, onType: (v) => this.setState({ types: v }),
+      a11yOnly: st.a11yOnly, onA11y: (e) => this.setState({ a11yOnly: e.target.checked }),
+      isFiltered, reset: () => this.setState({ q: "", types: [], a11yOnly: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

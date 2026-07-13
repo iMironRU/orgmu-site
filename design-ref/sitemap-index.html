@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ОрГМУ — карта прототипа</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --blue:#00659B; --blue2:#69a1ff; --line:#89bfe9; --ink:#1f2d3a; --muted:#6a7784; --bg:#fbfbfb; }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;}
+  header{background:var(--blue);color:#fff;padding:40px 24px;}
+  .wrap{max-width:1160px;margin:0 auto;}
+  header h1{margin:0 0 6px;font-size:34px;font-weight:700;}
+  header p{margin:0;color:#bfe0f5;font-size:16px;}
+  main{padding:40px 24px 80px;}
+  .note{background:#fff;border:1px solid #e6eef4;border-left:4px solid var(--blue2);border-radius:8px;padding:16px 20px;margin-bottom:36px;font-size:14px;color:var(--muted);line-height:1.6;}
+  .note b{color:var(--ink);}
+  h2{font-family:'Roboto Condensed',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);border-bottom:2px solid var(--line);padding-bottom:8px;margin:38px 0 18px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;}
+  a.card{display:flex;flex-direction:column;gap:3px;text-decoration:none;background:#fff;border:1px solid #e6eef4;border-radius:10px;padding:14px 16px;transition:border-color .15s, transform .15s, box-shadow .15s;}
+  a.card:hover{border-color:var(--blue2);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,101,155,.10);}
+  a.card .t{font-weight:700;font-size:15px;color:var(--ink);}
+  a.card .d{font-size:12.5px;color:var(--muted);}
+  .sub{grid-column:1/-1;font-size:12px;color:var(--muted);margin:6px 0 -4px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Оренбургский государственный медицинский университет</h1>
+  <p>Карта прототипа сайта · статическая сборка для тестирования и импорта в Figma</p>
+</div></header>
+<main class="wrap">
+  <div class="note">
+    <b>Как открывать.</b> Страницы связаны между собой и подгружают общие блоки (шапка, меню, подвал) по сети —
+    поэтому проект должен быть <b>развёрнут на HTTP-хостинге</b> (Netlify, GitHub Pages, любой веб-сервер).
+    При открытии файлов напрямую двойным кликом (file://) общие блоки не загрузятся.
+    <br><br>
+    <b>Импорт в Figma.</b> Разверните сайт, затем в плагине html.to.design укажите URL нужной страницы —
+    он отрисует её как фрейм. Список страниц ниже — это и есть каталог адресов для импорта.
+  </div>
+
+  <h2>Главные страницы</h2>
+  <div class="grid">
+    <a class="card" href="Home.dc.html"><span class="t">Главная</span><span class="d">Home</span></a>
+    <a class="card" href="Sitemap.dc.html"><span class="t">Карта сайтов вуза</span><span class="d">Sitemap</span></a>
+    <a class="card" href="News.dc.html"><span class="t">Новости</span><span class="d">News</span></a>
+    <a class="card" href="Article.dc.html"><span class="t">Статья / новость</span><span class="d">Article</span></a>
+    <a class="card" href="Events.dc.html"><span class="t">Мероприятия</span><span class="d">Events</span></a>
+    <a class="card" href="EventDetail.dc.html"><span class="t">Карточка мероприятия</span><span class="d">EventDetail</span></a>
+    <a class="card" href="Apps.dc.html"><span class="t">Приложения / сервисы</span><span class="d">Apps</span></a>
+    <a class="card" href="AppDetail.dc.html"><span class="t">Карточка приложения</span><span class="d">AppDetail</span></a>
+  </div>
+
+  <h2>Сведения об образовательной организации</h2>
+  <div class="grid">
+    <a class="card" href="Svedenia.dc.html"><span class="t">Сведения об ОО — хаб</span><span class="d">Svedenia</span></a>
+    <a class="card" href="Documents.dc.html"><span class="t">Документы</span><span class="d">Documents</span></a>
+    <a class="card" href="ProgramCatalog.dc.html"><span class="t">Образование — каталог</span><span class="d">ProgramCatalog</span></a>
+    <a class="card" href="ProgramPage.dc.html"><span class="t">Карточка программы</span><span class="d">ProgramPage</span></a>
+    <a class="card" href="Structure.dc.html"><span class="t">Структура и органы управления</span><span class="d">Structure</span></a>
+    <a class="card" href="Department.dc.html"><span class="t">Карточка подразделения</span><span class="d">Department</span></a>
+    <a class="card" href="StaffDirectory.dc.html"><span class="t">Руководство / педсостав</span><span class="d">StaffDirectory</span></a>
+    <a class="card" href="StaffMember.dc.html"><span class="t">Карточка персоны</span><span class="d">StaffMember</span></a>
+    <a class="card" href="Leadership.dc.html"><span class="t">Руководство</span><span class="d">Leadership</span></a>
+    <a class="card" href="Locations.dc.html"><span class="t">Места деятельности</span><span class="d">Locations</span></a>
+    <a class="card" href="PaidServices.dc.html"><span class="t">Платные услуги / прайс</span><span class="d">PaidServices</span></a>
+    <a class="card" href="Scholarships.dc.html"><span class="t">Стипендии и поддержка</span><span class="d">Scholarships</span></a>
+    <a class="card" href="Accessibility.dc.html"><span class="t">Доступная среда</span><span class="d">Accessibility</span></a>
+  </div>
+
+  <h2>Поступающим</h2>
+  <div class="grid">
+    <a class="card" href="Admissions.dc.html"><span class="t">Поступающим — хаб</span><span class="d">Admissions</span></a>
+    <a class="card" href="AdmissionsCommittee.dc.html"><span class="t">Приёмная комиссия</span><span class="d">AdmissionsCommittee</span></a>
+    <a class="card" href="RatingLists.dc.html"><span class="t">Конкурсные списки</span><span class="d">RatingLists</span></a>
+  </div>
+
+  <h2>Дизайн-система</h2>
+  <div class="grid">
+    <a class="card" href="Styleguide.dc.html"><span class="t">Styleguide — токены</span><span class="d">Styleguide</span></a>
+    <a class="card" href="Brandbook.dc.html"><span class="t">Брендбук</span><span class="d">Brandbook</span></a>
+    <a class="card" href="Theming.dc.html"><span class="t">Тематизация блоков</span><span class="d">Theming</span></a>
+    <a class="card" href="IA.dc.html"><span class="t">Карта информ. архитектуры</span><span class="d">IA</span></a>
+    <a class="card" href="PageTemplate.dc.html"><span class="t">Шаблон страницы</span><span class="d">PageTemplate</span></a>
+    <a class="card" href="MobilePreview.dc.html"><span class="t">Мобильный предпросмотр</span><span class="d">MobilePreview</span></a>
+  </div>
+
+  <h2>Компоненты <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#6a7784;">(для библиотеки Figma)</span></h2>
+  <div class="grid">
+    <a class="card" href="SiteHeader.dc.html"><span class="t">Шапка</span><span class="d">SiteHeader</span></a>
+    <a class="card" href="SideRail.dc.html"><span class="t">Боковое меню</span><span class="d">SideRail</span></a>
+    <a class="card" href="SiteFooter.dc.html"><span class="t">Подвал</span><span class="d">SiteFooter</span></a>
+    <a class="card" href="Banner.dc.html"><span class="t">Баннер</span><span class="d">Banner</span></a>
+    <a class="card" href="AnnouncementBar.dc.html"><span class="t">Срочное объявление</span><span class="d">AnnouncementBar</span></a>
+    <a class="card" href="Tile.dc.html"><span class="t">Плитка</span><span class="d">Tile</span></a>
+    <a class="card" href="NewsCard.dc.html"><span class="t">Карточка новости</span><span class="d">NewsCard</span></a>
+    <a class="card" href="EventCard.dc.html"><span class="t">Карточка события</span><span class="d">EventCard</span></a>
+    <a class="card" href="ProgramTile.dc.html"><span class="t">Плитка программы</span><span class="d">ProgramTile</span></a>
+    <a class="card" href="PersonTile.dc.html"><span class="t">Плитка персоны</span><span class="d">PersonTile</span></a>
+    <a class="card" href="StatPair.dc.html"><span class="t">Пара «число + подпись»</span><span class="d">StatPair</span></a>
+    <a class="card" href="FilterSelect.dc.html"><span class="t">Селект-фильтр</span><span class="d">FilterSelect</span></a>
+  </div>
+</main>
+</body>
+</html>

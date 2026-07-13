@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;background:rgb(251,251,251);}@media(max-width:768px){.rail-col{display:none!important}.dp-body{grid-template-columns:1fr!important;padding:24px 20px!important;gap:24px!important}.dp-aside{position:static!important}}</style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <!-- Section banner -->
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div style="max-width:1146px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <a href="#" style="color:rgba(255,255,255,0.9); text-decoration:none;">Обучающимся</a><span>/</span>
+          <span>Кафедра терапии</span>
+        </div>
+        <h1 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:40px; line-height:1.1;">Кафедра факультетской терапии</h1>
+      </div>
+    </div>
+
+    <div class="dp-body" style="max-width:1146px; width:100%; margin:0 auto; padding:40px; box-sizing:border-box; display:grid; grid-template-columns:264px 1fr; gap:40px; flex:1;">
+
+      <!-- Section sidebar -->
+      <aside>
+        <div class="dp-aside" style="position:sticky; top:24px; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; overflow:hidden;">
+          <div style="padding:16px 20px; background:rgb(251,251,251); border-bottom:1px solid rgb(238,238,238); font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:0.04em; color:rgb(103,103,103);">Разделы</div>
+          <nav style="display:flex; flex-direction:column; padding:8px;">
+            <a href="#" style="padding:11px 14px; border-radius:8px; font-size:17px; font-weight:700; color:rgb(0,101,155); background:rgba(184,57,4,0.12); text-decoration:none;">О кафедре</a>
+            <a href="#" style="padding:11px 14px; border-radius:8px; font-size:17px; color:rgb(50,100,150); text-decoration:none;" style-hover="background:rgb(251,251,251);">Сотрудники</a>
+            <a href="#" style="padding:11px 14px; border-radius:8px; font-size:17px; color:rgb(50,100,150); text-decoration:none;" style-hover="background:rgb(251,251,251);">Учебная работа</a>
+            <a href="#" style="padding:11px 14px; border-radius:8px; font-size:17px; color:rgb(50,100,150); text-decoration:none;" style-hover="background:rgb(251,251,251);">Научная деятельность</a>
+            <a href="#" style="padding:11px 14px; border-radius:8px; font-size:17px; color:rgb(50,100,150); text-decoration:none;" style-hover="background:rgb(251,251,251);">Расписание</a>
+            <a href="#" style="padding:11px 14px; border-radius:8px; font-size:17px; color:rgb(50,100,150); text-decoration:none;" style-hover="background:rgb(251,251,251);">Контакты</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <article style="min-width:0; display:flex; flex-direction:column; gap:24px;">
+        <div style="width:100%; aspect-ratio:21/9; border-radius:12px; background:url('assets/corpus.jpg') center/cover no-repeat;"></div>
+
+        <div style="display:flex; gap:24px; flex-wrap:wrap; padding:18px 22px; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px;">
+          <div><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">1972</div><div style="font-size:15px; color:rgb(150,150,150);">год основания</div></div>
+          <div style="width:1px; background:rgb(238,238,238);"></div>
+          <div><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">24</div><div style="font-size:15px; color:rgb(150,150,150);">преподавателя</div></div>
+          <div style="width:1px; background:rgb(238,238,238);"></div>
+          <div><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">9</div><div style="font-size:15px; color:rgb(150,150,150);">докторов наук</div></div>
+        </div>
+
+        <div style="font-size:19px; line-height:1.6; color:rgb(49,49,49); display:flex; flex-direction:column; gap:16px;">
+          <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:26px; color:rgb(0,101,155);">О кафедре</h2>
+          <p style="margin:0;">Кафедра факультетской терапии — одно из старейших клинических подразделений университета. Здесь ведётся подготовка студентов лечебного и педиатрического факультетов, ординаторов и аспирантов по внутренним болезням.</p>
+          <p style="margin:0;">Клиническими базами кафедры являются ведущие лечебные учреждения города. Коллектив сочетает педагогическую, научную и лечебную работу, участвует в клинических исследованиях и практической подготовке будущих врачей.</p>
+          <blockquote style="margin:0; padding:16px 20px; border-left:4px solid rgb(184,57,4); background:#fff; border-radius:0 8px 8px 0; font-size:20px; color:rgb(50,100,150);">«Учить не тому, что думать, а тому, как думать у постели больного».</blockquote>
+          <h2 style="margin:8px 0 0; font-family:'Inter',sans-serif; font-weight:700; font-size:26px; color:rgb(0,101,155);">Направления работы</h2>
+          <ul style="margin:0; padding-left:22px; display:flex; flex-direction:column; gap:8px;">
+            <li>Кардиология и артериальная гипертензия</li>
+            <li>Гастроэнтерология и болезни печени</li>
+            <li>Пульмонология и функциональная диагностика</li>
+            <li>Ревматология</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

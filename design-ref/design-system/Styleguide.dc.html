@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;background:rgb(251,251,251);}
+    ::selection{background:rgba(184,57,4,0.3);}
+  </style>
+</helmet>
+<div style="font-family:'Roboto Condensed',sans-serif; color:rgb(49,49,49); background:rgb(251,251,251); min-height:100vh;">
+
+  <!-- Cover -->
+  <div style="background:rgb(0,101,155); color:#fff; padding:64px 40px;">
+    <div style="max-width:1146px; margin:0 auto;">
+      <div style="display:flex; align-items:center; gap:18px; margin-bottom:28px;">
+        <img src="assets/orgma-logo.png" alt="ОрГМУ" style="width:72px; height:72px; object-fit:contain; background:#fff; border-radius:10px; padding:6px;">
+        <div style="font-weight:400; font-size:15px; color:rgba(255,255,255,0.8); font-family:'Inter',sans-serif;">Design System · v0.1</div>
+      </div>
+      <h1 style="margin:0 0 12px; font-family:'Inter',sans-serif; font-weight:700; font-size:50px; line-height:1.05; letter-spacing:-0.01em;">Дизайн-система ОрГМУ</h1>
+      <p style="margin:0; max-width:640px; font-weight:400; font-size:20px; line-height:1.5; color:rgba(255,255,255,0.88);">Единый визуальный язык для флагманского сайта и подсайтов. Токены, типографика и библиотека блоков — источник правды для реализации на Next.js.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;">
+        <span style="font-size:15px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.14);">Roboto Condensed + Inter</span>
+        <span style="font-size:15px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.14);">Адаптив desktop → mobile</span>
+        <span style="font-size:15px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.14);">Темизация подсайтов</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1146px; margin:0 auto; padding:56px 40px 96px; display:flex; flex-direction:column; gap:72px;">
+
+    <!-- 01 COLORS -->
+    <section>
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:14px; color:rgb(137,191,234);">01</span>
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:33px; color:rgb(0,101,155);">Цвет</h2>
+      </div>
+      <p style="margin:0 0 28px; max-width:620px; font-size:18px; line-height:1.5; color:rgb(50,100,150);">Синяя палитра — ядро бренда. Системный «светофор» используется для статусов. Каждый цвет привязан к CSS-переменной.</p>
+      <sc-for list="{{ colorGroups }}" as="grp" hint-placeholder-count="3">
+        <div style="margin-bottom:28px;">
+          <div style="font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:0.05em; color:rgb(103,103,103); margin-bottom:12px;">{{ grp.name }}</div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(168px,1fr)); gap:14px;">
+            <sc-for list="{{ grp.items }}" as="c" hint-placeholder-count="6">
+              <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:8px; overflow:hidden;">
+                <div style="height:76px; background:{{ c.value }};"></div>
+                <div style="padding:10px 12px;">
+                  <div style="font-weight:700; font-size:15px; color:rgb(49,49,49);">{{ c.name }}</div>
+                  <div style="font-family:'Inter',sans-serif; font-size:12px; color:rgb(150,150,150);">{{ c.var }}</div>
+                  <div style="font-family:'Inter',sans-serif; font-size:12px; color:rgb(150,150,150);">{{ c.value }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+
+    <!-- 02 TYPE -->
+    <section>
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:14px; color:rgb(137,191,234);">02</span>
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:33px; color:rgb(0,101,155);">Типографика</h2>
+      </div>
+      <p style="margin:0 0 28px; max-width:620px; font-size:18px; line-height:1.5; color:rgb(50,100,150);">Inter — крупные заголовки и дисплей. Roboto Condensed — заголовки разделов, UI и текст. Плотная гарнитура держит много контента на казённых страницах.</p>
+      <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; overflow:hidden;">
+        <sc-for list="{{ typeSpecs }}" as="t" hint-placeholder-count="8">
+          <div style="display:flex; align-items:baseline; gap:24px; padding:18px 24px; border-bottom:1px solid rgb(238,238,238);">
+            <div style="flex:0 0 150px; font-family:'Inter',sans-serif; font-size:12px; color:rgb(150,150,150); line-height:1.4;">
+              <div style="font-weight:700; color:rgb(103,103,103);">{{ t.token }}</div>
+              <div>{{ t.meta }}</div>
+            </div>
+            <div style="{{ t.style }} color:rgb(0,101,155); overflow:hidden; text-overflow:ellipsis;">{{ t.sample }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- 03 SPACING / RADII / ELEVATION -->
+    <section>
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:14px; color:rgb(137,191,234);">03</span>
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:33px; color:rgb(0,101,155);">Отступы · радиусы · тени</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; margin-top:24px;">
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;">Spacing · 4px</div>
+          <sc-for list="{{ spaces }}" as="sp" hint-placeholder-count="6">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+              <div style="height:14px; width:{{ sp.px }}; background:rgb(184,57,4); border-radius:2px;"></div>
+              <span style="font-family:'Inter',sans-serif; font-size:12px; color:rgb(150,150,150);">{{ sp.name }} · {{ sp.px }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;">Radii</div>
+          <div style="display:flex; flex-wrap:wrap; gap:16px;">
+            <sc-for list="{{ radii }}" as="r" hint-placeholder-count="4">
+              <div style="text-align:center;">
+                <div style="width:64px; height:64px; background:rgb(137,191,234); border:2px solid rgb(0,101,155); border-radius:{{ r.px }};"></div>
+                <div style="font-family:'Inter',sans-serif; font-size:12px; color:rgb(150,150,150); margin-top:6px;">{{ r.name }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;">Elevation</div>
+          <div style="display:flex; flex-direction:column; gap:18px;">
+            <sc-for list="{{ shadows }}" as="sh" hint-placeholder-count="3">
+              <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:56px; height:40px; background:#fff; border-radius:8px; box-shadow:{{ sh.css }};"></div>
+                <span style="font-family:'Inter',sans-serif; font-size:12px; color:rgb(150,150,150);">{{ sh.name }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 PRIMITIVES -->
+    <section>
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:14px; color:rgb(137,191,234);">04</span>
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:33px; color:rgb(0,101,155);">Элементы</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px;">
+
+        <!-- Buttons -->
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;">Кнопки</div>
+          <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+            <button style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:17px; color:#fff; background:rgb(184,57,4); border:none; border-radius:8px; padding:12px 22px; cursor:pointer; transition:background 150ms;" style-hover="background:rgb(0,101,155);">Основная</button>
+            <button style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:17px; color:rgb(0,101,155); background:#fff; border:2px solid rgb(0,101,155); border-radius:8px; padding:10px 20px; cursor:pointer; transition:all 150ms;" style-hover="background:rgb(0,101,155); color:#fff;">Вторичная</button>
+            <button style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:17px; color:rgb(184,57,4); background:none; border:none; border-radius:8px; padding:12px 14px; cursor:pointer;" style-hover="color:rgb(0,101,155);">Текстовая</button>
+            <button style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:17px; color:rgb(199,199,204); background:rgb(238,238,238); border:none; border-radius:8px; padding:12px 22px; cursor:not-allowed;">Disabled</button>
+          </div>
+          <div style="margin-top:14px; padding:16px; border-radius:8px; background:rgb(0,101,155); display:flex; gap:12px;">
+            <button style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:17px; color:rgb(0,101,155); background:#fff; border:none; border-radius:8px; padding:12px 22px; cursor:pointer;">На тёмном</button>
+            <button style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:17px; color:#fff; background:none; border:2px solid rgba(255,255,255,0.6); border-radius:8px; padding:10px 20px; cursor:pointer;">Обводка</button>
+          </div>
+        </div>
+
+        <!-- Chips / links -->
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;">Чипы и ссылки</div>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <span style="font-size:15px; font-weight:500; color:#fff; background:rgb(184,57,4); border-radius:999px; padding:7px 16px;">Все</span>
+            <span style="font-size:15px; font-weight:500; color:rgb(50,100,150); background:#fff; border:1px solid rgb(217,217,217); border-radius:999px; padding:6px 15px;">События</span>
+            <span style="font-size:15px; font-weight:500; color:rgb(50,100,150); background:#fff; border:1px solid rgb(217,217,217); border-radius:999px; padding:6px 15px;">Наука</span>
+            <span style="font-size:15px; font-weight:500; color:rgb(50,100,150); background:#fff; border:1px solid rgb(217,217,217); border-radius:999px; padding:6px 15px;">Приём</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:18px;">
+            <a href="#" style="font-size:18px; color:rgb(184,57,4); text-decoration:underline;">Обычная ссылка</a>
+            <a href="#" style="font-size:18px; font-weight:700; color:rgb(0,101,155); text-decoration:none;">Все новости →</a>
+          </div>
+          <div style="display:flex; gap:8px; margin-top:16px;">
+            <span style="font-size:13px; font-weight:700; color:#fff; background:rgb(52,199,89); border-radius:6px; padding:4px 10px;">Успешно</span>
+            <span style="font-size:13px; font-weight:700; color:#fff; background:rgb(255,149,0); border-radius:6px; padding:4px 10px;">Внимание</span>
+            <span style="font-size:13px; font-weight:700; color:#fff; background:rgb(255,59,48); border-radius:6px; padding:4px 10px;">Важно</span>
+          </div>
+        </div>
+
+        <!-- Breadcrumbs + tabs + pagination -->
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;">Навигация</div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgb(150,150,150); margin-bottom:20px; flex-wrap:wrap;">
+            <a href="#" style="color:rgb(184,57,4); text-decoration:none;">Главная</a><span>/</span>
+            <a href="#" style="color:rgb(184,57,4); text-decoration:none;">Обучающимся</a><span>/</span>
+            <span style="color:rgb(103,103,103);">Расписание</span>
+          </div>
+          <div style="display:flex; gap:24px; border-bottom:2px solid rgb(238,238,238); margin-bottom:20px;">
+            <span style="font-weight:700; font-size:18px; color:rgb(0,101,155); padding:0 2px 12px; border-bottom:3px solid rgb(184,57,4); margin-bottom:-2px;">Новости</span>
+            <span style="font-weight:400; font-size:18px; color:rgb(150,150,150); padding:0 2px 12px;">Объявления</span>
+            <span style="font-weight:400; font-size:18px; color:rgb(150,150,150); padding:0 2px 12px;">События</span>
+          </div>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <span style="width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(150,150,150);">‹</span>
+            <span style="width:38px; height:38px; display:flex; align-items:center; justify-content:center; background:rgb(184,57,4); color:#fff; border-radius:8px; font-weight:700;">1</span>
+            <span style="width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(50,100,150);">2</span>
+            <span style="width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(50,100,150);">3</span>
+            <span style="color:rgb(150,150,150);">…</span>
+            <span style="width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(50,100,150);">8</span>
+            <span style="width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid rgb(217,217,217); border-radius:8px; color:rgb(50,100,150);">›</span>
+          </div>
+        </div>
+
+        <!-- Forms -->
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:16px;">Формы и поля</div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <label style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-weight:700; font-size:15px; color:rgb(50,100,150);">ФИО</span>
+              <input type="text" placeholder="Иванов Иван Иванович" style="font-family:'Roboto Condensed',sans-serif; font-size:17px; color:rgb(49,49,49); padding:11px 14px; border:1px solid rgb(217,217,217); border-radius:8px; outline:none;" style-focus="border-color:rgb(184,57,4); box-shadow:0 0 0 3px rgba(184,57,4,0.2);">
+            </label>
+            <label style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-weight:700; font-size:15px; color:rgb(50,100,150);">Направление · одиночный выбор</span>
+              <dc-import name="FilterSelect" options="{{ sgDirOpts }}" value="{{ sgDir }}" multi="{{ false }}" searchable="{{ true }}" placeholder="Выберите направление" on-change="{{ pickSgDir }}" style="width:100%;" hint-size="100%,50px"></dc-import>
+            </label>
+            <label style="display:flex; flex-direction:column; gap:6px;">
+              <span style="font-weight:700; font-size:15px; color:rgb(50,100,150);">Кафедры · мультивыбор с поиском</span>
+              <dc-import name="FilterSelect" options="{{ sgDeptOpts }}" value="{{ sgDept }}" multi="{{ true }}" searchable="{{ true }}" placeholder="Все кафедры" on-change="{{ pickSgDept }}" style="width:100%;" hint-size="100%,50px"></dc-import>
+            </label>
+            <div style="display:flex; gap:20px; font-size:16px; color:rgb(50,100,150);">
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer;"><input type="checkbox" checked style="width:18px; height:18px; accent-color:rgb(184,57,4);"> Согласие на ПДн</label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer;"><input type="radio" name="sg" checked style="width:18px; height:18px; accent-color:rgb(184,57,4);"> Очно</label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 05 BLOCKS -->
+    <section>
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:14px; color:rgb(137,191,234);">05</span>
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:33px; color:rgb(0,101,155);">Блоки</h2>
+      </div>
+      <p style="margin:0 0 28px; max-width:620px; font-size:18px; line-height:1.5; color:rgb(50,100,150);">Из этих блоков собираются страницы. Подсайты используют те же блоки в другом наборе и порядке.</p>
+
+      <div style="display:flex; flex-direction:column; gap:28px;">
+
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); margin-bottom:16px;">Шапка + мега-меню <span style="color:rgb(150,150,150); font-weight:400;">— наведите на пункт</span></div>
+          <div style="border:1px solid rgb(238,238,238); border-radius:8px; overflow:hidden;">
+            <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); margin-bottom:16px;">Карточка новости</div>
+            <dc-import name="NewsCard" image="assets/corpus.jpg" date="3 октября 2023" title="Второй этап конкурса «Лучший врач педиатр участковый»" excerpt="Прошло тестирование практических навыков врачей педиатров участковых." hint-size="100%,360px"></dc-import>
+          </div>
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); margin-bottom:16px;">Карточка новости · текстовая</div>
+            <dc-import name="NewsCard" date="26 сентября 2023" title="Международные студенческие обмены. Опыт и перспективы" excerpt="Встреча с представителями зарубежных вузов-партнёров." hint-size="100%,200px"></dc-import>
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); margin-bottom:16px;">Объявления <span style="color:rgb(150,150,150); font-weight:400;">— срочные / важные, со сроком жизни</span></div>
+          <dc-import name="AnnouncementBar" hint-size="100%,140px"></dc-import>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); margin-bottom:16px;">Карточка мероприятия <span style="color:rgb(150,150,150); font-weight:400;">— афиша</span></div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px;">
+            <dc-import name="EventCard" image="assets/corpus.jpg" day="20" month="апр" category="День открытых дверей" title="День открытых дверей ОрГМУ" time="11:00–15:00" place="Главный корпус" hint-size="100%,360px"></dc-import>
+            <dc-import name="EventCard" image="assets/corpus.jpg" day="24" month="апр" category="Конференция" title="Молодёжная научная конференция" time="10:00" place="Корпус №2" hint-size="100%,360px"></dc-import>
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); margin-bottom:16px;">Плитки-ярлыки</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+            <dc-import name="Tile" label="Клиника ОрГМУ" icon="heart" accent="rgb(48,176,199)" hint-size="100%,90px"></dc-import>
+            <dc-import name="Tile" label="Институт профессионального образования" icon="cap" accent="rgb(184,57,4)" hint-size="100%,90px"></dc-import>
+            <dc-import name="Tile" label="Научно-исследовательский центр" icon="science" accent="rgb(88,86,214)" hint-size="100%,90px"></dc-import>
+            <dc-import name="Tile" label="Музей истории ОрГМУ" icon="museum" accent="rgb(170,136,99)" hint-size="100%,90px"></dc-import>
+          </div>
+        </div>
+
+        <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+          <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); margin-bottom:16px;">Баннеры</div>
+          <div style="display:grid; grid-template-columns:2fr 1fr; gap:14px;">
+            <dc-import name="Banner" image="assets/corpus.jpg" kicker="Абитуриенту" title="Приёмная кампания 2024 открыта" hint-size="100%,192px"></dc-import>
+            <dc-import name="Banner" tone="rgb(48,176,199)" title="День открытых дверей · 20 апреля" hint-size="100%,192px"></dc-import>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:120px 1fr; gap:24px; align-items:start;">
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:16px;">
+            <div style="font-weight:700; font-size:14px; color:rgb(103,103,103); margin-bottom:12px;">Боковая панель</div>
+            <div style="border-radius:8px; overflow:hidden; display:inline-block;">
+              <dc-import name="SideRail" hint-size="94px,400px"></dc-import>
+            </div>
+          </div>
+          <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px;">
+            <div style="font-weight:700; font-size:16px; color:rgb(103,103,103); margin-bottom:16px;">Подвал</div>
+            <div style="border-radius:8px; overflow:hidden;">
+              <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 06 SCREENS -->
+    <section>
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:14px; color:rgb(137,191,234);">06</span>
+        <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:33px; color:rgb(0,101,155);">Экраны</h2>
+      </div>
+      <p style="margin:0 0 24px; max-width:620px; font-size:18px; line-height:1.5; color:rgb(50,100,150);">Собраны из блоков выше. Открываются как отдельные страницы.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+        <a href="Home.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Главная</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Шапка, плитки, баннеры, лента новостей, подвал</span>
+        </a>
+        <a href="News.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Новости</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Хлебные крошки, фильтры, сетка карточек, пагинация</span>
+        </a>
+        <a href="Department.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Страница отдела</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Боковое меню раздела + контент (пример подсайта)</span>
+        </a>
+        <a href="PageTemplate.dc.html" style="text-decoration:none; background:#fff; border:2px solid rgb(184,57,4); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">★ Основной шаблон</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Универсальная внутренняя страница: текст, таблицы, файлы, FAQ. База для любой страницы и подсайта</span>
+        </a>
+        <a href="Article.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Страница новости</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Полный текст статьи, «поделиться», похожие новости</span>
+        </a>
+        <a href="Events.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Афиша мероприятий</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Витрина событий с фильтрами по категориям</span>
+        </a>
+        <a href="EventDetail.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Страница мероприятия</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Афиша: программа, дата/место, регистрация</span>
+        </a>
+        <a href="AppDetail.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Описание приложения</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Куда ведёт «Подробнее»: возможности, шаги, вход</span>
+        </a>
+        <a href="Sitemap.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Карта сайтов</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Все разделы и подсайты · сюда ведёт «Посмотреть все»</span>
+        </a>
+        <a href="Apps.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Приложения вуза</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">МФЦ · ЭИОС · Цифровой ID · из боковой панели</span>
+        </a>
+        <a href="Accessibility.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">Настройки доступности</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Версия для слабовидящих · живой предпросмотр</span>
+        </a>
+      </div>
+      <div style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <a href="MobilePreview.dc.html" style="text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">📱 Мобильные версии</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Все экраны в телефонной рамке (390px)</span>
+        </a>
+        <a href="Theming.dc.html" style="text-decoration:none; background:rgb(0,101,155); color:#fff; border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px;">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px;">Темизация подсайтов →</span>
+          <span style="font-size:16px; color:rgba(255,255,255,0.8);">Один язык · разные подсайты</span>
+        </a>
+        <a href="Brandbook.dc.html" style="text-decoration:none; background:#fff; border:2px solid rgb(0,101,155); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:8px; transition:box-shadow 200ms;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+          <span style="font-family:'Inter',sans-serif; font-weight:700; font-size:22px; color:rgb(0,101,155);">★ Брендбук →</span>
+          <span style="font-size:16px; color:rgb(50,100,150);">Логотип, фирменные цвета и носители стиля — из официального PDF</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sgDir: "spec1", sgDept: ["kaf1"] };
+  renderVals() {
+    const colorGroups = [
+      { name: "Синие · бренд", items: [
+        { name: "Brand", var: "--c-brand", value: "rgb(0,101,155)" },
+        { name: "Brand strong", var: "--c-brand-strong", value: "rgb(0,79,122)" },
+        { name: "Steel", var: "--c-steel", value: "rgb(50,100,150)" },
+        { name: "Accent (терракотовый)", var: "--c-accent", value: "rgb(184,57,4)" },
+        { name: "Sky", var: "--c-sky-soft", value: "rgb(137,191,234)" },
+        { name: "Teal", var: "--c-teal", value: "rgb(48,176,199)" },
+      ]},
+      { name: "Нейтральные", items: [
+        { name: "BG", var: "--c-bg", value: "rgb(255,255,255)" },
+        { name: "BG muted", var: "--c-bg-muted", value: "rgb(251,251,251)" },
+        { name: "Line", var: "--c-line", value: "rgb(238,238,238)" },
+        { name: "Line strong", var: "--c-line-strong", value: "rgb(217,217,217)" },
+        { name: "Gray 3", var: "--c-gray-3", value: "rgb(199,199,204)" },
+        { name: "Ink 2", var: "--c-ink-2", value: "rgb(103,103,103)" },
+        { name: "Ink", var: "--c-ink", value: "rgb(49,49,49)" },
+      ]},
+      { name: "Статус · светофор", items: [
+        { name: "Success", var: "--c-success", value: "rgb(52,199,89)" },
+        { name: "Warning", var: "--c-warning", value: "rgb(255,149,0)" },
+        { name: "Danger", var: "--c-danger", value: "rgb(255,59,48)" },
+        { name: "Info", var: "--c-info", value: "rgb(50,173,230)" },
+        { name: "Attention", var: "--c-attention", value: "rgb(255,204,0)" },
+        { name: "Brown", var: "--c-brown", value: "rgb(170,136,99)" },
+      ]},
+    ];
+    const typeSpecs = [
+      { token: "Display", meta: "Inter Bold · 50", style: "font-family:'Inter',sans-serif; font-weight:700; font-size:50px; line-height:1.05;", sample: "Оренбургский ГМУ" },
+      { token: "H1", meta: "Inter Regular · 33", style: "font-family:'Inter',sans-serif; font-weight:400; font-size:33px; line-height:1.1;", sample: "Заголовок страницы" },
+      { token: "H2", meta: "Roboto Condensed Bold · 25", style: "font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:25px;", sample: "Заголовок раздела" },
+      { token: "H3", meta: "Roboto Condensed Bold · 24", style: "font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:24px;", sample: "Заголовок карточки / меню" },
+      { token: "H4", meta: "Roboto Condensed Bold · 21", style: "font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:21px;", sample: "Подзаголовок" },
+      { token: "Body Lg", meta: "Roboto Condensed · 20", style: "font-family:'Roboto Condensed',sans-serif; font-weight:400; font-size:20px;", sample: "Крупный основной текст новостей и анонсов." },
+      { token: "Body", meta: "Roboto Condensed · 18", style: "font-family:'Roboto Condensed',sans-serif; font-weight:400; font-size:18px;", sample: "Основной текст страниц и описаний." },
+      { token: "Small", meta: "Roboto Condensed · 16", style: "font-family:'Roboto Condensed',sans-serif; font-weight:400; font-size:16px;", sample: "Мелкий текст, подписи, метаданные." },
+      { token: "XS", meta: "Roboto Condensed · 14", style: "font-family:'Roboto Condensed',sans-serif; font-weight:400; font-size:14px;", sample: "Метки и служебные подписи" },
+    ];
+    const spaces = [
+      { name: "s-1", px: "4px" }, { name: "s-2", px: "8px" }, { name: "s-3", px: "12px" },
+      { name: "s-4", px: "16px" }, { name: "s-5", px: "20px" }, { name: "s-6", px: "24px" },
+      { name: "s-8", px: "32px" }, { name: "s-10", px: "40px" }, { name: "s-12", px: "48px" },
+    ];
+    const radii = [
+      { name: "none · 0", px: "0px" }, { name: "sm · 4", px: "4px" },
+      { name: "md · 8", px: "8px" }, { name: "lg · 12", px: "12px" },
+    ];
+    const shadows = [
+      { name: "sh-1", css: "0 1px 2px rgba(0,0,0,0.08)" },
+      { name: "sh-2", css: "0 4px 4px rgba(0,0,0,0.10)" },
+      { name: "sh-3", css: "0 4px 4px rgba(0,0,0,0.25)" },
+    ];
+    return {
+      colorGroups, typeSpecs, spaces, radii, shadows,
+      sgDirOpts: [
+        { value: "spec1", label: "Лечебное дело" },
+        { value: "spec2", label: "Педиатрия" },
+        { value: "spec3", label: "Стоматология" },
+        { value: "spec4", label: "Медико-профилактическое дело" },
+      ],
+      sgDir: this.state.sgDir,
+      pickSgDir: (v) => this.setState({ sgDir: v }),
+      sgDeptOpts: [
+        { value: "kaf1", label: "Кафедра госпитальной терапии" },
+        { value: "kaf2", label: "Кафедра факультетской терапии" },
+        { value: "kaf3", label: "Кафедра акушерства и гинекологии" },
+        { value: "kaf4", label: "Кафедра хирургии" },
+        { value: "kaf5", label: "Кафедра иностранных языков" },
+      ],
+      sgDept: this.state.sgDept,
+      pickSgDept: (v) => this.setState({ sgDept: v }),
+    };
+  }
+}
+</script>
+</body>
+</html>

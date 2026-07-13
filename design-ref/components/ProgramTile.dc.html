@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @media(max-width:760px){.pt-row{flex-wrap:wrap!important}.pt-mid,.pt-right{flex-basis:100%!important;border-left:none!important;padding-left:0!important;align-items:flex-start!important;border-top:1px solid rgb(238,238,238);padding-top:12px!important;margin-top:4px!important}}
+  </style>
+</helmet>
+<a href="{{ href }}" style="display:block; text-decoration:none; background:#fff; border:1px solid rgb(238,238,238); border-left:4px solid {{ p.accent }}; border-radius:10px; padding:18px 22px; box-shadow:0 1px 2px rgba(0,0,0,0.06); transition:box-shadow 200ms, transform 200ms; font-family:'Roboto Condensed',sans-serif;" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.10); transform:translateY(-2px);">
+  <div class="pt-row" style="display:flex; align-items:stretch; gap:20px;">
+    <!-- Left: identity -->
+    <div style="flex:1 1 260px; min-width:0;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap;">
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:{{ p.accent }}; background:{{ p.soft }}; border-radius:6px; padding:4px 10px;">{{ p.level }}</span>
+        <span style="font-family:'Inter',sans-serif; font-size:14px; color:rgb(150,150,150);">{{ p.code }}</span>
+        <span style="font-size:14px; color:rgb(150,150,150);">· {{ p.dur }}</span>
+      </div>
+      <div style="font-weight:700; font-size:21px; line-height:1.15; color:rgb(0,101,155);">{{ p.title }}</div>
+      <div style="font-size:16px; color:rgb(50,100,150); margin-top:4px;">{{ p.faculty }}</div>
+      <div style="display:flex; align-items:center; gap:8px; margin-top:12px; flex-wrap:wrap;">
+        <span style="display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:700; color:{{ p.statusColor }}; background:{{ p.statusBg }}; border-radius:999px; padding:5px 12px;"><span style="width:8px; height:8px; border-radius:50%; background:{{ p.statusColor }};"></span>{{ p.status }}</span>
+        <sc-for list="{{ p.forms }}" as="f" hint-placeholder-count="2">
+          <span style="font-size:14px; font-weight:700; color:rgb(50,100,150); background:rgb(251,251,251); border:1px solid rgb(228,232,236); border-radius:999px; padding:5px 13px;">{{ f.label }}</span>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- Middle: cohorts still studying -->
+    <div class="pt-mid" style="flex:0 1 200px; min-width:0; display:flex; flex-direction:column; gap:8px; padding-left:20px; border-left:1px solid rgb(238,238,238);">
+      <span style="font-size:12px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; color:rgb(150,150,150);">Учатся наборы</span>
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        <sc-for list="{{ p.cohorts }}" as="c" hint-placeholder-count="4">
+          <span style="font-family:'Inter',sans-serif; font-size:14px; font-weight:700; color:rgb(50,100,150); background:rgb(251,251,251); border:1px solid rgb(228,232,236); border-radius:7px; padding:4px 9px;">{{ c }}</span>
+        </sc-for>
+      </div>
+      <span style="font-size:13px; color:rgb(150,150,150);">Всего обучается: <b style="color:rgb(50,100,150);">{{ p.total }}</b></span>
+    </div>
+
+    <!-- Right: places (open) OR total (closed) -->
+    <div class="pt-right" style="flex:0 0 auto; display:flex; flex-direction:column; align-items:flex-end; gap:8px; padding-left:20px; border-left:1px solid rgb(238,238,238);">
+      <sc-if value="{{ p.isOpen }}" hint-placeholder-val="{{ true }}">
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; color:rgb(150,150,150);">Мест приёма {{ year }}</span>
+        <div style="display:flex; gap:8px;">
+          <div style="min-width:66px; text-align:center; background:rgba(184,57,4,0.10); border-radius:8px; padding:8px 10px;"><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; color:rgb(0,101,155);">{{ p.budget }}</div><div style="font-size:12px; color:rgb(103,103,103);">бюджет</div></div>
+          <div style="min-width:66px; text-align:center; background:rgba(48,176,199,0.10); border-radius:8px; padding:8px 10px;"><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; color:rgb(0,101,155);">{{ p.target }}</div><div style="font-size:12px; color:rgb(103,103,103);">целевое</div></div>
+          <div style="min-width:66px; text-align:center; background:rgb(251,251,251); border-radius:8px; padding:8px 10px;"><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; color:rgb(0,101,155);">{{ p.paid }}</div><div style="font-size:12px; color:rgb(103,103,103);">договор</div></div>
+        </div>
+        <sc-if value="{{ p.hasScore }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:13px; color:rgb(150,150,150);">Проходной балл прошлого года: <b style="color:rgb(50,100,150);">{{ p.score }}</b></span>
+        </sc-if>
+      </sc-if>
+      <sc-if value="{{ p.isClosed }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; color:rgb(150,150,150);">Набор {{ year }} завершён</span>
+        <div style="min-width:120px; text-align:center; background:rgb(251,251,251); border-radius:8px; padding:12px 16px;"><div style="font-family:'Inter',sans-serif; font-weight:700; font-size:28px; color:rgb(0,101,155);">{{ p.total }}</div><div style="font-size:13px; color:rgb(103,103,103);">обучается сейчас</div></div>
+      </sc-if>
+    </div>
+  </div>
+</a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:900,&quot;height&quot;:150},&quot;program&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;object&quot;},&quot;year&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2024&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;ProgramPage.dc.html&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      p: this.props.program || {},
+      year: this.props.year || "",
+      href: this.props.href || "ProgramPage.dc.html",
+    };
+  }
+}
+</script>
+</body>
+</html>

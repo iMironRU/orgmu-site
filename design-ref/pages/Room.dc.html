@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="staff-data.js"></script>
+  <style>body{margin:0;background:rgb(251,251,251);}@media(max-width:768px){.rail-col{display:none!important}.rm-main{padding:24px 20px 48px!important}.rm-hero{padding:24px 20px!important}.rm-facts{flex-wrap:wrap!important}.rm-tabs{flex-wrap:wrap!important}}</style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <div style="background:rgb(0,101,155); color:#fff;">
+      <div class="rm-hero" style="max-width:1000px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.7); margin-bottom:14px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <a href="Locations.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Места деятельности</a><span>/</span>
+          <span>{{ building }}</span><span>/</span>
+          <span>{{ number }}</span>
+        </div>
+        <h1 style="margin:0 0 8px; font-family:'Inter',sans-serif; font-weight:700; font-size:38px; line-height:1.12;">{{ number }}</h1>
+        <p style="margin:0; font-size:17px; color:rgba(255,255,255,0.85);">{{ building }}</p>
+      </div>
+    </div>
+
+    <main class="rm-main" style="max-width:1000px; width:100%; margin:0 auto; padding:28px 40px 64px; box-sizing:border-box; flex:1; display:flex; flex-direction:column; gap:22px;">
+
+      <!-- Room example toggle (демо: разные типы помещений на одном шаблоне) -->
+      <div class="rm-tabs" style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <span style="font-size:14px; font-weight:700; color:rgb(103,103,103);">Пример:</span>
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <sc-for list="{{ typeTabs }}" as="t" hint-placeholder-count="4">
+            <button onClick="{{ t.onClick }}" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:14px; padding:8px 14px; border-radius:999px; cursor:pointer; border:1px solid {{ t.border }}; background:{{ t.bg }}; color:{{ t.fg }};">{{ t.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Empty state: запись в справочнике «Места» ещё не наполнена -->
+      <sc-if value="{{ isEmptyState }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:48px 24px; text-align:center; background:#fff; border:1px dashed rgb(217,217,217); border-radius:12px;">
+          <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; color:rgb(0,101,155); margin-bottom:6px;">Карточка ещё не заполнена</div>
+          <div style="font-size:16px; color:rgb(103,103,103); max-width:420px; margin:0 auto;">Подразделение, категория, расписание и статус появятся по мере наполнения справочника «Места».</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ hasData }}" hint-placeholder-val="{{ true }}">
+      <!-- Category + audience badges -->
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <span style="font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:{{ catColor }}; background:{{ catSoft }}; border-radius:6px; padding:5px 12px;">{{ catLabel }}</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:700; color:rgb(50,100,150); background:rgb(251,251,251); border:1px solid rgb(228,232,236); border-radius:999px; padding:5px 13px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="10" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          {{ audience }}
+        </span>
+      </div>
+
+      <!-- Facts -->
+      <div class="rm-facts" style="display:flex; gap:12px;">
+        <sc-for list="{{ facts }}" as="f" hint-placeholder-count="3">
+          <div style="flex:1; min-width:150px; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:16px 18px;">
+            <div style="font-size:13px; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; color:rgb(150,150,150); margin-bottom:4px;">{{ f.label }}</div>
+            <sc-if value="{{ f.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ f.href }}" style="font-weight:700; font-size:17px; color:rgb(0,101,155); text-decoration:none;" style-hover="text-decoration:underline;">{{ f.value }}</a></sc-if>
+            <sc-if value="{{ f.isPlain }}" hint-placeholder-val="{{ true }}"><div style="font-weight:700; font-size:17px; color:rgb(0,101,155);">{{ f.value }}</div></sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- Now status -->
+      <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap; background:{{ nowBg }}; border-radius:14px; padding:22px 26px;">
+        <div style="flex:1; min-width:200px;">
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:{{ nowColor }}; margin-bottom:8px;">
+            <span style="width:9px; height:9px; border-radius:50%; background:{{ nowColor }};"></span>Сейчас
+          </div>
+          <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:24px; color:rgb(0,101,155); margin-bottom:4px;">{{ nowTitle }}</div>
+          <div style="font-size:16px; color:rgb(50,100,150);">{{ nowDetail }}</div>
+        </div>
+        <sc-if value="{{ showBook }}" hint-placeholder-val="{{ true }}">
+          <a href="#" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:16px; color:#fff; background:rgb(0,101,155); border-radius:10px; padding:13px 24px; text-decoration:none; white-space:nowrap;">Забронировать</a>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <!-- Class: today's schedule -->
+      <sc-if value="{{ isClass }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:24px; color:rgb(0,101,155);">Расписание на сегодня</h2>
+          <div style="overflow-x:auto; border:1px solid rgb(238,238,238); border-radius:12px;">
+            <table style="width:100%; border-collapse:collapse; font-size:16px;">
+              <thead><tr style="background:rgb(251,251,251);">
+                <th style="text-align:left; padding:12px 16px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Время</th>
+                <th style="text-align:left; padding:12px 16px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Группа</th>
+                <th style="text-align:left; padding:12px 16px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Дисциплина</th>
+                <th style="text-align:left; padding:12px 16px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);">Преподаватель</th>
+                <th style="text-align:right; padding:12px 16px; font-weight:700; color:rgb(0,101,155); border-bottom:2px solid rgb(137,191,234);"></th>
+              </tr></thead>
+              <tbody>
+                <sc-for list="{{ schedule }}" as="s" hint-placeholder-count="4">
+                  <tr style="background:{{ s.rowBg }};">
+                    <td style="padding:11px 16px; border-bottom:1px solid rgb(238,238,238); font-weight:700; color:rgb(49,49,49);">{{ s.time }}</td>
+                    <td style="padding:11px 16px; border-bottom:1px solid rgb(238,238,238); color:rgb(50,100,150);">{{ s.group }}</td>
+                    <td style="padding:11px 16px; border-bottom:1px solid rgb(238,238,238); color:rgb(50,100,150);">{{ s.discipline }}</td>
+                    <td style="padding:11px 16px; border-bottom:1px solid rgb(238,238,238); color:rgb(50,100,150);">{{ s.teacher }}</td>
+                    <td style="padding:8px 16px; border-bottom:1px solid rgb(238,238,238); text-align:right;">
+                      <sc-if value="{{ s.isFree }}" hint-placeholder-val="{{ false }}">
+                        <a href="#" style="display:inline-block; font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:14px; color:rgb(0,101,155); background:rgba(184,57,4,0.12); border-radius:8px; padding:7px 14px; text-decoration:none; white-space:nowrap;" style-hover="background:rgba(184,57,4,0.20);">Забронировать</a>
+                      </sc-if>
+                    </td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Office with a named occupant -->
+      <sc-if value="{{ isOccupant }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:24px; color:rgb(0,101,155);">Кто работает</h2>
+          <dc-import name="PersonTile" person="{{ occupant }}" mode="lead" href="StaffMember.dc.html" hint-size="100%,110px"></dc-import>
+        </div>
+      </sc-if>
+
+      <!-- Office reached by contact, not a named person -->
+      <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:24px; color:rgb(0,101,155);">Контакты</h2>
+          <div style="display:flex; gap:24px; flex-wrap:wrap; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; padding:18px 20px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:16px; color:rgb(50,100,150);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z"></path></svg>{{ contactPhone }}</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:16px; color:rgb(50,100,150);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m3 6 9 7 9-7"></path></svg>{{ contactEmail }}</div>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Hall: upcoming events (переиспользуем готовую EventCard/Events) -->
+      <sc-if value="{{ isHall }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:24px; color:rgb(0,101,155);">Ближайшие мероприятия</h2>
+            <a href="Events.dc.html" style="font-weight:700; font-size:15px; color:rgb(184,57,4); text-decoration:none;">Вся афиша →</a>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px;">
+            <sc-for list="{{ hallEvents }}" as="e" hint-placeholder-count="2">
+              <dc-import name="EventCard" title="{{ e.title }}" day="{{ e.day }}" month="{{ e.month }}" category="{{ e.category }}" time="{{ e.time }}" place="{{ e.place }}" href="EventDetail.dc.html" hint-size="100%,320px"></dc-import>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { roomKey: "class" };
+
+  renderVals() {
+    const byId = (id) => ((window.STAFF_DATA && window.STAFF_DATA.people) || []).find(p => p.id === id) || {};
+    const asPersonTile = (id) => {
+      const p = byId(id);
+      const ped = window.STAFF_NUM ? window.STAFF_NUM(p.pedExp) : { num: "", unit: "" };
+      const tot = window.STAFF_NUM ? window.STAFF_NUM(p.totalExp) : { num: "", unit: "" };
+      return {
+        initials: p.initials, fio: p.fio, position: p.position, degree: p.degree,
+        isLead: p.role === "lead", leadRole: p.leadRole,
+        pedN: ped.num, pedU: ped.unit, totN: tot.num, totU: tot.unit,
+        avatarBg: window.STAFF_AVATAR ? window.STAFF_AVATAR(p.fio) : "rgb(0,101,155)",
+        disciplines: (p.disciplines || []).map(d => ({ label: d })),
+      };
+    };
+
+    // Три категории помещений — цветом, плюс кому они адресованы.
+    const CATS = {
+      edu:      { label: "Учебное помещение",     color: "rgb(0,101,155)",  soft: "rgba(184,57,4,0.12)" },
+      adjacent: { label: "Связано с образованием", color: "rgb(48,176,199)", soft: "rgba(48,176,199,0.12)" },
+      admin:    { label: "Административное",       color: "rgb(170,136,99)", soft: "rgba(170,136,99,0.14)" },
+    };
+
+    const ROOMS = {
+      class: {
+        number: "Ауд. 312", building: "Обучающий симуляционный центр · Корпус №3",
+        cat: "edu", audience: "Для студентов",
+        dept: "Кафедра хирургии", deptHref: "Structure.dc.html",
+        facts: [{ label: "Вместимость", value: "24 места" }, { label: "Оснащение", value: "Операционный тренажёр, видео" }],
+        nowBusy: true, nowTitle: "Идёт занятие", nowDetail: "Группа Л-301 · Общая хирургия · до 14:30",
+        kind: "class", showBook: true,
+      },
+      admissions: {
+        number: "Каб. 105", building: "Главный учебный корпус",
+        cat: "adjacent", audience: "Для абитуриентов и родителей",
+        dept: "Приёмная комиссия", deptHref: "AdmissionsCommittee.dc.html",
+        facts: [{ label: "Часы работы", value: "Пн–Пт 9:00–18:00" }],
+        nowBusy: true, nowTitle: "Приём ведётся", nowDetail: "Приём документов у абитуриентов · до 18:00",
+        kind: "contact", contactPhone: "+7 (3532) 50-06-03", contactEmail: "priem@orgma.ru", showBook: false,
+      },
+      accounting: {
+        number: "Каб. 118", building: "Главный учебный корпус",
+        cat: "admin", audience: "Только сотрудники",
+        dept: "Бухгалтерия", deptHref: "Structure.dc.html",
+        facts: [{ label: "Часы приёма", value: "Пн 10:00–12:00" }],
+        nowBusy: false, nowTitle: "Свободно", nowDetail: "Следующий приём — понедельник, 10:00",
+        kind: "occupant", occupantId: "buh", showBook: false,
+      },
+      hall: {
+        number: "Актовый зал", building: "Главный учебный корпус",
+        cat: "adjacent", audience: "Открыто для всех",
+        dept: "Ректорат", deptHref: "Structure.dc.html",
+        facts: [{ label: "Вместимость", value: "300 мест" }, { label: "Оснащение", value: "Сцена, звук, свет" }],
+        nowBusy: false, nowTitle: "Свободен", nowDetail: "Следующее мероприятие — 20 апреля",
+        kind: "hall", showBook: true,
+      },
+      // Место из справочника ещё не наполнено — только номер, без категории/подразделения/расписания.
+      empty: {
+        number: "Ауд. 214", building: "Корпус уточняется",
+      },
+    };
+
+    const key = ROOMS[this.state.roomKey] ? this.state.roomKey : "class";
+    const r = ROOMS[key];
+    const cat = CATS[r.cat] || { label: "", color: "rgb(150,150,150)", soft: "rgb(240,240,240)" };
+
+    const tabsDef = [
+      { k: "class", label: "Аудитория" },
+      { k: "admissions", label: "Приёмная комиссия" },
+      { k: "accounting", label: "Бухгалтерия" },
+      { k: "hall", label: "Актовый зал" },
+      { k: "empty", label: "Пустая карточка" },
+    ];
+    const typeTabs = tabsDef.map(t => {
+      const active = key === t.k;
+      return { label: t.label, onClick: () => this.setState({ roomKey: t.k }),
+        bg: active ? "rgb(0,101,155)" : "#fff", fg: active ? "#fff" : "rgb(50,100,150)", border: active ? "rgb(0,101,155)" : "rgb(217,225,232)" };
+    });
+
+    const facts = r.dept ? [
+      { label: "Подразделение", value: r.dept, isLink: true, isPlain: false, href: r.deptHref },
+      ...(r.facts || []).map(f => ({ label: f.label, value: f.value, isLink: false, isPlain: true, href: "" })),
+    ] : [];
+
+    const schedule = key === "class" ? [
+      { time: "08:30–10:00", group: "Л-205", discipline: "Оперативная хирургия", teacher: "Морозов Д.О.", current: false, free: false },
+      { time: "10:15–11:45", group: "Л-301", discipline: "Общая хирургия", teacher: "Морозов Д.О.", current: true, free: false },
+      { time: "12:00–13:30", group: "—", discipline: "Свободно", teacher: "—", current: false, free: true },
+      { time: "14:00–15:30", group: "П-102", discipline: "Госпитальная терапия", teacher: "Смирнов А.Д.", current: false, free: false },
+    ].map(s => ({ ...s, rowBg: s.current ? "rgba(184,57,4,0.08)" : "transparent", isFree: s.free })) : [];
+
+    const hallEvents = [
+      { title: "День открытых дверей", day: "20", month: "апр", category: "День открытых дверей", time: "11:00–15:00", place: "Актовый зал" },
+      { title: "Торжественное вручение дипломов", day: "28", month: "июн", category: "Конференция", time: "12:00–14:00", place: "Актовый зал" },
+    ];
+
+    return {
+      number: r.number, building: r.building,
+      catLabel: cat.label, catColor: cat.color, catSoft: cat.soft,
+      audience: r.audience,
+      typeTabs, facts,
+      nowColor: r.nowBusy ? "rgb(0,101,155)" : "rgb(30,160,80)",
+      nowBg: r.nowBusy ? "rgba(184,57,4,0.10)" : "rgba(52,199,89,0.10)",
+      nowTitle: r.nowTitle, nowDetail: r.nowDetail,
+      showBook: r.showBook,
+      hasData: key !== "empty", isEmptyState: key === "empty",
+      isClass: key === "class", schedule,
+      isOccupant: r.kind === "occupant", occupant: r.kind === "occupant" ? asPersonTile(r.occupantId) : {},
+      isContact: r.kind === "contact", contactPhone: r.contactPhone || "", contactEmail: r.contactEmail || "",
+      isHall: key === "hall", hallEvents: key === "hall" ? hallEvents : [],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

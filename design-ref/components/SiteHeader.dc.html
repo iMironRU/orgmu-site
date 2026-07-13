@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</helmet>
+<header style="position:relative; background:rgb(255,255,255); border-bottom:1px solid rgb(238,238,238); font-family:'Roboto Condensed',sans-serif;" onMouseLeave="{{ closeMenu }}">
+  <div style="max-width:1346px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; gap:24px;">
+    <a href="#" style="display:flex; align-items:center; gap:14px; text-decoration:none; flex:0 0 auto;">
+      <img src="assets/orgma-logo.png" alt="ОрГМУ" style="width:64px; height:64px; object-fit:contain;">
+      <span style="display:flex; flex-direction:column; line-height:1.05;">
+        <span style="font-weight:700; font-size:22px; color:rgb(0,101,155);">ОрГМУ</span>
+        <span style="font-weight:400; font-size:12px; color:rgb(50,100,150); max-width:190px;">Оренбургский государственный медицинский университет</span>
+      </span>
+    </a>
+
+    <nav class="sh-nav" style="display:flex; margin-left:auto; align-items:center; gap:4px;">
+      <sc-for list="{{ nav }}" as="item" hint-placeholder-count="4">
+        <button onMouseEnter="{{ item.open }}" onClick="{{ item.open }}" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:18px; white-space:nowrap; color:{{ item.color }}; background:none; border:none; padding:10px 14px; cursor:pointer; border-bottom:3px solid {{ item.underline }}; transition:color 150ms;">{{ item.label }}</button>
+      </sc-for>
+    </nav>
+
+    <button class="sh-burger" onClick="{{ toggleBurger }}" style="display:none; margin-left:auto; width:44px; height:44px; align-items:center; justify-content:center; background:none; border:1px solid rgb(238,238,238); border-radius:8px; cursor:pointer;">
+      <span style="display:block; width:22px; height:2px; background:rgb(0,101,155); box-shadow:0 -7px 0 rgb(0,101,155), 0 7px 0 rgb(0,101,155);"></span>
+    </button>
+  </div>
+
+  <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="sh-mega" style="position:absolute; left:0; right:0; top:100%; z-index:200; background:rgb(255,255,255); border-top:1px solid rgb(238,238,238); box-shadow:0 12px 24px rgba(0,0,0,0.1); animation:sh-drop 240ms cubic-bezier(0.4,0,0.2,1);">
+      <div style="max-width:1346px; margin:0 auto; padding:32px 24px; display:grid; grid-template-columns:repeat({{ colCount }}, 1fr); gap:32px;">
+        <sc-for list="{{ activeColumns }}" as="col" hint-placeholder-count="3">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <span style="font-weight:700; font-size:20px; color:rgb(0,101,155); padding-bottom:8px; border-bottom:2px solid rgb(137,191,234);">{{ col.title }}</span>
+            <sc-for list="{{ col.items }}" as="li" hint-placeholder-count="4">
+              <a href="#" style="font-weight:400; font-size:16px; color:rgb(50,100,150); text-decoration:none; transition:color 150ms;" style-hover="color:rgb(184,57,4);">{{ li }}</a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ burgerOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="border-top:1px solid rgb(238,238,238); padding:8px 20px 20px; max-height:70vh; overflow-y:auto;">
+      <sc-for list="{{ nav }}" as="item" hint-placeholder-count="4">
+        <button onClick="{{ item.toggle }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; padding:14px 4px; border:none; border-bottom:1px solid rgb(238,238,238); background:none; font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:18px; color:rgb(0,101,155); cursor:pointer; text-align:left;">{{ item.label }}<span style="color:rgb(137,191,234); font-size:22px;">{{ item.sign }}</span></button>
+        <sc-if value="{{ item.expanded }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:6px 4px 14px 12px; display:flex; flex-direction:column; gap:14px;">
+            <sc-for list="{{ item.columns }}" as="col" hint-placeholder-count="2">
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <span style="font-weight:700; font-size:15px; color:rgb(50,100,150);">{{ col.title }}</span>
+                <sc-for list="{{ col.items }}" as="li" hint-placeholder-count="3">
+                  <a href="#" style="font-weight:400; font-size:16px; color:rgb(50,100,150); text-decoration:none; padding:2px 0;">{{ li }}</a>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <helmet><style>@keyframes sh-drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}@media(max-width:1050px){.sh-nav{display:none!important}.sh-burger{display:flex!important}.sh-mega{display:none!important}}</style></helmet>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1346,&quot;height&quot;:420}}">
+class Component extends DCLogic {
+  state = { open: -1, burger: false, exp: -1 };
+  navData() {
+    return this.props.nav || [
+      { label: "Университет", columns: [
+        { title: "О вузе", items: ["История", "Руководство", "Учёный совет", "Структура", "Документы", "Контакты"] },
+        { title: "Сотруднику", items: ["Личный кабинет", "Профсоюзный комитет", "Отдел кадров", "Нормативные документы"] },
+        { title: "Выпускникам", items: ["Подлинность диплома", "Дубликат диплома", "Ассоциация выпускников"] },
+      ]},
+      { label: "Поступающим", columns: [
+        { title: "Программы", items: ["Специалитет", "Ординатура", "Аспирантура", "Довузовская подготовка"] },
+        { title: "Приём", items: ["Приёмная комиссия", "Правила приёма", "Стоимость обучения", "Целевое обучение"] },
+      ]},
+      { label: "Обучающимся", columns: [
+        { title: "Учёба", items: ["Расписание", "Личный кабинет", "Электронная библиотека", "Практика"] },
+        { title: "Жизнь", items: ["Стипендии", "Общежития", "Спорт и творчество", "Волонтёрство"] },
+      ]},
+      { label: "Научная деятельность", columns: [
+        { title: "Наука", items: ["НИЦ", "Диссертационные советы", "Научные журналы", "Гранты"] },
+        { title: "Мероприятия", items: ["Конференции", "СНО", "Публикации", "Патенты"] },
+      ]},
+    ];
+  }
+  renderVals() {
+    const data = this.navData();
+    const open = this.state.open;
+    const active = open >= 0 ? data[open] : null;
+    return {
+      navDisplay: "flex",
+      burgerDisplay: "none",
+      nav: data.map((it, i) => ({
+        label: it.label,
+        columns: it.columns,
+        open: () => this.setState({ open: i, burger: false }),
+        toggle: () => this.setState(s => ({ exp: s.exp === i ? -1 : i })),
+        expanded: this.state.exp === i,
+        sign: this.state.exp === i ? "–" : "+",
+        color: open === i ? "rgb(184,57,4)" : "rgb(0,101,155)",
+        underline: open === i ? "rgb(184,57,4)" : "transparent",
+      })),
+      closeMenu: () => this.setState({ open: -1 }),
+      toggleBurger: () => this.setState(s => ({ burger: !s.burger, open: -1 })),
+      panelOpen: !!active,
+      burgerOpen: this.state.burger,
+      activeColumns: active ? active.columns : [],
+      colCount: active ? active.columns.length : 1,
+    };
+  }
+}
+</script>
+</body>
+</html>

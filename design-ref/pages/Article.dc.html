@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="staff-data.js"></script>
+  <style>body{margin:0;background:rgb(251,251,251);}@media(max-width:768px){.rail-col{display:none!important}.pg-main{padding:24px 20px 48px!important}.art-body{grid-template-columns:1fr!important}.art-hero{height:auto!important}}</style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <main class="pg-main" style="max-width:1146px; width:100%; margin:0 auto; padding:36px 40px 64px; box-sizing:border-box; flex:1;">
+      <!-- Breadcrumbs -->
+      <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgb(150,150,150); margin-bottom:20px; flex-wrap:wrap;">
+        <a href="Home.dc.html" style="color:rgb(184,57,4); text-decoration:none;">Главная</a><span>/</span>
+        <a href="News.dc.html" style="color:rgb(184,57,4); text-decoration:none;">Новости</a><span>/</span>
+        <span style="color:rgb(103,103,103);">Событие</span>
+      </div>
+
+      <div class="art-body" style="display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:40px; align-items:start;">
+        <!-- Article -->
+        <article style="min-width:0;">
+          <div style="display:flex; gap:10px; align-items:center; margin-bottom:14px;">
+            <span style="font-size:13px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#fff; background:{{ typeColor }}; border-radius:6px; padding:5px 12px;">{{ typeLabel }}</span>
+            <span style="font-size:15px; color:rgb(150,150,150);">3 октября 2023 · 1 240 просмотров</span>
+          </div>
+          <h1 style="margin:0 0 20px; font-family:'Inter',sans-serif; font-weight:700; font-size:38px; line-height:1.12; color:rgb(0,101,155); text-wrap:balance;">Второй этап конкурса «Лучший врач педиатр участковый»</h1>
+
+          <div class="art-hero" style="width:100%; height:380px; border-radius:12px; background:url('assets/corpus.jpg') center/cover no-repeat; margin-bottom:8px;"></div>
+          <div style="font-size:14px; color:rgb(150,150,150); margin:6px 2px 28px;">Фото: пресс-служба ОрГМУ</div>
+
+          <div style="font-size:19px; line-height:1.7; color:rgb(49,49,49); display:flex; flex-direction:column; gap:18px;">
+            <p style="margin:0; font-weight:500; font-size:21px; color:rgb(50,100,150);">На базе обучающего симуляционного центра университета прошёл второй этап конкурса профессионального мастерства среди участковых педиатров региона.</p>
+            <p style="margin:0;">В течение двух дней конкурсанты демонстрировали практические навыки: сбор анамнеза, физикальное обследование ребёнка, неотложную помощь и коммуникацию с родителями. Задания оценивала комиссия из ведущих преподавателей кафедры педиатрии и практикующих врачей.</p>
+            <h2 style="margin:8px 0 0; font-family:'Inter',sans-serif; font-weight:700; font-size:26px; color:rgb(0,101,155);">Как проходил этап</h2>
+            <p style="margin:0;">Каждый участник прошёл несколько станций с использованием роботов-симуляторов и стандартизированных пациентов. Такой формат позволяет объективно оценить клиническое мышление и мануальные навыки в условиях, максимально приближённых к реальной практике.</p>
+            <blockquote style="margin:0; padding:18px 22px; border-left:4px solid rgb(184,57,4); background:#fff; border-radius:0 8px 8px 0; font-size:20px; color:rgb(50,100,150);">«Конкурс — это не соревнование, а обмен опытом и возможность увидеть современные стандарты оказания помощи детям».</blockquote>
+            <p style="margin:0;">Победители второго этапа представят Оренбургскую область на окружном туре конкурса. Университет продолжит поддерживать программы непрерывного медицинского образования для практикующих врачей.</p>
+          </div>
+
+          <!-- Places — может быть несколько: своя площадка ведёт на карточку кабинета, чужая — без перехода -->
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
+            <sc-for list="{{ places }}" as="pl" hint-placeholder-count="2">
+              <sc-if value="{{ pl.clickable }}" hint-placeholder-val="{{ true }}">
+                <a href="{{ pl.href }}" style="display:flex; align-items:center; gap:16px; padding:16px 18px; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px; text-decoration:none;" style-hover="border-color:rgb(184,57,4);">
+                  <span style="flex:0 0 auto; display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:10px; background:rgba(184,57,4,0.12); color:rgb(0,101,155);">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+                  </span>
+                  <div style="flex:1; min-width:0;">
+                    <div style="font-weight:700; font-size:17px; color:rgb(0,101,155);">{{ pl.name }}</div>
+                    <div style="font-size:15px; color:rgb(50,100,150);">{{ pl.address }}</div>
+                  </div>
+                  <span style="flex:0 0 auto; color:rgb(199,199,204);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span>
+                </a>
+              </sc-if>
+              <sc-if value="{{ pl.notClickable }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; align-items:center; gap:16px; padding:16px 18px; background:#fff; border:1px solid rgb(238,238,238); border-radius:12px;">
+                  <span style="flex:0 0 auto; display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:10px; background:rgb(251,251,251); color:rgb(150,150,150);">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+                  </span>
+                  <div style="flex:1; min-width:0;">
+                    <div style="font-weight:700; font-size:17px; color:rgb(49,49,49);">{{ pl.name }}</div>
+                    <div style="font-size:15px; color:rgb(103,103,103);">{{ pl.address }}</div>
+                  </div>
+                </div>
+              </sc-if>
+            </sc-for>
+          </div>
+
+          <!-- Participants — переиспользуем PersonTile + общий датасет STAFF_DATA (тот же паттерн, что StaffDirectory/Leadership/AdmissionsCommittee) -->
+          <div style="display:flex; flex-direction:column; gap:14px; margin-top:8px;">
+            <h2 style="margin:0; font-family:'Inter',sans-serif; font-weight:700; font-size:24px; color:rgb(0,101,155);">Участники</h2>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <sc-for list="{{ participants }}" as="pp" hint-placeholder-count="4">
+                <dc-import name="PersonTile" person="{{ pp.person }}" mode="{{ pp.mode }}" href="{{ pp.href }}" hint-size="100%,110px"></dc-import>
+              </sc-for>
+            </div>
+          </div>
+
+          <!-- Share -->
+          <div style="display:flex; align-items:center; gap:12px; margin-top:32px; padding-top:24px; border-top:1px solid rgb(238,238,238); flex-wrap:wrap;">
+            <span style="font-weight:700; font-size:16px; color:rgb(103,103,103);">Поделиться:</span>
+            <sc-for list="{{ share }}" as="s" hint-placeholder-count="3">
+              <a href="#" title="{{ s.title }}" style="display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:10px; background:rgb(0,101,155); color:#fff; text-decoration:none;">{{ s.node }}</a>
+            </sc-for>
+          </div>
+        </article>
+
+        <!-- Aside: related -->
+        <aside style="min-width:0; display:flex; flex-direction:column; gap:16px;">
+          <div style="font-family:'Inter',sans-serif; font-weight:700; font-size:20px; color:rgb(0,101,155); padding-bottom:10px; border-bottom:2px solid rgb(137,191,234);">Читайте также</div>
+          <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+            <a href="Article.dc.html" style="display:flex; gap:12px; text-decoration:none;">
+              <div style="flex:0 0 88px; height:64px; border-radius:8px; background:url('assets/corpus.jpg') center/cover no-repeat;"></div>
+              <div style="display:flex; flex-direction:column; gap:4px;">
+                <span style="font-size:13px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; color:rgb(137,191,234);">{{ r.date }}</span>
+                <span style="font-weight:700; font-size:16px; line-height:1.2; color:rgb(0,101,155);">{{ r.title }}</span>
+              </div>
+            </a>
+          </sc-for>
+          <a href="News.dc.html" style="margin-top:6px; font-weight:700; font-size:17px; color:rgb(184,57,4); text-decoration:none;">Все новости →</a>
+        </aside>
+      </div>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  svg(...c) { return React.createElement("svg", { width: 20, height: 20, viewBox: "0 0 24 24", fill: "currentColor", stroke: "none" }, c); }
+  p(d) { return React.createElement("path", { key: d.slice(0,5), d }); }
+  renderVals() {
+    const KIND = {
+      event:    { label: "Событие",       color: "rgb(184,57,4)" },
+      announce: { label: "Объявление",    color: "rgb(48,176,199)" },
+      congrats: { label: "Поздравление",  color: "rgb(175,110,220)" },
+      science:  { label: "Наука",         color: "rgb(52,199,89)" },
+      dept:     { label: "Подразделения", color: "rgb(170,136,99)" },
+    };
+    const k = KIND[this.props.type] || KIND.event;
+
+    // Участники — из общего досье персон (staff-data.js), как на StaffDirectory/Leadership/AdmissionsCommittee.
+    const staffById = (id) => ((window.STAFF_DATA && window.STAFF_DATA.people) || []).find(p => p.id === id) || {};
+    const asPersonTile = (id, eventRole) => {
+      const p = staffById(id);
+      const ped = window.STAFF_NUM ? window.STAFF_NUM(p.pedExp) : { num: "", unit: "" };
+      const tot = window.STAFF_NUM ? window.STAFF_NUM(p.totalExp) : { num: "", unit: "" };
+      return {
+        initials: p.initials, fio: p.fio, position: p.position, degree: p.degree,
+        isLead: true, leadRole: eventRole,
+        pedN: ped.num, pedU: ped.unit, totN: tot.num, totU: tot.unit,
+        avatarBg: window.STAFF_AVATAR ? window.STAFF_AVATAR(p.fio) : "rgb(0,101,155)",
+        disciplines: (p.disciplines || []).map(d => ({ label: d })),
+      };
+    };
+
+    const externalPerson = {
+      initials: "КМ", fio: "Кузнецова Мария Андреевна",
+      position: "врач-педиатр участковый, Оренбургская областная больница", degree: "",
+      isLead: true, leadRole: "Победитель",
+      avatarBg: "linear-gradient(135deg, rgb(206,108,150), rgb(240,168,196))",
+    };
+
+    return {
+      typeLabel: k.label, typeColor: k.color,
+      places: [
+        { name: "Обучающий симуляционный центр", address: "Корпус №3, ауд. 312", clickable: true, notClickable: false, href: "Room.dc.html" },
+        { name: "Дом Советов Оренбургской области", address: "Актовый зал · ул. Постникова, 24", clickable: false, notClickable: true, href: "" },
+      ],
+      participants: [
+        { person: asPersonTile("kuznetsova", "Председатель комиссии"), mode: "staff", href: "StaffMember.dc.html" },
+        { person: asPersonTile("smirnov", "Член комиссии"), mode: "staff", href: "StaffMember.dc.html" },
+        { person: asPersonTile("morozov", "Член комиссии"), mode: "staff", href: "StaffMember.dc.html" },
+        { person: externalPerson, mode: "external", href: "" },
+      ],
+      share: [
+        { title: "ВКонтакте", node: this.svg(this.p("M12.9 16.6c-5 0-8.2-3.5-8.3-9.2h2.6c.1 4.2 2 6 3.5 6.4V7.4h2.4v3.6c1.5-.2 3-1.8 3.6-3.6h2.4c-.5 2.2-2.1 3.8-3.2 4.5 1.1.6 2.9 2 3.6 4.7h-2.7c-.5-1.7-1.9-3.1-3.7-3.2v3.2h-.2Z")) },
+        { title: "Telegram", node: this.svg(this.p("M21.9 5.3 18.9 19c-.2 1-.8 1.2-1.6.8l-4.4-3.3-2.1 2c-.24.24-.43.43-.88.43l.31-4.5 8.2-7.4c.36-.32-.08-.5-.55-.18L7.5 13.3l-4.4-1.4c-.95-.3-.97-.95.2-1.4L20.6 3.9c.8-.3 1.5.18 1.3 1.4Z")) },
+        { title: "Скопировать ссылку", node: this.svg(this.p("M9 15l6-6M8 12H6a3 3 0 0 1 0-6h3M16 6h2a3 3 0 0 1 0 6h-2")) },
+      ],
+      related: [
+        { date: "26 сентября 2023", title: "Международные студенческие обмены" },
+        { date: "16 сентября 2023", title: "Встреча выпускников 1983 года" },
+        { date: "8 сентября 2023", title: "Открытие симуляционного центра" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

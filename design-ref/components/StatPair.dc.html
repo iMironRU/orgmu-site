@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:flex; gap:22px; font-family:'Roboto Condensed',sans-serif;">
+  <sc-for list="{{ pairs }}" as="s" hint-placeholder-count="2">
+    <div style="text-align:center; white-space:nowrap;">
+      <div style="font-size:{{ labelSize }}; color:rgb(150,150,150); margin-bottom:5px;">{{ s.label }}</div>
+      <div style="white-space:nowrap;"><span style="font-family:'Inter',sans-serif; font-weight:700; font-size:{{ numSize }}; color:rgb(0,101,155);">{{ s.num }}</span> <span style="font-size:{{ unitSize }}; color:rgb(50,100,150);">{{ s.unit }}</span></div>
+    </div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:200,&quot;height&quot;:56},&quot;pairs&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;Array&lt;{label:string,num:string,unit?:string}&gt;&quot;},&quot;size&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;md&quot;,&quot;options&quot;:[&quot;md&quot;,&quot;lg&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const size = this.props.size || "md";
+    const S = size === "lg"
+      ? { numSize: "24px", labelSize: "13px", unitSize: "15px" }
+      : { numSize: "20px", labelSize: "12px", unitSize: "14px" };
+    return {
+      pairs: (this.props.pairs || []).map(p => ({ label: p.label, num: p.num, unit: p.unit || "" })),
+      ...S,
+    };
+  }
+}
+</script>
+</body>
+</html>

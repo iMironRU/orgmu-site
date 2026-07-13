@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;background:rgb(251,251,251);}@media(max-width:768px){.rail-col{display:none!important}.nt-main{padding:24px 20px 48px!important}.nt-hero{padding:24px 20px!important}}</style>
+</helmet>
+<div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
+  <div class="rail-col" style="flex:0 0 auto; align-self:stretch; display:flex;"><dc-import name="SideRail" hint-size="94px,100%" style="align-self:stretch;"></dc-import></div>
+
+  <div style="flex:1 1 auto; min-width:0; display:flex; flex-direction:column;">
+    <dc-import name="SiteHeader" hint-size="100%,120px"></dc-import>
+
+    <!-- Hero: solid urgency color, no photo — visually distinct from News (photo hero) and Events (poster hero) -->
+    <div style="background:{{ accent }}; color:#fff;">
+      <div class="nt-hero" style="max-width:900px; margin:0 auto; padding:32px 40px; box-sizing:border-box;">
+        <div style="display:flex; align-items:center; gap:8px; font-size:15px; color:rgba(255,255,255,0.75); margin-bottom:16px; flex-wrap:wrap;">
+          <a href="Home.dc.html" style="color:rgba(255,255,255,0.9); text-decoration:none;">Главная</a><span>/</span>
+          <span>Известия</span><span>/</span>
+          <span>{{ title }}</span>
+        </div>
+        <span style="display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#fff; background:rgba(255,255,255,0.22); border-radius:6px; padding:6px 12px; margin-bottom:14px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3Z"></path><path d="M12 10v4M12 17.5v.01"></path></svg>{{ tag }}</span>
+        <h1 style="margin:0 0 14px; font-family:'Inter',sans-serif; font-weight:700; font-size:36px; line-height:1.12; color:#fff; text-wrap:balance;">{{ title }}</h1>
+        <div style="display:flex; align-items:center; gap:8px; font-size:16px; color:rgba(255,255,255,0.9);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5V12l3 2"></path></svg>
+          {{ issuedBy }} · действует до {{ until }}
+        </div>
+      </div>
+    </div>
+
+    <main class="nt-main" style="max-width:900px; width:100%; margin:0 auto; padding:36px 40px 64px; box-sizing:border-box; flex:1;">
+      <div style="background:#fff; border:1px solid rgb(238,238,238); border-radius:14px; padding:28px 30px; display:flex; flex-direction:column; gap:18px;">
+        <div style="font-size:19px; line-height:1.7; color:rgb(49,49,49); display:flex; flex-direction:column; gap:16px;">
+          <sc-for list="{{ body }}" as="p" hint-placeholder-count="2">
+            <p style="margin:0;">{{ p.text }}<sc-if value="{{ p.hasLink }}" hint-placeholder-val="{{ false }}"> <a href="{{ p.linkHref }}" style="color:rgb(184,57,4); font-weight:700; text-decoration:none;" style-hover="text-decoration:underline;">{{ p.linkLabel }}</a>{{ p.after }}</sc-if></p>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:10px; margin-top:24px; padding:16px 18px; background:rgb(240,246,250); border:1px solid rgb(214,230,240); border-radius:10px; font-size:14.5px; line-height:1.5; color:rgb(50,100,150);">
+        <span style="flex:0 0 auto; color:rgb(0,101,155);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 8h.01M11 12h1v4h1"></path></svg></span>
+        Известие — короткое срочное уведомление от администрации, действует ограниченный срок. Это не редакционная новость: подробный разбор события появится позже в разделе «Новости», если потребуется.
+      </div>
+
+      <a href="Home.dc.html" style="display:inline-block; margin-top:22px; font-weight:700; font-size:16px; color:rgb(184,57,4); text-decoration:none;">← На главную</a>
+    </main>
+
+    <dc-import name="SiteFooter" hint-size="100%,320px"></dc-import>
+    <dc-import name="CookieBanner" hint-size="1px,1px"></dc-import>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      tag: "Срочно", accent: "rgb(255,59,48)",
+      title: "Приём документов завершается",
+      issuedBy: "Приёмная комиссия",
+      until: "8 июля 2026",
+      body: [
+        { text: "Последний день подачи оригиналов документов для зачисления на бюджетные и договорные места — 8 июля. Абитуриенты, ещё не предоставившие оригинал аттестата или диплома, должны сделать это до 18:00.", hasLink: false, linkHref: "", linkLabel: "", after: "" },
+        { text: "Приём документов ведёт", hasLink: true, linkHref: "Admissions.dc.html", linkLabel: "приёмная комиссия", after: " — адрес, часы работы и перечень документов на её странице." },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

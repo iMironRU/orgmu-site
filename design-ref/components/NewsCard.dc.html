@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
+</helmet>
+<a href="{{ href }}" style="display:flex; flex-direction:column; gap:14px; text-decoration:none; background:rgb(255,255,255); border:1px solid rgb(238,238,238); border-radius:8px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,0.08); transition:box-shadow 240ms cubic-bezier(0.4,0,0.2,1), transform 240ms cubic-bezier(0.4,0,0.2,1);" style-hover="box-shadow:0 8px 20px rgba(0,0,0,0.12); transform:translateY(-2px);">
+  <sc-if value="{{ hasImage }}" hint-placeholder-val="{{ true }}">
+    <div style="width:100%; aspect-ratio:16/10; background-color:rgb(238,238,238); background-image:{{ imageCss }}; background-size:cover; background-position:center;"></div>
+  </sc-if>
+  <div style="display:flex; flex-direction:column; gap:8px; padding:0 18px 18px 18px;">
+    <div style="display:flex; align-items:center; gap:8px;">
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:{{ kindColor }}; background:{{ kindBg }}; border-radius:6px; padding:3px 9px;">{{ kindLabel }}</span>
+      <span style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:rgb(137,191,234);">{{ date }}</span>
+    </div>
+    <span style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:20px; line-height:1.15; color:rgb(0,101,155); text-wrap:pretty;">{{ title }}</span>
+    <sc-if value="{{ excerpt }}" hint-placeholder-val="text">
+      <span style="font-family:'Roboto Condensed',sans-serif; font-weight:400; font-size:16px; line-height:1.4; color:rgb(50,100,150); text-wrap:pretty;">{{ excerpt }}</span>
+    </sc-if>
+  </div>
+</a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:404,&quot;height&quot;:360},&quot;image&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/corpus.jpg&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;date&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;3 октября 2023&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Второй этап конкурса «Лучший врач педиатр участковый»&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;excerpt&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;kind&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;event&quot;,&quot;options&quot;:[&quot;event&quot;,&quot;announce&quot;,&quot;congrats&quot;,&quot;science&quot;,&quot;dept&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const img = this.props.image;
+    const KIND = {
+      event:    { label: "Событие",       color: "rgb(0,101,155)",  bg: "rgba(184,57,4,0.14)" },
+      announce: { label: "Объявление",    color: "rgb(30,140,155)", bg: "rgba(48,176,199,0.14)" },
+      congrats: { label: "Поздравление",  color: "rgb(140,80,180)", bg: "rgba(175,110,220,0.14)" },
+      science:  { label: "Наука",         color: "rgb(30,160,80)",  bg: "rgba(52,199,89,0.14)" },
+      dept:     { label: "Подразделения", color: "rgb(130,100,70)", bg: "rgba(170,136,99,0.16)" },
+    };
+    const k = KIND[this.props.kind] || KIND.event;
+    return {
+      href: this.props.href ?? "Article.dc.html",
+      date: this.props.date ?? "3 октября 2023",
+      title: this.props.title ?? "Второй этап конкурса «Лучший врач педиатр участковый»",
+      excerpt: this.props.excerpt ?? "",
+      hasImage: !!img,
+      imageCss: img ? `url("${img}")` : "none",
+      kindLabel: k.label, kindColor: k.color, kindBg: k.bg,
+    };
+  }
+}
+</script>
+</body>
+</html>
