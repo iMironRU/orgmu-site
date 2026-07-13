@@ -2,6 +2,8 @@ import Link from "next/link";
 import { listSectionKeys, getSection } from "@/lib/sveden/vocab";
 import { SECTION_LABELS, SECTION_SHORT, SECTION_LEADS } from "@/lib/sveden/labels";
 import { SvedenSection } from "@/components/sveden/SvedenSection";
+import { DocumentsView } from "@/components/sveden/DocumentsView";
+import { getDocumentGroups } from "@/lib/sveden/documents";
 
 // Страница раздела «Сведения об ОО» по макету Svedenia: титульная плашка +
 // две колонки (слева навигация по 14 подразделам, справа контент подраздела).
@@ -103,23 +105,29 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
             </p>
           )}
 
-          <SvedenSection sectionKey={sectionKey} section={section} />
+          {sectionKey === "document" ? (
+            <DocumentsView groups={getDocumentGroups()} />
+          ) : (
+            <>
+              <SvedenSection sectionKey={sectionKey} section={section} />
 
-          {/* Плашка про машиночитаемость */}
-          <div className="flex gap-3 px-[18px] py-4 bg-bg-muted border border-dashed border-line-strong rounded-[10px] mt-1">
-            <span className="shrink-0 text-teal flex">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="4" width="18" height="16" rx="2" />
-                <path d="M7 9h10M7 13h6" />
-              </svg>
-            </span>
-            <div className="text-[14px] leading-[1.5] text-ink-2 font-ui">
-              Подраздел содержит машиночитаемую разметку по спецификации
-              Рособрнадзора (приказ № 1493): значения полей проставлены в
-              атрибутах <code>itemprop</code> для автоматического сбора
-              мониторингом.
-            </div>
-          </div>
+              {/* Плашка про машиночитаемость */}
+              <div className="flex gap-3 px-[18px] py-4 bg-bg-muted border border-dashed border-line-strong rounded-[10px] mt-1">
+                <span className="shrink-0 text-teal flex">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <path d="M7 9h10M7 13h6" />
+                  </svg>
+                </span>
+                <div className="text-[14px] leading-[1.5] text-ink-2 font-ui">
+                  Подраздел содержит машиночитаемую разметку по спецификации
+                  Рособрнадзора (приказ № 1493): значения полей проставлены в
+                  атрибутах <code>itemprop</code> для автоматического сбора
+                  мониторингом.
+                </div>
+              </div>
+            </>
+          )}
         </article>
       </div>
     </>
