@@ -8,10 +8,10 @@
     - title: О вузе
       items:
         - { label: История, href: "#" }
-        - { label: Руководство, href: "#" }
+        - { label: Руководство, href: "/sveden/managers" }
         - { label: Учёный совет, href: "#" }
-        - { label: Структура, href: "#" }
-        - { label: Документы, href: "#" }
+        - { label: Структура, href: "/sveden/struct" }
+        - { label: Документы, href: "/sveden/document" }
         - { label: Контакты, href: "#" }
     - title: Сотруднику
       items:
