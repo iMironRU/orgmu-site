@@ -65,7 +65,10 @@ export function SideRail() {
   const [langOpen, setLangOpen] = useState(false);
 
   return (
-    <aside className="hidden min-[769px]:flex w-[94px] self-stretch shrink-0 bg-brand flex-col z-[300]">
+    <aside
+      data-a11y-surface="brand"
+      className="hidden min-[769px]:flex w-[94px] self-stretch shrink-0 bg-brand flex-col z-[300]"
+    >
       <div className="sticky top-0 flex flex-col items-center py-5 font-ui">
         {/* Поиск */}
         <div className="flex flex-col items-center gap-2">
@@ -138,7 +141,7 @@ export function SideRail() {
               </div>
             )}
           </div>
-          <Link href="#" title="Настройки доступности" className={RAIL_ICON}>
+          <Link href="/dostupnost" title="Настройки доступности" className={RAIL_ICON}>
             {ICONS.access}
           </Link>
         </div>

@@ -4,7 +4,9 @@ import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SideRail } from "@/components/SideRail";
+import { CookieBanner } from "@/components/CookieBanner";
 import { getMainMenu, getFooter } from "@/lib/content/navigation";
+import { A11Y_INLINE_SCRIPT } from "@/lib/a11y";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,15 +39,19 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
+      suppressHydrationWarning
       className={`${inter.variable} ${robotoCondensed.variable} h-full antialiased`}
     >
       <body className="min-h-full flex items-stretch">
+        {/* Раннее применение настроек доступности до гидрации — без мигания */}
+        <script dangerouslySetInnerHTML={{ __html: A11Y_INLINE_SCRIPT }} />
         <SideRail />
-        <div className="flex-1 min-w-0 flex flex-col">
+        <div className="a11y-zoom flex-1 min-w-0 flex flex-col">
           <SiteHeader nav={nav} />
           <div className="flex-1">{children}</div>
           <SiteFooter footer={footer} />
         </div>
+        <CookieBanner />
       </body>
     </html>
   );

@@ -75,3 +75,79 @@ body {
 }
 .prose-news table { border-collapse: collapse; max-width: 100%; }
 .prose-news td, .prose-news th { border: 1px solid var(--c-line); padding: 6px 10px; }
+
+/* ==========================================================================
+   Версия для слабовидящих. Настройки — data-атрибуты на <html>
+   (data-a11y-font | data-a11y-theme | data-a11y-spacing | data-a11y-images),
+   выставляются AccessibilityControls и ранним инлайн-скриптом в layout.
+   ========================================================================== */
+
+/* — Размер шрифта: зум контентной колонки (текст в макете в px, зум масштабирует всё) */
+html[data-a11y-font="1"] .a11y-zoom { zoom: 1.15; }
+html[data-a11y-font="2"] .a11y-zoom { zoom: 1.32; }
+
+/* — Межбуквенный интервал */
+html[data-a11y-spacing="1"] body { letter-spacing: 0.08em; }
+html[data-a11y-spacing="2"] body { letter-spacing: 0.14em; }
+
+/* — Отключение изображений */
+html[data-a11y-images="off"] img { display: none !important; }
+html[data-a11y-images="off"] .a11y-decorative { background-image: none !important; }
+
+/* — Цветовые схемы: переопределяем токены — перекрашивается весь сайт, т.к.
+     компоненты используют var(--c-*). */
+html[data-a11y-theme="darkblue"] {
+  --c-bg: rgb(9,42,66); --c-bg-muted: rgb(7,33,52);
+  --c-ink: rgb(214,231,242); --c-ink-2: rgb(184,209,229); --c-ink-3: rgb(150,185,215);
+  --c-brand: rgb(255,255,255); --c-brand-strong: rgb(220,235,250);
+  --c-steel: rgb(165,200,228); --c-accent: rgb(137,191,234); --c-link: rgb(137,191,234);
+  --c-line: rgba(255,255,255,0.22); --c-line-strong: rgba(255,255,255,0.4);
+  --c-sky-soft: rgb(137,191,234);
+}
+html[data-a11y-theme="contrast"] {
+  --c-bg: #000; --c-bg-muted: #000;
+  --c-ink: rgb(255,220,0); --c-ink-2: rgb(255,220,0); --c-ink-3: rgb(255,220,0);
+  --c-brand: rgb(255,220,0); --c-brand-strong: rgb(255,220,0);
+  --c-steel: rgb(255,220,0); --c-accent: rgb(255,220,0); --c-link: rgb(255,220,0);
+  --c-line: rgba(255,220,0,0.5); --c-line-strong: rgb(255,220,0);
+  --c-sky-soft: rgb(255,220,0);
+}
+html[data-a11y-theme="sepia"] {
+  --c-bg: rgb(247,238,214); --c-bg-muted: rgb(240,230,205);
+  --c-ink: rgb(66,52,32); --c-ink-2: rgb(92,74,50); --c-ink-3: rgb(122,102,74);
+  --c-brand: rgb(96,64,32); --c-brand-strong: rgb(70,46,22);
+  --c-steel: rgb(110,88,60); --c-accent: rgb(150,90,25); --c-link: rgb(150,90,25);
+  --c-line: rgb(220,208,180); --c-line-strong: rgb(200,185,150);
+  --c-sky-soft: rgb(150,110,60);
+}
+
+/* Фирменные синие плашки (боковая панель, подвал, герой) при активной теме
+   приводим к цветам темы, чтобы не терять читаемость (белый текст на цвете темы). */
+html[data-a11y-theme="darkblue"] [data-a11y-surface="brand"],
+html[data-a11y-theme="contrast"] [data-a11y-surface="brand"],
+html[data-a11y-theme="sepia"] [data-a11y-surface="brand"] {
+  background: var(--c-bg-muted) !important;
+  color: var(--c-ink) !important;
+  border-color: var(--c-line-strong);
+}
+html[data-a11y-theme="darkblue"] [data-a11y-surface="brand"] :where(a, span, button, svg, nav, div, h1, h2, p),
+html[data-a11y-theme="contrast"] [data-a11y-surface="brand"] :where(a, span, button, svg, nav, div, h1, h2, p),
+html[data-a11y-theme="sepia"] [data-a11y-surface="brand"] :where(a, span, button, svg, nav, div, h1, h2, p) {
+  color: var(--c-ink) !important;
+  background-color: transparent !important;
+}
+/* Белые поверхности (карточки, шапка, баннеры используют литеральный bg-white)
+   в теме подхватывают цвет фона темы — иначе тёмный текст на белом теряется. */
+html[data-a11y-theme="darkblue"] .bg-white,
+html[data-a11y-theme="contrast"] .bg-white,
+html[data-a11y-theme="sepia"] .bg-white { background-color: var(--c-bg) !important; }
+
+/* Кнопки/ссылки с брендовым или акцентным фоном: в теме текст на них делаем
+   цветом фона темы (тёмным/светлым), чтобы белый текст не сливался. */
+html[data-a11y-theme] :where(a, button).bg-brand,
+html[data-a11y-theme] :where(a, button).bg-accent { color: var(--c-bg) !important; }
+
+/* В теме прячем декоративный фон героя всегда (иначе фото перебивает тему) */
+html[data-a11y-theme="darkblue"] .a11y-decorative,
+html[data-a11y-theme="contrast"] .a11y-decorative,
+html[data-a11y-theme="sepia"] .a11y-decorative { background-image: none !important; }

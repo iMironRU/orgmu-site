@@ -19,7 +19,7 @@ function Lines({ lines }: { lines: string[] }) {
 export function SiteFooter({ footer }: { footer: Footer }) {
   const { org, columns } = footer;
   return (
-    <footer className="bg-brand text-white font-ui">
+    <footer className="bg-brand text-white font-ui" data-a11y-surface="brand">
       <div className="ft-top mx-auto max-w-[1146px] px-6 py-12 grid grid-cols-[1.4fr_1fr_1fr] gap-10 max-[640px]:grid-cols-1 max-[640px]:gap-7">
         <div className="flex flex-col gap-4">
           <span className="font-bold text-[20px] leading-[1.2]">

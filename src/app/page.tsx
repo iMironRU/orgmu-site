@@ -9,9 +9,9 @@ export default function HomePage() {
   return (
     <>
       {/* Герой */}
-      <section className="relative bg-brand text-white">
+      <section className="relative bg-brand text-white" data-a11y-surface="brand">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-25"
+          className="a11y-decorative absolute inset-0 bg-cover bg-center opacity-25"
           style={{ backgroundImage: `url('${asset("/brand/corpus.jpg")}')` }}
           aria-hidden
         />
