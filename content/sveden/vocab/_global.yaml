@@ -1,0 +1,14 @@
+# Общий технический слой sveden. Источник: Метод. рекомендации Рособрнадзора,
+# п.3.1 + введение. Append-only — правила стабильны между версиями v8.9.1 и v9.0.0.
+version_source: "Метод. рекомендации v9.0.0; Приказ Рособрнадзора № 1493 (в ред. № 1353)"
+rules:
+  attr_style: "lowerCamelCase"
+  missing_value: "отсутствует"            # или «нет» — размечать тем же itemprop
+  a11y_attr: "copy"                       # версия для слабовидящих — НА КАЖДОЙ странице
+  visible: true                           # размеченные данные видимы посетителю (не скрывать)
+  split_pages: { attr: "addRef", max: 10 } # разбиение подраздела на доп. страницы
+patterns:
+  no_root: '<div itemprop="ATTR">значение</div>'
+  with_root: '<div itemprop="ROOT"><div itemprop="CHILD">значение</div></div>'
+  table_row_root: '<tr itemprop="ROOT"><td itemprop="CHILD">значение</td></tr>'
+checker: "АИС «Мониторинг» — https://ais-monitoring.obrnadzor.gov.ru"

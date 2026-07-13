@@ -1,0 +1,380 @@
+# Словарь микроразметки sveden. base = стабильное ядро. Дельты приказов — append-only.
+# Источник истины: Методические рекомендации Рособрнадзора v9.0.0 (Москва 2025).
+# Поле: { itemprop, from: <путь в data> }. status: verified/TBD.
+# Принцип «универсальности»: словарь покрывает ВСЕ атрибуты документа, без оглядки
+#   на конкретную ОО. «Отсутствует»/«0» НЕ зашивается в словарь как const — это
+#   результат пустых данных на рендере (правило «отсутствует» в _global.yaml).
+# from: "TBD" — поле ещё не сведено со схемой instance.schema.yaml (предложение — в комментарии).
+# Нотация итератора (правило): на группе from = коллекция с "[]"; на поле from = "<singular>.path"
+#   (subdivisions[]→subdivision.*, programs[]→program.*, teachers[]→teacher.*);
+#   собственные под-списки поля сохраняют свой "[]" (напр. program.docs.rpd[]).
+# a11y: "copy" — версия для слабовидящих; в v9.0.0 присутствует в каждой таблице,
+#   но срок требования оговорён до 01.09.2025 (стр.19) — помечено в комментариях.
+
+common:                                   # ✅ Табл. 3.2.1, п.3.2
+  url: "/sveden/common"
+  a11y: "copy"            # Табл.3.2.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.2.1"
+  fields:
+    fullName:   { itemprop: "fullName",   from: "org.full_name" }
+    shortName:  { itemprop: "shortName",  from: "org.short_name" }
+    regDate:    { itemprop: "regDate",    from: "org.registered" }
+    address:    { itemprop: "address",    from: "org.address.legal" }
+    workTime:   { itemprop: "workTime",   from: "org.work_time" }
+    telephone:  { itemprop: "telephone",  from: "org.contacts.phone" }
+    email:      { itemprop: "email",      from: "org.contacts.email" }
+    licenseDocLink:       { itemprop: "licenseDocLink",       from: "org.license.link" }
+    accreditationDocLink: { itemprop: "accreditationDocLink", from: "TBD" }   # org.accreditation.link; с 01.09.2025 каноническое место — /education (стр.16)
+    addressPlaceDop:  { itemprop: "addressPlaceDop",  from: "org.address.legal", note: "место по ДО/ДПО; при онлайн — адрес ОО" }
+    addressPlaceSet:  { itemprop: "addressPlaceSet",  from: "TBD" }   # org.places.network[]  (сетевая форма)
+    addressPlacePrac: { itemprop: "addressPlacePrac", from: "TBD" }   # org.places.practice[] (места практики)
+    addressPlacePodg: { itemprop: "addressPlacePodg", from: "TBD" }   # org.places.podg[]     (практическая подготовка)
+    addressPlaceGia:  { itemprop: "addressPlaceGia",  from: "TBD" }   # org.places.gia[]      (ГИА)
+    addressPlaceOppo: { itemprop: "addressPlaceOppo", from: "TBD" }   # org.places.oppo[]     (осн. программы проф. обучения)
+  groups:
+    uchredLaw:                            # главный тег — на каждого учредителя
+      itemprop: "uchredLaw"
+      from: "org.founders[]"
+      fields:
+        nameUchred:    { itemprop: "nameUchred",    from: "founder.name" }
+        addressUchred: { itemprop: "addressUchred", from: "founder.address" }
+        telUchred:     { itemprop: "telUchred",     from: "founder.phone" }
+        mailUchred:    { itemprop: "mailUchred",    from: "founder.email" }
+        websiteUchred: { itemprop: "websiteUchred", from: "founder.site" }
+
+struct:                                   # ✅ Табл. 3.3.1, п.3.3
+  url: "/sveden/struct"
+  a11y: "copy"            # Табл.3.3.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.3.1"
+  groups:
+    structOrgUprav:
+      itemprop: "structOrgUprav"
+      from: "subdivisions[]"
+      fields:
+        name:       { itemprop: "name",                 from: "subdivision.name" }
+        fio:        { itemprop: "fio",                   from: "subdivision.head" }
+        post:       { itemprop: "post",                  from: "subdivision.head_post" }
+        addressStr: { itemprop: "addressStr",            from: "org.address.legal" }
+        site:       { itemprop: "site",                  from: "org.contacts.site" }
+        email:      { itemprop: "email",                 from: "org.contacts.email" }
+        doc:        { itemprop: "divisionClauseDocLink", from: "docs.polozhenie_podrazdelenie" }
+    filInfo:                              # филиалы — добавлено в v9.0.0-универсал
+      itemprop: "filInfo"
+      from: "TBD"          # org.branches[]  (общая коллекция с managers.rucovodstvoFil)
+      fields:
+        nameFil:    { itemprop: "nameFil",               from: "TBD" }   # branch.name
+        fioFil:     { itemprop: "fioFil",                from: "TBD" }   # branch.head_name
+        postFil:    { itemprop: "postFil",               from: "TBD" }   # branch.head_post
+        addressFil: { itemprop: "addressFil",            from: "TBD" }   # branch.address
+        emailFil:   { itemprop: "emailFil",              from: "TBD" }   # branch.email
+        websiteFil: { itemprop: "websiteFil",            from: "TBD" }   # branch.site
+        doc:        { itemprop: "divisionClauseDocLink", from: "TBD" }   # branch.polozhenie
+    repInfo:                              # представительства — добавлено в v9.0.0-универсал
+      itemprop: "repInfo"
+      from: "TBD"          # org.representations[]
+      fields:
+        nameRep:    { itemprop: "nameRep",               from: "TBD" }   # rep.name
+        fioRep:     { itemprop: "fioRep",                from: "TBD" }   # rep.head_name
+        postRep:    { itemprop: "postRep",               from: "TBD" }   # rep.head_post
+        addressRep: { itemprop: "addressRep",            from: "TBD" }   # rep.address
+        emailRep:   { itemprop: "emailRep",              from: "TBD" }   # rep.email
+        websiteRep: { itemprop: "websiteRep",            from: "TBD" }   # rep.site
+        doc:        { itemprop: "divisionClauseDocLink", from: "TBD" }   # rep.polozhenie
+
+document:                                 # ✅ Табл. 3.4.1, п.3.4
+  url: "/sveden/document"
+  a11y: "copy"            # Табл.3.4.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.4.1"
+  fields:                                 # главного тега нет — одиночные ссылки на корне
+    ustavDocLink:        { itemprop: "ustavDocLink",        from: "TBD" }   # docs.ustav
+    localActStud:        { itemprop: "localActStud",        from: "TBD" }   # docs.pvr_obuchayushihsya
+    localActOrder:       { itemprop: "localActOrder",       from: "TBD" }   # docs.pvtr
+    localActCollec:      { itemprop: "localActCollec",      from: "TBD" }   # docs.kollektivnyy_dogovor (при наличии)
+    reportEduDocLink:    { itemprop: "reportEduDocLink",    from: "TBD" }   # docs.samoobsledovanie
+    prescriptionDocLink: { itemprop: "prescriptionDocLink", from: "TBD" }   # docs.predpisaniya (нет → «предписаний нет» на рендере)
+    priemDocLink:        { itemprop: "priemDocLink",        from: "TBD" }   # docs.priem (ЛНА)
+    modeDocLink:         { itemprop: "modeDocLink",         from: "TBD" }   # docs.rezhim_zanyatiy (ЛНА)
+    tekKontrolDocLink:   { itemprop: "tekKontrolDocLink",   from: "TBD" }   # docs.tekushchiy_kontrol (ЛНА)
+    perevodDocLink:      { itemprop: "perevodDocLink",      from: "TBD" }   # docs.perevod_otchislenie (ЛНА)
+    vozDocLink:          { itemprop: "vozDocLink",          from: "TBD" }   # docs.vozniknovenie_otnosheniy (ЛНА)
+  # ОТКРЫТО: структура ЛНА — коллекция docs.lna[] с дискриминатором vs отдельные поля docs.*
+
+education:                                # ✅ Табл. 3.5.1, п.3.5 — 4 главных тега + 4 эл.документа
+  url: "/sveden/education"
+  a11y: "copy"            # Табл.3.5.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.5.1"
+  fields:                                 # одиночные эл.документы без главного тега
+    languageEl:   { itemprop: "languageEl",   from: "TBD" }   # docs.languages (ЭД — языки обучения)
+    eduChislenEl: { itemprop: "eduChislenEl", from: "TBD" }   # docs.chislennost (ЭД — численность обучающихся)
+    eduPriemEl:   { itemprop: "eduPriemEl",   from: "TBD" }   # docs.priem_results (ЭД — результаты приёма)
+    eduPerevodEl: { itemprop: "eduPerevodEl", from: "TBD" }   # docs.perevod_results (ЭД — перевод/восстановление/отчисление)
+    # ПРИМЕЧАНИЕ: accreditationDocLink (определён в common, Табл.3.2.1) с 01.09.2025 размещается на этой странице (стр.16), но как атрибут принадлежит common
+  groups:
+    eduAccred:                            # реализуемые уровни/формы/сроки
+      itemprop: "eduAccred"
+      from: "programs[]"
+      fields:
+        eduCode:      { itemprop: "eduCode",      from: "TBD" }            # program.code
+        eduName:      { itemprop: "eduName",      from: "program.title" }
+        eduProf:      { itemprop: "eduProf",      from: "TBD" }            # program.profile
+        eduLevel:     { itemprop: "eduLevel",     from: "program.type" }
+        eduForm:      { itemprop: "eduForm",      from: "program.form" }
+        learningTerm: { itemprop: "learningTerm", from: "program.term" }   # нормативный срок (для ДПП — объём/срок)
+        eduPred:      { itemprop: "eduPred",      from: "TBD" }            # program.subjects (предметы/курсы/дисциплины)
+        eduPrac:      { itemprop: "eduPrac",      from: "TBD" }            # program.practices
+    eduOp:                                # по каждой ОП, в т.ч. адаптированной (отдельного eduAdOp в v9.0.0 нет)
+      itemprop: "eduOp"
+      from: "programs[]"
+      fields:
+        eduCode:          { itemprop: "eduCode",          from: "TBD" }            # program.code
+        eduName:          { itemprop: "eduName",          from: "program.title" }
+        eduLevel:         { itemprop: "eduLevel",         from: "program.type" }
+        eduProf:          { itemprop: "eduProf",          from: "TBD" }            # program.profile
+        eduForm:          { itemprop: "eduForm",          from: "program.form" }
+        opMain:           { itemprop: "opMain",           from: "TBD" }            # program.docs.op_main (ЭД)
+        educationPlan:    { itemprop: "educationPlan",    from: "TBD" }            # program.docs.plan (ЭД)
+        educationRpd:     { itemprop: "educationRpd",     from: "TBD" }            # program.docs.rpd[] (ЭД, по каждой дисциплине — список)
+        educationShedule: { itemprop: "educationShedule", from: "TBD" }            # program.docs.schedule (ЭД; sic — «Shedule» из источника)
+        eduPr:            { itemprop: "eduPr",            from: "TBD" }            # program.docs.practice_programs (ЭД)
+        methodology:      { itemprop: "methodology",      from: "TBD" }            # program.docs.methodology (ЭД + раб. программы воспитания)
+    eduNir:                               # научная деятельность (для ВО и ДПО)
+      itemprop: "eduNir"
+      from: "programs[]"
+      fields:
+        eduCode:     { itemprop: "eduCode",     from: "TBD" }            # program.code
+        eduName:     { itemprop: "eduName",     from: "program.title" }
+        perechenNir: { itemprop: "perechenNir", from: "TBD" }            # program.nir.directions
+        eduProf:     { itemprop: "eduProf",     from: "TBD" }            # program.profile
+        eduLevel:    { itemprop: "eduLevel",    from: "program.type" }
+        resultNir:   { itemprop: "resultNir",   from: "TBD" }            # program.nir.results
+        baseNir:     { itemprop: "baseNir",     from: "TBD" }            # program.nir.base
+        napravNir:   { itemprop: "napravNir",   from: "TBD" }            # program.nir.school (пример стр.48; в Табл.3.5.1 нет — опциональный)
+    graduateJob:                          # трудоустройство выпускников
+      itemprop: "graduateJob"
+      from: "programs[]"
+      fields:
+        eduCode: { itemprop: "eduCode", from: "TBD" }            # program.code
+        eduName: { itemprop: "eduName", from: "program.title" }
+        eduProf: { itemprop: "eduProf", from: "TBD" }            # program.profile
+        v1:      { itemprop: "v1",      from: "TBD" }            # program.graduates.total (выпускников прошлого года)
+        t1:      { itemprop: "t1",      from: "TBD" }            # program.graduates.employed (трудоустроено)
+
+eduStandarts:                             # ✅ Табл. 3.6.1, п.3.6 — главного тега нет
+  url: "/sveden/eduStandarts"
+  a11y: "copy"            # Табл.3.6.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.6.1"
+  fields:
+    eduFedDoc:       { itemprop: "eduFedDoc",       from: "TBD" }   # docs.fgos | гиперссылка на минобрнауки
+    eduStandartDoc:  { itemprop: "eduStandartDoc",  from: "TBD" }   # docs.edu_standart (ЭД, при наличии)
+    eduFedTreb:      { itemprop: "eduFedTreb",      from: "TBD" }   # docs.fed_trebovaniya
+    eduStandartTreb: { itemprop: "eduStandartTreb", from: "TBD" }   # docs.sam_trebovaniya (ЭД, при наличии)
+
+managers:                                 # ✅ Табл. 3.7.1, п.3.7
+  url: "/sveden/managers"
+  a11y: "copy"            # Табл.3.7.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.7.1"
+  groups:
+    rucovodstvo:
+      itemprop: "rucovodstvo"
+      from: "org.director"         # singleton — путь полный, не итератор
+      fields:
+        fio:       { itemprop: "fio",       from: "org.director.name" }
+        post:      { itemprop: "post",      from: "org.director.position" }
+        telephone: { itemprop: "telephone", from: "TBD" }   # org.director.phone
+        email:     { itemprop: "email",     from: "TBD" }   # org.director.email
+    rucovodstvoZam:
+      itemprop: "rucovodstvoZam"
+      from: "TBD"                   # org.deputies[]
+      fields:
+        fio:       { itemprop: "fio",       from: "TBD" }   # deputy.name
+        post:      { itemprop: "post",      from: "TBD" }   # deputy.position
+        telephone: { itemprop: "telephone", from: "TBD" }   # deputy.phone
+        email:     { itemprop: "email",     from: "TBD" }   # deputy.email
+    rucovodstvoFil:
+      itemprop: "rucovodstvoFil"
+      from: "TBD"                   # org.branches[] (общая с struct.filInfo)
+      fields:
+        nameFil:   { itemprop: "nameFil",   from: "TBD" }   # branch.name
+        fio:       { itemprop: "fio",       from: "TBD" }   # branch.head_name
+        post:      { itemprop: "post",      from: "TBD" }   # branch.head_post
+        telephone: { itemprop: "telephone", from: "TBD" }   # branch.head_phone
+        email:     { itemprop: "email",     from: "TBD" }   # branch.head_email
+
+employees:                                # ✅ Табл. 3.8.1, п.3.8
+  url: "/sveden/employees"
+  a11y: "copy"            # Табл.3.8.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.8.1"
+  groups:
+    teachingStaff:
+      itemprop: "teachingStaff"
+      from: "teachers[]"
+      fields:
+        fio:                { itemprop: "fio",                from: "teacher.fio" }
+        post:               { itemprop: "post",               from: "teacher.position" }
+        teachingDiscipline: { itemprop: "teachingDiscipline", from: "teacher.taught" }
+        teachingLevel:      { itemprop: "teachingLevel",      from: "teacher.education" }
+        degree:             { itemprop: "degree",             from: "TBD" }   # teacher.degree
+        academStat:         { itemprop: "academStat",         from: "TBD" }   # teacher.academ_status
+        qualification:      { itemprop: "qualification",      from: "TBD" }   # teacher.qualification (3 года)
+        profDevelopment:    { itemprop: "profDevelopment",    from: "TBD" }   # teacher.prof_retraining
+        specExperience:     { itemprop: "specExperience",     from: "TBD" }   # teacher.experience_years
+        teachingOp:         { itemprop: "teachingOp",         from: "TBD" }   # teacher.programs
+
+objects:                                  # ✅ Табл. 3.9.1, п.3.9 — 4 главных тега + 16 одиночных
+  url: "/sveden/objects"
+  a11y: "copy"            # Табл.3.9.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.9.1"
+  fields:                                 # одиночные: доступная среда, средства, сети, общежития
+    ovz:             { itemprop: "ovz",             from: "infra.ovz" }            # беспрепятственный доступ в здания
+    purposeFacil:    { itemprop: "purposeFacil",    from: "TBD" }                  # infra.facilities (средства обучения и воспитания)
+    purposeFacilOvz: { itemprop: "purposeFacilOvz", from: "TBD" }                  # infra.facilities_ovz
+    comNet:          { itemprop: "comNet",          from: "infra.platform.url" }   # доступ к ИС/сетям; ЭИОС-платформа (в v9.0.0 отдельного eios/purposeEios нет)
+    comNetOvz:       { itemprop: "comNetOvz",       from: "TBD" }                  # infra.networks_ovz
+    erList:          { itemprop: "erList",          from: "TBD" }                  # infra.eor[] (ЭОР — список; включает ЭИОС-платформу infra.platform.url)
+    erListOvz:       { itemprop: "erListOvz",       from: "TBD" }                  # infra.eor_ovz[]
+    techOvz:         { itemprop: "techOvz",         from: "TBD" }                  # infra.tech_ovz (спец. технические средства обучения)
+    hostelInfo:      { itemprop: "hostelInfo",      from: "TBD" }                  # infra.hostel.count        (общая с grants)
+    interInfo:       { itemprop: "interInfo",       from: "TBD" }                  # infra.intern.count        (общая с grants)
+    hostelNum:       { itemprop: "hostelNum",       from: "TBD" }                  # infra.hostel.places       (общая с grants)
+    hostelNumOvz:    { itemprop: "hostelNumOvz",    from: "TBD" }                  # infra.hostel.places_ovz   (общая с grants)
+    interNum:        { itemprop: "interNum",        from: "TBD" }                  # infra.intern.places       (общая с grants)
+    interNumOvz:     { itemprop: "interNumOvz",     from: "TBD" }                  # infra.intern.places_ovz   (общая с grants)
+    hostelInterOvz:  { itemprop: "hostelInterOvz",  from: "TBD" }                  # infra.hostel_intern_access (только objects)
+    localActObSt:    { itemprop: "localActObSt",    from: "TBD" }                  # docs.hostel_payment       (общая с grants)
+  groups:
+    purposeCab:                           # оборудованные учебные кабинеты
+      itemprop: "purposeCab"
+      from: "TBD"          # infra.cabinets[]
+      fields:
+        addressCab: { itemprop: "addressCab", from: "TBD" }   # cabinet.address
+        nameCab:    { itemprop: "nameCab",    from: "TBD" }   # cabinet.name
+        osnCab:     { itemprop: "osnCab",     from: "TBD" }   # cabinet.equipment
+        ovzCab:     { itemprop: "ovzCab",     from: "TBD" }   # cabinet.ovz
+    purposePrac:                          # объекты для практических занятий
+      itemprop: "purposePrac"
+      from: "TBD"          # infra.practice_objects[]
+      fields:
+        addressPrac: { itemprop: "addressPrac", from: "TBD" }   # object.address
+        namePrac:    { itemprop: "namePrac",    from: "TBD" }   # object.name
+        osnPrac:     { itemprop: "osnPrac",     from: "TBD" }   # object.equipment
+        ovzPrac:     { itemprop: "ovzPrac",     from: "TBD" }   # object.ovz
+    purposeLibr:                          # библиотеки
+      itemprop: "purposeLibr"
+      from: "TBD"          # infra.libraries[]
+      fields:
+        objName:    { itemprop: "objName",    from: "TBD" }   # library.name
+        objAddress: { itemprop: "objAddress", from: "TBD" }   # library.address
+        objOvz:     { itemprop: "objOvz",     from: "TBD" }   # library.ovz
+    purposeSport:                         # объекты спорта
+      itemprop: "purposeSport"
+      from: "TBD"          # infra.sport_objects[]
+      fields:
+        objName:    { itemprop: "objName",    from: "TBD" }   # object.name
+        objAddress: { itemprop: "objAddress", from: "TBD" }   # object.address
+        objOvz:     { itemprop: "objOvz",     from: "TBD" }   # object.ovz
+
+grants:                                   # ✅ Табл. 3.10.1, п.3.10 — главного тега нет
+  url: "/sveden/grants"
+  a11y: "copy"            # Табл.3.10.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.10.1"
+  fields:
+    grant:        { itemprop: "grant",        from: "TBD" }   # grants.stipend (текст/копии)
+    support:      { itemprop: "support",      from: "TBD" }   # grants.social_support
+    hostelInfo:   { itemprop: "hostelInfo",   from: "TBD" }   # infra.hostel.count       (Табл.3.9.4 — общая с objects)
+    interInfo:    { itemprop: "interInfo",    from: "TBD" }   # infra.intern.count       (общая с objects)
+    hostelNum:    { itemprop: "hostelNum",    from: "TBD" }   # infra.hostel.places       (общая с objects)
+    hostelNumOvz: { itemprop: "hostelNumOvz", from: "TBD" }   # infra.hostel.places_ovz   (общая с objects)
+    interNum:     { itemprop: "interNum",     from: "TBD" }   # infra.intern.places       (общая с objects)
+    interNumOvz:  { itemprop: "interNumOvz",  from: "TBD" }   # infra.intern.places_ovz   (общая с objects)
+    localActObSt: { itemprop: "localActObSt", from: "TBD" }   # docs.hostel_payment       (общая с objects)
+
+paid_edu:                                 # ✅ Табл. 3.11.1, п.3.11 — главного тега нет
+  url: "/sveden/paid_edu"
+  a11y: "copy"            # Табл.3.11.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.11.1"
+  fields:
+    paidEdu:     { itemprop: "paidEdu",     from: "TBD" }   # docs.poryadok_platnyh
+    paidDog:     { itemprop: "paidDog",     from: "TBD" }   # docs.obrazec_dogovora
+    paidSt:      { itemprop: "paidSt",      from: "TBD" }   # docs.stoimost_obucheniya
+    paidParents: { itemprop: "paidParents", from: "TBD" }   # docs.plata_roditeley (присмотр/уход)
+
+budget:                                   # ✅ Табл. 3.12.1, п.3.12
+  url: "/sveden/budget"
+  a11y: "copy"            # Табл.3.12.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.12.1"
+  fields:
+    finBFVolume:    { itemprop: "finBFVolume",    from: "TBD" }   # budget.fed_volume
+    finBRVolume:    { itemprop: "finBRVolume",    from: "TBD" }   # budget.reg_volume
+    finBMVolume:    { itemprop: "finBMVolume",    from: "TBD" }   # budget.mun_volume
+    finPVolume:     { itemprop: "finPVolume",     from: "TBD" }   # budget.paid_volume
+    finPlanDocLink: { itemprop: "finPlanDocLink", from: "TBD" }   # docs.plan_fhd
+  groups:
+    volume:
+      itemprop: "volume"
+      from: "TBD"          # budget.years[]
+      fields:
+        finYear: { itemprop: "finYear", from: "TBD" }   # year.year
+        finPost: { itemprop: "finPost", from: "TBD" }   # year.income
+        finRas:  { itemprop: "finRas",  from: "TBD" }   # year.expense
+
+vacant:                                   # ✅ Табл. 3.13.1, п.3.13
+  url: "/sveden/vacant"
+  a11y: "copy"            # Табл.3.13.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.13.1"
+  groups:
+    vacant:
+      itemprop: "vacant"
+      from: "programs[]"
+      fields:
+        eduCode:        { itemprop: "eduCode",        from: "TBD" }            # program.code
+        eduName:        { itemprop: "eduName",        from: "program.title" }
+        eduLevel:       { itemprop: "eduLevel",       from: "program.type" }
+        eduProf:        { itemprop: "eduProf",        from: "TBD" }            # program.profile
+        eduCourse:      { itemprop: "eduCourse",      from: "TBD" }            # program.course
+        eduForm:        { itemprop: "eduForm",        from: "program.form" }
+        numberBFVacant: { itemprop: "numberBFVacant", from: "TBD" }            # program.vacant_fed
+        numberBRVacant: { itemprop: "numberBRVacant", from: "TBD" }            # program.vacant_reg
+        numberBMVacant: { itemprop: "numberBMVacant", from: "TBD" }            # program.vacant_mun
+        numberPVacant:  { itemprop: "numberPVacant",  from: "TBD" }            # program.vacant_paid (места, НЕ контингент)
+
+inter:                                    # ✅ Табл. 3.14.1, п.3.14
+  url: "/sveden/inter"
+  a11y: "copy"            # Табл.3.14.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.14.1"
+  groups:
+    internationalDog:
+      itemprop: "internationalDog"
+      from: "TBD"          # international[]
+      fields:
+        stateName: { itemprop: "stateName", from: "TBD" }   # agreement.state
+        orgName:   { itemprop: "orgName",   from: "TBD" }   # agreement.org
+        dogReg:    { itemprop: "dogReg",    from: "TBD" }   # agreement.requisites (наим., дата, номер, срок)
+
+catering:                                 # ✅ Табл. 3.15.1, п.3.15
+  url: "/sveden/catering"
+  a11y: "copy"            # Табл.3.15.1, стр.1; срок требования copy — до 01.09.2025
+  status: "verified"
+  source: "Метод.рек. v9.0.0, Табл.3.15.1"
+  fields:
+    health: { itemprop: "health", from: "TBD" }   # docs.health | infra.health (охрана здоровья)
+  groups:
+    meals:
+      itemprop: "meals"
+      from: "TBD"          # infra.catering[]
+      fields:
+        objName:    { itemprop: "objName",    from: "TBD" }   # object.name
+        objAddress: { itemprop: "objAddress", from: "TBD" }   # object.address
+        objOvz:     { itemprop: "objOvz",     from: "TBD" }   # object.ovz
