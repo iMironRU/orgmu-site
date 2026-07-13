@@ -1,36 +1,35 @@
 import Link from "next/link";
+import { Fragment } from "react";
+import type { Footer } from "@/lib/content/navigation";
 
-const COL_A = [
-  { label: "Контакты", href: "#" },
-  { label: "Часто задаваемые вопросы", href: "#" },
-  { label: "Обратная связь", href: "#" },
-  { label: "Реквизиты для перечисления", href: "#" },
-];
+// Данные приходят пропсом из layout (content/navigation/footer.yml).
+function Lines({ lines }: { lines: string[] }) {
+  return (
+    <>
+      {lines.map((line, i) => (
+        <Fragment key={i}>
+          {i > 0 && <br />}
+          {line}
+        </Fragment>
+      ))}
+    </>
+  );
+}
 
-const COL_B = [
-  { label: "Противодействие коррупции", href: "#" },
-  { label: "Сведения о доходах", href: "#" },
-  { label: "Антитеррористическая безопасность", href: "#" },
-  { label: "Политика обработки ПДн", href: "#" },
-];
-
-export function SiteFooter() {
+export function SiteFooter({ footer }: { footer: Footer }) {
+  const { org, columns } = footer;
   return (
     <footer className="bg-brand text-white font-ui">
       <div className="ft-top mx-auto max-w-[1146px] px-6 py-12 grid grid-cols-[1.4fr_1fr_1fr] gap-10 max-[640px]:grid-cols-1 max-[640px]:gap-7">
         <div className="flex flex-col gap-4">
           <span className="font-bold text-[20px] leading-[1.2]">
-            Оренбургский государственный
-            <br />
-            медицинский университет
+            <Lines lines={org.name} />
           </span>
           <span className="font-normal text-[16px] leading-[1.5] text-white/85">
-            Россия, 460000, г. Оренбург,
-            <br />
-            ул. Советская, 6
+            <Lines lines={org.address} />
           </span>
           <a
-            href="#"
+            href={org.route_href}
             className="inline-flex items-center gap-[7px] self-start font-bold text-[15px] text-white no-underline px-[14px] py-2 border border-white/30 rounded-[9px] hover:bg-white/10"
           >
             <svg
@@ -49,47 +48,31 @@ export function SiteFooter() {
             Схема проезда
           </a>
           <span className="font-normal text-[16px] leading-[1.5] text-white/85">
-            Тел. +7 (3532) 50-06-20
-            <br />
-            Приёмная комиссия: +7 (3532) 50-06-03
-            <br />
-            E-mail: office@orgma.ru
+            <Lines lines={org.contacts} />
           </span>
         </div>
 
-        <nav className="flex flex-col gap-3">
-          {COL_A.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              className="font-normal text-[16px] text-white/90 no-underline transition-colors hover:text-white"
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-        <nav className="flex flex-col gap-3">
-          {COL_B.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              className="font-normal text-[16px] text-white/90 no-underline transition-colors hover:text-white"
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
+        {columns.map((col, ci) => (
+          <nav key={ci} className="flex flex-col gap-3">
+            {col.items.map((l) => (
+              <Link
+                key={l.label}
+                href={l.href}
+                className="font-normal text-[16px] text-white/90 no-underline transition-colors hover:text-white"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+        ))}
       </div>
 
       <div className="border-t border-white/20">
         <div className="ft-bottom mx-auto max-w-[1146px] px-6 py-[18px] flex flex-wrap gap-4 justify-between items-center max-[640px]:flex-col max-[640px]:items-start">
           <span className="font-normal text-[13px] leading-[1.5] text-white/65 max-w-[760px]">
-            © {new Date().getFullYear()} ФГБОУ ВО «Оренбургский государственный
-            медицинский университет» Минздрава России. Все права защищены.
+            © {new Date().getFullYear()} {org.copyright}
           </span>
-          <span className="font-normal text-[13px] text-white/65">
-            Техподдержка: www@orgma.ru
-          </span>
+          <span className="font-normal text-[13px] text-white/65">{org.support}</span>
         </div>
       </div>
     </footer>
