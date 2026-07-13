@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# orgmu-site
 
-## Getting Started
+Новый сайт ОрГМУ на [Next.js](https://nextjs.org) (App Router, TypeScript, Tailwind CSS).
+Собирается в статику и деплоится на GitHub Pages через GitHub Actions.
 
-First, run the development server:
+## Локальная разработка
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Открыть http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Сборка статики
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # результат в out/
+```
 
-## Learn More
+Локально сайт собирается без `basePath` (работает по корню). В CI переменная
+`NEXT_PUBLIC_BASE_PATH` выставляется автоматически (`actions/configure-pages`),
+чтобы ссылки и ассеты работали по пути `/orgmu-site/`.
 
-To learn more about Next.js, take a look at the following resources:
+## Деплой
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Пуш в ветку `main` запускает workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
+сборка статики → публикация на GitHub Pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Тестовый сайт: `https://imironru.github.io/orgmu-site/` (появится после первого деплоя
+и включения Pages: Settings → Pages → Source → **GitHub Actions**).
 
-## Deploy on Vercel
+## Стек
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16 (App Router, `output: "export"`)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- ESLint
