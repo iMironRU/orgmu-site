@@ -3,6 +3,7 @@ import { Inter, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SideRail } from "@/components/SideRail";
 import { getMainMenu, getFooter } from "@/lib/content/navigation";
 
 const inter = Inter({
@@ -38,10 +39,13 @@ export default function RootLayout({
       lang="ru"
       className={`${inter.variable} ${robotoCondensed.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <SiteHeader nav={nav} />
-        <div className="flex-1">{children}</div>
-        <SiteFooter footer={footer} />
+      <body className="min-h-full flex items-stretch">
+        <SideRail />
+        <div className="flex-1 min-w-0 flex flex-col">
+          <SiteHeader nav={nav} />
+          <div className="flex-1">{children}</div>
+          <SiteFooter footer={footer} />
+        </div>
       </body>
     </html>
   );
