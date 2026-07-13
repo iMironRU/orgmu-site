@@ -78,25 +78,20 @@ export function NewsGallery({
       )}
 
       {!single && (
-        <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
-          {images.map((src, idx) => (
+        <div className="flex flex-wrap gap-2 mt-3 justify-center">
+          {images.map((_, idx) => (
             <button
               type="button"
               key={idx}
               onClick={() => setI(idx)}
               aria-label={`Фото ${idx + 1}`}
-              className="shrink-0 rounded-lg overflow-hidden border-2 transition-[border-color] cursor-pointer"
-              style={{ borderColor: idx === i ? "var(--c-accent)" : "transparent" }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={src}
-                alt=""
-                loading="lazy"
-                className="w-[86px] h-16 object-cover block"
-                style={{ opacity: idx === i ? 1 : 0.65 }}
-              />
-            </button>
+              aria-current={idx === i}
+              className="h-2.5 rounded-full transition-all cursor-pointer"
+              style={{
+                width: idx === i ? "26px" : "10px",
+                background: idx === i ? "var(--c-accent)" : "var(--c-line-strong)",
+              }}
+            />
           ))}
         </div>
       )}
