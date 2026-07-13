@@ -19,6 +19,25 @@ export type Footer = {
   columns: NavColumn[];
 };
 
+export type AppItem = {
+  name: string;
+  tag: string;
+  desc: string;
+  cta: string;
+  href: string;
+  icon: string;
+  accent: string;
+};
+
+export type Subsite = {
+  label: string;
+  href: string;
+  icon: string;
+  accent: string;
+};
+
+export type SitemapGroup = { title: string; links: NavLink[] };
+
 const NAV_DIR = path.join(process.cwd(), "content", "navigation");
 
 function loadYaml<T>(file: string): T {
@@ -32,4 +51,16 @@ export function getMainMenu(): NavItem[] {
 
 export function getFooter(): Footer {
   return loadYaml<Footer>("footer.yml");
+}
+
+export function getApps(): AppItem[] {
+  return loadYaml<AppItem[]>("apps.yml");
+}
+
+export function getSubsites(): Subsite[] {
+  return loadYaml<Subsite[]>("subsites.yml");
+}
+
+export function getSitemapGroups(): SitemapGroup[] {
+  return loadYaml<SitemapGroup[]>("sitemap.yml");
 }

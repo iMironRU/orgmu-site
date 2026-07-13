@@ -81,7 +81,7 @@ export function SideRail() {
 
         {/* Приложения вуза */}
         <div className="flex flex-col items-center gap-2">
-          <Link href="#" title="Приложения вуза" className={RAIL_ICON}>
+          <Link href="/prilozheniya" title="Приложения вуза" className={RAIL_ICON}>
             {ICONS.apps}
           </Link>
         </div>

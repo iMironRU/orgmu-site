@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { getAllNews } from "@/lib/content/news";
+import { getSubsites } from "@/lib/content/navigation";
 import { NewsCard } from "@/components/NewsCard";
+import { SubsiteTile } from "@/components/SubsiteTile";
 import { asset } from "@/lib/asset";
 
 export default function HomePage() {
   const latest = getAllNews().slice(0, 6);
+  const subsites = getSubsites();
 
   return (
     <>
@@ -62,6 +65,26 @@ export default function HomePage() {
             ))}
           </div>
         )}
+      </section>
+
+      {/* Сайты вуза */}
+      <section className="bg-white border-t border-line">
+        <div className="mx-auto max-w-[1146px] w-full px-10 py-16 box-border max-[768px]:px-5 max-[768px]:py-10">
+          <div className="flex items-end justify-between gap-4 mb-8 flex-wrap">
+            <h2 className="m-0 font-display font-bold text-[33px] text-brand">Сайты вуза</h2>
+            <Link
+              href="/karta-saytov"
+              className="font-ui font-bold text-[17px] text-accent no-underline"
+            >
+              Карта сайтов →
+            </Link>
+          </div>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4">
+            {subsites.map((s) => (
+              <SubsiteTile key={s.label} s={s} />
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );

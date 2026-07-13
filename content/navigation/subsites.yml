@@ -1,0 +1,43 @@
+# «Сайты вуза» — подсайты и порталы. Используются в блоке на главной
+# и на странице «Карта сайтов». icon — ключ из src/components/icons.tsx.
+# href — адрес подсайта (пока заглушки, впишете реальные).
+
+- label: Клиника ОрГМУ
+  href: "#"
+  icon: heart
+  accent: "rgb(48,176,199)"
+
+- label: Институт профессионального образования
+  href: "#"
+  icon: cap
+  accent: "rgb(184,57,4)"
+
+- label: Научно-исследовательский центр
+  href: "#"
+  icon: science
+  accent: "rgb(88,86,214)"
+
+- label: Музей истории ОрГМУ
+  href: "#"
+  icon: museum
+  accent: "rgb(170,136,99)"
+
+- label: Библиотека ОрГМУ
+  href: "#"
+  icon: book
+  accent: "rgb(0,101,155)"
+
+- label: Симуляционный центр
+  href: "#"
+  icon: science
+  accent: "rgb(48,176,199)"
+
+- label: Стоматологическая клиника
+  href: "#"
+  icon: heart
+  accent: "rgb(184,57,4)"
+
+- label: Ботанический сад
+  href: "#"
+  icon: book
+  accent: "rgb(52,199,89)"
