@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { asset } from "@/lib/asset";
 
 type NavColumn = { title: string; items: { label: string; href: string }[] };
 type NavItem = { label: string; href?: string; columns: NavColumn[] };
@@ -127,13 +127,13 @@ export function SiteHeader() {
     >
       <div className="mx-auto max-w-[1346px] px-6 py-4 flex items-center gap-6">
         <Link href="/" className="flex items-center gap-[14px] no-underline shrink-0">
-          <Image
-            src="/brand/orgma-logo.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={asset("/brand/orgma-logo.png")}
             alt="ОрГМУ"
             width={64}
             height={64}
             className="w-16 h-16 object-contain"
-            priority
           />
           <span className="flex flex-col leading-[1.05]">
             <span className="font-bold text-[22px] text-brand">ОрГМУ</span>
