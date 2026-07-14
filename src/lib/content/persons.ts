@@ -68,7 +68,7 @@ function build() {
       position: str(t.post),
       degree: clean(str(t.degree)),
       academStat: clean(str(t.academStat)),
-      disciplines: splitList(str(t.teachingDiscipline), /[;,]/, 6),
+      disciplines: splitList(str(t.teachingDiscipline), /[;,]/, 16),
       education: clean(str(t.teachingLevel)),
       qualifications: splitList(str(t.qualification), /\n/, 10),
       profDevelopment: clean(str(t.profDevelopment)),

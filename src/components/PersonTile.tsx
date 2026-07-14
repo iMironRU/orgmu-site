@@ -38,7 +38,7 @@ export function PersonTile({ person: p, mode = "staff" }: { person: Person; mode
 
         {mode === "staff" && p.disciplines.length > 0 && (
           <div className="flex gap-[7px] mt-[10px] flex-wrap">
-            {p.disciplines.map((d, i) => (
+            {p.disciplines.slice(0, 3).map((d, i) => (
               <span
                 key={i}
                 className="text-[13px] font-bold text-steel bg-bg-muted border border-[rgb(228,232,236)] rounded-full px-[11px] py-1"
@@ -46,6 +46,11 @@ export function PersonTile({ person: p, mode = "staff" }: { person: Person; mode
                 {d}
               </span>
             ))}
+            {p.disciplines.length > 3 && (
+              <span className="text-[13px] font-bold text-accent bg-[rgba(184,57,4,0.10)] border border-[rgba(184,57,4,0.25)] rounded-full px-[11px] py-1">
+                +{p.disciplines.length - 3} ещё
+              </span>
+            )}
           </div>
         )}
 
