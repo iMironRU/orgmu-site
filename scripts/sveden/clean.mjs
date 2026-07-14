@@ -21,14 +21,19 @@ function decloakEmail(s) {
   return null;
 }
 
+// Инлайновые JS-блоки модуля-слайдера Joomla (nn_sliders), попадающие в текст:
+//   if(document.getElementById('script_nn_sliders…')){…innerHTML=…;}
+//   if(document.getElementById('nn_sliders_container…')){…setAttribute…;}
+const SLIDER_JS = /if\(document\.getElementById\('(?:script_)?nn_sliders[\s\S]*?;\}/g;
+
 function cleanString(s) {
   if (typeof s !== "string") return s;
   if (/Этот адрес электронной почты защищен/.test(s) || /document\.getElementById\('cloak/.test(s)) {
     const email = decloakEmail(s);
     return email || "отсутствует";
   }
-  // обрезаем случайные js-хвосты и схлопываем пробелы (переносы строк сохраняем)
-  let out = s.split("//<!--")[0];
+  // вырезаем js-скрипты слайдера и случайные js-хвосты, схлопываем пробелы
+  let out = s.replace(SLIDER_JS, " ").split("//<!--")[0];
   out = out.replace(/[ \t]+/g, " ").replace(/[ \t]*\n[ \t]*/g, "\n").trim();
   return out;
 }
