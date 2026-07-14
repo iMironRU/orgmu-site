@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getUnits } from "@/lib/content/structure";
+import { getPersonIdByFio } from "@/lib/content/persons";
 import { StructureView } from "@/components/StructureView";
 
 export const metadata: Metadata = {
@@ -10,7 +11,10 @@ export const metadata: Metadata = {
 };
 
 export default function StructurePage() {
-  const units = getUnits();
+  const units = getUnits().map((u) => ({
+    ...u,
+    headPersonId: u.head.fio ? getPersonIdByFio(u.head.fio) : undefined,
+  }));
 
   return (
     <>

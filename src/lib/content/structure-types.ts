@@ -14,6 +14,7 @@ export type Unit = {
   email: string;
   site: string;
   doc: { text: string; href: string } | null;
+  headPersonId?: string; // проставляется на сервере: id профиля руководителя, если он в педсоставе
 };
 
 export const TYPE_META: Record<string, { label: string; color: string; soft: string }> = {

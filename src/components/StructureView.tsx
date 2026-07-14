@@ -145,22 +145,37 @@ export function StructureView({ units }: { units: Unit[] }) {
                   </div>
 
                   <div className="flex-[0_0_296px] flex flex-col justify-center gap-3 px-5 py-4 border-l border-line max-[680px]:flex-auto max-[680px]:border-l-0 max-[680px]:border-t">
-                    {hasHead && (
-                      <div className="flex items-center gap-[10px] min-h-[38px]">
-                        <span
-                          className="shrink-0 w-9 h-9 rounded-full text-white font-display font-bold text-[13px] flex items-center justify-center"
-                          style={{ background: avatarColor(u.head.fio) }}
-                        >
-                          {initials(u.head.fio)}
-                        </span>
-                        <span className="leading-[1.2] min-w-0">
-                          <span className="block font-bold text-[15px] text-brand truncate">{u.head.fio}</span>
-                          {u.head.post && (
-                            <span className="block text-[12px] text-ink-3">{u.head.post}</span>
-                          )}
-                        </span>
-                      </div>
-                    )}
+                    {hasHead &&
+                      (() => {
+                        const inner = (
+                          <>
+                            <span
+                              className="shrink-0 w-9 h-9 rounded-full text-white font-display font-bold text-[13px] flex items-center justify-center"
+                              style={{ background: avatarColor(u.head.fio) }}
+                            >
+                              {initials(u.head.fio)}
+                            </span>
+                            <span className="leading-[1.2] min-w-0">
+                              <span className="block font-bold text-[15px] text-brand truncate">
+                                {u.head.fio}
+                              </span>
+                              {u.head.post && (
+                                <span className="block text-[12px] text-ink-3">{u.head.post}</span>
+                              )}
+                            </span>
+                          </>
+                        );
+                        return u.headPersonId ? (
+                          <Link
+                            href={`/persony/${u.headPersonId}`}
+                            className="flex items-center gap-[10px] min-h-[38px] no-underline hover:opacity-85"
+                          >
+                            {inner}
+                          </Link>
+                        ) : (
+                          <div className="flex items-center gap-[10px] min-h-[38px]">{inner}</div>
+                        );
+                      })()}
                     {u.doc && (
                       <a
                         href={u.doc.href.startsWith("http") ? u.doc.href : `https://www.orgma.ru${u.doc.href}`}

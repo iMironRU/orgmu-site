@@ -141,6 +141,14 @@ export function getLeaders(): Person[] {
 export function getPerson(id: string): Person | undefined {
   return build().byId.get(id);
 }
+
+// Профиль преподавателя по ФИО (для связи «заведующий из структуры» → профиль).
+export function getPersonIdByFio(fio: string): string | undefined {
+  const slug = slugify(fio);
+  if (!slug) return undefined;
+  for (const p of build().teachers) if (slugify(p.fio) === slug) return p.id;
+  return undefined;
+}
 export function getAllPersonIds(): string[] {
   return [...build().byId.keys()];
 }

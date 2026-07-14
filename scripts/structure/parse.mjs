@@ -33,15 +33,25 @@ function unitType(name) {
   return "podrazdelenie";
 }
 
+// ФИО = последние 3 слова, если в строке есть учёные степени/запятые
+// (напр. «Ректор - доктор медицинских наук, профессор ... Мирошниченко Игорь Васильевич»).
+function cleanFio(namePart) {
+  const words = clean(namePart).split(/\s+/).filter(Boolean);
+  if ((namePart.includes(",") || words.length > 3) && words.length >= 3) {
+    return words.slice(-3).join(" ");
+  }
+  return clean(namePart);
+}
+
 function parseHead(fioRaw) {
   // "Руководитель подразделения: Заведующий кафедрой - Коровина Ирина Алексеевна"
   const s = strip(fioRaw, "Руководитель подразделения");
   const dash = s.lastIndexOf(" - ") >= 0 ? " - " : s.lastIndexOf(" — ") >= 0 ? " — " : null;
   if (dash) {
     const idx = s.lastIndexOf(dash);
-    return { post: clean(s.slice(0, idx)), fio: clean(s.slice(idx + dash.length)) };
+    return { post: clean(s.slice(0, idx)), fio: cleanFio(s.slice(idx + dash.length)) };
   }
-  return { post: "", fio: s };
+  return { post: "", fio: cleanFio(s) };
 }
 
 async function main() {
