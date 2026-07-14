@@ -105,6 +105,10 @@ function build() {
       qualification: e.qualification,
       exams: e.exams,
       price: e.price,
+      kcpBudget: e.kcpBudget,
+      kcpTarget: e.kcpTarget,
+      kcpPaid: e.kcpPaid,
+      score: e.score,
     });
   }
 

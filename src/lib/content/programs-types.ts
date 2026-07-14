@@ -21,6 +21,10 @@ export type Program = {
   qualification?: string;
   exams?: string[];
   price?: string; // стоимость 1 курса, ₽
+  kcpBudget?: string; // мест приёма: бюджет
+  kcpTarget?: string; // мест приёма: целевое
+  kcpPaid?: string; // мест приёма: договор
+  score?: string; // проходной балл прошлого года
 };
 
 export const LEVEL_CATS: { key: string; label: string; re: RegExp }[] = [
@@ -39,6 +43,19 @@ export function levelCat(level: string): string {
 
 export function levelLabel(key: string): string {
   return LEVEL_CATS.find((c) => c.key === key)?.label ?? "Программа";
+}
+
+export const LEVEL_COLOR: Record<string, string> = {
+  spo: "rgb(48,176,199)",
+  bak: "rgb(184,57,4)",
+  spec: "rgb(0,101,155)",
+  mag: "rgb(88,86,214)",
+  ord: "rgb(175,82,222)",
+  asp: "rgb(170,136,99)",
+  other: "rgb(50,100,150)",
+};
+export function levelColor(key: string): string {
+  return LEVEL_COLOR[key] ?? LEVEL_COLOR.other;
 }
 
 export function slugCode(code: string): string {

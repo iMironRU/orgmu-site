@@ -40,6 +40,10 @@ for (const a of accred) {
   lines.push(`  qualification: ${q(e.qualification)}  # присваиваемая квалификация`);
   lines.push(`  description: ${q(e.description)}    # текст «О программе»`);
   lines.push(`  price: ${q(e.price)}          # стоимость 1 курса, руб.`);
+  lines.push(`  kcpBudget: ${q(e.kcpBudget)}      # мест приёма: бюджет`);
+  lines.push(`  kcpTarget: ${q(e.kcpTarget)}      # мест приёма: целевое`);
+  lines.push(`  kcpPaid: ${q(e.kcpPaid)}        # мест приёма: договор`);
+  lines.push(`  score: ${q(e.score)}          # проходной балл прошлого года`);
   lines.push(`  exams: ${Array.isArray(e.exams) && e.exams.length ? JSON.stringify(e.exams) : "[]"}          # вступительные испытания (список)`);
   lines.push("");
 }
