@@ -7,6 +7,11 @@ import { getDocumentGroups } from "@/lib/sveden/documents";
 
 // Витрины-ссылки на отдельные страницы (по макету Svedenia).
 const VITRINY: Record<string, { href: string; title: string; desc: string }> = {
+  education: {
+    href: "/programmy",
+    title: "Открыть каталог образовательных программ",
+    desc: "Все уровни и направления подготовки, формы, сроки, учебные планы и документы.",
+  },
   managers: {
     href: "/rukovodstvo",
     title: "Открыть страницу руководства",
