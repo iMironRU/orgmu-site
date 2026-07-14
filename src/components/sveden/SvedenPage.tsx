@@ -5,13 +5,46 @@ import { SvedenSection } from "@/components/sveden/SvedenSection";
 import { DocumentsView } from "@/components/sveden/DocumentsView";
 import { getDocumentGroups } from "@/lib/sveden/documents";
 
-// Витрины-ссылки на отдельные страницы (по макету Svedenia).
+// Витрина-ссылка на отдельную страницу (по макету Svedenia — внешний подраздел).
+const VITRINA_ICONS: Record<string, React.ReactNode> = {
+  grid: (
+    <>
+      <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
+    </>
+  ),
+  cap: (
+    <>
+      <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+      <path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5" />
+    </>
+  ),
+};
+
+function Vitrina({ href, title, desc, icon }: { href: string; title: string; desc: string; icon: string }) {
+  return (
+    <Link
+      href={href}
+      className="flex items-center gap-4 no-underline bg-white border border-line rounded-xl border-l-4 border-l-brand px-6 py-[22px] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
+    >
+      <span className="shrink-0 text-brand">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          {VITRINA_ICONS[icon]}
+        </svg>
+      </span>
+      <span className="flex-1">
+        <span className="block font-display font-bold text-[20px] text-brand">{title}</span>
+        <span className="block text-[16px] text-steel mt-[2px]">{desc}</span>
+      </span>
+      <span className="shrink-0 text-gray-3">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+      </span>
+    </Link>
+  );
+}
+
+// Витрины-ссылки, показываемые ВМЕСТЕ с данными подраздела (руководство/педсостав).
 const VITRINY: Record<string, { href: string; title: string; desc: string }> = {
-  education: {
-    href: "/programmy",
-    title: "Открыть каталог образовательных программ",
-    desc: "Все уровни и направления подготовки, формы, сроки, учебные планы и документы.",
-  },
   managers: {
     href: "/rukovodstvo",
     title: "Открыть страницу руководства",
@@ -127,28 +160,19 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
           {sectionKey === "document" ? (
             <DocumentsView groups={getDocumentGroups()} />
           ) : sectionKey === "struct" ? (
-            <Link
+            <Vitrina
               href="/struktura"
-              className="flex items-center gap-4 no-underline bg-white border border-line rounded-xl border-l-4 border-l-brand px-6 py-[22px] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
-            >
-              <span className="shrink-0 text-brand">
-                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
-                </svg>
-              </span>
-              <span className="flex-1">
-                <span className="block font-display font-bold text-[20px] text-brand">
-                  Открыть структуру подразделений
-                </span>
-                <span className="block text-[16px] text-steel mt-[2px]">
-                  Факультеты, кафедры, институты, управления и отделы с
-                  руководителями, адресами и положениями.
-                </span>
-              </span>
-              <span className="shrink-0 text-gray-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
-              </span>
-            </Link>
+              icon="grid"
+              title="Открыть структуру подразделений"
+              desc="Факультеты, кафедры, институты, управления и отделы с руководителями, адресами и положениями."
+            />
+          ) : sectionKey === "education" ? (
+            <Vitrina
+              href="/programmy"
+              icon="cap"
+              title="Перейти к каталогу образовательных программ"
+              desc="Все уровни, направления, учебные планы, численность обучающихся и машиночитаемые сведения об образовании."
+            />
           ) : (
             <>
               {VITRINY[sectionKey] && (
