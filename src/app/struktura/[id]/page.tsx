@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getUnits, getUnit, getChildren, typeMeta, initials, avatarColor } from "@/lib/content/structure";
+import {
+  getUnits,
+  getUnit,
+  getChildren,
+  getUnitExtra,
+  typeMeta,
+  initials,
+  avatarColor,
+} from "@/lib/content/structure";
 import { getPersonIdByFio } from "@/lib/content/persons";
+import { makeDocItem } from "@/lib/sveden/documents";
+import { DocCards } from "@/components/sveden/DocCards";
 import { asset } from "@/lib/asset";
 
 export const dynamicParams = false;
@@ -21,19 +31,16 @@ export async function generateMetadata({
   return u ? { title: u.name } : {};
 }
 
-const SidebarLink = ({ href, label, active }: { href: string; label: string; active?: boolean }) => (
-  <a
-    href={href}
-    className="px-[14px] py-[11px] rounded-lg text-[17px] no-underline"
-    style={{
-      color: "var(--c-brand)",
-      background: active ? "rgba(184,57,4,0.12)" : "transparent",
-      fontWeight: active ? 700 : 400,
-    }}
-  >
-    {label}
-  </a>
-);
+const DASH = "—";
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div>
+      <div className="font-display font-bold text-[28px] text-brand leading-none">{value || DASH}</div>
+      <div className="text-[15px] text-ink-3 mt-1">{label}</div>
+    </div>
+  );
+}
 
 export default async function DepartmentPage({
   params,
@@ -45,24 +52,22 @@ export default async function DepartmentPage({
   if (!u) notFound();
 
   const m = typeMeta(u.type);
+  const extra = getUnitExtra(id);
   const children = getChildren(id);
   const hasHead = !!u.head.fio && u.head.fio !== "—";
   const headPersonId = hasHead ? getPersonIdByFio(u.head.fio) : undefined;
-  const docHref = u.doc
-    ? u.doc.href.startsWith("http")
-      ? u.doc.href
-      : `https://www.orgma.ru${u.doc.href}`
-    : null;
+  const docItem = u.doc ? makeDocItem("divisionClauseDocLink", u.doc.text || "Положение о подразделении", u.doc.href) : null;
 
-  // Разделы бокового меню — только те, что реально есть.
-  const sections: { id: string; label: string }[] = [];
-  if (hasHead) sections.push({ id: "rukovodstvo", label: "Руководитель" });
-  sections.push({ id: "kontakty", label: "Контакты" });
-  if (children.length) sections.push({ id: "sostav", label: "В составе" });
+  const sections = [
+    { id: "about", label: "О подразделении" },
+    ...(hasHead ? [{ id: "head", label: "Руководитель" }] : []),
+    { id: "contacts", label: "Контакты" },
+    ...(docItem ? [{ id: "docs", label: "Документы" }] : []),
+    ...(children.length ? [{ id: "sostav", label: "В составе" }] : []),
+  ];
 
   return (
     <>
-      {/* Баннер */}
       <div className="bg-brand text-white" data-a11y-surface="brand">
         <div className="mx-auto max-w-[1146px] px-10 py-8 box-border max-[768px]:px-5">
           <div className="flex items-center gap-2 text-[15px] text-white/70 mb-[14px] font-ui flex-wrap">
@@ -87,7 +92,14 @@ export default async function DepartmentPage({
             </div>
             <nav className="flex flex-col p-2 font-ui">
               {sections.map((s, i) => (
-                <SidebarLink key={s.id} href={`#${s.id}`} label={s.label} active={i === 0} />
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  className="px-[14px] py-[11px] rounded-lg text-[17px] no-underline text-brand"
+                  style={{ background: i === 0 ? "rgba(184,57,4,0.12)" : "transparent", fontWeight: i === 0 ? 700 : 400 }}
+                >
+                  {s.label}
+                </a>
               ))}
             </nav>
           </div>
@@ -101,26 +113,45 @@ export default async function DepartmentPage({
             aria-hidden
           />
 
+          {/* Статы (год основания / преподавателей / докторов — прочерки, где нет данных) */}
           <div className="flex gap-6 flex-wrap px-[22px] py-[18px] bg-white border border-line rounded-xl">
-            <div>
-              <div className="font-display font-bold text-[24px] text-brand" style={{ color: m.color }}>
-                {m.label}
-              </div>
-              <div className="text-[15px] text-ink-3">тип подразделения</div>
-            </div>
+            <Stat value={extra.founded ?? ""} label="год основания" />
+            <div className="w-px bg-line self-stretch" />
+            <Stat value={extra.staff ?? ""} label="сотрудников" />
+            <div className="w-px bg-line self-stretch" />
+            <Stat value={extra.doctors ?? ""} label="докторов наук" />
             {children.length > 0 && (
               <>
-                <div className="w-px bg-line" />
-                <div>
-                  <div className="font-display font-bold text-[28px] text-brand">{children.length}</div>
-                  <div className="text-[15px] text-ink-3">в составе</div>
-                </div>
+                <div className="w-px bg-line self-stretch" />
+                <Stat value={String(children.length)} label="в составе" />
               </>
             )}
           </div>
 
+          {/* О подразделении */}
+          <section id="about" className="scroll-mt-6">
+            <h2 className="m-0 mb-3 font-display font-bold text-[26px] text-brand">О подразделении</h2>
+            {extra.description ? (
+              <div className="text-[18px] leading-[1.6] text-ink whitespace-pre-line">{extra.description}</div>
+            ) : (
+              <div className="text-[16px] text-ink-3 bg-white border border-dashed border-line-strong rounded-xl px-6 py-5">
+                Описание подразделения уточняется. {DASH}
+              </div>
+            )}
+            {extra.directions && extra.directions.length > 0 && (
+              <>
+                <h3 className="mt-6 mb-2 font-display font-bold text-[20px] text-brand">Направления работы</h3>
+                <ul className="list-disc pl-6 flex flex-col gap-2 text-[17px] text-ink">
+                  {extra.directions.map((d, i) => (
+                    <li key={i}>{d}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </section>
+
           {hasHead && (
-            <section id="rukovodstvo" className="scroll-mt-6">
+            <section id="head" className="scroll-mt-6">
               <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Руководитель</h2>
               {(() => {
                 const inner = (
@@ -133,7 +164,7 @@ export default async function DepartmentPage({
                     </span>
                     <div>
                       <div className="font-bold text-[20px] text-brand">{u.head.fio}</div>
-                      {u.head.post && <div className="text-[16px] text-steel">{u.head.post}</div>}
+                      <div className="text-[16px] text-steel">{u.head.post || DASH}</div>
                     </div>
                   </>
                 );
@@ -146,47 +177,46 @@ export default async function DepartmentPage({
                     <span className="ml-auto text-accent font-bold text-[14px]">Профиль →</span>
                   </Link>
                 ) : (
-                  <div className="flex items-center gap-4 bg-white border border-line rounded-xl px-6 py-5">
-                    {inner}
-                  </div>
+                  <div className="flex items-center gap-4 bg-white border border-line rounded-xl px-6 py-5">{inner}</div>
                 );
               })()}
             </section>
           )}
 
-          <section id="kontakty" className="scroll-mt-6">
+          <section id="contacts" className="scroll-mt-6">
             <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Контакты</h2>
             <div className="bg-white border border-line rounded-xl overflow-hidden">
               {[
                 ["Место нахождения", u.address],
                 ["Телефон", u.phone],
                 ["Сайт", u.site],
-              ]
-                .filter(([, v]) => v)
-                .map(([label, value]) => (
-                  <div key={label} className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
-                    <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">{label}</div>
-                    <div className="flex-1 min-w-[180px] text-[16px] font-medium text-ink">{value}</div>
+              ].map(([label, value]) => (
+                <div key={label} className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
+                  <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">{label}</div>
+                  <div className={`flex-1 min-w-[180px] text-[16px] ${value ? "font-medium text-ink" : "text-ink-3"}`}>
+                    {value || DASH}
                   </div>
-                ))}
-              {u.email && (
-                <div className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
-                  <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">Электронная почта</div>
-                  <div className="flex-1 min-w-[180px] text-[16px]">
+                </div>
+              ))}
+              <div className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
+                <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">Электронная почта</div>
+                <div className="flex-1 min-w-[180px] text-[16px]">
+                  {u.email ? (
                     <a href={`mailto:${u.email}`} className="text-accent underline">{u.email}</a>
-                  </div>
+                  ) : (
+                    <span className="text-ink-3">{DASH}</span>
+                  )}
                 </div>
-              )}
-              {docHref && (
-                <div className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
-                  <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">Положение о подразделении</div>
-                  <div className="flex-1 min-w-[180px] text-[16px]">
-                    <a href={docHref} className="text-accent underline">{u.doc?.text || "Положение о подразделении"}</a>
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
           </section>
+
+          {docItem && (
+            <section id="docs" className="scroll-mt-6">
+              <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Документы</h2>
+              <DocCards docs={[docItem]} />
+            </section>
+          )}
 
           {children.length > 0 && (
             <section id="sostav" className="scroll-mt-6">

@@ -1,10 +1,32 @@
 import fs from "node:fs";
 import path from "node:path";
+import { load as parseYaml } from "js-yaml";
 import type { Unit } from "@/lib/content/structure-types";
 
 // Оргструктура ОрГМУ. Источник — content/structure/units.json (парсер
 // scripts/structure/parse.mjs со страницы orgma.ru/sveden/struct).
 export * from "@/lib/content/structure-types";
+
+// Ручное дополнение (content/structure/units-extra.yml) — данные, которых нет
+// в парсинге: год основания, число сотрудников/докторов, описание, направления.
+export type UnitExtra = {
+  founded?: string;
+  staff?: string;
+  doctors?: string;
+  description?: string;
+  directions?: string[];
+};
+
+let extraCache: Record<string, UnitExtra> | null = null;
+export function getUnitExtra(id: string): UnitExtra {
+  if (!extraCache) {
+    const p = path.join(process.cwd(), "content", "structure", "units-extra.yml");
+    extraCache = fs.existsSync(p)
+      ? ((parseYaml(fs.readFileSync(p, "utf8")) as Record<string, UnitExtra>) ?? {})
+      : {};
+  }
+  return extraCache[id] ?? {};
+}
 
 const FILE = path.join(process.cwd(), "content", "structure", "units.json");
 let cache: Unit[] | null = null;

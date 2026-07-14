@@ -45,7 +45,15 @@ async function head(url) {
 }
 
 const data = JSON.parse(fs.readFileSync(DATA, "utf8"));
-const hrefs = [...collectHrefs(data, new Set())].filter((h) => FILE_RE.test(h) || h.includes("/sveden/"));
+const set = collectHrefs(data, new Set());
+// плюс «положения о подразделении» из структуры
+try {
+  const units = JSON.parse(fs.readFileSync("content/structure/units.json", "utf8"));
+  for (const u of units) if (u.doc?.href) set.add(u.doc.href);
+} catch {
+  /* структуры может не быть */
+}
+const hrefs = [...set].filter((h) => FILE_RE.test(h) || h.includes("/sveden/"));
 
 const meta = {};
 let ok = 0;
