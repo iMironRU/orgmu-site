@@ -4,6 +4,32 @@ import { SECTION_LABELS, SECTION_SHORT, SECTION_LEADS } from "@/lib/sveden/label
 import { SvedenSection } from "@/components/sveden/SvedenSection";
 import { DocumentsView } from "@/components/sveden/DocumentsView";
 import { getDocumentGroups } from "@/lib/sveden/documents";
+import { getTeachers } from "@/lib/content/persons";
+
+// Плашка со статистикой педсостава — по макету Svedenia (spec «Employees»):
+// вместо таблицы на сотни строк три числа, а полный состав — на /persony.
+function staffStats(): { n: string; l: string }[] {
+  const t = getTeachers();
+  const has = (p: { degree: string }, s: string) => p.degree.toLowerCase().includes(s);
+  return [
+    { n: String(t.length), l: "преподавателей в каталоге" },
+    { n: String(t.filter((p) => has(p, "доктор")).length), l: "докторов наук" },
+    { n: String(t.filter((p) => has(p, "кандидат")).length), l: "кандидатов наук" },
+  ];
+}
+
+function StaffStats() {
+  return (
+    <div className="grid grid-cols-3 gap-3 max-[640px]:grid-cols-1">
+      {staffStats().map((s) => (
+        <div key={s.l} className="bg-white border border-line rounded-xl px-5 py-[18px] flex items-baseline gap-x-3 gap-y-[3px] flex-wrap">
+          <div className="font-display font-bold text-[32px] leading-none text-brand">{s.n}</div>
+          <div className="text-[15px] text-ink-2">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 // Витрина-ссылка на отдельную страницу (по макету Svedenia — внешний подраздел).
 const VITRINA_ICONS: Record<string, React.ReactNode> = {
@@ -208,7 +234,13 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
                   </span>
                 </Link>
               )}
-              <SvedenSection sectionKey={sectionKey} section={section} />
+              {/* Педсостав: по макету — витрина + статистика, а не таблица на 173 строки
+                  (персональные машиночитаемые карточки — на /persony). */}
+              {sectionKey === "employees" ? (
+                <StaffStats />
+              ) : (
+                <SvedenSection sectionKey={sectionKey} section={section} />
+              )}
 
               {/* Плашка про машиночитаемость */}
               <div className="flex gap-3 px-[18px] py-4 bg-bg-muted border border-dashed border-line-strong rounded-[10px] mt-1">
