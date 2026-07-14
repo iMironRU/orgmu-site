@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>body{margin:0;background:rgb(251,251,251);}@media(max-width:768px){.rail-col{display:none!important}.pg-hero{height:auto!important;padding:36px 0!important}.pg-main{padding:32px 20px 48px!important;gap:40px!important}.tiles-grid{display:none!important}.tiles-mobile{display:block!important}}</style>
+  <style>body{margin:0;background:rgb(251,251,251);}@media(max-width:768px){.rail-col{display:none!important}.pg-hero{height:auto!important;padding:36px 0!important}.pg-main{padding:32px 20px 48px!important;gap:40px!important}.tiles-grid{display:none!important}.tiles-mobile{display:block!important}.banner-page{grid-template-columns:1fr!important}}</style>
 </helmet>
 <div style="display:flex; align-items:stretch; min-height:100vh; background:rgb(251,251,251); font-family:'Roboto Condensed',sans-serif;">
 
@@ -51,11 +51,8 @@
         </div>
       </section>
 
-      <!-- Banners -->
-      <section style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px;">
-        <dc-import name="Banner" image="assets/corpus.jpg" kicker="Абитуриенту" title="Приёмная кампания 2024 открыта" hint-size="100%,192px"></dc-import>
-        <dc-import name="Banner" tone="rgb(48,176,199)" title="День открытых дверей 20 апреля" hint-size="100%,192px"></dc-import>
-      </section>
+      <!-- Banners slider: 2 per view -->
+      <dc-import name="BannerSlider" hint-size="100%,220px"></dc-import>
 
       <!-- News -->
       <section>

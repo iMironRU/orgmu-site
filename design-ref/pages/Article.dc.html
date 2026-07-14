@@ -35,8 +35,29 @@
           </div>
           <h1 style="margin:0 0 20px; font-family:'Inter',sans-serif; font-weight:700; font-size:38px; line-height:1.12; color:rgb(0,101,155); text-wrap:balance;">Второй этап конкурса «Лучший врач педиатр участковый»</h1>
 
-          <div class="art-hero" style="width:100%; height:380px; border-radius:12px; background:url('assets/corpus.jpg') center/cover no-repeat; margin-bottom:8px;"></div>
-          <div style="font-size:14px; color:rgb(150,150,150); margin:6px 2px 28px;">Фото: пресс-служба ОрГМУ</div>
+          <div class="art-hero" style="position:relative; width:100%; height:380px; border-radius:12px; overflow:hidden; margin-bottom:8px; background:rgb(238,238,238);">
+            <div style="position:absolute; inset:0; display:flex; width:{{ photoTrackWidth }}; height:100%; transform:translateX({{ photoOffset }}); transition:transform 360ms cubic-bezier(0.4,0,0.2,1);">
+              <sc-for list="{{ photos }}" as="ph" hint-placeholder-count="1">
+                <div style="flex:0 0 auto; width:{{ photoSlideWidth }}; height:100%; background:url('{{ ph.url }}') center/cover no-repeat;"></div>
+              </sc-for>
+            </div>
+
+            <sc-if value="{{ hasMultiplePhotos }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ prevPhoto }}" aria-label="Предыдущее фото" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; border:none; background:rgba(0,0,0,0.45); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer;" style-hover="background:rgba(0,0,0,0.65);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>
+              </button>
+              <button onClick="{{ nextPhoto }}" aria-label="Следующее фото" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; border:none; background:rgba(0,0,0,0.45); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer;" style-hover="background:rgba(0,0,0,0.65);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+              </button>
+              <div style="position:absolute; left:0; right:0; bottom:14px; display:flex; justify-content:center; gap:8px;">
+                <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="3">
+                  <button onClick="{{ dot.go }}" aria-label="{{ dot.label }}" style="width:{{ dot.size }}; height:8px; border-radius:4px; border:none; background:{{ dot.bg }}; cursor:pointer; padding:0; transition:background 150ms, width 150ms;"></button>
+                </sc-for>
+              </div>
+              <div style="position:absolute; right:14px; top:14px; font-size:13px; font-weight:700; color:#fff; background:rgba(0,0,0,0.45); border-radius:6px; padding:4px 10px;">{{ photoCounter }}</div>
+            </sc-if>
+          </div>
+          <div style="font-size:14px; color:rgb(150,150,150); margin:6px 2px 28px;">{{ photoCaption }}</div>
 
           <div style="font-size:19px; line-height:1.7; color:rgb(49,49,49); display:flex; flex-direction:column; gap:18px;">
             <p style="margin:0; font-weight:500; font-size:21px; color:rgb(50,100,150);">На базе обучающего симуляционного центра университета прошёл второй этап конкурса профессионального мастерства среди участковых педиатров региона.</p>
@@ -119,9 +140,18 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
+  state = { photoIndex: 0 };
   svg(...c) { return React.createElement("svg", { width: 20, height: 20, viewBox: "0 0 24 24", fill: "currentColor", stroke: "none" }, c); }
   p(d) { return React.createElement("path", { key: d.slice(0,5), d }); }
   renderVals() {
+    const photos = this.props.photos || [
+      { url: "assets/corpus.jpg", caption: "Фото: пресс-служба ОрГМУ" },
+      { url: "assets/corpus.jpg", caption: "Финал второго этапа конкурса" },
+      { url: "assets/corpus.jpg", caption: "Награждение победителей" },
+    ];
+    const count = photos.length;
+    const idx = ((this.state.photoIndex % count) + count) % count;
+    const goTo = (i) => this.setState({ photoIndex: i });
     const KIND = {
       event:    { label: "Событие",       color: "rgb(184,57,4)" },
       announce: { label: "Объявление",    color: "rgb(48,176,199)" },
@@ -155,6 +185,21 @@ class Component extends DCLogic {
 
     return {
       typeLabel: k.label, typeColor: k.color,
+      photos: photos,
+      photoTrackWidth: (count * 100) + "%",
+      photoSlideWidth: (100 / count) + "%",
+      photoOffset: "-" + (idx * (100 / count)) + "%",
+      hasMultiplePhotos: count > 1,
+      photoCaption: (photos[idx] && photos[idx].caption) || "",
+      photoCounter: (idx + 1) + " / " + count,
+      prevPhoto: () => goTo(idx - 1),
+      nextPhoto: () => goTo(idx + 1),
+      dots: photos.map((ph, i) => ({
+        go: () => goTo(i),
+        label: "Фото " + (i + 1),
+        size: i === idx ? "22px" : "8px",
+        bg: i === idx ? "rgb(255,255,255)" : "rgba(255,255,255,0.5)",
+      })),
       places: [
         { name: "Обучающий симуляционный центр", address: "Корпус №3, ауд. 312", clickable: true, notClickable: false, href: "Room.dc.html" },
         { name: "Дом Советов Оренбургской области", address: "Актовый зал · ул. Постникова, 24", clickable: false, notClickable: true, href: "" },

@@ -1,13 +1,18 @@
 import Link from "next/link";
 import { getAllNews } from "@/lib/content/news";
 import { getSubsites } from "@/lib/content/navigation";
+import { getBanners, getAnnouncements } from "@/lib/content/home";
 import { NewsCard } from "@/components/NewsCard";
 import { SubsiteTile } from "@/components/SubsiteTile";
+import { BannerSlider } from "@/components/BannerSlider";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { asset } from "@/lib/asset";
 
 export default function HomePage() {
   const latest = getAllNews().slice(0, 6);
   const subsites = getSubsites();
+  const banners = getBanners();
+  const announcements = getAnnouncements();
 
   return (
     <>
@@ -45,8 +50,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Объявления + баннеры над новостями */}
+      {(announcements.length > 0 || banners.length > 0) && (
+        <section className="mx-auto max-w-[1146px] w-full px-10 pt-12 box-border max-[768px]:px-5 max-[768px]:pt-8 flex flex-col gap-5">
+          {announcements.length > 0 && <AnnouncementBar items={announcements} />}
+          {banners.length > 0 && <BannerSlider banners={banners} />}
+        </section>
+      )}
+
       {/* Свежие новости */}
-      <section className="mx-auto max-w-[1146px] w-full px-10 py-16 box-border max-[768px]:px-5 max-[768px]:py-10">
+      <section className="mx-auto max-w-[1146px] w-full px-10 pt-12 pb-16 box-border max-[768px]:px-5 max-[768px]:py-10">
         <div className="flex items-end justify-between gap-4 mb-8 flex-wrap">
           <h2 className="m-0 font-display font-bold text-[33px] text-brand">
             Новости и события

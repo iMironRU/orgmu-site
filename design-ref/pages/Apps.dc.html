@@ -40,9 +40,23 @@
               </div>
             </div>
             <p style="margin:0; padding:0 24px 20px; font-size:17px; line-height:1.5; color:rgb(50,100,150);">{{ a.desc }}</p>
-            <div style="margin-top:auto; padding:16px 24px; border-top:1px solid rgb(238,238,238); display:flex; gap:10px; flex-wrap:wrap;">
-              <a href="#" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:16px; color:#fff; background:{{ a.accent }}; border-radius:8px; padding:10px 18px; text-decoration:none;">{{ a.cta }}</a>
-              <a href="AppDetail.dc.html" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:16px; color:{{ a.accent }}; background:none; border:2px solid {{ a.accent }}; border-radius:8px; padding:8px 16px; text-decoration:none;">Подробнее</a>
+            <div style="margin-top:auto; padding:16px 24px; border-top:1px solid rgb(238,238,238); display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                <a href="{{ a.primaryHref }}" target="_blank" rel="noopener" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:16px; color:#fff; background:{{ a.accent }}; border-radius:8px; padding:10px 18px; text-decoration:none;">{{ a.primaryLabel }}</a>
+                <sc-if value="{{ a.hasMoreLinks }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ a.toggleMore }}" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:15px; color:{{ a.accent }}; background:none; border:1px dashed {{ a.accent }}; border-radius:8px; padding:9px 14px; cursor:pointer; display:flex; align-items:center; gap:6px;">Ещё {{ a.moreCount }} {{ a.moreWord }} входа<span style="font-size:12px;">{{ a.moreSign }}</span></button>
+                </sc-if>
+                <a href="AppDetail.dc.html" style="font-family:'Roboto Condensed',sans-serif; font-weight:700; font-size:16px; color:{{ a.accent }}; background:none; border:2px solid {{ a.accent }}; border-radius:8px; padding:8px 16px; text-decoration:none;">Подробнее</a>
+              </div>
+              <sc-if value="{{ a.moreOpen }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex; flex-direction:column; gap:2px; padding:6px; background:rgb(251,251,251); border:1px solid rgb(238,238,238); border-radius:10px;">
+                  <sc-for list="{{ a.moreLinks }}" as="l" hint-placeholder-count="2">
+                    <a href="{{ l.href }}" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:8px; font-size:15px; font-weight:700; color:{{ a.accent }}; text-decoration:none; padding:9px 10px; border-radius:7px;" style-hover="background:#fff;">
+                      <span style="opacity:0.7;">↗</span>{{ l.label }}
+                    </a>
+                  </sc-for>
+                </div>
+              </sc-if>
             </div>
           </div>
         </sc-for>
@@ -56,23 +70,52 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
+  state = { openApp: -1 };
   svg(...c) { return React.createElement("svg", { width: 32, height: 32, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" }, c); }
   p(d, e) { return React.createElement("path", Object.assign({ key: d.slice(0,5), d }, e)); }
+  pluralizeSposob(n) {
+    const n10 = n % 10, n100 = n % 100;
+    if (n10 === 1 && n100 !== 11) return "способ";
+    if ([2,3,4].includes(n10) && ![12,13,14].includes(n100)) return "способа";
+    return "способов";
+  }
   renderVals() {
-    const apps = [
+    const appsData = [
       { name: "МФЦ ОрГМУ", tag: "Единое окно сервисов", accent: "rgb(48,176,199)", soft: "rgba(48,176,199,0.12)",
         desc: "Заказ справок, документов и услуг в одном окне: статус заявок, электронная очередь, уведомления о готовности.",
-        cta: "Открыть МФЦ",
+        links: [{ label: "Открыть МФЦ", href: "#" }],
         node: this.svg(this.p("M3 21V9l9-6 9 6v12"), this.p("M9 21v-6h6v6"), this.p("M3 21h18")) },
+      // Одно приложение — несколько точек входа (СДО и личный кабинет ведут в одну и ту же ЭИОС).
       { name: "ЭИОС", tag: "Электронная информационно-образовательная среда", accent: "rgb(184,57,4)", soft: "rgba(184,57,4,0.12)",
         desc: "Личный кабинет обучающегося: расписание, электронные курсы, оценки, ведомости, портфолио и учебные материалы.",
-        cta: "Войти в ЭИОС",
+        links: [
+          { label: "Личный кабинет ЭИОС", href: "#" },
+          { label: "СДО · sdo.orgma.ru", href: "https://sdo.orgma.ru" },
+        ],
         node: this.svg(this.p("M4 5h16v11H4z"), this.p("M2 20h20"), this.p("M9 9l2 2-2 2"), this.p("M13 13h2")) },
       { name: "Цифровой ID", tag: "Единый вход и пропуск", accent: "rgb(88,86,214)", soft: "rgba(88,86,214,0.12)",
         desc: "Единая учётная запись университета: авторизация во всех сервисах, электронный пропуск и цифровое студенческое.",
-        cta: "Настроить ID",
+        links: [{ label: "Настроить ID", href: "#" }],
         node: this.svg(this.p("M4 5h16v14H4z"), this.p("M8 10a2 2 0 1 0 0-.01"), this.p("M6 16c.5-1.6 1.9-2.5 3-2.5s2.5.9 3 2.5"), this.p("M14 10h4M14 13h4")) },
     ];
+
+    const openApp = this.state.openApp;
+    const apps = appsData.map((a, i) => {
+      const more = a.links.slice(1);
+      const isOpen = openApp === i;
+      return {
+        ...a,
+        primaryLabel: a.links[0].label,
+        primaryHref: a.links[0].href,
+        hasMoreLinks: more.length > 0,
+        moreCount: more.length,
+        moreWord: this.pluralizeSposob(more.length),
+        moreOpen: isOpen,
+        moreSign: isOpen ? "▲" : "▾",
+        moreLinks: more,
+        toggleMore: () => this.setState(s => ({ openApp: s.openApp === i ? -1 : i })),
+      };
+    });
     return { apps };
   }
 }
