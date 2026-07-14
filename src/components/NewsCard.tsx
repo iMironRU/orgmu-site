@@ -1,6 +1,6 @@
 import Link from "next/link";
-import type { NewsItem } from "@/lib/content/news";
-import { formatDateRu, kindStyle, newsKind } from "@/lib/content/news";
+import type { NewsItem } from "@/lib/content/news-types";
+import { formatDateRu, kindStyle, newsKind } from "@/lib/content/news-types";
 
 export function NewsCard({ item }: { item: NewsItem }) {
   const k = kindStyle(newsKind(item));

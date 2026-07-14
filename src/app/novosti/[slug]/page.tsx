@@ -10,6 +10,7 @@ import {
   newsKind,
 } from "@/lib/content/news";
 import { NewsGallery } from "@/components/NewsGallery";
+import { ShareButtons } from "@/components/ShareButtons";
 
 export const dynamicParams = false;
 
@@ -92,7 +93,9 @@ export default async function ArticlePage({
             dangerouslySetInnerHTML={{ __html: item.body_html }}
           />
 
-          <div className="mt-8 pt-6 border-t border-line">
+          <ShareButtons title={item.title} />
+
+          <div className="mt-6">
             <a
               href={item.source.url}
               target="_blank"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllNews } from "@/lib/content/news";
-import { NewsCard } from "@/components/NewsCard";
+import { NewsListView } from "@/components/NewsListView";
 
 export const metadata: Metadata = {
   title: "Новости и события",
@@ -29,11 +29,7 @@ export default function NewsListPage() {
       {news.length === 0 ? (
         <p className="text-steel font-ui text-[18px]">Новостей пока нет.</p>
       ) : (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
-          {news.map((item) => (
-            <NewsCard key={item.source.item_id} item={item} />
-          ))}
-        </div>
+        <NewsListView items={news} />
       )}
     </main>
   );

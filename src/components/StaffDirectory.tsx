@@ -5,82 +5,61 @@ import type { Person } from "@/lib/content/persons-types";
 import { POSITION_CATS, DEGREE_CATS, positionCat } from "@/lib/content/persons-types";
 import { PersonTile } from "@/components/PersonTile";
 
+const SELECT =
+  "font-ui text-[16px] text-ink px-[14px] py-[11px] border border-line-strong rounded-[9px] outline-none focus:border-accent bg-white cursor-pointer w-full";
+
 export function StaffDirectory({ people }: { people: Person[] }) {
   const [q, setQ] = useState("");
-  const [pos, setPos] = useState<string[]>([]);
-  const [deg, setDeg] = useState<string[]>([]);
+  const [pos, setPos] = useState("");
+  const [deg, setDeg] = useState("");
 
   const list = useMemo(() => {
     const query = q.trim().toLowerCase();
     return people.filter(
       (p) =>
-        (pos.length === 0 || pos.includes(positionCat(p.position) ?? "")) &&
-        (deg.length === 0 || deg.some((k) => p.degree.toLowerCase().includes(k))) &&
+        (!pos || positionCat(p.position) === pos) &&
+        (!deg || p.degree.toLowerCase().includes(deg)) &&
         (!query ||
           p.fio.toLowerCase().includes(query) ||
           p.disciplines.some((d) => d.toLowerCase().includes(query))),
     );
   }, [people, q, pos, deg]);
 
-  const isFiltered = !!q.trim() || pos.length > 0 || deg.length > 0;
-  const toggle = (arr: string[], set: (v: string[]) => void, k: string) =>
-    set(arr.includes(k) ? arr.filter((x) => x !== k) : [...arr, k]);
-
+  const isFiltered = !!q.trim() || !!pos || !!deg;
   const presentPos = POSITION_CATS.filter((c) => people.some((p) => positionCat(p.position) === c.key));
   const presentDeg = DEGREE_CATS.filter((c) => people.some((p) => p.degree.toLowerCase().includes(c.key)));
-
-  const Chip = ({
-    active,
-    onClick,
-    children,
-  }: {
-    active: boolean;
-    onClick: () => void;
-    children: React.ReactNode;
-  }) => (
-    <button
-      type="button"
-      onClick={onClick}
-      className="text-[14px] font-medium rounded-full px-[14px] py-[7px] border cursor-pointer"
-      style={{
-        color: active ? "#fff" : "var(--c-steel)",
-        background: active ? "var(--c-accent)" : "var(--c-bg)",
-        borderColor: active ? "var(--c-accent)" : "var(--c-line-strong)",
-      }}
-    >
-      {children}
-    </button>
-  );
 
   return (
     <div className="font-ui">
       <div className="bg-white border border-line rounded-2xl p-[18px] shadow-[0_1px_2px_rgba(0,0,0,0.05)] mb-4">
-        <label className="flex flex-col gap-[6px] mb-3">
-          <span className="font-bold text-[14px] text-ink-2">Поиск по ФИО или дисциплине</span>
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Фамилия, дисциплина…"
-            className="text-[16px] text-ink px-[14px] py-[11px] border border-line-strong rounded-[9px] outline-none focus:border-accent max-w-[420px]"
-          />
-        </label>
-        <div className="flex flex-col gap-2">
-          <div className="flex flex-wrap gap-2">
-            <span className="text-[13px] font-bold text-ink-3 self-center mr-1">Должность:</span>
-            {presentPos.map((c) => (
-              <Chip key={c.key} active={pos.includes(c.key)} onClick={() => toggle(pos, setPos, c.key)}>
-                {c.label}
-              </Chip>
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <span className="text-[13px] font-bold text-ink-3 self-center mr-1">Учёная степень:</span>
-            {presentDeg.map((c) => (
-              <Chip key={c.key} active={deg.includes(c.key)} onClick={() => toggle(deg, setDeg, c.key)}>
-                {c.label}
-              </Chip>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-3 items-end max-[640px]:flex-col max-[640px]:items-stretch">
+          <label className="flex-[1_1_240px] min-w-[200px] flex flex-col gap-[6px]">
+            <span className="font-bold text-[14px] text-ink-2">Поиск по ФИО или дисциплине</span>
+            <input
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Фамилия, дисциплина…"
+              className="text-[16px] text-ink px-[14px] py-[11px] border border-line-strong rounded-[9px] outline-none focus:border-accent"
+            />
+          </label>
+          <label className="flex-[1_1_200px] min-w-[170px] flex flex-col gap-[6px]">
+            <span className="font-bold text-[14px] text-ink-2">Должность</span>
+            <select value={pos} onChange={(e) => setPos(e.target.value)} className={SELECT}>
+              <option value="">Все должности</option>
+              {presentPos.map((c) => (
+                <option key={c.key} value={c.key}>{c.label}</option>
+              ))}
+            </select>
+          </label>
+          <label className="flex-[1_1_200px] min-w-[170px] flex flex-col gap-[6px]">
+            <span className="font-bold text-[14px] text-ink-2">Учёная степень</span>
+            <select value={deg} onChange={(e) => setDeg(e.target.value)} className={SELECT}>
+              <option value="">Любая степень</option>
+              {presentDeg.map((c) => (
+                <option key={c.key} value={c.key}>{c.label}</option>
+              ))}
+            </select>
+          </label>
         </div>
       </div>
 
@@ -91,11 +70,7 @@ export function StaffDirectory({ people }: { people: Person[] }) {
         {isFiltered && (
           <button
             type="button"
-            onClick={() => {
-              setQ("");
-              setPos([]);
-              setDeg([]);
-            }}
+            onClick={() => { setQ(""); setPos(""); setDeg(""); }}
             className="font-bold text-[15px] text-accent bg-none border-none cursor-pointer"
           >
             Сбросить ✕
