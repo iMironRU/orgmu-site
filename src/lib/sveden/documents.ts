@@ -119,6 +119,29 @@ export function getSectionFileDocs(sectionKey: string): DocItem[] {
   return out;
 }
 
+// Документ «Персональный состав педагогических работников» (XLSX) для подраздела
+// «Педагогический состав» — по макету Svedenia. Ссылка на файл заполняется в
+// content/sveden/overrides.yml (employees.fields.staffListDocLink). Пока файла
+// нет — карточка-заготовка с прочерками.
+const STAFF_LIST_TITLE = "Персональный состав педагогических работников";
+export function getStaffListDoc(): DocItem {
+  const v = sectionData("employees").fields?.staffListDocLink;
+  const href = hrefOf(v);
+  if (isFileHref(href)) {
+    const item = makeDocItem("employeePersonalList", STAFF_LIST_TITLE, href);
+    if (item) return item;
+  }
+  return {
+    itemprop: "",
+    title: STAFF_LIST_TITLE,
+    href: undefined,
+    fmt: "XLSX",
+    date: "",
+    size: "",
+    missing: true,
+  };
+}
+
 export function getDocumentGroups(): DocGroup[] {
   const section = getSection("document");
   if (!section) return [];

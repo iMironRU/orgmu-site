@@ -3,7 +3,8 @@ import { listSectionKeys, getSection } from "@/lib/sveden/vocab";
 import { SECTION_LABELS, SECTION_SHORT, SECTION_LEADS } from "@/lib/sveden/labels";
 import { SvedenSection } from "@/components/sveden/SvedenSection";
 import { DocumentsView } from "@/components/sveden/DocumentsView";
-import { getDocumentGroups } from "@/lib/sveden/documents";
+import { DocCards } from "@/components/sveden/DocCards";
+import { getDocumentGroups, getStaffListDoc } from "@/lib/sveden/documents";
 import { getTeachers } from "@/lib/content/persons";
 
 // Плашка со статистикой педсостава — по макету Svedenia (spec «Employees»):
@@ -237,7 +238,13 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
               {/* Педсостав: по макету — витрина + статистика, а не таблица на 173 строки
                   (персональные машиночитаемые карточки — на /persony). */}
               {sectionKey === "employees" ? (
-                <StaffStats />
+                <>
+                  <StaffStats />
+                  <section className="mt-2">
+                    <h3 className="m-0 mb-3 font-display font-bold text-[21px] text-brand">Документы</h3>
+                    <DocCards docs={[getStaffListDoc()]} />
+                  </section>
+                </>
               ) : (
                 <SvedenSection sectionKey={sectionKey} section={section} />
               )}

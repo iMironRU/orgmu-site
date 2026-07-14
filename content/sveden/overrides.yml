@@ -18,6 +18,12 @@ common:
     addressPlaceGia: ""    # места проведения ГИА — заполнить
     addressPlaceOppo: ""   # места программ проф. обучения — заполнить
 
+employees:
+  fields:
+    # Документ по макету Svedenia (XLSX, подписан ЭЦП). Когда появится файл —
+    # указать ссылку: { text: "Персональный состав педагогических работников", href: "https://www.orgma.ru/files/sveden/.../....xlsx" }
+    staffListDocLink: ""
+
 grants:
   fields:
     hostelNumOvz: ""  # мест в общежитии для инвалидов и лиц с ОВЗ — заполнить
