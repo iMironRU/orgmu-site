@@ -67,7 +67,12 @@ export default async function PersonPage({
             </h1>
             <div {...ip("post")} className="text-[19px] text-steel mt-[6px]">{p.position}</div>
             {degreeLine && <div className="text-[17px] text-ink-2 mt-1">{degreeLine}</div>}
-            {p.dept && <div className="text-[16px] text-accent font-bold mt-3">{p.dept}</div>}
+            {p.dept && (
+              <Link href="/struktura" className="inline-flex items-center gap-[7px] mt-3 font-bold text-[16px] text-accent no-underline max-[760px]:justify-center">
+                {p.dept}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+              </Link>
+            )}
           </div>
         </div>
       </div>
@@ -75,6 +80,15 @@ export default async function PersonPage({
       {/* Контакты руководства */}
       {p.isLead && (p.phone || p.email) && (
         <div className="flex gap-[14px] flex-wrap mt-4">
+          <a
+            href={p.email ? `mailto:${p.email}` : p.phone ? `tel:${p.phone.replace(/[^+\d]/g, "")}` : "#"}
+            className="flex-1 min-w-[220px] flex items-center gap-3 bg-brand rounded-xl px-5 py-[18px] no-underline hover:bg-brand-strong transition-colors"
+          >
+            <span className="shrink-0 text-white flex">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2" /><path d="M3 9h18M8 2.5v4M16 2.5v4" /></svg>
+            </span>
+            <span className="font-bold text-[18px] text-white">Записаться на приём</span>
+          </a>
           {p.phone && (
             <div className="flex-1 min-w-[200px] bg-white border border-line rounded-xl px-5 py-[18px]">
               <div className="text-[14px] text-ink-3 mb-1">Телефон</div>
@@ -100,16 +114,23 @@ export default async function PersonPage({
             Преподаваемые дисциплины
           </h3>
           {p.disciplines.length > 0 ? (
-            <div className="flex flex-wrap gap-2">
-              {p.disciplines.map((d, i) => (
-                <span
-                  key={i}
-                  {...ip("teachingDiscipline")}
-                  className="text-[14px] font-bold text-steel bg-bg-muted border border-[rgb(228,232,236)] rounded-full px-[13px] py-[6px]"
-                >
-                  {d}
-                </span>
-              ))}
+            <div>
+              {p.dept && (
+                <Link href="/struktura" className="inline-flex items-center gap-[9px] no-underline font-bold text-[16px] text-brand mb-2">
+                  <span className="shrink-0 text-accent flex">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21V8l6-4 6 4v13" /><path d="M9 21v-5h4v5M19 21V11l-4-2.6" /></svg>
+                  </span>
+                  {p.dept}
+                </Link>
+              )}
+              <div className="ml-2 pl-[14px] border-l-2 border-[rgb(228,232,236)] flex flex-col gap-2">
+                {p.disciplines.map((d, i) => (
+                  <div key={i} className="flex items-start gap-[9px] text-[16px] text-steel">
+                    <span className="shrink-0 w-[6px] h-[6px] rounded-full bg-accent mt-[8px]" />
+                    <span {...ip("teachingDiscipline")}>{d}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           ) : (
             <div className="text-[16px] text-ink-3">Учебные дисциплины не закреплены.</div>
