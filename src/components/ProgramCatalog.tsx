@@ -4,9 +4,7 @@ import { useMemo, useState } from "react";
 import type { Program } from "@/lib/content/programs-types";
 import { LEVEL_CATS } from "@/lib/content/programs-types";
 import { ProgramTile } from "@/components/ProgramTile";
-
-const SELECT =
-  "pc-select font-ui text-[16px] text-ink px-[14px] py-[11px] border border-line-strong rounded-[9px] outline-none focus:border-accent bg-white cursor-pointer w-full";
+import { FilterSelect } from "@/components/FilterSelect";
 
 // Годы приёма — контрол по макету; данные по годам набора в парсинге пока нет.
 const YEARS = ["2026", "2025"];
@@ -59,42 +57,50 @@ export function ProgramCatalog({ programs }: { programs: Program[] }) {
             />
           </Field>
           <Field label="Приём (год набора)">
-            <select value={year} onChange={(e) => setYear(e.target.value)} className={SELECT}>
-              {YEARS.map((y) => (
-                <option key={y} value={y}>Приём {y}</option>
-              ))}
-            </select>
+            <FilterSelect
+              value={year}
+              onChange={setYear}
+              searchable={false}
+              options={YEARS.map((y) => ({ value: y, label: `Приём ${y}` }))}
+            />
           </Field>
           <Field label="Уровень">
-            <select value={level} onChange={(e) => setLevel(e.target.value)} className={SELECT}>
-              <option value="">Все уровни</option>
-              {presentLevels.map((c) => (
-                <option key={c.key} value={c.key}>{c.label}</option>
-              ))}
-            </select>
+            <FilterSelect
+              value={level}
+              onChange={setLevel}
+              searchable={false}
+              placeholder="Все уровни"
+              options={presentLevels.map((c) => ({ value: c.key, label: c.label }))}
+            />
           </Field>
           <Field label="Форма">
-            <select value={form} onChange={(e) => setForm(e.target.value)} className={SELECT}>
-              <option value="">Любая</option>
-              {presentForms.map((f) => (
-                <option key={f} value={f}>{f}</option>
-              ))}
-            </select>
+            <FilterSelect
+              value={form}
+              onChange={setForm}
+              searchable={false}
+              placeholder="Любая"
+              options={presentForms}
+            />
           </Field>
           <Field label="Факультет">
-            <select value={faculty} onChange={(e) => setFaculty(e.target.value)} className={SELECT}>
-              <option value="">Все</option>
-              {faculties.map((f) => (
-                <option key={f} value={f}>{f}</option>
-              ))}
-            </select>
+            <FilterSelect
+              value={faculty}
+              onChange={setFaculty}
+              placeholder="Все"
+              options={faculties}
+            />
           </Field>
           <Field label="Основа">
-            <select value={basis} onChange={(e) => setBasis(e.target.value)} className={SELECT}>
-              <option value="">Любая</option>
-              <option value="budget">Бюджет</option>
-              <option value="paid">Договор</option>
-            </select>
+            <FilterSelect
+              value={basis}
+              onChange={setBasis}
+              searchable={false}
+              placeholder="Любая"
+              options={[
+                { value: "budget", label: "Бюджет" },
+                { value: "paid", label: "Договор" },
+              ]}
+            />
           </Field>
         </div>
       </div>

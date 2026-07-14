@@ -4,9 +4,7 @@ import { useMemo, useState } from "react";
 import type { Person } from "@/lib/content/persons-types";
 import { POSITION_CATS, DEGREE_CATS, positionCat } from "@/lib/content/persons-types";
 import { PersonTile } from "@/components/PersonTile";
-
-const SELECT =
-  "font-ui text-[16px] text-ink px-[14px] py-[11px] border border-line-strong rounded-[9px] outline-none focus:border-accent bg-white cursor-pointer w-full";
+import { FilterSelect } from "@/components/FilterSelect";
 
 export function StaffDirectory({ people }: { people: Person[] }) {
   const [q, setQ] = useState("");
@@ -44,21 +42,23 @@ export function StaffDirectory({ people }: { people: Person[] }) {
           </label>
           <label className="flex-[1_1_200px] min-w-[170px] flex flex-col gap-[6px]">
             <span className="font-bold text-[14px] text-ink-2">Должность</span>
-            <select value={pos} onChange={(e) => setPos(e.target.value)} className={SELECT}>
-              <option value="">Все должности</option>
-              {presentPos.map((c) => (
-                <option key={c.key} value={c.key}>{c.label}</option>
-              ))}
-            </select>
+            <FilterSelect
+              value={pos}
+              onChange={setPos}
+              searchable={false}
+              placeholder="Все должности"
+              options={presentPos.map((c) => ({ value: c.key, label: c.label }))}
+            />
           </label>
           <label className="flex-[1_1_200px] min-w-[170px] flex flex-col gap-[6px]">
             <span className="font-bold text-[14px] text-ink-2">Учёная степень</span>
-            <select value={deg} onChange={(e) => setDeg(e.target.value)} className={SELECT}>
-              <option value="">Любая степень</option>
-              {presentDeg.map((c) => (
-                <option key={c.key} value={c.key}>{c.label}</option>
-              ))}
-            </select>
+            <FilterSelect
+              value={deg}
+              onChange={setDeg}
+              searchable={false}
+              placeholder="Любая степень"
+              options={presentDeg.map((c) => ({ value: c.key, label: c.label }))}
+            />
           </label>
         </div>
       </div>
