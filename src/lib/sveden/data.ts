@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { load as parseYaml } from "js-yaml";
 
 // Данные sveden в «sveden-форме» (зеркалит vocab/base.yaml):
 //   { [раздел]: { fields: {...}, groups: { [группа]: [...] | {...} | null } } }
@@ -14,12 +15,28 @@ export type SectionData = {
 export type SvedenData = Record<string, SectionData>;
 
 const DATA_FILE = path.join(process.cwd(), "content", "sveden", "sveden.json");
+const OVERRIDES_FILE = path.join(process.cwd(), "content", "sveden", "overrides.yml");
 
 let cached: SvedenData | null = null;
 
+// Ручные исправления полей (overrides.yml) — переопределяют парсинг для случаев,
+// где захвачена подпись-заголовок вместо значения. Пустая строка → «отсутствует».
+function applyOverrides(data: SvedenData): SvedenData {
+  if (!fs.existsSync(OVERRIDES_FILE)) return data;
+  const ov = (parseYaml(fs.readFileSync(OVERRIDES_FILE, "utf8")) as Record<string, Record<string, FieldValue>>) ?? {};
+  for (const [sec, fields] of Object.entries(ov)) {
+    if (!data[sec]) data[sec] = { fields: {}, groups: {} };
+    if (!data[sec].fields) data[sec].fields = {};
+    for (const [key, value] of Object.entries(fields)) {
+      data[sec].fields![key] = value;
+    }
+  }
+  return data;
+}
+
 export function loadSvedenData(): SvedenData {
   if (!cached) {
-    cached = JSON.parse(fs.readFileSync(DATA_FILE, "utf8")) as SvedenData;
+    cached = applyOverrides(JSON.parse(fs.readFileSync(DATA_FILE, "utf8")) as SvedenData);
   }
   return cached;
 }

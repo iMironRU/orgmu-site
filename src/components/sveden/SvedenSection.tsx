@@ -5,6 +5,7 @@ import {
   renderText,
   hrefOf,
   isMissing,
+  MISSING_VALUE,
   type FieldValue,
 } from "@/lib/sveden/data";
 import { fieldLabel, groupLabel } from "@/lib/sveden/labels";
@@ -122,6 +123,24 @@ function normalizeItems(
   return [];
 }
 
+// Строки-«шапки» таблиц, ошибочно попавшие в данные при парсинге
+// («Код, шифр…», «Наименование объекта», «Адрес», «Оснащённость»…).
+const HEADER_RE =
+  /^(наименовани|адрес|код,?\s*шифр|код\b|должност|ф\.?\s?и\.?\s?о|оснащ|приспособл|номер стационарн|уровень образ|форма обуч|срок обуч|проходной|места? (проведен|осуществлен|при )|результат|численност|перечень|телефон|электронн|веб-сайт|количеств|образовательная программа|курс$)/i;
+
+function isHeaderRow(item: Record<string, FieldValue>, fields: FieldDef[]): boolean {
+  const vals = fields
+    .map((f) => renderText(item[f.key]))
+    .filter((v) => v && v !== MISSING_VALUE);
+  if (vals.length === 0) return false;
+  const labelish = vals.filter((v) => HEADER_RE.test(v)).length;
+  return labelish >= Math.ceil(vals.length / 2);
+}
+
+function cleanItems(items: Record<string, FieldValue>[], fields: FieldDef[]) {
+  return items.filter((it) => !isHeaderRow(it, fields));
+}
+
 export function SvedenSection({ sectionKey, section }: { sectionKey: string; section: SectionDef }) {
   const fields: FieldDef[] = sectionFields(section);
   const groups: GroupDef[] = sectionGroups(section);
@@ -161,7 +180,7 @@ export function SvedenSection({ sectionKey, section }: { sectionKey: string; sec
       )}
 
       {groups.map((g) => (
-        <GroupBlock key={g.key} g={g} items={normalizeItems(data.groups?.[g.key])} />
+        <GroupBlock key={g.key} g={g} items={cleanItems(normalizeItems(data.groups?.[g.key]), g.fields)} />
       ))}
     </div>
   );
