@@ -107,6 +107,29 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
 
           {sectionKey === "document" ? (
             <DocumentsView groups={getDocumentGroups()} />
+          ) : sectionKey === "struct" ? (
+            <Link
+              href="/struktura"
+              className="flex items-center gap-4 no-underline bg-white border border-line rounded-xl border-l-4 border-l-brand px-6 py-[22px] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
+            >
+              <span className="shrink-0 text-brand">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+              </span>
+              <span className="flex-1">
+                <span className="block font-display font-bold text-[20px] text-brand">
+                  Открыть структуру подразделений
+                </span>
+                <span className="block text-[16px] text-steel mt-[2px]">
+                  Факультеты, кафедры, институты, управления и отделы с
+                  руководителями, адресами и положениями.
+                </span>
+              </span>
+              <span className="shrink-0 text-gray-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+              </span>
+            </Link>
           ) : (
             <>
               <SvedenSection sectionKey={sectionKey} section={section} />

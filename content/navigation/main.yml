@@ -10,7 +10,7 @@
         - { label: История, href: "#" }
         - { label: Руководство, href: "/sveden/managers" }
         - { label: Учёный совет, href: "#" }
-        - { label: Структура, href: "/sveden/struct" }
+        - { label: Структура, href: "/struktura" }
         - { label: Документы, href: "/sveden/document" }
         - { label: Контакты, href: "#" }
     - title: Сотруднику
