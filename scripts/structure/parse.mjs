@@ -43,13 +43,20 @@ function cleanFio(namePart) {
   return clean(namePart);
 }
 
+const PATRONYMIC = /(вич|вна|ична|инична|оглы|кызы|уулу)$/i;
+
 function parseHead(fioRaw) {
   // "Руководитель подразделения: Заведующий кафедрой - Коровина Ирина Алексеевна"
   const s = strip(fioRaw, "Руководитель подразделения");
-  const dash = s.lastIndexOf(" - ") >= 0 ? " - " : s.lastIndexOf(" — ") >= 0 ? " — " : null;
-  if (dash) {
-    const idx = s.lastIndexOf(dash);
-    return { post: clean(s.slice(0, idx)), fio: cleanFio(s.slice(idx + dash.length)) };
+  // разбор по тире: "<должность> - <ФИО>" (ФИО может отсутствовать → «Главный врач -»)
+  const m = s.match(/^(.*?)\s+[-—]\s*(.*)$/);
+  if (m) {
+    return { post: clean(m[1]), fio: cleanFio(m[2]) };
+  }
+  // без тире: если строка кончается отчеством — отделяем ФИО (последние 3 слова) от должности
+  const words = clean(s).split(/\s+/).filter(Boolean);
+  if (words.length > 3 && PATRONYMIC.test(words[words.length - 1])) {
+    return { post: words.slice(0, -3).join(" "), fio: words.slice(-3).join(" ") };
   }
   return { post: "", fio: cleanFio(s) };
 }
