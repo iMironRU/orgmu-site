@@ -44,6 +44,7 @@ for (const a of accred) {
   lines.push(`  kcpTarget: ${q(e.kcpTarget)}      # мест приёма: целевое`);
   lines.push(`  kcpPaid: ${q(e.kcpPaid)}        # мест приёма: договор`);
   lines.push(`  score: ${q(e.score)}          # проходной балл прошлого года`);
+  lines.push(`  basis: ${q(e.basis)}          # основа: budget | paid | both`);
   lines.push(`  exams: ${Array.isArray(e.exams) && e.exams.length ? JSON.stringify(e.exams) : "[]"}          # вступительные испытания (список)`);
   lines.push("");
 }

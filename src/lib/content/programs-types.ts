@@ -25,6 +25,7 @@ export type Program = {
   kcpTarget?: string; // мест приёма: целевое
   kcpPaid?: string; // мест приёма: договор
   score?: string; // проходной балл прошлого года
+  basis?: string; // основа обучения: budget | paid | both
 };
 
 export const LEVEL_CATS: { key: string; label: string; re: RegExp }[] = [

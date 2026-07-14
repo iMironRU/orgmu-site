@@ -109,6 +109,7 @@ function build() {
       kcpTarget: e.kcpTarget,
       kcpPaid: e.kcpPaid,
       score: e.score,
+      basis: e.basis,
     });
   }
 
