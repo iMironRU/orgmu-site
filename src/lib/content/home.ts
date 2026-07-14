@@ -3,6 +3,8 @@ import path from "node:path";
 import { load as parseYaml } from "js-yaml";
 import type { BannerData } from "@/components/Banner";
 import type { Announcement } from "@/components/AnnouncementBar";
+import { asset } from "@/lib/asset";
+import { getActiveNotices } from "@/lib/content/notices";
 
 const dir = (f: string) => path.join(process.cwd(), "content", f);
 function readYaml<T>(file: string, fallback: T): T {
@@ -14,14 +16,15 @@ export function getBanners(): BannerData[] {
   return readYaml<BannerData[]>("banners.yml", []);
 }
 
-// Объявления: показываем только те, у которых срок (until) не истёк на момент сборки.
+// Полоса «Известий» на главной: активные уведомления, каждое ведёт на свою
+// страницу-известие /izvestiya/<id> (basePath добавляем через asset — это <a>).
 export function getAnnouncements(): Announcement[] {
-  const items = readYaml<Announcement[]>("announcements.yml", []);
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return items.filter((a) => {
-    if (!a.until) return true;
-    const end = new Date(`${a.until}T23:59:59`);
-    return !Number.isNaN(end.getTime()) && end >= today;
-  });
+  return getActiveNotices().map((n) => ({
+    id: n.id,
+    kind: n.kind,
+    title: n.title,
+    text: n.text,
+    until: n.until,
+    href: asset(`/izvestiya/${n.id}`),
+  }));
 }

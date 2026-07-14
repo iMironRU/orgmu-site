@@ -50,10 +50,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Объявления + баннеры над новостями */}
+      {/* Известия + баннеры над новостями */}
       {(announcements.length > 0 || banners.length > 0) && (
         <section className="mx-auto max-w-[1146px] w-full px-10 pt-12 box-border max-[768px]:px-5 max-[768px]:pt-8 flex flex-col gap-5">
-          {announcements.length > 0 && <AnnouncementBar items={announcements} />}
+          {announcements.length > 0 && (
+            <div className="flex flex-col gap-[10px]">
+              <div className="flex items-center justify-between gap-4">
+                <h2 className="m-0 font-display font-bold text-[22px] text-brand">Известия</h2>
+                <Link href="/izvestiya" className="font-ui font-bold text-[16px] text-accent no-underline">
+                  Все известия →
+                </Link>
+              </div>
+              <AnnouncementBar items={announcements} />
+            </div>
+          )}
           {banners.length > 0 && <BannerSlider banners={banners} />}
         </section>
       )}

@@ -12,6 +12,7 @@
         - { label: Учёный совет, href: "#" }
         - { label: Структура, href: "/struktura" }
         - { label: Документы, href: "/sveden/document" }
+        - { label: Известия, href: "/izvestiya" }
         - { label: Контакты, href: "#" }
     - title: Сотруднику
       items:
@@ -50,6 +51,7 @@
         - { label: Практика, href: "#" }
     - title: Жизнь
       items:
+        - { label: Афиша мероприятий, href: "/meropriyatiya" }
         - { label: Стипендии, href: "#" }
         - { label: Общежития, href: "#" }
         - { label: Спорт и творчество, href: "#" }
