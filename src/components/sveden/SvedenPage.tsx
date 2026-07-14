@@ -5,6 +5,20 @@ import { SvedenSection } from "@/components/sveden/SvedenSection";
 import { DocumentsView } from "@/components/sveden/DocumentsView";
 import { getDocumentGroups } from "@/lib/sveden/documents";
 
+// Витрины-ссылки на отдельные страницы (по макету Svedenia).
+const VITRINY: Record<string, { href: string; title: string; desc: string }> = {
+  managers: {
+    href: "/rukovodstvo",
+    title: "Открыть страницу руководства",
+    desc: "Ректор и проректоры с должностями и контактами.",
+  },
+  employees: {
+    href: "/persony",
+    title: "Открыть педагогический состав",
+    desc: "Каталог преподавателей с фильтрами по должности и учёной степени.",
+  },
+};
+
 // Страница раздела «Сведения об ОО» по макету Svedenia: титульная плашка +
 // две колонки (слева навигация по 14 подразделам, справа контент подраздела).
 export function SvedenPage({ sectionKey }: { sectionKey: string }) {
@@ -132,6 +146,24 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
             </Link>
           ) : (
             <>
+              {VITRINY[sectionKey] && (
+                <Link
+                  href={VITRINY[sectionKey].href}
+                  className="flex items-center gap-4 no-underline bg-white border border-line rounded-xl border-l-4 border-l-brand px-6 py-[22px] mb-2 hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
+                >
+                  <span className="flex-1">
+                    <span className="block font-display font-bold text-[20px] text-brand">
+                      {VITRINY[sectionKey].title}
+                    </span>
+                    <span className="block text-[16px] text-steel mt-[2px]">
+                      {VITRINY[sectionKey].desc}
+                    </span>
+                  </span>
+                  <span className="shrink-0 text-gray-3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+                  </span>
+                </Link>
+              )}
               <SvedenSection sectionKey={sectionKey} section={section} />
 
               {/* Плашка про машиночитаемость */}
