@@ -20,6 +20,7 @@ export type Program = {
   faculty?: string;
   qualification?: string;
   exams?: string[];
+  price?: string; // стоимость 1 курса, ₽
 };
 
 export const LEVEL_CATS: { key: string; label: string; re: RegExp }[] = [

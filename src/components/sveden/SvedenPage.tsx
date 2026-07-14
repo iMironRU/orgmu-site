@@ -43,7 +43,7 @@ function Vitrina({ href, title, desc, icon }: { href: string; title: string; des
   );
 }
 
-// Витрины-ссылки, показываемые ВМЕСТЕ с данными подраздела (руководство/педсостав).
+// Витрины-ссылки, показываемые ВМЕСТЕ с данными подраздела.
 const VITRINY: Record<string, { href: string; title: string; desc: string }> = {
   managers: {
     href: "/rukovodstvo",
@@ -54,6 +54,21 @@ const VITRINY: Record<string, { href: string; title: string; desc: string }> = {
     href: "/persony",
     title: "Открыть педагогический состав",
     desc: "Каталог преподавателей с фильтрами по должности и учёной степени.",
+  },
+  objects: {
+    href: "/mesta",
+    title: "Открыть места осуществления деятельности",
+    desc: "Учебные корпуса, клинические базы и объекты с адресами и доступной средой.",
+  },
+  grants: {
+    href: "/stipendii",
+    title: "Открыть стипендии и меры поддержки",
+    desc: "Виды стипендий, социальная поддержка, общежитие и трудоустройство.",
+  },
+  paid_edu: {
+    href: "/platnye-uslugi",
+    title: "Открыть стоимость обучения",
+    desc: "Стоимость по программам, порядок оказания и образец договора.",
   },
 };
 

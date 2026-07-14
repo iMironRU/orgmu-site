@@ -105,6 +105,20 @@ export function makeDocItem(
   };
 }
 
+// Документы-файлы любого подраздела карточками (для страниц Стипендии/Платные и т.п.).
+export function getSectionFileDocs(sectionKey: string): DocItem[] {
+  const section = getSection(sectionKey);
+  if (!section) return [];
+  const data = sectionData(sectionKey);
+  const out: DocItem[] = [];
+  for (const f of sectionFields(section)) {
+    const v = data.fields?.[f.key];
+    const item = makeDocItem(f.itemprop, renderText(v), hrefOf(v));
+    if (item) out.push(item);
+  }
+  return out;
+}
+
 export function getDocumentGroups(): DocGroup[] {
   const section = getSection("document");
   if (!section) return [];

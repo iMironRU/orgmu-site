@@ -39,6 +39,7 @@ for (const a of accred) {
   lines.push(`  faculty: ${q(e.faculty)}        # факультет`);
   lines.push(`  qualification: ${q(e.qualification)}  # присваиваемая квалификация`);
   lines.push(`  description: ${q(e.description)}    # текст «О программе»`);
+  lines.push(`  price: ${q(e.price)}          # стоимость 1 курса, руб.`);
   lines.push(`  exams: ${Array.isArray(e.exams) && e.exams.length ? JSON.stringify(e.exams) : "[]"}          # вступительные испытания (список)`);
   lines.push("");
 }

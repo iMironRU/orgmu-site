@@ -104,6 +104,7 @@ function build() {
       faculty: e.faculty,
       qualification: e.qualification,
       exams: e.exams,
+      price: e.price,
     });
   }
 
