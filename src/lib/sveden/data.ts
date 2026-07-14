@@ -19,17 +19,17 @@ const OVERRIDES_FILE = path.join(process.cwd(), "content", "sveden", "overrides.
 
 let cached: SvedenData | null = null;
 
-// Ручные исправления полей (overrides.yml) — переопределяют парсинг для случаев,
-// где захвачена подпись-заголовок вместо значения. Пустая строка → «отсутствует».
+// Ручные исправления полей и групп (overrides.yml) — переопределяют парсинг для
+// случаев, где захвачена подпись-заголовок вместо значения. Формат:
+//   <раздел>: { fields: {...}, groups: {...} }. Пустая строка → «отсутствует».
+type Override = { fields?: Record<string, FieldValue>; groups?: SectionData["groups"] };
 function applyOverrides(data: SvedenData): SvedenData {
   if (!fs.existsSync(OVERRIDES_FILE)) return data;
-  const ov = (parseYaml(fs.readFileSync(OVERRIDES_FILE, "utf8")) as Record<string, Record<string, FieldValue>>) ?? {};
-  for (const [sec, fields] of Object.entries(ov)) {
+  const ov = (parseYaml(fs.readFileSync(OVERRIDES_FILE, "utf8")) as Record<string, Override>) ?? {};
+  for (const [sec, o] of Object.entries(ov)) {
     if (!data[sec]) data[sec] = { fields: {}, groups: {} };
-    if (!data[sec].fields) data[sec].fields = {};
-    for (const [key, value] of Object.entries(fields)) {
-      data[sec].fields![key] = value;
-    }
+    if (o.fields) data[sec].fields = { ...(data[sec].fields ?? {}), ...o.fields };
+    if (o.groups) data[sec].groups = { ...(data[sec].groups ?? {}), ...o.groups };
   }
   return data;
 }
