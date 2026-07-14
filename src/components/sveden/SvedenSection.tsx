@@ -8,13 +8,13 @@ import {
   type FieldValue,
 } from "@/lib/sveden/data";
 import { fieldLabel, groupLabel } from "@/lib/sveden/labels";
+import { makeDocItem, isFileHref, type DocItem } from "@/lib/sveden/documents";
+import { DocCards } from "@/components/sveden/DocCards";
 
-// Атрибут микроразметки строчными в исходном HTML (чекер Рособрнадзора ищет
-// itemprop без учёта регистра, но пишем как на эталонных sveden-страницах).
+// Атрибут микроразметки строчными в исходном HTML.
 const ip = (value: string) => ({ itemprop: value }) as Record<string, string>;
 
-// Значение поля с микроразметкой. itemprop оборачивает ТОЛЬКО значение —
-// подпись снаружи, иначе она попадёт в микроразметку при чтении чекером.
+// Значение поля с микроразметкой. itemprop оборачивает ТОЛЬКО значение.
 function Value({ itemprop, value }: { itemprop: string; value: FieldValue }) {
   const href = hrefOf(value);
   const text = renderText(value);
@@ -33,12 +33,14 @@ function Value({ itemprop, value }: { itemprop: string; value: FieldValue }) {
   );
 }
 
-// Строка «подпись + значение» для одиночных полей и карточек групп.
+// Строка «подпись + значение» — стиль макета Svedenia (подпись слева, значение справа).
 function Row({ f, value }: { f: FieldDef; value: FieldValue }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-[minmax(220px,300px)_1fr] gap-1 sm:gap-4 py-3 border-b border-line last:border-0">
-      <span className="text-[14px] text-ink-2 font-ui">{fieldLabel(f.key)}</span>
-      <div className="text-[16px] font-ui">
+    <div className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
+      <div className="flex-[0_0_240px] max-w-full text-[16px] text-ink-2 font-ui">
+        {fieldLabel(f.key)}
+      </div>
+      <div className="flex-1 min-w-[180px] text-[17px] font-medium font-ui">
         <Value itemprop={f.itemprop} value={value} />
       </div>
     </div>
@@ -47,7 +49,6 @@ function Row({ f, value }: { f: FieldDef; value: FieldValue }) {
 
 function GroupBlock({ g, items }: { g: GroupDef; items: Record<string, FieldValue>[] }) {
   const asTable = items.length > 8;
-
   return (
     <section className="mt-8">
       <h2 className="m-0 mb-4 font-display font-bold text-[22px] text-brand">
@@ -56,7 +57,6 @@ function GroupBlock({ g, items }: { g: GroupDef; items: Record<string, FieldValu
           <span className="text-ink-3 font-normal text-[16px]"> · {items.length}</span>
         )}
       </h2>
-
       {items.length === 0 ? (
         <p className="text-ink-3 font-ui">отсутствует</p>
       ) : asTable ? (
@@ -102,7 +102,7 @@ function GroupBlock({ g, items }: { g: GroupDef; items: Record<string, FieldValu
       ) : (
         <div className="flex flex-col gap-4">
           {items.map((item, i) => (
-            <div key={i} {...ip(g.itemprop)} className="bg-white border border-line rounded-xl px-5 py-2">
+            <div key={i} {...ip(g.itemprop)} className="bg-white border border-line rounded-xl px-0 py-0 overflow-hidden">
               {g.fields.map((f) => (
                 <Row key={f.key} f={f} value={item[f.key]} />
               ))}
@@ -127,13 +127,36 @@ export function SvedenSection({ sectionKey, section }: { sectionKey: string; sec
   const groups: GroupDef[] = sectionGroups(section);
   const data = sectionData(sectionKey);
 
+  // Поля-файлы выносим в блок «Документы» карточками; остальные — в таблицу.
+  const docItems: DocItem[] = [];
+  const plainFields: FieldDef[] = [];
+  for (const f of fields) {
+    const v = data.fields?.[f.key];
+    const href = hrefOf(v);
+    if (isFileHref(href)) {
+      const item = makeDocItem(f.itemprop, renderText(v), href);
+      if (item) {
+        docItems.push(item);
+        continue;
+      }
+    }
+    plainFields.push(f);
+  }
+
   return (
     <div>
-      {fields.length > 0 && (
-        <section className="bg-white border border-line rounded-xl px-5 py-2">
-          {fields.map((f) => (
+      {plainFields.length > 0 && (
+        <section className="bg-white border border-line rounded-xl overflow-hidden">
+          {plainFields.map((f) => (
             <Row key={f.key} f={f} value={data.fields?.[f.key]} />
           ))}
+        </section>
+      )}
+
+      {docItems.length > 0 && (
+        <section className="mt-8">
+          <h2 className="m-0 mb-4 font-display font-bold text-[22px] text-brand">Документы</h2>
+          <DocCards docs={docItems} />
         </section>
       )}
 

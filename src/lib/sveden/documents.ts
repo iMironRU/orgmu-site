@@ -78,6 +78,33 @@ function fmtOf(href: string | undefined): string {
   return ext ? ext.toUpperCase() : "DOC";
 }
 
+const FILE_RE = /\.(pdf|docx?|xlsx?|pptx?|rtf|odt|ods|zip|rar)(?:$|[?#])/i;
+
+export function isFileHref(href: string | undefined): boolean {
+  return !!href && FILE_RE.test(decodeURIComponent(href));
+}
+
+// Сборка карточки документа из значения-ссылки поля (для блоков «Документы»
+// в любом подразделе). Возвращает null, если это не ссылка на файл.
+export function makeDocItem(
+  itemprop: string,
+  title: string,
+  href: string | undefined,
+): DocItem | null {
+  if (!isFileHref(href)) return null;
+  const abs = href!.startsWith("http") ? href! : `https://www.orgma.ru${href}`;
+  const m = loadMeta()[href!];
+  return {
+    itemprop,
+    title,
+    href: abs,
+    fmt: fmtOf(href),
+    date: docDate(href, m?.modified),
+    size: formatBytes(m?.size),
+    missing: false,
+  };
+}
+
 export function getDocumentGroups(): DocGroup[] {
   const section = getSection("document");
   if (!section) return [];
