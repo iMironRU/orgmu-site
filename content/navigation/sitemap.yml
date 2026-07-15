@@ -51,7 +51,7 @@
   links:
     - { label: Контакты, href: "#" }
     - { label: Часто задаваемые вопросы, href: "#" }
-    - { label: Обратная связь, href: "#" }
+    - { label: Обратная связь, href: "/obratnaya-svyaz" }
     - { label: Реквизиты, href: "#" }
-    - { label: Противодействие коррупции, href: "#" }
+    - { label: Противодействие коррупции, href: "/protivodejstvie-korrupcii" }
     - { label: Обработка ПДн, href: "#" }

@@ -26,9 +26,9 @@ columns:
       - { label: Сведения об образовательной организации, href: "/sveden" }
       - { label: Контакты, href: "#" }
       - { label: Часто задаваемые вопросы, href: "#" }
-      - { label: Обратная связь, href: "#" }
+      - { label: Обратная связь, href: "/obratnaya-svyaz" }
   - items:
-      - { label: Противодействие коррупции, href: "#" }
+      - { label: Противодействие коррупции, href: "/protivodejstvie-korrupcii" }
       - { label: Сведения о доходах, href: "#" }
       - { label: Антитеррористическая безопасность, href: "#" }
       - { label: Политика обработки ПДн, href: "#" }

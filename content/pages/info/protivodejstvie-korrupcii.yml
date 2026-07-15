@@ -1,0 +1,85 @@
+# Типовая страница, макет Anticorruption.dc.html.
+# Источник: orgma.ru/ru/akademiya/protivodejstvie-korruptsii и его подразделы.
+# Таблицы «Сведения о доходах» и «Доклады и отчёты» — заготовки: на orgma это
+# отдельные страницы со списками файлов, прямые ссылки заполнить здесь.
+
+slug: protivodejstvie-korrupcii
+title: Противодействие коррупции
+toc: { title: Содержание, numbered: true }
+lead: Раздел ведётся в соответствии с Федеральным законом от 25.12.2008 № 273-ФЗ «О противодействии коррупции». Здесь публикуются нормативные акты, сведения о доходах, методические материалы и канал для сообщений о фактах коррупции.
+
+blocks:
+  - type: h2
+    text: Общие положения
+  - type: text
+    text: "Противодействие коррупции в ФГБОУ ВО ОрГМУ Минздрава России ведётся по трём направлениям: профилактика, выявление и пресечение коррупционных правонарушений, минимизация и ликвидация их последствий."
+  - type: list
+    items:
+      - Федеральный закон от 25.12.2008 № 273-ФЗ «О противодействии коррупции»
+      - Национальный план противодействия коррупции
+      - Локальные акты университета (см. раздел «Нормативно-правовые и локальные акты»)
+
+  - type: h2
+    text: Нормативно-правовые и локальные акты
+  - type: files
+    items:
+      - name: Нормативные правовые и иные акты в сфере противодействия коррупции
+        href: https://www.orgma.ru/ru/akademiya/protivodejstvie-korruptsii/normativnye-pravovye-i-inye-akty-v-sfere-protivodejstviya-korruptsii
+      - name: Антикоррупционная экспертиза
+        href: https://www.orgma.ru/ru/akademiya/protivodejstvie-korruptsii/antikorruptsionnaya-ekspertiza
+      - name: Формы документов, связанных с противодействием коррупции, для заполнения
+        href: https://www.orgma.ru/ru/akademiya/protivodejstvie-korruptsii/formy-dokumentov-svyazannykh-s-protivodejstviem-korruptsii-dlya-zapolneniya
+  - type: text
+    text: Ссылки ведут на действующие разделы сайта университета. По мере переноса файлов сюда будут подставлены прямые ссылки на документы.
+
+  - type: h2
+    text: Комиссия по урегулированию конфликта интересов
+  - type: text
+    text: В университете действует комиссия по соблюдению требований к служебному поведению и урегулированию конфликта интересов.
+  - type: files
+    items:
+      - name: Комиссия по соблюдению требований к служебному поведению и урегулированию конфликта интересов
+        href: https://www.orgma.ru/ru/akademiya/protivodejstvie-korruptsii/komissiya-po-soblyudeniyu-trebovanij-k-sluzhebnomu-povedeniyu-i-uregulirovaniyu-konflikta-interesov
+
+  - type: h2
+    text: Сведения о доходах руководителя
+  - type: table
+    head: [Отчётный период, Должность, ФИО, Документ]
+    rows:
+      - ["—", "—", "—", "—"]
+  - type: files
+    items:
+      - name: Сведения о доходах, расходах, об имуществе и обязательствах имущественного характера
+        href: https://www.orgma.ru/ru/akademiya/protivodejstvie-korruptsii/svedeniya-o-dokhodakh-raskhodakh-ob-imushchestve-i-obyazatelstvakh-imushchestvennogo-kharaktera
+
+  - type: h2
+    text: Методические материалы
+  - type: files
+    items:
+      - name: Методические материалы по противодействию коррупции
+        href: https://www.orgma.ru/ru/akademiya/protivodejstvie-korruptsii/metodicheskie-materialy
+      - name: Противодействие коррупции — Министерство здравоохранения Российской Федерации
+        href: https://minzdrav.gov.ru/combating_corruption
+
+  - type: h2
+    text: Как сообщить о факте коррупции
+  - type: callout
+    text: Сообщить о факте коррупции можно через официальную форму обратной связи университета. Обращение рассматривается в порядке, установленном законодательством.
+  - type: form
+    submitLabel: Отправить сообщение
+    note: "Отправка с этого сайта пока не подключена. Действующий канал для сообщений о фактах коррупции —"
+    noteLink:
+      label: официальная форма обратной связи ОрГМУ →
+      href: https://forms.yandex.ru/cloud/64704b1a43f74f120504347c/
+    fields:
+      - { label: ФИО (необязательно), kind: text }
+      - { label: Электронная почта для ответа, kind: email }
+      - { label: Сообщение, kind: textarea, required: true }
+      - { label: Согласен на обработку персональных данных, kind: checkbox, required: true }
+
+  - type: h2
+    text: Доклады и отчёты
+  - type: table
+    head: [Год, Документ]
+    rows:
+      - ["—", "—"]

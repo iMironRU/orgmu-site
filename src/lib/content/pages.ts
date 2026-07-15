@@ -17,7 +17,17 @@ function loadGroup(group: string): ContentPageData[] {
   const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith(".yml")) : [];
   const pages = files
     .map((f) => {
-      const data = parseYaml(fs.readFileSync(path.join(dir, f), "utf8")) as ContentPageData;
+      const file = path.join(dir, f);
+      let data: ContentPageData;
+      try {
+        data = parseYaml(fs.readFileSync(file, "utf8")) as ContentPageData;
+      } catch (e) {
+        // Иначе одна кривая строка роняет рендер всех страниц группы, а в логе —
+        // невнятное «prerendering error» на посторонней странице.
+        // Частая причина: «двоеточие с пробелом» в незакавыченном тексте.
+        const msg = e instanceof Error ? e.message.split("\n")[0] : String(e);
+        throw new Error(`${file}: не разобрался YAML — ${msg}`);
+      }
       return { ...data, slug: data?.slug ?? f.replace(/\.yml$/, ""), blocks: data?.blocks ?? [] };
     })
     .filter((p) => !!p.title);

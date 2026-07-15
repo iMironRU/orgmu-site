@@ -5,6 +5,16 @@
 export type FileRef = { name: string; href: string; ext?: string; size?: string };
 export type FaqItem = { q: string; a: string };
 
+// Поле формы. Сайт статический — отправлять некуда, поэтому форма верстается
+// по макету, но кнопка отправки отключена (см. блок form.note).
+export type FormField = {
+  label: string;
+  kind: "text" | "email" | "tel" | "textarea" | "select" | "checkbox";
+  options?: string[]; // для select
+  required?: boolean;
+  hint?: string;
+};
+
 export type Block =
   | { type: "text"; text: string }
   | { type: "h2"; text: string }
@@ -12,7 +22,14 @@ export type Block =
   | { type: "callout"; text: string }
   | { type: "table"; head: string[]; rows: string[][] }
   | { type: "files"; items: FileRef[] }
-  | { type: "faq"; items: FaqItem[] };
+  | { type: "faq"; items: FaqItem[] }
+  | {
+      type: "form";
+      fields: FormField[];
+      submitLabel?: string;
+      note?: string;
+      noteLink?: { label: string; href: string };
+    };
 
 export type HelpCard = { title?: string; text?: string; linkLabel?: string; href?: string };
 
