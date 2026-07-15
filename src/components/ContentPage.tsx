@@ -169,6 +169,17 @@ function BlockView({ b, i, num }: { b: Block; i: number; num?: number }) {
           </table>
         </div>
       );
+    case "stats":
+      return (
+        <div className="grid grid-cols-3 gap-3 max-[640px]:grid-cols-1">
+          {b.items.map((s, k) => (
+            <div key={k} className="bg-white border border-line rounded-xl px-5 py-[18px]">
+              <div className="font-display font-bold text-[32px] leading-none text-brand">{s.value}</div>
+              <div className="text-[15px] text-ink-2 mt-2">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      );
     case "files":
       return <FilesBlock items={b.items} />;
     case "faq":

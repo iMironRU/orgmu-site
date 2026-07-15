@@ -23,6 +23,7 @@ export type Block =
   | { type: "table"; head: string[]; rows: string[][] }
   | { type: "files"; items: FileRef[] }
   | { type: "faq"; items: FaqItem[] }
+  | { type: "stats"; items: { value: string; label: string }[] }
   | {
       type: "form";
       fields: FormField[];

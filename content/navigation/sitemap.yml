@@ -8,7 +8,7 @@
     - { label: Учёный совет, href: "#" }
     - { label: Структура и подразделения, href: "#" }
     - { label: Документы, href: "#" }
-    - { label: Вакансии, href: "#" }
+    - { label: Вакансии, href: "/vakansii" }
 
 - title: Поступающим
   links:
