@@ -25,6 +25,12 @@ const IconMail = (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
 );
 
+// Формат файла из адреса — для компактного бейджа в плитке подразделения.
+function docFmt(href: string): string {
+  const e = decodeURIComponent(href).match(/\.([a-z0-9]+)(?:$|[?#])/i)?.[1]?.toUpperCase();
+  return e || "—";
+}
+
 export function StructureView({ units }: { units: Unit[] }) {
   const [q, setQ] = useState("");
   const [types, setTypes] = useState<string[]>([]);
@@ -181,8 +187,10 @@ export function StructureView({ units }: { units: Unit[] }) {
                         href={u.doc.href.startsWith("http") ? u.doc.href : `https://www.orgma.ru${u.doc.href}`}
                         className="inline-flex items-center gap-2 text-[14px] font-bold text-steel no-underline hover:text-brand"
                       >
+                        {/* Компактная ссылка внутри плитки — не карточка DocCards.
+                            Формат берём из адреса: раньше стояло жёсткое «PDF». */}
                         <span className="shrink-0 flex items-center justify-center w-[26px] h-[26px] rounded-md bg-[rgba(255,59,48,0.10)] text-[rgb(214,54,44)] text-[9px] font-display font-bold">
-                          PDF
+                          {docFmt(u.doc.href)}
                         </span>
                         {u.doc.text}
                       </a>

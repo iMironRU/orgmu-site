@@ -2,24 +2,9 @@
 
 import { useMemo, useState } from "react";
 import type { DocGroup } from "@/lib/sveden/documents";
+import { DocCard } from "@/components/sveden/DocCard";
 
 const ip = (value: string) => ({ itemprop: value }) as Record<string, string>;
-
-const FMT_STYLE: Record<string, { bg: string; fg: string }> = {
-  PDF: { bg: "rgba(255,59,48,0.10)", fg: "rgb(214,54,44)" },
-  DOC: { bg: "rgba(66,133,244,0.12)", fg: "rgb(40,103,178)" },
-  XLSX: { bg: "rgba(30,160,80,0.12)", fg: "rgb(24,128,64)" },
-};
-
-function DownloadIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v12" />
-      <path d="m7 10 5 5 5-5" />
-      <path d="M5 21h14" />
-    </svg>
-  );
-}
 
 export function DocumentsView({ groups }: { groups: DocGroup[] }) {
   const [q, setQ] = useState("");
@@ -120,57 +105,9 @@ export function DocumentsView({ groups }: { groups: DocGroup[] }) {
                 </span>
               </div>
               <div className="flex flex-col gap-2">
-                {g.docs.map((d, i) => {
-                  const fmt = FMT_STYLE[d.fmt] ?? FMT_STYLE.DOC;
-                  const inner = (
-                    <>
-                      <span
-                        className="shrink-0 flex items-center justify-center w-[38px] h-[38px] rounded-lg font-display font-bold text-[11px]"
-                        style={{ background: fmt.bg, color: fmt.fg }}
-                      >
-                        {d.fmt || "—"}
-                      </span>
-                      <span className="flex-1 min-w-0 flex flex-col gap-[3px]">
-                        <span className="font-bold text-[17px] leading-[1.25] text-steel">{d.title}</span>
-                      </span>
-                      <span className="shrink-0 flex items-center gap-4 justify-end">
-                        {d.date && <span className="text-[14px] text-ink-3 whitespace-nowrap">{d.date}</span>}
-                        {d.size && (
-                          <span className="text-[14px] text-ink-3 whitespace-nowrap min-w-[64px] text-right">
-                            {d.size}
-                          </span>
-                        )}
-                        {d.href && <span className="shrink-0 text-accent">{<DownloadIcon />}</span>}
-                      </span>
-                    </>
-                  );
-                  const cls =
-                    "flex items-center gap-4 bg-white border border-line rounded-[10px] px-[18px] py-[14px] shadow-[0_1px_2px_rgba(0,0,0,0.05)]";
-                  return d.href ? (
-                    <a
-                      key={i}
-                      {...ip(d.itemprop)}
-                      href={d.href}
-                      className={`${cls} no-underline transition-[box-shadow,transform] hover:shadow-[0_6px_16px_rgba(0,0,0,0.09)] hover:-translate-y-[1px]`}
-                    >
-                      {inner}
-                    </a>
-                  ) : (
-                    <div key={i} className={cls}>
-                      <span
-                        className="shrink-0 flex items-center justify-center w-[38px] h-[38px] rounded-lg text-ink-3 bg-bg-muted"
-                        aria-hidden
-                      >
-                        —
-                      </span>
-                      <span className="flex-1 min-w-0">
-                        <span {...ip(d.itemprop)} className="font-bold text-[17px] text-ink-2">
-                          {d.title}
-                        </span>
-                      </span>
-                    </div>
-                  );
-                })}
+                {g.docs.map((d, i) => (
+                  <DocCard key={i} d={d} />
+                ))}
               </div>
             </section>
           ))}
