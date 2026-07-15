@@ -24,6 +24,10 @@ export type ContentPageData = {
   group?: string; // подзаголовок-группа на витрине раздела (например, аудитория)
   order?: number; // порядок внутри группы
   help?: HelpCard;
+  // Оглавление. По умолчанию — «В разделе» без номеров (макет PageTemplate).
+  // numbered: true — вариант служебных страниц (макеты NOK/Zakupki и др.):
+  // «Содержание», нумерация и подсветка текущего раздела при скролле.
+  toc?: { title?: string; numbered?: boolean };
   blocks: Block[];
 };
 

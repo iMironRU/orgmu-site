@@ -63,7 +63,7 @@
     - title: Наука
       items:
         - { label: НИЦ, href: "#" }
-        - { label: Диссертационные советы, href: "#" }
+        - { label: Диссертационные советы, href: "/dissovet" }
         - { label: Научные журналы, href: "#" }
         - { label: Гранты, href: "#" }
     - title: Мероприятия

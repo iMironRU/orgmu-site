@@ -3,6 +3,7 @@ import { asset } from "@/lib/asset";
 import type { Block, ContentPageData } from "@/lib/content/pages-types";
 import { anchorId, fileExt } from "@/lib/content/pages-types";
 import { Faq } from "@/components/Faq";
+import { SectionToc } from "@/components/SectionToc";
 
 // Типовая страница по макету PageTemplate.dc.html: титульная плашка, слева
 // липкая навигация «В разделе» (строится из заголовков h2) и карточка помощи,
@@ -29,15 +30,15 @@ function FilesBlock({ items }: { items: Extract<Block, { type: "files" }>["items
   );
 }
 
-function BlockView({ b, i }: { b: Block; i: number }) {
+function BlockView({ b, i, num }: { b: Block; i: number; num?: number }) {
   switch (b.type) {
     case "h2":
       return (
         <h2
           id={anchorId(b.text, i)}
-          className="mt-2 mb-0 font-display font-bold text-[28px] text-brand scroll-mt-6"
+          className="mt-2 mb-0 font-display font-bold text-[28px] text-brand scroll-mt-[100px]"
         >
-          {b.text}
+          {num ? `${num}. ${b.text}` : b.text}
         </h2>
       );
     case "text":
@@ -105,10 +106,19 @@ function BlockView({ b, i }: { b: Block; i: number }) {
 }
 
 export function ContentPage({ page }: { page: ContentPageData }) {
-  // «В разделе» — заголовки h2 страницы.
+  // Оглавление — заголовки h2 страницы.
   const nav = page.blocks
     .map((b, i) => (b.type === "h2" ? { label: b.text, id: anchorId(b.text, i) } : null))
     .filter((x): x is { label: string; id: string } => x !== null);
+  const numbered = page.toc?.numbered === true;
+  // Порядковый номер раздела по индексу блока — для нумерации h2.
+  const numByIndex = new Map<number, number>();
+  if (numbered) {
+    let n = 0;
+    page.blocks.forEach((b, i) => {
+      if (b.type === "h2") numByIndex.set(i, ++n);
+    });
+  }
 
   return (
     <>
@@ -138,24 +148,27 @@ export function ContentPage({ page }: { page: ContentPageData }) {
         {/* Навигация по разделу */}
         <aside>
           <div className="min-[901px]:sticky min-[901px]:top-6 flex flex-col gap-4">
-            {nav.length > 0 && (
-              <div className="bg-white border border-line rounded-xl overflow-hidden">
-                <div className="px-5 py-4 bg-bg-muted border-b border-line font-bold text-[16px] uppercase tracking-[0.04em] text-ink-2">
-                  В разделе
+            {nav.length > 0 &&
+              (numbered ? (
+                <SectionToc title={page.toc?.title ?? "Содержание"} items={nav} />
+              ) : (
+                <div className="bg-white border border-line rounded-xl overflow-hidden">
+                  <div className="px-5 py-4 bg-bg-muted border-b border-line font-bold text-[16px] uppercase tracking-[0.04em] text-ink-2">
+                    {page.toc?.title ?? "В разделе"}
+                  </div>
+                  <nav className="flex flex-col p-2">
+                    {nav.map((n) => (
+                      <a
+                        key={n.id}
+                        href={`#${n.id}`}
+                        className="px-[14px] py-[11px] rounded-lg text-[17px] text-steel no-underline hover:bg-bg-muted"
+                      >
+                        {n.label}
+                      </a>
+                    ))}
+                  </nav>
                 </div>
-                <nav className="flex flex-col p-2">
-                  {nav.map((n) => (
-                    <a
-                      key={n.id}
-                      href={`#${n.id}`}
-                      className="px-[14px] py-[11px] rounded-lg text-[17px] text-steel no-underline hover:bg-bg-muted"
-                    >
-                      {n.label}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-            )}
+              ))}
 
             {page.help && (
               <div className="bg-brand rounded-xl p-5 text-white">
@@ -184,7 +197,7 @@ export function ContentPage({ page }: { page: ContentPageData }) {
             <p className="m-0 font-medium text-[22px] leading-[1.5] text-steel">{page.lead}</p>
           )}
           {page.blocks.map((b, i) => (
-            <BlockView key={i} b={b} i={i} />
+            <BlockView key={i} b={b} i={i} num={numByIndex.get(i)} />
           ))}
         </article>
       </div>
