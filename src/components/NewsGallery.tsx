@@ -1,6 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+// Порог свайпа: короче — считаем случайным касанием.
+const SWIPE_PX = 40;
 
 // Слайдер фото статьи: крупный кадр + стрелки + счётчик + лента миниатюр.
 // images — [обложка, ...галерея] (уже дедуплицированы). caption — подпись под кадром.
@@ -13,8 +16,27 @@ export function NewsGallery({
 }) {
   const [i, setI] = useState(0);
   const count = images.length;
+  const touch = useRef<{ x: number; y: number } | null>(null);
 
   const go = (next: number) => setI((next + count) % count);
+
+  // Листание пальцем. Реагируем только на горизонтальный жест — иначе
+  // перехватили бы вертикальную прокрутку страницы (за это же отвечает
+  // touch-action: pan-y на контейнере).
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touch.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touch.current;
+    touch.current = null;
+    if (!start || count < 2) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.abs(dx) < SWIPE_PX || Math.abs(dx) <= Math.abs(dy)) return;
+    go(dx < 0 ? i + 1 : i - 1);
+  };
 
   useEffect(() => {
     if (count < 2) return;
@@ -33,11 +55,16 @@ export function NewsGallery({
 
   return (
     <figure className="m-0 mb-7">
-      <div className="relative w-full rounded-xl overflow-hidden bg-line">
+      <div
+        className="relative w-full rounded-xl overflow-hidden bg-line touch-pan-y select-none"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={images[i]}
           alt=""
+          draggable={false}
           className="w-full h-[300px] min-[768px]:h-[460px] object-cover block"
         />
 

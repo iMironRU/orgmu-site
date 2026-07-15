@@ -1,69 +1,57 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { NewsItem } from "@/lib/content/news-types";
 import { NewsCard } from "@/components/NewsCard";
 
-const PER_PAGE = 12;
+const STEP = 12;
 
-// Лента новостей с пагинацией (по макету News.dc.html).
+// Лента новостей: не постраничная, а с подгрузкой вниз (по просьбе заказчика —
+// в макете News.dc.html была пагинация). Кнопка «Показать ещё» видима и
+// работает по клику; она же — цель для наблюдателя, который догружает
+// автоматически при подходе к низу. Если IntersectionObserver недоступен,
+// остаётся рабочая кнопка.
 export function NewsListView({ items }: { items: NewsItem[] }) {
-  const [page, setPage] = useState(1);
-  const pageCount = Math.max(1, Math.ceil(items.length / PER_PAGE));
-  const cur = Math.min(page, pageCount);
-  const slice = items.slice((cur - 1) * PER_PAGE, cur * PER_PAGE);
+  const [shown, setShown] = useState(STEP);
+  const sentinel = useRef<HTMLDivElement>(null);
 
-  const go = (n: number) => {
-    setPage(Math.min(Math.max(1, n), pageCount));
-    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const total = items.length;
+  const hasMore = shown < total;
 
-  // номера страниц: 1 … cur-1 cur cur+1 … last
-  const nums: (number | "…")[] = [];
-  for (let i = 1; i <= pageCount; i++) {
-    if (i === 1 || i === pageCount || (i >= cur - 1 && i <= cur + 1)) nums.push(i);
-    else if (nums[nums.length - 1] !== "…") nums.push("…");
-  }
-
-  const cell =
-    "w-10 h-10 flex items-center justify-center rounded-lg border border-line-strong text-steel cursor-pointer font-ui";
+  useEffect(() => {
+    if (!hasMore) return;
+    const el = sentinel.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) setShown((n) => Math.min(n + STEP, total));
+      },
+      { rootMargin: "400px 0px" }, // догружаем заранее, не дожидаясь упора в низ
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [hasMore, total]);
 
   return (
     <>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
-        {slice.map((item) => (
+        {items.slice(0, shown).map((item) => (
           <NewsCard key={item.source.item_id} item={item} />
         ))}
       </div>
 
-      {pageCount > 1 && (
-        <div className="flex gap-[6px] items-center justify-center mt-10 flex-wrap">
-          <button type="button" aria-label="Назад" onClick={() => go(cur - 1)} className={`${cell} ${cur === 1 ? "opacity-40 cursor-default" : "hover:border-accent"}`}>
-            ‹
+      {hasMore && (
+        <div ref={sentinel} className="flex flex-col items-center gap-3 mt-10">
+          <button
+            type="button"
+            onClick={() => setShown((n) => Math.min(n + STEP, total))}
+            className="font-ui font-bold text-[16px] text-white bg-accent rounded-[10px] px-7 py-3 border-none cursor-pointer hover:bg-[rgb(150,46,3)] transition-colors"
+          >
+            Показать ещё
           </button>
-          {nums.map((n, i) =>
-            n === "…" ? (
-              <span key={`e${i}`} className="text-ink-3 px-1">…</span>
-            ) : (
-              <button
-                key={n}
-                type="button"
-                onClick={() => go(n)}
-                className="w-10 h-10 flex items-center justify-center rounded-lg font-ui cursor-pointer"
-                style={{
-                  background: n === cur ? "var(--c-accent)" : "var(--c-bg)",
-                  color: n === cur ? "#fff" : "var(--c-steel)",
-                  fontWeight: n === cur ? 700 : 400,
-                  border: n === cur ? "none" : "1px solid var(--c-line-strong)",
-                }}
-              >
-                {n}
-              </button>
-            ),
-          )}
-          <button type="button" aria-label="Вперёд" onClick={() => go(cur + 1)} className={`${cell} ${cur === pageCount ? "opacity-40 cursor-default" : "hover:border-accent"}`}>
-            ›
-          </button>
+          <div className="font-ui text-[15px] text-ink-3">
+            Показано {shown} из {total}
+          </div>
         </div>
       )}
     </>
