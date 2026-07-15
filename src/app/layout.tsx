@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SideRail } from "@/components/SideRail";
 import { CookieBanner } from "@/components/CookieBanner";
+import { BackToTop } from "@/components/BackToTop";
 import { getMainMenu, getFooter } from "@/lib/content/navigation";
 import { A11Y_INLINE_SCRIPT } from "@/lib/a11y";
 
@@ -51,6 +52,7 @@ export default function RootLayout({
           <div className="flex-1">{children}</div>
           <SiteFooter footer={footer} />
         </div>
+        <BackToTop />
         <CookieBanner />
       </body>
     </html>
