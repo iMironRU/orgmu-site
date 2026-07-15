@@ -3,13 +3,22 @@ import Link from "next/link";
 import { getPages } from "@/lib/content/pages";
 
 export const metadata: Metadata = {
-  title: "Олимпиады для школьников и студентов колледжей",
+  title: "Олимпиады и конкурсы",
   description:
-    "Олимпиады и творческие конкурсы Оренбургского медицинского университета для школьников и студентов колледжей: положения, сроки, документы.",
+    "Олимпиады и творческие конкурсы Оренбургского медицинского университета для школьников, студентов колледжей и обучающихся вуза: положения, сроки, документы.",
 };
+
+const NO_GROUP = "Прочее";
 
 export default function OlympiadsPage() {
   const pages = getPages("olimpiady");
+
+  // Группировка по аудитории: школьники/колледжи и студенты ОрГМУ — разные вещи.
+  const groups = new Map<string, typeof pages>();
+  for (const p of [...pages].sort((a, b) => (a.order ?? 99) - (b.order ?? 99))) {
+    const key = p.group ?? NO_GROUP;
+    groups.set(key, [...(groups.get(key) ?? []), p]);
+  }
 
   return (
     <>
@@ -21,11 +30,12 @@ export default function OlympiadsPage() {
             <span>Олимпиады</span>
           </div>
           <h1 className="m-0 mb-2 font-display font-bold text-[40px] leading-[1.1] max-[768px]:text-[28px]">
-            Олимпиады для школьников и студентов колледжей
+            Олимпиады и конкурсы
           </h1>
           <p className="m-0 max-w-[680px] font-ui text-[18px] text-white/85">
-            Победителям и призёрам начисляются дополнительные баллы за индивидуальные достижения
-            при поступлении в ОрГМУ. Участие бесплатное.
+            Для школьников и студентов колледжей — с баллами за индивидуальные достижения при
+            поступлении. Для обучающихся университета — предметные олимпиады с бонусами
+            к рейтингу.
           </p>
         </div>
       </div>
@@ -34,25 +44,37 @@ export default function OlympiadsPage() {
         {pages.length === 0 ? (
           <p className="text-steel text-[18px]">Олимпиад пока нет.</p>
         ) : (
-          <div className="flex flex-col gap-3">
-            {pages.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/olimpiady/${p.slug}`}
-                className="flex items-center gap-5 bg-white border border-line rounded-xl border-l-4 border-l-brand px-6 py-[22px] no-underline shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition-shadow"
-              >
-                <span className="flex-1 min-w-0">
-                  <span className="block font-display font-bold text-[21px] text-brand leading-[1.2]">
-                    {p.title}
+          <div className="flex flex-col gap-8">
+            {[...groups.entries()].map(([title, list]) => (
+              <section key={title}>
+                <div className="flex items-center gap-3 mb-3">
+                  <h2 className="m-0 font-display font-bold text-[22px] text-brand">{title}</h2>
+                  <span className="text-[14px] font-bold text-ink-3 bg-[rgb(240,243,246)] rounded-full px-[11px] py-[3px]">
+                    {list.length}
                   </span>
-                  {p.lead && (
-                    <span className="block text-[16px] text-steel mt-[6px] line-clamp-2">{p.lead}</span>
-                  )}
-                </span>
-                <span className="shrink-0 text-gray-3">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
-                </span>
-              </Link>
+                </div>
+                <div className="flex flex-col gap-3">
+                  {list.map((p) => (
+                    <Link
+                      key={p.slug}
+                      href={`/olimpiady/${p.slug}`}
+                      className="flex items-center gap-5 bg-white border border-line rounded-xl border-l-4 border-l-brand px-6 py-[22px] no-underline shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition-shadow"
+                    >
+                      <span className="flex-1 min-w-0">
+                        <span className="block font-display font-bold text-[21px] text-brand leading-[1.2]">
+                          {p.title}
+                        </span>
+                        {p.lead && (
+                          <span className="block text-[16px] text-steel mt-[6px] line-clamp-2">{p.lead}</span>
+                        )}
+                      </span>
+                      <span className="shrink-0 text-gray-3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
         )}

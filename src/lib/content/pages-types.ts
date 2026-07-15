@@ -21,6 +21,8 @@ export type ContentPageData = {
   title: string;
   lead?: string;
   breadcrumb?: { label: string; href: string }; // раздел между «Главная» и страницей
+  group?: string; // подзаголовок-группа на витрине раздела (например, аудитория)
+  order?: number; // порядок внутри группы
   help?: HelpCard;
   blocks: Block[];
 };
