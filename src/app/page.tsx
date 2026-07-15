@@ -50,21 +50,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Известия + баннеры над новостями */}
-      {(announcements.length > 0 || banners.length > 0) && (
-        <section className="mx-auto max-w-[1146px] w-full px-10 pt-12 box-border max-[768px]:px-5 max-[768px]:pt-8 flex flex-col gap-5">
-          {announcements.length > 0 && (
-            <div className="flex flex-col gap-[10px]">
-              <div className="flex items-center justify-between gap-4">
-                <h2 className="m-0 font-display font-bold text-[22px] text-brand">Известия</h2>
-                <Link href="/izvestiya" className="font-ui font-bold text-[16px] text-accent no-underline">
-                  Все известия →
-                </Link>
-              </div>
-              <AnnouncementBar items={announcements} />
-            </div>
-          )}
-          {banners.length > 0 && <BannerSlider banners={banners} />}
+      {/* Баннеры над новостями */}
+      {banners.length > 0 && (
+        <section className="mx-auto max-w-[1146px] w-full px-10 pt-12 box-border max-[768px]:px-5 max-[768px]:pt-8">
+          <BannerSlider banners={banners} />
+        </section>
+      )}
+
+      {/* Известия — блок рядом с новостями, заголовок как у новостей */}
+      {announcements.length > 0 && (
+        <section className="mx-auto max-w-[1146px] w-full px-10 pt-12 box-border max-[768px]:px-5 max-[768px]:pt-10">
+          <div className="flex items-end justify-between gap-4 mb-8 flex-wrap">
+            <h2 className="m-0 font-display font-bold text-[33px] text-brand">Известия</h2>
+            <Link href="/izvestiya" className="font-ui font-bold text-[17px] text-accent no-underline">
+              Все известия →
+            </Link>
+          </div>
+          <AnnouncementBar items={announcements} />
         </section>
       )}
 

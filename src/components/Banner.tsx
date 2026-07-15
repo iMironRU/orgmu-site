@@ -17,10 +17,12 @@ export function Banner({ b }: { b: BannerData }) {
       ? b.image
       : asset(b.image)
     : null;
+  // Это обычный <a> — basePath к внутренним ссылкам добавляем сами.
+  const href = b.href?.startsWith("/") ? asset(b.href) : b.href || "#";
 
   return (
     <a
-      href={b.href || "#"}
+      href={href}
       className="relative flex flex-col justify-end min-h-[192px] p-6 no-underline rounded-lg overflow-hidden bg-cover bg-center"
       style={{ backgroundColor: tone, backgroundImage: bg ? `url('${bg}')` : undefined }}
     >
