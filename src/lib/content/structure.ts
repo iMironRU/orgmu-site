@@ -15,6 +15,9 @@ export type UnitExtra = {
   doctors?: string;
   description?: string;
   directions?: string[];
+  employees?: string[]; // ФИО сотрудников; карточки подтягиваются по имени
+  teaching?: string[]; // учебная работа: дисциплины/направления подготовки
+  schedule?: { label: string; href: string }[]; // расписание: ссылки/файлы
 };
 
 let extraCache: Record<string, UnitExtra> | null = null;

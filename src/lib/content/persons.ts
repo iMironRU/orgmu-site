@@ -152,3 +152,4 @@ export function getPersonIdByFio(fio: string): string | undefined {
 export function getAllPersonIds(): string[] {
   return [...build().byId.keys()];
 }
+
