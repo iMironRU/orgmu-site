@@ -38,6 +38,9 @@ export type Subsite = {
 
 export type SitemapGroup = { title: string; links: NavLink[] };
 
+// Доп. страницы раздела «Сведения об ОО» — отдельный список под 14 подразделами.
+export type SvedenExtra = { title: string; items: NavLink[] };
+
 const NAV_DIR = path.join(process.cwd(), "content", "navigation");
 
 function loadYaml<T>(file: string): T {
@@ -63,4 +66,8 @@ export function getSubsites(): Subsite[] {
 
 export function getSitemapGroups(): SitemapGroup[] {
   return loadYaml<SitemapGroup[]>("sitemap.yml");
+}
+
+export function getSvedenExtra(): SvedenExtra {
+  return loadYaml<SvedenExtra>("sveden-extra.yml");
 }

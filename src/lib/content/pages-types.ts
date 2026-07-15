@@ -24,6 +24,7 @@ export type Block =
   | { type: "files"; items: FileRef[] }
   | { type: "faq"; items: FaqItem[] }
   | { type: "stats"; items: { value: string; label: string }[] }
+  | { type: "tabs"; items: { label: string; items: string[] }[] }
   | {
       type: "form";
       fields: FormField[];

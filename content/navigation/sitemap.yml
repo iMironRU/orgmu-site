@@ -54,4 +54,8 @@
     - { label: Обратная связь, href: "/obratnaya-svyaz" }
     - { label: Реквизиты, href: "#" }
     - { label: Противодействие коррупции, href: "/protivodejstvie-korrupcii" }
+    - { label: Независимая оценка качества, href: "/nok" }
+    - { label: Результаты СОУТ, href: "/sout" }
+    - { label: Закупки, href: "/zakupki" }
+    - { label: Информационная безопасность, href: "/informacionnaya-bezopasnost" }
     - { label: Обработка ПДн, href: "#" }

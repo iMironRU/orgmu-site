@@ -3,6 +3,7 @@ import { asset } from "@/lib/asset";
 import type { Block, ContentPageData } from "@/lib/content/pages-types";
 import { anchorId, fileExt } from "@/lib/content/pages-types";
 import { Faq } from "@/components/Faq";
+import { Tabs } from "@/components/Tabs";
 import { SectionToc } from "@/components/SectionToc";
 
 // Типовая страница по макету PageTemplate.dc.html: титульная плашка, слева
@@ -180,6 +181,8 @@ function BlockView({ b, i, num }: { b: Block; i: number; num?: number }) {
           ))}
         </div>
       );
+    case "tabs":
+      return <Tabs items={b.items} />;
     case "files":
       return <FilesBlock items={b.items} />;
     case "faq":

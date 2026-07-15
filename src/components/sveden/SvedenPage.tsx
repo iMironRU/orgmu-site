@@ -6,6 +6,7 @@ import { DocumentsView } from "@/components/sveden/DocumentsView";
 import { DocCards } from "@/components/sveden/DocCards";
 import { getDocumentGroups, getStaffListDoc } from "@/lib/sveden/documents";
 import { getTeachers } from "@/lib/content/persons";
+import { getSvedenExtra } from "@/lib/content/navigation";
 
 // Плашка со статистикой педсостава — по макету Svedenia (spec «Employees»):
 // вместо таблицы на сотни строк три числа, а полный состав — на /persony.
@@ -106,6 +107,8 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
   const section = getSection(sectionKey)!;
   const num = keys.indexOf(sectionKey) + 1;
   const title = SECTION_LABELS[sectionKey] ?? sectionKey;
+  // Служебные страницы — отдельным списком под 14 обязательными подразделами.
+  const extra = getSvedenExtra();
 
   return (
     <>
@@ -167,6 +170,28 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
                 })}
               </div>
             </nav>
+
+            {/* Служебные страницы — отдельным списком, вне обязательных 14:
+                у них свои адреса верхнего уровня, namespace /sveden/ остаётся
+                только под фиксированные адреса приказа № 1493. */}
+            {extra.items.length > 0 && (
+              <nav className="bg-white border border-line rounded-xl overflow-hidden">
+                <div className="px-[18px] py-[15px] bg-bg-muted border-b border-line font-ui font-bold text-[15px] uppercase tracking-[0.04em] text-ink-2">
+                  {extra.title}
+                </div>
+                <div className="flex flex-col p-2">
+                  {extra.items.map((it) => (
+                    <Link
+                      key={it.href}
+                      href={it.href}
+                      className="px-3 py-[10px] rounded-lg no-underline font-ui text-[15.5px] leading-[1.3] text-steel hover:bg-[rgb(245,248,251)]"
+                    >
+                      {it.label}
+                    </Link>
+                  ))}
+                </div>
+              </nav>
+            )}
 
             <div className="flex gap-[11px] px-4 py-[15px] bg-teal/10 rounded-xl">
               <span className="shrink-0 text-teal flex">
