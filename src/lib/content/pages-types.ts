@@ -50,6 +50,18 @@ export type ContentPageData = {
   blocks: Block[];
 };
 
+// В именах файлов на orgma есть пробелы и кириллица. В yml держим адрес
+// читаемым, а в href отдаём корректно закодированный: сырой пробел в атрибуте —
+// невалидный HTML. decodeURI сначала — чтобы уже закодированное не кодировать
+// дважды (%20 → %2520).
+export function encodeFileHref(href: string): string {
+  try {
+    return encodeURI(decodeURI(href));
+  } catch {
+    return href; // битая %-последовательность — отдаём как есть
+  }
+}
+
 // Расширение файла для плашки: из href, если не задано явно.
 export function fileExt(f: FileRef): string {
   if (f.ext) return f.ext.toUpperCase();

@@ -43,7 +43,7 @@ blocks:
     note: "Отправка с этого сайта пока не подключена. Действующая форма отправки обращения университета —"
     noteLink:
       label: форма на сайте ОрГМУ →
-      href: https://forms.yandex.ru/cloud/62f9e59b816856044ec8db9a/
+      href: "https://forms.yandex.ru/cloud/62f9e59b816856044ec8db9a/"
     fields:
       - label: Тема обращения
         kind: select
@@ -105,7 +105,7 @@ blocks:
   - type: files
     items:
       - name: Порядок приёма и рассмотрения обращений на сайте университета
-        href: https://www.orgma.ru/ru/akademiya/poryadok-priema-i-rassmotreniya-obrashchenij
+        href: "https://www.orgma.ru/ru/akademiya/poryadok-priema-i-rassmotreniya-obrashchenij"
 
   - type: h2
     text: Частые вопросы

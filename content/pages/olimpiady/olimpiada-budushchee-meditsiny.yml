@@ -38,14 +38,14 @@ blocks:
   - type: files
     items:
       - name: Список победителей и призёров 2026 года
-        href: https://www.orgma.ru/files/abituriyentu/PR_DO/olympiads/budushchee_mediciny/Приложение%202%20ПОБЕДИТЕЛИ%20И%20ПРИЗЁРЫ%20БМ%202026.pdf
+        href: "https://www.orgma.ru/files/abituriyentu/PR_DO/olympiads/budushchee_mediciny/Приложение 2 ПОБЕДИТЕЛИ И ПРИЗЁРЫ БМ 2026.pdf"
 
   - type: h2
     text: Архив
   - type: files
     items:
       - name: Олимпиада «Будущее медицины» 2024
-        href: https://www.orgma.ru/files//abituriyentu/PR_DO/olympiads/budushchee_mediciny/archive/Олимпиада «Будущее медицины» 2024 г.pdf
+        href: "https://www.orgma.ru/files//abituriyentu/PR_DO/olympiads/budushchee_mediciny/archive/Олимпиада «Будущее медицины» 2024 г.pdf"
       # Имена файлов на orgma именно такие — с пробелом и двойной точкой перед .pdf
       - name: Олимпиада «Будущее медицины» 2023
         href: "https://www.orgma.ru/files//abituriyentu/PR_DO/olympiads/budushchee_mediciny/archive/Олимпиада «Будущее медицины» 2023 г. .pdf"

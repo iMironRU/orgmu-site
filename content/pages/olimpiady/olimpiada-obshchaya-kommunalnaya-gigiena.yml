@@ -69,4 +69,4 @@ blocks:
   - type: files
     items:
       - name: Информационное письмо о предметной олимпиаде «Основы общей и коммунальной гигиены»
-        href: /files/olimpiady/informacionnoe-pismo-olimpiada-gigiena.docx
+        href: "/files/olimpiady/informacionnoe-pismo-olimpiada-gigiena.docx"

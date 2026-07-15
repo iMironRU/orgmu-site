@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { asset } from "@/lib/asset";
 import type { Block, ContentPageData } from "@/lib/content/pages-types";
-import { anchorId, fileExt } from "@/lib/content/pages-types";
+import { anchorId, encodeFileHref, fileExt } from "@/lib/content/pages-types";
 import { Faq } from "@/components/Faq";
 import { Tabs } from "@/components/Tabs";
 import { SectionToc } from "@/components/SectionToc";
@@ -17,7 +17,7 @@ function FilesBlock({ items }: { items: Extract<Block, { type: "files" }>["items
         <a
           key={i}
           // Файлы из public — обычный <a>, basePath добавляем сами.
-          href={f.href.startsWith("/") ? asset(f.href) : f.href}
+          href={encodeFileHref(f.href.startsWith("/") ? asset(f.href) : f.href)}
           className="flex items-center gap-[14px] px-[18px] py-[14px] bg-white border border-line rounded-[10px] no-underline hover:border-accent transition-colors"
         >
           <span className="shrink-0 flex items-center justify-center w-[42px] h-[42px] rounded-lg bg-[rgba(184,57,4,0.12)] text-accent font-display font-bold text-[12px]">

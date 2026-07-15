@@ -41,4 +41,4 @@ blocks:
   - type: files
     items:
       - name: Политика в отношении обработки персональных данных
-        href: https://www.orgma.ru/sveden/document/politika-v-otnoshenii-obrabotki-personalnyh-dannyh.pdf
+        href: "https://www.orgma.ru/sveden/document/politika-v-otnoshenii-obrabotki-personalnyh-dannyh.pdf"
