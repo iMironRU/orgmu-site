@@ -57,5 +57,6 @@
     - { label: Независимая оценка качества, href: "/nok" }
     - { label: Результаты СОУТ, href: "/sout" }
     - { label: Закупки, href: "/zakupki" }
+    - { label: Антитеррористическая безопасность, href: "/antiterror" }
     - { label: Информационная безопасность, href: "/informacionnaya-bezopasnost" }
     - { label: Обработка ПДн, href: "#" }

@@ -15,5 +15,6 @@ items:
   - { label: Закупки, href: "/zakupki" }
   - { label: Вакансии и квота для инвалидов, href: "/vakansii" }
   - { label: Диссертационные советы, href: "/dissovet" }
+  - { label: Антитеррористическая безопасность, href: "/antiterror" }
   - { label: Информационная безопасность, href: "/informacionnaya-bezopasnost" }
   - { label: Обратная связь, href: "/obratnaya-svyaz" }
