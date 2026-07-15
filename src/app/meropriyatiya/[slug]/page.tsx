@@ -51,6 +51,8 @@ export default async function EventDetailPage({
   const bg = e.image ? (e.image.startsWith("http") ? e.image : asset(e.image)) : asset("/brand/corpus.jpg");
   const weekday = eventWeekday(e.date);
   const dateSub = [weekday, e.time].filter(Boolean).join(", ");
+  // Обычный <a> — basePath к внутренним ссылкам (на новость) добавляем сами.
+  const sourceHref = e.sourceHref?.startsWith("/") ? asset(e.sourceHref) : e.sourceHref;
 
   return (
     <main className="flex-1">
@@ -88,7 +90,23 @@ export default async function EventDetailPage({
             {e.body.map((p, i) => (
               <p key={i} className="m-0">{p}</p>
             ))}
+            {!e.lead && e.body.length === 0 && (
+              <p className="m-0 text-[17px] text-ink-3">
+                Описание мероприятия не публиковалось — известны только дата, время и место.
+              </p>
+            )}
           </div>
+
+          {/* Откуда сведения */}
+          {sourceHref && (
+            <a
+              href={sourceHref}
+              className="inline-flex items-center gap-2 self-start font-bold text-[16px] text-accent no-underline hover:underline"
+            >
+              {e.sourceLabel ?? "Источник"}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+            </a>
+          )}
 
           {e.program.length > 0 && (
             <>

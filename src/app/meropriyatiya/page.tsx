@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getEvents } from "@/lib/content/events";
+import { splitEvents } from "@/lib/content/events";
 import { EventsView } from "@/components/EventsView";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function EventsPage() {
-  const events = getEvents();
+  const { upcoming, past } = splitEvents();
 
   return (
     <>
@@ -32,10 +32,10 @@ export default function EventsPage() {
       </div>
 
       <main className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border max-[768px]:px-5">
-        {events.length === 0 ? (
+        {upcoming.length === 0 && past.length === 0 ? (
           <p className="text-steel font-ui text-[18px]">Мероприятий пока нет.</p>
         ) : (
-          <EventsView events={events} />
+          <EventsView upcoming={upcoming} past={past} />
         )}
       </main>
     </>
