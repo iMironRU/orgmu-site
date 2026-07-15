@@ -2,7 +2,7 @@
 // в yml, поэтому любую статичную страницу можно собрать без правки кода.
 // Чистые типы (без node:fs) — можно импортировать в клиентские компоненты.
 
-export type FileRef = { name: string; href: string; ext?: string; size?: string };
+export type FileRef = { name: string; href: string; ext?: string; size?: string; date?: string };
 export type FaqItem = { q: string; a: string };
 
 // Поле формы. Сайт статический — отправлять некуда, поэтому форма верстается

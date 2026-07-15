@@ -3,6 +3,8 @@ import { asset } from "@/lib/asset";
 import type { Block, ContentPageData } from "@/lib/content/pages-types";
 import { anchorId, encodeFileHref, fileExt } from "@/lib/content/pages-types";
 import { Faq } from "@/components/Faq";
+import { DocCards } from "@/components/sveden/DocCards";
+import type { DocItem } from "@/lib/sveden/documents";
 import { Tabs } from "@/components/Tabs";
 import { SectionToc } from "@/components/SectionToc";
 
@@ -10,25 +12,25 @@ import { SectionToc } from "@/components/SectionToc";
 // липкая навигация «В разделе» (строится из заголовков h2) и карточка помощи,
 // справа — контент блоками (текст, списки, врезка, таблица, документы, FAQ).
 
+// Документы оформляем везде одинаково — тем же DocCards, что в разделе
+// «Документы» (макет Documents.dc.html): цветной бейдж формата, дата, размер,
+// иконка скачивания. Заготовки без файла DocCards показывает сам.
+// ЭЦП из макета не выводим: orgma не публикует подписи (.sig), подтвердить
+// нечем — рисовать зелёную плашку «Подписан ЭЦП» было бы враньём.
 function FilesBlock({ items }: { items: Extract<Block, { type: "files" }>["items"] }) {
-  return (
-    <div className="flex flex-col gap-[10px]">
-      {items.map((f, i) => (
-        <a
-          key={i}
-          // Файлы из public — обычный <a>, basePath добавляем сами.
-          href={encodeFileHref(f.href.startsWith("/") ? asset(f.href) : f.href)}
-          className="flex items-center gap-[14px] px-[18px] py-[14px] bg-white border border-line rounded-[10px] no-underline hover:border-accent transition-colors"
-        >
-          <span className="shrink-0 flex items-center justify-center w-[42px] h-[42px] rounded-lg bg-[rgba(184,57,4,0.12)] text-accent font-display font-bold text-[12px]">
-            {fileExt(f)}
-          </span>
-          <span className="flex-1 font-bold text-[17px] text-brand break-words">{f.name}</span>
-          <span className="shrink-0 text-[15px] text-ink-3">{f.size || ""}</span>
-        </a>
-      ))}
-    </div>
-  );
+  const docs: DocItem[] = items.map((f) => {
+    const href = f.href && f.href !== "#" ? encodeFileHref(f.href.startsWith("/") ? asset(f.href) : f.href) : undefined;
+    return {
+      itemprop: "",
+      title: f.name,
+      href,
+      fmt: fileExt(f),
+      date: f.date ?? "",
+      size: f.size ?? "",
+      missing: !href || f.name === "—",
+    };
+  });
+  return <DocCards docs={docs} />;
 }
 
 // Форма по макету (Feedback / Anticorruption). Сайт статический: поля живые,
@@ -104,15 +106,20 @@ function FormBlock({ b }: { b: Extract<Block, { type: "form" }> }) {
   );
 }
 
-function BlockView({ b, i, num }: { b: Block; i: number; num?: number }) {
+function BlockView({ b, i, num, count }: { b: Block; i: number; num?: number; count?: number }) {
   switch (b.type) {
     case "h2":
       return (
         <h2
           id={anchorId(b.text, i)}
-          className="mt-2 mb-0 font-display font-bold text-[28px] text-brand scroll-mt-[100px]"
+          className="mt-2 mb-0 font-display font-bold text-[28px] text-brand scroll-mt-[100px] flex items-center gap-3 flex-wrap"
         >
-          {num ? `${num}. ${b.text}` : b.text}
+          <span>{num ? `${num}. ${b.text}` : b.text}</span>
+          {count !== undefined && (
+            <span className="font-ui text-[14px] font-bold text-ink-3 bg-[rgb(240,243,246)] rounded-full px-[11px] py-[3px]">
+              {count}
+            </span>
+          )}
         </h2>
       );
     case "text":
@@ -285,9 +292,22 @@ export function ContentPage({ page }: { page: ContentPageData }) {
           {page.lead && (
             <p className="m-0 font-medium text-[22px] leading-[1.5] text-steel">{page.lead}</p>
           )}
-          {page.blocks.map((b, i) => (
-            <BlockView key={i} b={b} i={i} num={numByIndex.get(i)} />
-          ))}
+          {page.blocks.map((b, i) => {
+            // Счётчик у заголовка — как в разделе «Документы»: число файлов
+            // ближайшего следующего блока files (до следующего h2).
+            let count: number | undefined;
+            if (b.type === "h2") {
+              for (let k = i + 1; k < page.blocks.length; k++) {
+                const nb = page.blocks[k];
+                if (nb.type === "h2") break;
+                if (nb.type === "files") {
+                  count = nb.items.length;
+                  break;
+                }
+              }
+            }
+            return <BlockView key={i} b={b} i={i} num={numByIndex.get(i)} count={count} />;
+          })}
         </article>
       </div>
     </>
