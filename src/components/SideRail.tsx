@@ -86,10 +86,10 @@ export function SideRail() {
       aria-label="Быстрые действия"
       className="min-[769px]:hidden fixed bottom-0 left-0 right-0 z-40 bg-brand flex items-stretch justify-around border-t border-white/15 pb-[env(safe-area-inset-bottom)]"
     >
-      <a href="#" className={MOBILE_ITEM}>
+      <Link href="/poisk" className={MOBILE_ITEM}>
         {ICONS.search}
         <span>Поиск</span>
-      </a>
+      </Link>
       <Link href="/prilozheniya" className={MOBILE_ITEM}>
         {ICONS.apps}
         <span>Сервисы</span>
@@ -111,9 +111,9 @@ export function SideRail() {
       <div className="sticky top-0 flex flex-col items-center py-5 font-ui">
         {/* Поиск */}
         <div className="flex flex-col items-center gap-2">
-          <a href="#" title="Поиск по сайту" className={RAIL_ICON}>
+          <Link href="/poisk" title="Поиск по сайту" className={RAIL_ICON}>
             {ICONS.search}
-          </a>
+          </Link>
         </div>
 
         <div className="w-11 h-px bg-white/20 my-[14px]" />
