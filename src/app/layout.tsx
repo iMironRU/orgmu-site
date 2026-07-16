@@ -47,7 +47,9 @@ export default function RootLayout({
         {/* Раннее применение настроек доступности до гидрации — без мигания */}
         <script dangerouslySetInnerHTML={{ __html: A11Y_INLINE_SCRIPT }} />
         <SideRail />
-        <div className="a11y-zoom flex-1 min-w-0 flex flex-col">
+        {/* Отступ снизу на мобиле — под фиксированную панель SideRail,
+            иначе подвал уезжает под неё. */}
+        <div className="a11y-zoom flex-1 min-w-0 flex flex-col max-[768px]:pb-[56px]">
           <SiteHeader nav={nav} />
           <div className="flex-1">{children}</div>
           <SiteFooter footer={footer} />

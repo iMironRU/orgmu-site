@@ -4,7 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 
 // Левая боковая панель (~94px): поиск, приложения, соцсети, язык, доступная среда.
-// Sticky, скрывается на планшете/мобиле (<=768px) — как в макете.
+// Sticky, на десктопе слева.
+//
+// На мобиле панель раньше просто пропадала (как и в макете) — вместе с ней
+// становились недоступны настройки доступности, а это для сайта вуза дыра:
+// раздел «Доступность» есть, а дотянуться с телефона нельзя. Поэтому снизу
+// показываем компактную панель с четырьмя крупными целями: поиск, приложения,
+// язык, доступность. Соцсети туда не тащим — они есть в подвале, а мелкие
+// цели на телефоне ведут к промахам.
 
 const stroke = {
   fill: "none",
@@ -14,6 +21,10 @@ const stroke = {
   strokeLinejoin: "round" as const,
 };
 const solid = { fill: "currentColor", stroke: "none" };
+
+// Цель в нижней панели: не меньше 56px по высоте — палец, не курсор.
+const MOBILE_ITEM =
+  "flex-1 flex flex-col items-center justify-center gap-[3px] min-h-[56px] px-1 py-2 text-white/90 no-underline text-[11px] font-ui bg-transparent border-none cursor-pointer active:bg-white/10";
 
 const ICONS = {
   search: (
@@ -64,7 +75,35 @@ export function SideRail() {
   const [lang, setLang] = useState("РУС");
   const [langOpen, setLangOpen] = useState(false);
 
+  const cycleLang = () => setLang((l) => (l === "РУС" ? "ENG" : l === "ENG" ? "ҚАЗ" : "РУС"));
+
   return (
+    <>
+    {/* Нижняя панель — только мобильный. z-40: cookie-баннер (z-1000)
+        перекрывает её, пока согласие не дано — согласие важнее. */}
+    <nav
+      data-a11y-surface="brand"
+      aria-label="Быстрые действия"
+      className="min-[769px]:hidden fixed bottom-0 left-0 right-0 z-40 bg-brand flex items-stretch justify-around border-t border-white/15 pb-[env(safe-area-inset-bottom)]"
+    >
+      <a href="#" className={MOBILE_ITEM}>
+        {ICONS.search}
+        <span>Поиск</span>
+      </a>
+      <Link href="/prilozheniya" className={MOBILE_ITEM}>
+        {ICONS.apps}
+        <span>Сервисы</span>
+      </Link>
+      <button type="button" onClick={cycleLang} className={MOBILE_ITEM}>
+        <span className="font-bold text-[15px] leading-6">{lang}</span>
+        <span>Язык</span>
+      </button>
+      <Link href="/dostupnost" className={MOBILE_ITEM}>
+        {ICONS.access}
+        <span>Доступность</span>
+      </Link>
+    </nav>
+
     <aside
       data-a11y-surface="brand"
       className="hidden min-[769px]:flex w-[94px] self-stretch shrink-0 bg-brand flex-col z-[300]"
@@ -147,5 +186,6 @@ export function SideRail() {
         </div>
       </div>
     </aside>
+    </>
   );
 }
