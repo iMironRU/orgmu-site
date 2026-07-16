@@ -16,7 +16,7 @@
         - { label: Контакты, href: "/kontakty" }
     - title: Сотруднику
       items:
-        - { label: Личный кабинет, href: "https://1c.orgma.ru/sdo_CUN_001/wc/#/auth" }
+        - { label: Личный кабинет, href: "#" }
         - { label: Профсоюзный комитет, href: "#" }
         - { label: Отдел кадров, href: "https://www.orgma.ru/sotrudniku" }
         - { label: Нормативные документы, href: "https://www.orgma.ru/sotrudniku" }
@@ -47,7 +47,7 @@
     - title: Учёба
       items:
         - { label: Расписание, href: "https://www.orgma.ru/raspisanie" }
-        - { label: Личный кабинет, href: "https://1c.orgma.ru/sdo_CUN_001/wc/#/auth" }
+        - { label: Личный кабинет, href: "#" }
         - { label: Электронная библиотека, href: "#" }
         - { label: Практика, href: "#" }
     - title: Жизнь
