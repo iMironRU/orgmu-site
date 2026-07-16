@@ -60,4 +60,4 @@
     - { label: Закупки, href: "/zakupki" }
     - { label: Антитеррористическая безопасность, href: "/antiterror" }
     - { label: Информационная безопасность, href: "/informacionnaya-bezopasnost" }
-    - { label: Обработка ПДн, href: "#" }
+    - { label: Обработка ПДн, href: "/politika" }

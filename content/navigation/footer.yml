@@ -31,4 +31,4 @@ columns:
       - { label: Противодействие коррупции, href: "/protivodejstvie-korrupcii" }
       - { label: Сведения о доходах, href: "#" }
       - { label: Антитеррористическая безопасность, href: "/antiterror" }
-      - { label: Политика обработки ПДн, href: "#" }
+      - { label: Политика обработки ПДн, href: "/politika" }

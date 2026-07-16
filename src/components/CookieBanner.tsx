@@ -33,7 +33,7 @@ export function CookieBanner() {
         <div className="flex-1 min-w-[260px] text-[14px] leading-[1.45] text-ink-2">
           Мы используем файлы cookie для корректной работы сайта. Продолжая
           пользоваться сайтом, вы соглашаетесь с{" "}
-          <Link href="#" className="text-brand underline hover:text-brand-strong">
+          <Link href="/politika" className="text-brand underline hover:text-brand-strong">
             политикой обработки данных
           </Link>
           .

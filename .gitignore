@@ -46,3 +46,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Копии, которые плодят редактор/Finder: «page 2.tsx», «main 2.yml», «DocCards 3.tsx».
+# Next.js их не роутит, но они молча устаревают и путают: правишь копию —
+# изменения не видны. Уже ловили четырежды.
+* [0-9].*
+* copy.*
+* copy [0-9].*
