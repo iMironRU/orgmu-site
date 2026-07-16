@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLeaders } from "@/lib/content/persons";
+import { toPersonCard } from "@/lib/content/persons-types";
 import { PersonTile } from "@/components/PersonTile";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function LeadershipPage() {
-  const leaders = getLeaders();
+  const leaders = getLeaders().map(toPersonCard);
   return (
     <>
       <div className="bg-brand text-white" data-a11y-surface="brand">

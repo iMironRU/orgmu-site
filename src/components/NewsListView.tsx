@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { NewsItem } from "@/lib/content/news-types";
+import type { NewsCardItem } from "@/lib/content/news-types";
 import { NewsCard } from "@/components/NewsCard";
 
 const STEP = 12;
@@ -11,7 +11,7 @@ const STEP = 12;
 // работает по клику; она же — цель для наблюдателя, который догружает
 // автоматически при подходе к низу. Если IntersectionObserver недоступен,
 // остаётся рабочая кнопка.
-export function NewsListView({ items }: { items: NewsItem[] }) {
+export function NewsListView({ items }: { items: NewsCardItem[] }) {
   const [shown, setShown] = useState(STEP);
   const sentinel = useRef<HTMLDivElement>(null);
 
@@ -36,7 +36,7 @@ export function NewsListView({ items }: { items: NewsItem[] }) {
     <>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
         {items.slice(0, shown).map((item) => (
-          <NewsCard key={item.source.item_id} item={item} />
+          <NewsCard key={item.id} item={item} />
         ))}
       </div>
 

@@ -17,6 +17,16 @@ export type Person = {
   leadRole: string;
 };
 
+// Персона для ПЛИТКИ в каталоге — только то, что плитка показывает и по чему
+// фильтруют. Полный Person тащит education, qualifications, profDevelopment
+// и dept: в списке они не выводятся, а в разметку уезжали у всех 178 персон.
+export type PersonCardItem = Omit<Person, "education" | "qualifications" | "profDevelopment" | "dept">;
+
+export function toPersonCard(p: Person): PersonCardItem {
+  const { education: _e, qualifications: _q, profDevelopment: _pd, dept: _d, ...rest } = p;
+  return rest;
+}
+
 // Категории должностей для фильтра.
 export const POSITION_CATS: { key: string; label: string }[] = [
   { key: "заведующ", label: "Заведующий кафедрой" },

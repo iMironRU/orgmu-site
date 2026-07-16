@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllNews } from "@/lib/content/news";
+import { toCardItem } from "@/lib/content/news-types";
 import { getSubsites } from "@/lib/content/navigation";
 import { getBanners, getAnnouncements } from "@/lib/content/home";
 import { NewsCard } from "@/components/NewsCard";
@@ -9,7 +10,7 @@ import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { asset } from "@/lib/asset";
 
 export default function HomePage() {
-  const latest = getAllNews().slice(0, 6);
+  const latest = getAllNews().slice(0, 6).map(toCardItem);
   const subsites = getSubsites();
   const banners = getBanners();
   const announcements = getAnnouncements();
@@ -86,7 +87,7 @@ export default function HomePage() {
         ) : (
           <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
             {latest.map((item) => (
-              <NewsCard key={item.source.item_id} item={item} />
+              <NewsCard key={item.id} item={item} />
             ))}
           </div>
         )}

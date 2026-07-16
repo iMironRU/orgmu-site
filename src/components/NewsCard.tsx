@@ -1,8 +1,8 @@
 import Link from "next/link";
-import type { NewsItem } from "@/lib/content/news-types";
+import type { NewsCardItem } from "@/lib/content/news-types";
 import { formatDateRu, kindStyle, newsKind } from "@/lib/content/news-types";
 
-export function NewsCard({ item }: { item: NewsItem }) {
+export function NewsCard({ item }: { item: NewsCardItem }) {
   const k = kindStyle(newsKind(item));
   const cover = item.cover?.remote;
 

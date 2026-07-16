@@ -1,9 +1,9 @@
 import Link from "next/link";
-import type { Person } from "@/lib/content/persons-types";
+import type { PersonCardItem } from "@/lib/content/persons-types";
 import { initials, avatarColor } from "@/lib/content/persons-types";
 
 // Плитка персоны по макету PersonTile.dc.html. mode: staff (педсостав) | lead (руководство).
-export function PersonTile({ person: p, mode = "staff" }: { person: Person; mode?: "staff" | "lead" }) {
+export function PersonTile({ person: p, mode = "staff" }: { person: PersonCardItem; mode?: "staff" | "lead" }) {
   const accent = p.isLead ? "rgb(175,82,222)" : "rgb(184,57,4)";
   const degreeLine = [p.degree, p.academStat].filter(Boolean).join(", ");
   const contacts = [p.phone, p.email].filter(Boolean);

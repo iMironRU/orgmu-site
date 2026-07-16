@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllNews } from "@/lib/content/news";
+import { toCardItem } from "@/lib/content/news-types";
 import { NewsListView } from "@/components/NewsListView";
 
 export const metadata: Metadata = {
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function NewsListPage() {
-  const news = getAllNews();
+  // Срез для карточек: без body_html и галереи — списку они не нужны,
+  // а в разметку уезжал полный текст всех статей.
+  const news = getAllNews().map(toCardItem);
 
   return (
     <main className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border max-[768px]:px-5 max-[768px]:pt-6">

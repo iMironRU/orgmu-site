@@ -16,6 +16,30 @@ export type NewsItem = {
   language: string;
 };
 
+// Новость для КАРТОЧКИ в списке — только то, что карточка показывает.
+// Полный NewsItem тащит body_html (полный текст статьи, ~53% веса) и галерею
+// (~19%): списку они не нужны, а в разметку страницы уезжали все 102 статьи
+// целиком. Отдаём срез.
+export type NewsCardItem = {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  published_at: string | null;
+  cover: MediaRef | null;
+};
+
+export function toCardItem(n: NewsItem): NewsCardItem {
+  return {
+    id: n.source.item_id,
+    slug: n.slug,
+    title: n.title,
+    excerpt: n.excerpt,
+    published_at: n.published_at,
+    cover: n.cover,
+  };
+}
+
 export type NewsKind = "event" | "announce" | "congrats" | "science" | "dept";
 
 const KIND_STYLE: Record<NewsKind, { label: string; color: string; bg: string }> = {
@@ -26,7 +50,7 @@ const KIND_STYLE: Record<NewsKind, { label: string; color: string; bg: string }>
   dept: { label: "Подразделения", color: "rgb(130,100,70)", bg: "rgba(170,136,99,0.16)" },
 };
 
-export function newsKind(_item: NewsItem): NewsKind {
+export function newsKind(_item: NewsCardItem | NewsItem): NewsKind {
   // TODO: настоящий маппинг catid/тегов -> тип. Пока все как «Событие».
   return "event";
 }

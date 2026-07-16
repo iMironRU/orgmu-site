@@ -1,12 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Person } from "@/lib/content/persons-types";
+import type { PersonCardItem } from "@/lib/content/persons-types";
 import { POSITION_CATS, DEGREE_CATS, positionCat } from "@/lib/content/persons-types";
 import { PersonTile } from "@/components/PersonTile";
 import { FilterSelect } from "@/components/FilterSelect";
 
-export function StaffDirectory({ people }: { people: Person[] }) {
+export function StaffDirectory({ people }: { people: PersonCardItem[] }) {
   const [q, setQ] = useState("");
   const [pos, setPos] = useState("");
   const [deg, setDeg] = useState("");

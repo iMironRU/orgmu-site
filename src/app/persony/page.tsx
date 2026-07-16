@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getTeachers } from "@/lib/content/persons";
+import { toPersonCard } from "@/lib/content/persons-types";
 import { StaffDirectory } from "@/components/StaffDirectory";
 
 export const metadata: Metadata = {
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function StaffDirectoryPage() {
-  const people = getTeachers();
+  // Срез для плиток: без education/qualifications/profDevelopment/dept —
+  // каталог их не показывает, а в разметку уезжали у всех 178 персон.
+  const people = getTeachers().map(toPersonCard);
   return (
     <>
       <div className="bg-brand text-white" data-a11y-surface="brand">
