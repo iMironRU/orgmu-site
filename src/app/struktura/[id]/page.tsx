@@ -13,6 +13,7 @@ import {
 import { getPersonIdByFio } from "@/lib/content/persons";
 import { makeDocItem } from "@/lib/sveden/documents";
 import { DocCards } from "@/components/sveden/DocCards";
+import { SectionToc } from "@/components/SectionToc";
 import { asset } from "@/lib/asset";
 
 export const dynamicParams = false;
@@ -71,8 +72,14 @@ export default async function DepartmentPage({
   const headPersonId = hasHead ? getPersonIdByFio(u.head.fio) : undefined;
   const docItem = u.doc ? makeDocItem("divisionClauseDocLink", u.doc.text || "Положение о подразделении", u.doc.href) : null;
 
+  // Порядок совпадает с порядком секций на странице. Разделы, которые
+  // показываются всегда (даже пустыми), в списке тоже всегда.
   const sections = [
     { id: "about", label: "О подразделении" },
+    { id: "directions", label: "Направления работы" },
+    { id: "staff", label: "Сотрудники" },
+    { id: "teaching", label: "Учебная работа" },
+    { id: "schedule", label: "Расписание" },
     ...(hasHead ? [{ id: "head", label: "Руководитель" }] : []),
     { id: "contacts", label: "Контакты" },
     ...(docItem ? [{ id: "docs", label: "Документы" }] : []),
@@ -99,22 +106,10 @@ export default async function DepartmentPage({
       <div className="mx-auto max-w-[1146px] w-full px-10 py-10 box-border grid grid-cols-[264px_1fr] gap-10 max-[768px]:grid-cols-1 max-[768px]:px-5">
         {/* Сайдбар «Разделы» */}
         <aside>
-          <div className="min-[769px]:sticky min-[769px]:top-6 bg-white border border-line rounded-xl overflow-hidden">
-            <div className="px-5 py-4 bg-bg-muted border-b border-line font-ui font-bold text-[16px] uppercase tracking-[0.04em] text-ink-2">
-              Разделы
-            </div>
-            <nav className="flex flex-col p-2 font-ui">
-              {sections.map((s, i) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  className="px-[14px] py-[11px] rounded-lg text-[17px] no-underline text-brand"
-                  style={{ background: i === 0 ? "rgba(184,57,4,0.12)" : "transparent", fontWeight: i === 0 ? 700 : 400 }}
-                >
-                  {s.label}
-                </a>
-              ))}
-            </nav>
+          {/* Общий SectionToc: подсветка текущего раздела при скролле и селект
+              на мобиле — вместо самописного списка, который этого не умел. */}
+          <div className="min-[769px]:sticky min-[769px]:top-6">
+            <SectionToc title="Разделы" items={sections} />
           </div>
         </aside>
 

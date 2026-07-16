@@ -7,6 +7,7 @@ import { DocCards } from "@/components/sveden/DocCards";
 import { getDocumentGroups, getStaffListDoc } from "@/lib/sveden/documents";
 import { getTeachers } from "@/lib/content/persons";
 import { getSvedenExtra } from "@/lib/content/navigation";
+import { NavSelect } from "@/components/NavSelect";
 
 // Плашка со статистикой педсостава — по макету Svedenia (spec «Employees»):
 // вместо таблицы на сотни строк три числа, а полный состав — на /persony.
@@ -137,7 +138,18 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
         {/* Левая навигация */}
         <aside>
           <div className="min-[901px]:sticky min-[901px]:top-6 flex flex-col gap-4">
-            <nav className="bg-white border border-line rounded-xl overflow-hidden">
+            <>
+            {/* Мобильный вариант: 14 подразделов занимали весь экран до контента.
+                Пункты — отдельные страницы, поэтому это навигационный селект:
+                скролл-спая тут быть не может, выбор = переход. */}
+            <div className="min-[901px]:hidden">
+              <NavSelect
+                title="Подразделы"
+                current={`/sveden/${sectionKey}`}
+                items={keys.map((k) => ({ label: SECTION_SHORT[k] ?? k, href: `/sveden/${k}` }))}
+              />
+            </div>
+            <nav className="max-[900px]:hidden bg-white border border-line rounded-xl overflow-hidden">
               <div className="px-[18px] py-[15px] bg-bg-muted border-b border-line font-ui font-bold text-[15px] uppercase tracking-[0.04em] text-ink-2">
                 Подразделы
               </div>
@@ -170,12 +182,18 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
                 })}
               </div>
             </nav>
+            </>
 
             {/* Служебные страницы — отдельным списком, вне обязательных 14:
                 у них свои адреса верхнего уровня, namespace /sveden/ остаётся
                 только под фиксированные адреса приказа № 1493. */}
             {extra.items.length > 0 && (
-              <nav className="bg-white border border-line rounded-xl overflow-hidden">
+              <div className="min-[901px]:hidden">
+                <NavSelect title={extra.title} items={extra.items} />
+              </div>
+            )}
+            {extra.items.length > 0 && (
+              <nav className="max-[900px]:hidden bg-white border border-line rounded-xl overflow-hidden">
                 <div className="px-[18px] py-[15px] bg-bg-muted border-b border-line font-ui font-bold text-[15px] uppercase tracking-[0.04em] text-ink-2">
                   {extra.title}
                 </div>
