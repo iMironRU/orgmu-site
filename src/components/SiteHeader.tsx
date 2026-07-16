@@ -18,6 +18,17 @@ export function SiteHeader({ nav: NAV }: { nav: NavItem[] }) {
     setExp(-1);
   };
 
+  // Липкая шапка на мобиле: без неё, прокрутив вниз, теряешь и меню, и
+  // понимание, где находишься. Сжимаем при прокрутке — иначе на телефоне
+  // навигация съедала бы пол-экрана.
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   useEffect(() => {
     if (!burger) return;
     const onKey = (e: KeyboardEvent) => {
@@ -31,10 +42,10 @@ export function SiteHeader({ nav: NAV }: { nav: NavItem[] }) {
 
   return (
     <header
-      className="relative bg-white border-b border-line font-ui z-[100]"
+      className="max-[1050px]:sticky max-[1050px]:top-0 relative bg-white border-b border-line font-ui z-[100]"
       onMouseLeave={() => setOpen(-1)}
     >
-      <div className="mx-auto max-w-[1346px] px-6 py-4 flex items-center gap-6">
+      <div className={`mx-auto max-w-[1346px] px-6 flex items-center gap-6 transition-[padding] ${scrolled ? "max-[1050px]:py-2 py-4" : "py-4"}`}>
         <Link href="/" className="flex items-center gap-[14px] no-underline shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -42,7 +53,7 @@ export function SiteHeader({ nav: NAV }: { nav: NavItem[] }) {
             alt="ОрГМУ"
             width={64}
             height={64}
-            className="w-16 h-16 object-contain"
+            className={`object-contain transition-[width,height] ${scrolled ? "max-[1050px]:w-10 max-[1050px]:h-10 w-16 h-16" : "w-16 h-16"}`}
           />
           <span className="flex flex-col leading-[1.05]">
             <span className="font-bold text-[22px] text-brand">ОрГМУ</span>

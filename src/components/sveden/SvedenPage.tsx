@@ -142,7 +142,7 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
             {/* Мобильный вариант: 14 подразделов занимали весь экран до контента.
                 Пункты — отдельные страницы, поэтому это навигационный селект:
                 скролл-спая тут быть не может, выбор = переход. */}
-            <div className="min-[901px]:hidden">
+            <div className="min-[901px]:hidden sticky top-[60px] z-30 -mx-1 px-1 py-2 bg-bg">
               <NavSelect
                 title="Подразделы"
                 current={`/sveden/${sectionKey}`}

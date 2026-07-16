@@ -45,7 +45,7 @@ export function SectionToc({
       {/* Мобильный вариант: список из 7 разделов выталкивал контент на экран
           вниз. Селект показывает, в каком разделе находишься (active ведёт
           скролл-спай), выбор — прокрутка. Липкий, чтобы был под рукой. */}
-      <div className="min-[901px]:hidden sticky top-2 z-30 mb-4">
+      <div className="min-[901px]:hidden sticky top-[60px] z-30 mb-4 -mx-1 px-1 py-2 bg-bg">
         <FilterSelect
           value={active}
           onChange={scrollTo}
