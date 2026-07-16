@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { asset } from "@/lib/asset";
 import type { NavItem } from "@/lib/content/navigation";
@@ -9,7 +9,23 @@ import type { NavItem } from "@/lib/content/navigation";
 export function SiteHeader({ nav: NAV }: { nav: NavItem[] }) {
   const [open, setOpen] = useState(-1); // индекс раскрытого desktop-пункта
   const [burger, setBurger] = useState(false);
-  const [exp, setExp] = useState(-1); // индекс раскрытого пункта в мобильном аккордеоне
+  const [exp, setExp] = useState(-1);
+
+  // Шапка живёт в общем layout — состояние переживает переход. Без явного
+  // закрытия бургер оставался раскрытым поверх новой страницы.
+  const closeBurger = () => {
+    setBurger(false);
+    setExp(-1);
+  };
+
+  useEffect(() => {
+    if (!burger) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeBurger();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [burger]); // индекс раскрытого пункта в мобильном аккордеоне
 
   const active = open >= 0 ? NAV[open] : null;
 
@@ -115,6 +131,7 @@ export function SiteHeader({ nav: NAV }: { nav: NavItem[] }) {
                         <Link
                           key={li.label}
                           href={li.href}
+                          onClick={closeBurger}
                           className="font-normal text-[16px] text-steel no-underline py-0.5"
                         >
                           {li.label}

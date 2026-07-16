@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { FilterSelect } from "@/components/FilterSelect";
 
 // Оглавление служебных страниц (макеты NOK/Dissovet/Zakupki и др.):
 // «Содержание», нумерованные пункты, подсветка текущего раздела при скролле
@@ -28,15 +29,33 @@ export function SectionToc({
     return () => window.removeEventListener("scroll", onScroll);
   }, [items]);
 
-  const go = (e: React.MouseEvent, id: string) => {
-    e.preventDefault();
+  // Прокрутка со смещением под шапку — общая для селекта и списка.
+  const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
     window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 96, behavior: "smooth" });
   };
+  const go = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    scrollTo(id);
+  };
 
   return (
-    <div className="bg-white border border-line rounded-xl overflow-hidden">
+    <>
+      {/* Мобильный вариант: список из 7 разделов выталкивал контент на экран
+          вниз. Селект показывает, в каком разделе находишься (active ведёт
+          скролл-спай), выбор — прокрутка. Липкий, чтобы был под рукой. */}
+      <div className="min-[901px]:hidden sticky top-2 z-30 mb-4">
+        <FilterSelect
+          value={active}
+          onChange={scrollTo}
+          searchable={false}
+          placeholder={title}
+          options={items.map((t, i) => ({ value: t.id, label: `${i + 1}. ${t.label}` }))}
+        />
+      </div>
+
+    <div className="max-[900px]:hidden bg-white border border-line rounded-xl overflow-hidden">
       <div className="px-5 py-4 bg-bg-muted border-b border-line font-bold text-[16px] uppercase tracking-[0.04em] text-ink-2">
         {title}
       </div>
@@ -62,5 +81,6 @@ export function SectionToc({
         })}
       </nav>
     </div>
+    </>
   );
 }
