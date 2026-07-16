@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { asset } from "@/lib/asset";
 import type { NavItem } from "@/lib/content/navigation";
 
@@ -22,6 +23,15 @@ export function SiteHeader({ nav: NAV }: { nav: NavItem[] }) {
   // понимание, где находишься. Сжимаем при прокрутке — иначе на телефоне
   // навигация съедала бы пол-экрана.
   const [scrolled, setScrolled] = useState(false);
+  // Название текущей страницы для сжатой шапки. Берём из document.title —
+  // его ставит metadata каждой страницы, отдельный источник заводить незачем.
+  // Суффикс шаблона («· ОрГМУ») отрезаем.
+  const [pageTitle, setPageTitle] = useState("");
+  const path = usePathname();
+  useEffect(() => {
+    setPageTitle(document.title.replace(/\s*·\s*ОрГМУ\s*$/, "").trim());
+  }, [path]);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
@@ -57,9 +67,19 @@ export function SiteHeader({ nav: NAV }: { nav: NavItem[] }) {
           />
           <span className="flex flex-col leading-[1.05]">
             <span className="font-bold text-[22px] text-brand">ОрГМУ</span>
-            <span className="font-normal text-[12px] text-steel max-w-[190px]">
+            {/* При прокрутке на мобиле подпись вуза бесполезна — её видно
+                в лого. Подменяем названием страницы: иначе, уехав вниз,
+                непонятно, где находишься. На десктопе подпись как была. */}
+            <span
+              className={`font-normal text-[12px] text-steel max-w-[190px] ${scrolled && pageTitle ? "max-[1050px]:hidden" : ""}`}
+            >
               Оренбургский государственный медицинский университет
             </span>
+            {scrolled && pageTitle && (
+              <span className="hidden max-[1050px]:block font-bold text-[13px] text-steel max-w-[190px] truncate">
+                {pageTitle}
+              </span>
+            )}
           </span>
         </Link>
 

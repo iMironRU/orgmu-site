@@ -5,8 +5,10 @@ import { useEffect, useState } from "react";
 // Кнопка «Наверх». В макетах её нет — сделана в языке дизайн-системы.
 // Появляется, только когда есть куда возвращаться (прокрутили больше экрана),
 // иначе мозолила бы глаза на коротких страницах.
-// Только десктоп: на телефоне перекрывала бы контент, а жест «в начало»
-// там системный (тап по строке состояния).
+// Показываем и на мобиле: жест «в начало» есть только на iPhone (тап по
+// строке состояния), на Android его нет вовсе — а после страницы со 120
+// файлами листать вверх руками невыносимо. На мобиле поднята над нижней
+// панелью (56px), чтобы не перекрывать её.
 const SHOW_AFTER = 700;
 
 export function BackToTop() {
@@ -34,7 +36,7 @@ export function BackToTop() {
       onClick={toTop}
       aria-label="Наверх"
       title="Наверх"
-      className="fixed bottom-6 right-6 z-40 max-[900px]:hidden flex items-center gap-2 font-ui font-bold text-[15px] text-brand bg-white border border-line-strong rounded-full pl-3 pr-4 py-[10px] shadow-[0_6px_20px_rgba(15,40,70,0.16)] cursor-pointer hover:border-accent hover:text-accent transition-colors"
+      className="fixed right-4 max-[768px]:bottom-[68px] bottom-6 min-[769px]:right-6 z-40 flex items-center gap-2 font-ui font-bold text-[15px] text-brand bg-white border border-line-strong rounded-full pl-3 pr-4 py-[10px] shadow-[0_6px_20px_rgba(15,40,70,0.16)] cursor-pointer hover:border-accent hover:text-accent transition-colors"
     >
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 19V5" />
