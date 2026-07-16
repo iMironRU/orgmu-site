@@ -49,7 +49,7 @@
 
 - title: Сервисы
   links:
-    - { label: Контакты, href: "#" }
+    - { label: Контакты, href: "/kontakty" }
     - { label: Часто задаваемые вопросы, href: "#" }
     - { label: Поиск по сайту, href: "/poisk" }
     - { label: Обратная связь, href: "/obratnaya-svyaz" }

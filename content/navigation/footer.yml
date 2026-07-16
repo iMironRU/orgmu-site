@@ -24,7 +24,7 @@ org:
 columns:
   - items:
       - { label: Сведения об образовательной организации, href: "/sveden" }
-      - { label: Контакты, href: "#" }
+      - { label: Контакты, href: "/kontakty" }
       - { label: Часто задаваемые вопросы, href: "#" }
       - { label: Обратная связь, href: "/obratnaya-svyaz" }
   - items:
