@@ -25,10 +25,10 @@ columns:
   - items:
       - { label: Сведения об образовательной организации, href: "/sveden" }
       - { label: Контакты, href: "/kontakty" }
-      - { label: Часто задаваемые вопросы, href: "#" }
+      - { label: Часто задаваемые вопросы, href: "https://www.orgma.ru/ru/akademiya/chasto-zadavaemye-vopros" }
       - { label: Обратная связь, href: "/obratnaya-svyaz" }
   - items:
       - { label: Противодействие коррупции, href: "/protivodejstvie-korrupcii" }
-      - { label: Сведения о доходах, href: "#" }
+      - { label: Сведения о доходах, href: "https://www.orgma.ru/ru/akademiya/protivodejstvie-korruptsii/svedeniya-o-dokhodakh-raskhodakh-ob-imushchestve-i-obyazatelstvakh-imushchestvennogo-kharaktera" }
       - { label: Антитеррористическая безопасность, href: "/antiterror" }
       - { label: Политика обработки ПДн, href: "/politika" }

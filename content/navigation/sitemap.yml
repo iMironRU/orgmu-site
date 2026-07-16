@@ -3,57 +3,57 @@
 
 - title: Университет
   links:
-    - { label: История, href: "#" }
-    - { label: Руководство, href: "#" }
-    - { label: Учёный совет, href: "#" }
-    - { label: Структура и подразделения, href: "#" }
-    - { label: Документы, href: "#" }
+    - { label: История, href: "https://www.orgma.ru/ru/nauchnaya-deyatelnost/istoriya" }
+    - { label: Руководство, href: "/rukovodstvo" }
+    - { label: Учёный совет, href: "https://www.orgma.ru/ru/akademiya/uchenyj-sovet" }
+    - { label: Структура и подразделения, href: "/struktura" }
+    - { label: Документы, href: "/sveden/document" }
     - { label: Вакансии, href: "/vakansii" }
 
 - title: Поступающим
   links:
-    - { label: Специалитет, href: "#" }
-    - { label: Ординатура, href: "#" }
-    - { label: Аспирантура, href: "#" }
-    - { label: Довузовская подготовка, href: "#" }
-    - { label: Приёмная комиссия, href: "#" }
-    - { label: Правила приёма, href: "#" }
-    - { label: Стоимость обучения, href: "#" }
+    - { label: Специалитет, href: "https://abitur.orgma.ru" }
+    - { label: Ординатура, href: "https://abitur.orgma.ru" }
+    - { label: Аспирантура, href: "https://abitur.orgma.ru" }
+    - { label: Довузовская подготовка, href: "https://www.orgma.ru/dovuzovskoe-obrazovanie" }
+    - { label: Приёмная комиссия, href: "https://abitur.orgma.ru" }
+    - { label: Правила приёма, href: "https://abitur.orgma.ru" }
+    - { label: Стоимость обучения, href: "/platnye-uslugi" }
 
 - title: Обучающимся
   links:
-    - { label: Расписание, href: "#" }
-    - { label: Личный кабинет, href: "#" }
+    - { label: Расписание, href: "https://www.orgma.ru/raspisanie" }
+    - { label: Личный кабинет, href: "https://1c.orgma.ru/sdo_CUN_001/wc/#/auth" }
     - { label: Электронная библиотека, href: "#" }
     - { label: Практика, href: "#" }
-    - { label: Стипендии, href: "#" }
+    - { label: Стипендии, href: "/stipendii" }
     - { label: Общежития, href: "#" }
     - { label: Спорт и творчество, href: "#" }
 
 - title: Научная деятельность
   links:
     - { label: Диссертационные советы, href: "/dissovet" }
-    - { label: Научные журналы, href: "#" }
-    - { label: Гранты, href: "#" }
-    - { label: Конференции, href: "#" }
+    - { label: Научные журналы, href: "https://www.orgma.ru/ru/akademiya/izdatelskaya-deyatelnost/nauchno-prakticheskie-zhurnaly-universiteta" }
+    - { label: Гранты, href: "https://www.orgma.ru/ru/nauchnaya-deyatelnost/konkursy-granty/granty" }
+    - { label: Конференции, href: "https://www.orgma.ru/konferentsiya" }
     - { label: СНО, href: "#" }
     - { label: Патенты, href: "#" }
 
 - title: Сотруднику
   links:
-    - { label: Личный кабинет, href: "#" }
+    - { label: Личный кабинет, href: "https://1c.orgma.ru/sdo_CUN_001/wc/#/auth" }
     - { label: Профсоюзный комитет, href: "#" }
-    - { label: Отдел кадров, href: "#" }
-    - { label: Нормативные документы, href: "#" }
+    - { label: Отдел кадров, href: "https://www.orgma.ru/sotrudniku" }
+    - { label: Нормативные документы, href: "https://www.orgma.ru/sotrudniku" }
     - { label: Дополнительное образование, href: "#" }
 
 - title: Сервисы
   links:
     - { label: Контакты, href: "/kontakty" }
-    - { label: Часто задаваемые вопросы, href: "#" }
+    - { label: Часто задаваемые вопросы, href: "https://www.orgma.ru/ru/akademiya/chasto-zadavaemye-vopros" }
     - { label: Поиск по сайту, href: "/poisk" }
     - { label: Обратная связь, href: "/obratnaya-svyaz" }
-    - { label: Реквизиты, href: "#" }
+    - { label: Реквизиты, href: "/kontakty" }
     - { label: Противодействие коррупции, href: "/protivodejstvie-korrupcii" }
     - { label: Независимая оценка качества, href: "/nok" }
     - { label: Результаты СОУТ, href: "/sout" }
