@@ -69,7 +69,13 @@ for (const [id, inst] of Object.entries(reg)) {
 }
 
 fs.rmSync(BUILD, { recursive: true, force: true });
+// out/ сейчас содержит сборку для внутренних хостов (basePath=""), а не сайта.
+// Если её оставить, легко принять одно за другое — и проверять сайт по чужой
+// сборке. Убираем: для сайта нужен обычный npm run build.
+fs.rmSync(SRC, { recursive: true, force: true });
 
 const size = execSync(`du -sh "${OUT}" | cut -f1`).toString().trim();
 console.log(`\nГотово (${size}). Разложить вручную: содержимое dist-app/<хост>/ — в корень этого хоста.`);
 console.log(`Данные: content/navigation/apps.yml (приложения), content/apps/instances.json (базы).`);
+console.log(`Внимание: out/ удалён — там была сборка для внутренних хостов.`);
+console.log(`Для сайта соберите заново: npm run build`);

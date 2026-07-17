@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getApps } from "@/lib/content/navigation";
 import { Icon } from "@/components/icons";
 import { PageNav } from "@/components/PageNav";
-import { appNavItems, launcherHref } from "@/lib/content/instances";
+import { appNavItems, launcherHref, instanceHref, getInstance } from "@/lib/content/instances";
 
 // Лаунчер app.orgma.ru. Это страница САЙТА — тот же layout, та же шапка,
 // подвал и боковая панель. Собирается отдельной сборкой с basePath="" и
@@ -16,8 +16,32 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
+// Падежи: «1 база», «2 базы», «10 баз».
+function basesWord(n: number): string {
+  const d = n % 10, dd = n % 100;
+  if (dd >= 11 && dd <= 14) return "баз";
+  if (d === 1) return "база";
+  if (d >= 2 && d <= 4) return "базы";
+  return "баз";
+}
+
+const CTA =
+  "block text-center font-ui font-bold text-[15px] text-white bg-accent rounded-[10px] py-[11px] no-underline hover:bg-[rgb(150,46,3)] transition-colors";
+
+const label = (a: { bases: number }) =>
+  a.bases > 0 ? `Открыть · ${a.bases} ${basesWord(a.bases)}` : "Открыть приложение";
+
 export default function LauncherPage() {
-  const apps = getApps().filter((a) => a.platform === "1c" && a.id !== "app-platform" && a.version);
+  // Карточка ведёт туда же, куда пункт меню: на страницу инстанса. Раньше
+  // кнопка уходила на внешний хост, а меню — внутрь сайта: один и тот же
+  // переход в двух местах работал по-разному.
+  const apps = getApps()
+    .filter((a) => a.platform === "1c" && a.id !== "app-platform" && a.version)
+    .map((a) => {
+      const id = a.id.replace(/^app-/, "");
+      const inst = getInstance(id);
+      return { ...a, pageHref: inst ? instanceHref(id) : a.href, bases: inst?.bases.length ?? 0 };
+    });
 
   return (
     <>
@@ -57,7 +81,7 @@ export default function LauncherPage() {
                 </span>
                 <span className="flex-1 min-w-0">
                   <span className="block font-display font-bold text-[18px] text-brand leading-[1.2]">{a.name}</span>
-                  <a href={a.href} className="block text-[13px] text-ink-3 mt-[2px] no-underline hover:text-accent break-words">{a.tag}</a>
+                  <span className="block text-[13px] text-ink-3 mt-[2px] break-words">{a.tag}</span>
                 </span>
               </div>
               <div className="flex flex-wrap gap-[6px]">
@@ -77,9 +101,18 @@ export default function LauncherPage() {
                 <span className="text-[13px] text-ink-3 tabular-nums self-center">v {a.version}</span>
               </div>
               <p className="m-0 text-[15px] leading-[1.45] text-steel flex-1">{a.desc}</p>
-              <a href={a.href} className="block text-center font-ui font-bold text-[15px] text-white bg-accent rounded-[10px] py-[11px] no-underline hover:bg-[rgb(150,46,3)] transition-colors">
-                Открыть приложение
-              </a>
+              {/* Внутренний адрес — через Link: у обычного <a> basePath не
+                  применяется, и на сайте кнопка вела бы в 404. Внешний хост
+                  (сборка лаунчера) — обычной ссылкой. */}
+              {a.pageHref.startsWith("http") ? (
+                <a href={a.pageHref} className={CTA}>
+                  {label(a)}
+                </a>
+              ) : (
+                <Link href={a.pageHref} className={CTA}>
+                  {label(a)}
+                </Link>
+              )}
             </div>
           ))}
         </div>
