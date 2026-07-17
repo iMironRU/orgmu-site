@@ -246,11 +246,11 @@ export function ContentPage({ page }: { page: ContentPageData }) {
           <div className="min-[901px]:sticky min-[901px]:top-6 flex flex-col gap-4">
             {nav.length > 0 &&
               (numbered ? (
-                <SectionToc title={page.toc?.title ?? "Содержание"} items={nav} />
+                <SectionToc title={page.toc?.title ?? "Разделы"} items={nav} />
               ) : (
                 <div className="bg-white border border-line rounded-xl overflow-hidden">
                   <div className="px-5 py-4 bg-bg-muted border-b border-line font-bold text-[16px] uppercase tracking-[0.04em] text-ink-2">
-                    {page.toc?.title ?? "В разделе"}
+                    {page.toc?.title ?? "Разделы"}
                   </div>
                   <nav className="flex flex-col p-2">
                     {nav.map((n) => (
