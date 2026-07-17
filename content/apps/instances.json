@@ -1,0 +1,174 @@
+{
+  "_comment": [
+    "Данные инстансов 1С для страниц <инстанс>.app.orgma.ru.",
+    "Правьте этот файл: страницы читают его на лету, пересобирать HTML не нужно —",
+    "достаточно положить обновлённый apps.json рядом с index.html на сервере.",
+    "Собрать страницы: node scripts/apps/build-launcher.mjs → dist-app/",
+    "bases[].code — код базы в адресе (buh_001), name — как показывать."
+  ],
+  "instances": {
+    "adm": {
+      "host": "adm.app.orgma.ru",
+      "name": "Документооборот",
+      "category": "Администрирование",
+      "version": "8.3.27.1989",
+      "statusNote": "стабильный",
+      "bases": [
+        {
+          "name": "Документооборот 2.1",
+          "code": "",
+          "href": "https://adm.app.orgma.ru/doc_001/"
+        },
+        {
+          "name": "Документооборот 3.0",
+          "code": "",
+          "href": "https://adm.app.orgma.ru/doc_002/"
+        }
+      ],
+      "install": {
+        "x86": "https://adm.app.orgma.ru/install/client-win-32.zip",
+        "x64": "https://adm.app.orgma.ru/install/client-win-64.zip",
+        "v8i": "https://adm.app.orgma.ru/install/ibases.v8i"
+      }
+    },
+    "buh": {
+      "host": "buh.app.orgma.ru",
+      "name": "Бухгалтерия и кадры",
+      "category": "Бухгалтерия",
+      "version": "8.3.27.1989",
+      "statusNote": "обновлён",
+      "bases": [
+        {
+          "name": "БГУ - 2024",
+          "code": "buh_001",
+          "href": "https://buh.app.orgma.ru/buh_001/"
+        },
+        {
+          "name": "БГУ - 2025",
+          "code": "buh_002",
+          "href": "https://buh.app.orgma.ru/buh_002/"
+        },
+        {
+          "name": "ЗГУ - Сотрудники",
+          "code": "zup_001",
+          "href": "https://buh.app.orgma.ru/zup_001/"
+        },
+        {
+          "name": "ЗГУ - Студенты",
+          "code": "zup_002",
+          "href": "https://buh.app.orgma.ru/zup_002/"
+        }
+      ],
+      "install": {
+        "x86": "https://buh.app.orgma.ru/install/client-win-32.zip",
+        "x64": "https://buh.app.orgma.ru/install/client-win-64.zip",
+        "v8i": "https://buh.app.orgma.ru/install/ibases.v8i"
+      }
+    },
+    "edu": {
+      "host": "edu.app.orgma.ru",
+      "name": "Университет ПРОФ",
+      "category": "Образование",
+      "version": "8.3.27.1989",
+      "statusNote": "LTS",
+      "bases": [
+        {
+          "name": "Управление учебным центром довузовского образования",
+          "code": "",
+          "href": "https://edu.app.orgma.ru/uuc_001/"
+        },
+        {
+          "name": "Управление учебным центром ИПО",
+          "code": "",
+          "href": "https://edu.app.orgma.ru/uuc_002/"
+        },
+        {
+          "name": "Университет ПРОФ",
+          "code": "",
+          "href": "https://edu.app.orgma.ru/unv_001/"
+        },
+        {
+          "name": "Приёмка 2026",
+          "code": "",
+          "href": "https://edu.app.orgma.ru/unv_002/"
+        },
+        {
+          "name": "Эфикон - ВУЗ:Эффективный контракт",
+          "code": "",
+          "href": "https://edu.app.orgma.ru/eficon/"
+        },
+        {
+          "name": "Корпоративный Университет - ВУЗ",
+          "code": "",
+          "href": "https://1c.orgma.ru/CUN_001/"
+        },
+        {
+          "name": "Корпоративный Университет - Довуз",
+          "code": "",
+          "href": "https://1c.orgma.ru/CorpUniverDovuz/"
+        },
+        {
+          "name": "Корпоративный Университет - ФИС",
+          "code": "",
+          "href": "https://edu.app.orgma.ru/CUN_002/"
+        },
+        {
+          "name": "Корпоративный Университет - Абитур",
+          "code": "",
+          "href": "https://edu.app.orgma.ru/CUN_005/"
+        },
+        {
+          "name": "CMS:Универкон",
+          "code": "",
+          "href": "https://edu.app.orgma.ru/cms_001/"
+        }
+      ],
+      "install": {
+        "x86": "https://edu.app.orgma.ru/install/client-win-32.zip",
+        "x64": "https://edu.app.orgma.ru/install/client-win-64.zip"
+      }
+    },
+    "med": {
+      "host": "med.app.orgma.ru",
+      "name": "Медицинские системы",
+      "category": "Медицина",
+      "version": "8.3.27.1989",
+      "statusNote": "HIPAA",
+      "bases": [
+        {
+          "name": "Поликлиника 2.1",
+          "code": "cln_001",
+          "href": "https://med.app.orgma.ru/cln_001/"
+        },
+        {
+          "name": "Больничная аптека 2.2",
+          "code": "apt_001",
+          "href": "https://med.app.orgma.ru/apt_001/"
+        }
+      ],
+      "install": {
+        "x86": "https://med.app.orgma.ru/install/client-win-32.zip",
+        "x64": "https://med.app.orgma.ru/install/client-win-64.zip",
+        "v8i": "https://med.app.orgma.ru/install/ibases.v8i"
+      }
+    },
+    "dev": {
+      "host": "dev.app.orgma.ru",
+      "name": "Тестовый контур",
+      "category": "Разработка",
+      "version": "8.3.26.1540",
+      "statusNote": "кандидат",
+      "bases": [
+        {
+          "name": "Университет ПРОФ",
+          "code": "тестовый контур",
+          "href": "https://dev.app.orgma.ru/tmp_unv_001/"
+        }
+      ],
+      "install": {
+        "x86": "https://dev.app.orgma.ru/install/client-win-32.zip",
+        "x64": "https://dev.app.orgma.ru/install/client-win-64.zip"
+      }
+    }
+  }
+}
