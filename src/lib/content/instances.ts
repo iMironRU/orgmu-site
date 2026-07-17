@@ -64,11 +64,19 @@ function basesLabel(n: number): string {
   return `${n} баз`;
 }
 
-// Пункты меню приложений: платформа + все инстансы. Один список для лаунчера
-// и для страниц инстансов — иначе разъедутся.
+// Реестр всех приложений вуза — витрина на сайте. С внутренних хостов ведём
+// на сайт абсолютно.
+export function registryHref(): string {
+  return LINK_BASE ? `${LINK_BASE}/prilozheniya` : "/prilozheniya";
+}
+
+// Пункты меню приложений: реестр сайта + платформа 1С + инстансы. Один список
+// для всех страниц группы — иначе разъедутся. Реестр первым: он про все
+// приложения вуза, платформа — только про 1С.
 export function appNavItems(): { label: string; href: string; note?: string }[] {
   return [
-    { label: "Платформа приложений", href: launcherHref(), note: "все приложения" },
+    { label: "Все приложения вуза", href: registryHref(), note: "сервисы и системы" },
+    { label: "Платформа 1С", href: launcherHref(), note: "инстансы платформы" },
     ...getInstanceIds().map((id) => {
       const i = getInstance(id)!;
       return { label: i.name, href: instanceHref(id), note: basesLabel(i.bases.length) };

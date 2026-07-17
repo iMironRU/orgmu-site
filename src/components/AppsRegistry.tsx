@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { AppItem, Audience } from "@/lib/content/navigation";
+import Link from "next/link";
 import { Icon } from "@/components/icons";
 
 // Реестр приложений. Делим по АУДИТОРИИ, а не по секретности: служебные 1С
@@ -136,12 +137,20 @@ export function AppsRegistry({ apps }: { apps: AppItem[] }) {
                 )}
 
                 <div className="flex items-center justify-between gap-3 flex-wrap">
-                  <a
-                    href={a.href}
-                    className={`font-bold text-[15px] no-underline ${a.href === "#" ? "text-ink-3 pointer-events-none" : "text-accent hover:underline"}`}
-                  >
-                    {a.href === "#" ? "Скоро" : `${a.cta} →`}
-                  </a>
+                  {/* Внутренние адреса (наши страницы инстансов) — через
+                      Link: у обычного <a> basePath не применяется и ссылка
+                      ведёт в 404. Внешние сервисы — обычной ссылкой. */}
+                  {a.href === "#" ? (
+                    <span className="font-bold text-[15px] text-ink-3">Скоро</span>
+                  ) : a.href.startsWith("http") ? (
+                    <a href={a.href} className="font-bold text-[15px] text-accent no-underline hover:underline">
+                      {a.cta} →
+                    </a>
+                  ) : (
+                    <Link href={a.href} className="font-bold text-[15px] text-accent no-underline hover:underline">
+                      {a.cta} →
+                    </Link>
+                  )}
                   {authNote && <span className="text-[12px] text-ink-3">{authNote}</span>}
                 </div>
               </div>
