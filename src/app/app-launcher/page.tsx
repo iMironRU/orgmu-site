@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getApps } from "@/lib/content/navigation";
 import { Icon } from "@/components/icons";
+import { PageNav } from "@/components/PageNav";
+import { appNavItems, launcherHref } from "@/lib/content/instances";
 
 // Лаунчер app.orgma.ru. Это страница САЙТА — тот же layout, та же шапка,
 // подвал и боковая панель. Собирается отдельной сборкой с basePath="" и
@@ -35,7 +37,17 @@ export default function LauncherPage() {
         </div>
       </div>
 
-      <main className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border max-[768px]:px-5 font-ui">
+      <div className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border grid grid-cols-[250px_1fr] gap-10 max-[900px]:grid-cols-1 max-[768px]:px-5 font-ui">
+        {/* Меню приложений — тот же паттерн, что «Подразделы» в sveden.
+            С инстанса на инстанс раньше можно было попасть только через
+            платформу. */}
+        <aside>
+          <div className="min-[901px]:sticky min-[901px]:top-6">
+            <PageNav title="Приложения" items={appNavItems()} current={launcherHref()} />
+          </div>
+        </aside>
+
+        <main className="min-w-0">
         <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
           {apps.map((a) => (
             <div key={a.id} className="flex flex-col gap-3 bg-white border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
@@ -71,7 +83,8 @@ export default function LauncherPage() {
             </div>
           ))}
         </div>
-      </main>
+        </main>
+      </div>
     </>
   );
 }

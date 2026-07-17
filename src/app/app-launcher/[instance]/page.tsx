@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getInstance, getInstanceIds, getSetup } from "@/lib/content/instances";
+import { getInstance, getInstanceIds, getSetup, appNavItems, instanceHref } from "@/lib/content/instances";
+import { PageNav } from "@/components/PageNav";
 import { getApps } from "@/lib/content/navigation";
 import { Icon } from "@/components/icons";
 
@@ -53,7 +54,14 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
         </div>
       </div>
 
-      <main className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border max-[768px]:px-5 font-ui">
+      <div className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border grid grid-cols-[250px_1fr] gap-10 max-[900px]:grid-cols-1 max-[768px]:px-5 font-ui">
+        <aside>
+          <div className="min-[901px]:sticky min-[901px]:top-6">
+            <PageNav title="Приложения" items={appNavItems()} current={instanceHref(instance)} />
+          </div>
+        </aside>
+
+        <main className="min-w-0">
         <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">
           Информационные базы
           <span className="ml-3 font-ui text-[14px] font-bold text-ink-3 bg-[rgb(240,243,246)] rounded-full px-[11px] py-[3px] align-middle">
@@ -152,7 +160,8 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
           )}
         </section>
 
-      </main>
+        </main>
+      </div>
     </>
   );
 }
