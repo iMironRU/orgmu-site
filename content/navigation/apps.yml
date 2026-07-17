@@ -1,27 +1,180 @@
-# «Приложения вуза» — выезжающая панель (иконка приложений в боковой панели).
-# icon — ключ иконки из src/components/icons.tsx (building | monitor | card | ...).
-# accent — цвет кружка с иконкой. href — куда ведёт кнопка (пока заглушки).
+# Реестр приложений вуза. Используется выезжающей панелью в SideRail
+# (только featured) и страницей /prilozheniya (все, с фильтром по аудитории).
+#
+# id        — часть адреса карточки /prilozheniya/<id>
+# audience  — КОМУ: students | staff | applicants. Списком: СДО нужна и
+#             студентам, и преподавателям. Главный фильтр на странице.
+# platform  — 1c | web. Чтобы «много 1С» было видно и группируемо.
+# status    — active | updating | legacy (выводится из эксплуатации)
+# auth      — none | account | vpn. Честная подпись вместо иллюзии защиты.
+# replacedBy — id приложения-замены (для status: legacy). Переходный период:
+#             старое не удаляем молча, а показываем, чем заменено.
+# featured  — показывать в выезжающей панели SideRail (3–5 публичных).
+#
+# ⚠️ Служебные системы (adm/buh/dev) перечислены осознанно: они и так открыты
+# без входа на app.orgma.ru и индексируются поисковиками. Прятать их здесь —
+# не защита, а её видимость. Делим по аудитории, а не по секретности.
 
-- name: МФЦ ОрГМУ
+- id: mfc
+  name: МФЦ ОрГМУ
   tag: Единое окно сервисов
   desc: Заказ справок, документов и услуг в одном окне — статус заявок, электронная очередь, уведомления о готовности.
   cta: Открыть МФЦ
   href: "#"
+  audience: [students, staff]
+  category: Сервисы
+  platform: web
+  status: active
+  auth: account
+  featured: true
   icon: building
   accent: "rgb(48,176,199)"
 
-- name: ЭИОС
+- id: eios
+  name: ЭИОС
   tag: Электронная информационно-образовательная среда
   desc: Личный кабинет обучающегося — расписание, электронные курсы, оценки, ведомости, портфолио и учебные материалы.
   cta: Войти в ЭИОС
   href: "#"
+  audience: [students, staff]
+  category: Образование
+  platform: 1c
+  status: active
+  auth: account
+  featured: true
   icon: monitor
   accent: "rgb(184,57,4)"
 
-- name: Цифровой ID
+- id: sdo
+  name: СДО
+  tag: Система дистанционного обучения
+  desc: Дистанционные курсы, задания и учебные материалы.
+  cta: Открыть СДО
+  href: "https://sdo.orgma.ru"
+  audience: [students, staff]
+  category: Образование
+  platform: web
+  status: active
+  auth: account
+  featured: true
+  icon: book
+  accent: "rgb(88,86,214)"
+
+- id: digital-id
+  name: Цифровой ID
   tag: Единый вход и пропуск
   desc: Единая учётная запись университета — авторизация во всех сервисах, электронный пропуск и цифровое студенческое.
   cta: Настроить ID
   href: "#"
+  audience: [students, staff]
+  category: Сервисы
+  platform: web
+  status: active
+  auth: account
+  featured: true
   icon: card
   accent: "rgb(88,86,214)"
+
+- id: it
+  name: ИТ-служба
+  tag: Управление информационных технологий
+  desc: Страница ИТ-отдела университета — сервисы, поддержка, инструкции.
+  cta: Открыть страницу
+  href: "https://it.orgma.ru"
+  audience: [students, staff]
+  category: Сервисы
+  platform: web
+  status: active
+  auth: none
+  icon: grid
+  accent: "rgb(0,101,155)"
+
+# ── Платформа 1С (app.orgma.ru) ───────────────────────────────────────────
+# Пять инстансов на одной платформе. Заведены отдельными карточками, чтобы
+# работал фильтр по аудитории: бухгалтерии нечего делать в списке студента.
+# Версии и статус платформа показывает у себя живыми — здесь не дублируем,
+# иначе протухнут.
+
+- id: app-platform
+  name: Платформа приложений
+  tag: app.orgma.ru
+  desc: Единая точка входа во все приложения 1С университета — состав, версии и статус каждого инстанса.
+  cta: Открыть платформу
+  href: "https://app.orgma.ru"
+  audience: [staff]
+  category: Платформа
+  platform: 1c
+  status: active
+  auth: account
+  icon: grid
+  accent: "rgb(0,101,155)"
+
+- id: app-edu
+  name: Университет ПРОФ
+  tag: edu.app.orgma.ru
+  desc: Управление учебным центром довузовского образования, учебным центром ИПО, Университет ПРОФ.
+  cta: Открыть
+  href: "https://edu.app.orgma.ru"
+  audience: [staff]
+  category: Образование
+  platform: 1c
+  status: active
+  auth: account
+  icon: cap
+  accent: "rgb(184,57,4)"
+
+- id: app-med
+  name: Медицинские системы
+  tag: med.app.orgma.ru
+  desc: Поликлиника 2.1, Больничная аптека 2.2 — информационные системы клиники университета.
+  cta: Открыть
+  href: "https://med.app.orgma.ru"
+  audience: [staff]
+  category: Медицина
+  platform: 1c
+  status: active
+  auth: account
+  icon: heart
+  accent: "rgb(52,199,89)"
+
+- id: app-buh
+  name: Бухгалтерия и кадры
+  tag: buh.app.orgma.ru
+  desc: БГУ-2024, БГУ-2025, ЗГУ — сотрудники, ЗГУ — студенты.
+  cta: Открыть
+  href: "https://buh.app.orgma.ru"
+  audience: [staff]
+  category: Бухгалтерия
+  platform: 1c
+  status: active
+  auth: account
+  icon: card
+  accent: "rgb(170,136,99)"
+
+- id: app-adm
+  name: Документооборот
+  tag: adm.app.orgma.ru
+  desc: Документооборот 2.1 и 3.0 — служебная система университета.
+  cta: Открыть
+  href: "https://adm.app.orgma.ru"
+  audience: [staff]
+  category: Администрирование
+  platform: 1c
+  status: active
+  auth: account
+  icon: building
+  accent: "rgb(107,130,153)"
+
+- id: app-dev
+  name: Тестовый контур
+  tag: dev.app.orgma.ru
+  desc: Университет ПРОФ (тестовый контур). Для разработки и проверки обновлений, не для рабочих задач.
+  cta: Открыть
+  href: "https://dev.app.orgma.ru"
+  audience: [staff]
+  category: Разработка
+  platform: 1c
+  status: updating
+  auth: account
+  icon: science
+  accent: "rgb(150,150,150)"

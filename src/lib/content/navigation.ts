@@ -19,7 +19,9 @@ export type Footer = {
   columns: NavColumn[];
 };
 
+export type Audience = "students" | "staff" | "applicants";
 export type AppItem = {
+  id: string;
   name: string;
   tag: string;
   desc: string;
@@ -27,6 +29,13 @@ export type AppItem = {
   href: string;
   icon: string;
   accent: string;
+  audience?: Audience[];
+  category?: string;
+  platform?: "1c" | "web";
+  status?: "active" | "updating" | "legacy";
+  auth?: "none" | "account" | "vpn";
+  replacedBy?: string;
+  featured?: boolean;
 };
 
 export type Subsite = {
