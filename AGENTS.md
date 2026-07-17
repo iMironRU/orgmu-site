@@ -4,6 +4,29 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+# Сначала ищи макет — единое правило
+
+**Перед тем как верстать страницу, посмотри `design-ref/pages/`. Макет,
+скорее всего, уже есть.** Имена английские, страницы русские — `Приложения
+вуза` лежат в `Apps.dc.html`, карточка приложения в `AppDetail.dc.html`,
+места — в `Locations.dc.html`. Не найдя по прямому переводу, грепните по
+заголовку:
+
+    grep -rl "Приложения вуза" design-ref/pages/
+
+Так уже вышло: страницы приложений сделаны мимо `Apps.dc.html` и
+`AppDetail.dc.html`, хотя те лежали в репозитории с первого дня. Получился
+свой дизайн — и его пришлось переделывать.
+
+**Шапка страницы — синяя плашка** `bg-brand text-white` во всю ширину, над
+контентом, внутри `max-w-[1146px]`: хлебные крошки, `<h1>`, лид. Так во всех
+макетах и на 18 страницах сайта. Белая шапка с синим заголовком — расхождение,
+а не вариант. Эталон — `src/app/mesta/page.tsx`.
+
+Исключение: витрины и карточки новостей, известий, мероприятий и персон — у
+них своя шапка по своим макетам (`News.dc.html`, `Article.dc.html`,
+`StaffMember.dc.html`).
+
 # Ссылки и basePath — единое правило
 
 **Внутренний адрес (`/novosti`, `/app-launcher/buh`, `/files/…`) ставится
