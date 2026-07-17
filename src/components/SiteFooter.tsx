@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BuildStamp } from "@/components/BuildStamp";
 import { Fragment } from "react";
 import type { Footer } from "@/lib/content/navigation";
 
@@ -75,11 +76,7 @@ export function SiteFooter({ footer }: { footer: Footer }) {
           <span className="font-normal text-[13px] text-white/65">
             {org.support}
             {/* Метка сборки: намеренно неброско — нужна на время тестирования. */}
-            {process.env.NEXT_PUBLIC_BUILD ? (
-              <span className="ml-3 text-[11px] text-white/35" title="Версия сборки">
-                {process.env.NEXT_PUBLIC_BUILD}
-              </span>
-            ) : null}
+            <BuildStamp />
           </span>
         </div>
       </div>

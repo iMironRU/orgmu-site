@@ -38,8 +38,13 @@ jobs:
 
       - name: Build (static export)
         env:
-          # basePath = имя репозитория, т.к. сайт живёт по /orgmu-site
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          # Сайт живёт в КОРНЕ своего домена (new.orgma.ru), поэтому basePath
+          # пустой. Домен задан в настройках Pages репозитория — при сборке
+          # через Actions файл public/CNAME на это не влияет, не заводите его.
+          # Если домен когда-нибудь снимут, сайт вернётся на
+          # imiron.ru/orgmu-site и сюда надо будет вернуть
+          # ${{ steps.pages.outputs.base_path }}.
+          NEXT_PUBLIC_BASE_PATH: ""
         run: npm run build
 
       - name: Upload artifact

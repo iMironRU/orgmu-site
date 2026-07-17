@@ -1,14 +1,13 @@
 import type { NextConfig } from "next";
 import { execSync } from "node:child_process";
 
-// Метка сборки для подвала: короткий хеш коммита + дата сборки. Нужна на время
-// тестирования, чтобы по странице было видно, ту ли сборку смотрим (Pages
-// кеширует, и «поправил, а не видно» — обычно просто старая копия у клиента).
-// В Actions хеш приходит переменной, локально спрашиваем git.
-function buildStamp(): string {
-  const sha = (process.env.GITHUB_SHA || gitSha()).slice(0, 7);
-  const date = new Date().toISOString().slice(0, 16).replace("T", " ");
-  return sha ? `${sha} · ${date} UTC` : date;
+// Метка сборки для подвала: короткий хеш коммита + момент сборки в UTC. Нужна
+// на время тестирования, чтобы по странице было видно, ту ли сборку смотрим
+// (Pages кеширует, и «поправил, а не видно» — обычно старая копия у клиента).
+// В человеческий вид и пояс браузера её приводит BuildStamp.tsx: здесь только
+// ISO, пересчитывать на сервере нечего — пояс знает лишь клиент.
+function buildSha(): string {
+  return (process.env.GITHUB_SHA || gitSha()).slice(0, 7);
 }
 function gitSha(): string {
   try {
@@ -27,7 +26,7 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath,
   assetPrefix: basePath || undefined,
-  env: { NEXT_PUBLIC_BUILD: buildStamp() },
+  env: { NEXT_PUBLIC_BUILD_SHA: buildSha(), NEXT_PUBLIC_BUILD_ISO: new Date().toISOString() },
   // На Pages нет сервера оптимизации картинок.
   images: { unoptimized: true },
   // Каждый маршрут выгружается как каталог с index.html.
