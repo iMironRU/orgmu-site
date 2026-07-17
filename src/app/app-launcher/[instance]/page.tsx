@@ -29,10 +29,16 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
 
   // Иконка и акцент — те же, что у этого инстанса на лаунчере: карточка
   // приложения и его базы должны читаться как одно целое.
-  const app = getApps().find((a) => a.tag === i.host);
+  const app = getApps().find((a) => a.id === instance || a.tag === i.host);
   const accent = app?.accent ?? "rgb(0,101,155)";
   const icon = app?.icon ?? "grid";
   const setup = getSetup();
+  // Клиент 1С ставят не на всяком хосте: у СДО четыре веб-входа, установка и
+  // список баз .v8i там бессмысленны — блок настройки просто не показываем.
+  const install = i.install ?? {};
+  const hasSetup = Boolean(install.x86 || install.x64 || install.v8i);
+  const entriesTitle = i.kind === "web" ? "Системы" : "Информационные базы";
+  const entryCta = i.kind === "web" ? "Открыть систему" : "Открыть базу";
   const soft = accent.replace("rgb(", "rgba(").replace(")", ",0.12)");
 
   return (
@@ -42,7 +48,15 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
           <div className="flex items-center gap-2 text-[15px] text-white/70 mb-[14px] font-ui flex-wrap">
             <Link href="/" className="text-white/90 no-underline">Главная</Link>
             <span>/</span>
-            <a href="https://app.orgma.ru" className="text-white/90 no-underline">Платформа приложений</a>
+            {i.kind === "web" ? (
+              registryHref().startsWith("http") ? (
+                <a href={registryHref()} className="text-white/90 no-underline">Приложения вуза</a>
+              ) : (
+                <Link href={registryHref()} className="text-white/90 no-underline">Приложения вуза</Link>
+              )
+            ) : (
+              <a href="https://app.orgma.ru" className="text-white/90 no-underline">Платформа приложений</a>
+            )}
             <span>/</span>
             <span>{i.name}</span>
           </div>
@@ -59,7 +73,7 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
                 {i.name}
               </h1>
               <p className="m-0 font-ui text-[19px] text-white/85 max-[768px]:text-[16px]">
-                {i.host} · Для входа нужна учётная запись.
+                {i.host} · {i.lead ?? "Для входа нужна учётная запись."}
               </p>
             </div>
           </div>
@@ -74,15 +88,24 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
         </aside>
 
         <main className="min-w-0">
-        {app?.desc && (
+        {(i.about || app?.desc) && (
           <section className="mb-9 max-w-[820px]">
             <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">О приложении</h2>
-            <p className="m-0 text-[19px] leading-[1.7] text-ink">{app.desc}</p>
+            <p className="m-0 text-[19px] leading-[1.7] text-ink">{i.about ?? app?.desc}</p>
+            {i.features && i.features.length > 0 && (
+              <ul className="mt-4 mb-0 pl-5 list-disc marker:text-accent flex flex-col gap-2">
+                {i.features.map((f) => (
+                  <li key={f} className="text-[17px] leading-[1.5] text-steel">
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            )}
           </section>
         )}
 
         <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">
-          Информационные базы
+          {entriesTitle}
           <span className="ml-3 font-ui text-[14px] font-bold text-ink-3 bg-[rgb(240,243,246)] rounded-full px-[11px] py-[3px] align-middle">
             {i.bases.length}
           </span>
@@ -119,7 +142,7 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
                 rel="noopener noreferrer"
                 className="block text-center font-ui font-bold text-[15px] text-white bg-accent rounded-[10px] py-[11px] no-underline hover:bg-[rgb(150,46,3)] transition-colors"
               >
-                Открыть базу
+                {entryCta}
               </a>
             </div>
           ))}
@@ -128,7 +151,14 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
         {/* Настройка рабочего места: раньше здесь висели три голые кнопки —
             что с ними делать, было непонятно. Теперь шаги, а кнопки внутри
             того шага, к которому относятся. Текст — в instances.json. */}
-        <section className="mt-10 grid grid-cols-[1.3fr_1fr] gap-8 items-start max-[900px]:grid-cols-1">
+        <section
+          className={
+            hasSetup
+              ? "mt-10 grid grid-cols-[1.3fr_1fr] gap-8 items-start max-[900px]:grid-cols-1"
+              : "mt-10 grid grid-cols-1 gap-8 items-start max-w-[420px]"
+          }
+        >
+          {hasSetup && (
           <div>
           <h2 className="m-0 mb-2 font-display font-bold text-[24px] text-brand">{setup.title}</h2>
           <p className="m-0 mb-5 text-[17px] text-steel max-w-[720px]">{setup.lead}</p>
@@ -145,13 +175,13 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
 
                   {st.action === "client" && (
                     <div className="flex gap-2 flex-wrap mt-1">
-                      {i.install.x86 && (
-                        <a href={i.install.x86} className="font-bold text-[14px] text-steel bg-bg-muted border border-line-strong rounded-lg px-[14px] py-[9px] no-underline hover:border-accent hover:text-accent transition-colors">
+                      {install.x86 && (
+                        <a href={install.x86} className="font-bold text-[14px] text-steel bg-bg-muted border border-line-strong rounded-lg px-[14px] py-[9px] no-underline hover:border-accent hover:text-accent transition-colors">
                           Клиент 1С · x86
                         </a>
                       )}
-                      {i.install.x64 && (
-                        <a href={i.install.x64} className="font-bold text-[14px] text-steel bg-bg-muted border border-line-strong rounded-lg px-[14px] py-[9px] no-underline hover:border-accent hover:text-accent transition-colors">
+                      {install.x64 && (
+                        <a href={install.x64} className="font-bold text-[14px] text-steel bg-bg-muted border border-line-strong rounded-lg px-[14px] py-[9px] no-underline hover:border-accent hover:text-accent transition-colors">
                           Клиент 1С · x64
                         </a>
                       )}
@@ -159,9 +189,9 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
                     </div>
                   )}
 
-                  {st.action === "v8i" && i.install.v8i && (
+                  {st.action === "v8i" && install.v8i && (
                     <div className="mt-1">
-                      <a href={i.install.v8i} className="inline-block font-bold text-[14px] text-white bg-accent rounded-lg px-[14px] py-[9px] no-underline hover:bg-[rgb(150,46,3)] transition-colors">
+                      <a href={install.v8i} className="inline-block font-bold text-[14px] text-white bg-accent rounded-lg px-[14px] py-[9px] no-underline hover:bg-[rgb(150,46,3)] transition-colors">
                         Скачать список баз (ibases.v8i)
                       </a>
                     </div>
@@ -182,6 +212,7 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
             </div>
           )}
           </div>
+          )}
 
           {/* Панель «Доступ» — из макета. Значения только те, что реально
               знаем из instances.json и apps.yml. */}
@@ -190,12 +221,14 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
             <dl className="m-0 flex flex-col gap-3 mb-5">
               <div className="flex justify-between gap-3 text-[17px]">
                 <dt className="text-steel">Вход</dt>
-                <dd className="m-0 font-bold text-brand text-right">Учётная запись 1С</dd>
+                <dd className="m-0 font-bold text-brand text-right">{i.auth ?? "Учётная запись 1С"}</dd>
               </div>
-              <div className="flex justify-between gap-3 text-[17px]">
-                <dt className="text-steel">Платформа</dt>
-                <dd className="m-0 font-bold text-brand text-right tabular-nums">1С {i.version}</dd>
-              </div>
+              {i.version && (
+                <div className="flex justify-between gap-3 text-[17px]">
+                  <dt className="text-steel">Платформа</dt>
+                  <dd className="m-0 font-bold text-brand text-right tabular-nums">1С {i.version}</dd>
+                </div>
+              )}
               <div className="flex justify-between gap-3 text-[17px]">
                 <dt className="text-steel">Адрес</dt>
                 <dd className="m-0 font-bold text-brand text-right break-all">{i.host}</dd>
@@ -207,12 +240,20 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
                 </div>
               )}
               <div className="flex justify-between gap-3 text-[17px]">
-                <dt className="text-steel">Баз</dt>
+                <dt className="text-steel">{i.kind === "web" ? "Систем" : "Баз"}</dt>
                 <dd className="m-0 font-bold text-brand text-right tabular-nums">{i.bases.length}</dd>
               </div>
             </dl>
             {/* Внутренний адрес — через Link (см. AGENTS.md), но на сборке для
                 внутренних хостов он внешний: развилка обязательна. */}
+            {i.support && (
+              <div className="mb-4 pt-4 border-t border-line text-[15px] text-steel">
+                Проблемы с доступом:{" "}
+                <a href={`mailto:${i.support}`} className="font-bold text-accent no-underline">
+                  {i.support}
+                </a>
+              </div>
+            )}
             {registryHref().startsWith("http") ? (
               <a href={registryHref()} className="block text-center font-bold text-[16px] text-steel no-underline">
                 ← Все приложения

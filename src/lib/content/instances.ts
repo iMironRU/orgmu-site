@@ -9,10 +9,19 @@ export type Instance = {
   host: string;
   name: string;
   category: string;
-  version: string;
-  statusNote: string;
+  // Не всякий хост — инстанс 1С: у СДО четыре веб-точки входа, клиент 1С там
+  // не ставят. Поэтому version/install/statusNote необязательны, а kind
+  // говорит странице, как называть точки входа и показывать ли настройку.
+  kind?: "1c" | "web";
+  version?: string;
+  statusNote?: string;
+  auth?: string;
+  lead?: string;
+  about?: string;
+  features?: string[];
+  support?: string;
   bases: Base[];
-  install: { x86?: string; x64?: string; v8i?: string };
+  install?: { x86?: string; x64?: string; v8i?: string };
 };
 
 // Блок «Настройка рабочего места» — общий для всех инстансов, правится там же.
@@ -79,7 +88,9 @@ export function appNavItems(): { label: string; href: string; note?: string }[] 
     { label: "Платформа 1С", href: launcherHref(), note: "инстансы платформы" },
     ...getInstanceIds().map((id) => {
       const i = getInstance(id)!;
-      return { label: i.name, href: instanceHref(id), note: basesLabel(i.bases.length) };
+      const note =
+        i.kind === "web" ? `${i.bases.length} системы` : basesLabel(i.bases.length);
+      return { label: i.name, href: instanceHref(id), note };
     }),
   ];
 }

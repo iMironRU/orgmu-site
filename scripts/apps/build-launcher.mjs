@@ -23,7 +23,11 @@ import { execSync } from "node:child_process";
 const ROOT = process.cwd();
 const BUILD = path.join(ROOT, ".launcher-build");
 const OUT = path.join(ROOT, "dist-app");
-const SITE = "https://www.orgma.ru";
+// Куда ведут ссылки меню и подвала с этих страниц. Пока сайт живёт на
+// new.orgma.ru — туда. На www.orgma.ru стоит СТАРЫЙ сайт: наших разделов
+// (/prilozheniya и прочих) там нет, ссылки вели бы в 404. Поменять на
+// https://www.orgma.ru в день, когда новый сайт займёт основной адрес.
+const SITE = "https://new.orgma.ru";
 
 const reg = JSON.parse(fs.readFileSync(path.join(ROOT, "content/apps/instances.json"), "utf8")).instances;
 
@@ -65,7 +69,8 @@ for (const [id, inst] of Object.entries(reg)) {
     continue;
   }
   putHost(inst.host, page);
-  console.log(`  ${inst.host.padEnd(18)} ← dist-app/${inst.host}/  (${inst.bases.length} баз)`);
+  const what = inst.kind === "web" ? "точек входа" : "баз";
+  console.log(`  ${inst.host.padEnd(18)} ← dist-app/${inst.host}/  (${inst.bases.length} ${what})`);
 }
 
 fs.rmSync(BUILD, { recursive: true, force: true });

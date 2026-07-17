@@ -168,17 +168,10 @@ export function AppsRegistry({ apps }: { apps: AppItem[] }) {
                         {a.cta}
                       </Link>
                     )}
-                    {/* «Подробнее» — только у инстансов 1С: своя страница есть
-                        лишь у них. Заводить пустые карточки ради кнопки нельзя. */}
-                    {a.platform === "1c" && a.href.startsWith("/") && (
-                      <Link
-                        href={a.href}
-                        className="font-ui font-bold text-[16px] no-underline rounded-lg border-2 px-4 py-2"
-                        style={{ color: a.accent, borderColor: a.accent }}
-                      >
-                        Подробнее
-                      </Link>
-                    )}
+                    {/* Кнопки «Подробнее» из макета здесь нет намеренно: у наших
+                        приложений отдельной страницы-описания либо нет вовсе
+                        (МФЦ, ЭИОС — внешние сервисы), либо кнопка входа уже
+                        ведёт именно на неё (1С, СДО). Она дублировала бы вход. */}
                   </div>
                   {authNote && <span className="text-[13px] text-ink-3">{authNote}</span>}
                 </div>
