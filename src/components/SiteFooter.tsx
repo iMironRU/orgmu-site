@@ -72,7 +72,15 @@ export function SiteFooter({ footer }: { footer: Footer }) {
           <span className="font-normal text-[13px] leading-[1.5] text-white/65 max-w-[760px]">
             © {new Date().getFullYear()} {org.copyright}
           </span>
-          <span className="font-normal text-[13px] text-white/65">{org.support}</span>
+          <span className="font-normal text-[13px] text-white/65">
+            {org.support}
+            {/* Метка сборки: намеренно неброско — нужна на время тестирования. */}
+            {process.env.NEXT_PUBLIC_BUILD ? (
+              <span className="ml-3 text-[11px] text-white/35" title="Версия сборки">
+                {process.env.NEXT_PUBLIC_BUILD}
+              </span>
+            ) : null}
+          </span>
         </div>
       </div>
     </footer>

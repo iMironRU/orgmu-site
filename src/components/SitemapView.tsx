@@ -1,8 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import type { Subsite, SitemapGroup } from "@/lib/content/navigation";
 import { SubsiteTile } from "@/components/SubsiteTile";
+
+const LINK_CLS = "text-[16px] text-steel no-underline hover:text-accent";
 
 export function SitemapView({
   subsites,
@@ -83,12 +86,17 @@ export function SitemapView({
                     <ul className="list-none m-0 p-0 flex flex-col gap-[10px]">
                       {g.links.map((l) => (
                         <li key={l.label}>
-                          <a
-                            href={l.href}
-                            className="text-[16px] text-steel no-underline hover:text-accent"
-                          >
-                            {l.label}
-                          </a>
+                          {/* Внутренний адрес — через Link: у обычного <a>
+                              basePath не применяется, ссылка вела бы в 404. */}
+                          {l.href.startsWith("http") || l.href === "#" ? (
+                            <a href={l.href} className={LINK_CLS}>
+                              {l.label}
+                            </a>
+                          ) : (
+                            <Link href={l.href} className={LINK_CLS}>
+                              {l.label}
+                            </Link>
+                          )}
                         </li>
                       ))}
                     </ul>

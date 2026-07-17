@@ -4,6 +4,36 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+# Ссылки и basePath — единое правило
+
+**Внутренний адрес (`/novosti`, `/app-launcher/buh`, `/files/…`) ставится
+только через `<Link>` или `asset()`. Обычный `<a href="/…">` ведёт в 404.**
+
+Сайт живёт на GitHub Pages по адресу `/orgmu-site`, и Next подставляет
+basePath **сам — но только в `next/link` и `next/image`**. В обычном `<a>`,
+в `style={{ backgroundImage: url(...) }}`, в `<iframe src>` он не появится:
+получится `/novosti` вместо `/orgmu-site/novosti`, то есть 404 на проде.
+Локально при пустом basePath это НЕ видно — ошибка вылезет только после
+деплоя.
+
+Ловил себя на этом пять раз: фавикон, баннер на главной, файлы в карточках,
+кнопки приложений, карта сайта (9 ссылок сразу).
+
+- **`<Link href="/…">`** — внутренние переходы. Работает само.
+- **`asset("/файл.pdf")`** — когда нужен именно `<a>` или CSS-`url()`.
+- **Обычный `<a>`** — только для внешних адресов (`https://…`), `#`,
+  `mailto:`, `tel:`.
+- Ссылка может быть и внутренней, и внешней (лаунчер собирается для сайта и
+  для внутренних хостов) — тогда развилка:
+  `href.startsWith("http") ? <a> : <Link>`.
+
+**Как проверить перед коммитом** (только так это и ловится):
+
+    NEXT_PUBLIC_BASE_PATH=/orgmu-site npm run build
+    grep -roE 'href="/(novosti|sveden|programmy|…)[/"]' out --include=index.html
+
+Пусто — чисто. Есть попадания — это будущие 404.
+
 # Файлы и документы — единое правило
 
 **Любой файл на сайте выводится через `DocCard` / `DocCards`
