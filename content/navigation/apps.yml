@@ -10,6 +10,11 @@
 # replacedBy — id приложения-замены (для status: legacy). Переходный период:
 #             старое не удаляем молча, а показываем, чем заменено.
 # featured  — показывать в выезжающей панели SideRail (3–5 публичных).
+# version / statusNote — только для инстансов 1С: версия платформы и метка
+#             (стабильный | обновлён | LTS | кандидат | HIPAA). Из этих же
+#             данных генерируется страница-лаунчер app.orgma.ru
+#             (node scripts/apps/build-launcher.mjs) — она статика и
+#             выкладывается вручную, поэтому источник должен быть один.
 #
 # ⚠️ Служебные системы (adm/buh/dev) перечислены осознанно: они и так открыты
 # без входа на app.orgma.ru и индексируются поисковиками. Прятать их здесь —
@@ -92,8 +97,8 @@
 # ── Платформа 1С (app.orgma.ru) ───────────────────────────────────────────
 # Пять инстансов на одной платформе. Заведены отдельными карточками, чтобы
 # работал фильтр по аудитории: бухгалтерии нечего делать в списке студента.
-# Версии и статус платформа показывает у себя живыми — здесь не дублируем,
-# иначе протухнут.
+# Версии ведём здесь: страница app.orgma.ru — статика и генерируется из этого
+# же файла, значит другого источника у них нет.
 
 - id: app-platform
   name: Платформа приложений
@@ -118,6 +123,8 @@
   audience: [staff]
   category: Образование
   platform: 1c
+  version: "8.3.27.1989"
+  statusNote: LTS
   status: active
   auth: account
   icon: cap
@@ -132,6 +139,8 @@
   audience: [staff]
   category: Медицина
   platform: 1c
+  version: "8.3.27.1989"
+  statusNote: HIPAA
   status: active
   auth: account
   icon: heart
@@ -146,6 +155,8 @@
   audience: [staff]
   category: Бухгалтерия
   platform: 1c
+  version: "8.3.27.1989"
+  statusNote: обновлён
   status: active
   auth: account
   icon: card
@@ -160,6 +171,8 @@
   audience: [staff]
   category: Администрирование
   platform: 1c
+  version: "8.3.27.1989"
+  statusNote: стабильный
   status: active
   auth: account
   icon: building
@@ -174,6 +187,8 @@
   audience: [staff]
   category: Разработка
   platform: 1c
+  version: "8.3.27.1989"
+  statusNote: кандидат
   status: updating
   auth: account
   icon: science
