@@ -48,11 +48,15 @@ function Row({ f, value }: { f: FieldDef; value: FieldValue }) {
   );
 }
 
+// Якорь заголовка группы — чтобы к разделу можно было прокрутить из
+// оглавления. Ключ группы стабилен (из вокабуляра), поэтому годится как id.
+export const groupAnchor = (key: string) => `grp-${key}`;
+
 function GroupBlock({ g, items }: { g: GroupDef; items: Record<string, FieldValue>[] }) {
   const asTable = items.length > 8;
   return (
     <section className="mt-8">
-      <h2 className="m-0 mb-4 font-display font-bold text-[22px] text-brand">
+      <h2 id={groupAnchor(g.key)} className="m-0 mb-4 font-display font-bold text-[22px] text-brand scroll-mt-[100px]">
         {groupLabel(g.key)}
         {items.length > 1 && (
           <span className="text-ink-3 font-normal text-[16px]"> · {items.length}</span>

@@ -4,7 +4,10 @@ import { load as parseYaml } from "js-yaml";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getSection } from "@/lib/sveden/vocab";
-import { SvedenSection } from "@/components/sveden/SvedenSection";
+import { SvedenSection, groupAnchor } from "@/components/sveden/SvedenSection";
+import { sectionGroups } from "@/lib/sveden/vocab";
+import { groupLabel } from "@/lib/sveden/labels";
+import { SectionToc } from "@/components/SectionToc";
 import { MestaView } from "@/components/MestaView";
 
 export const metadata: Metadata = {
@@ -25,6 +28,15 @@ function loadMesta(): MestaObj[] {
 export default function LocationsPage() {
   const objects = loadMesta();
   const section = getSection("objects");
+  // Оглавление: свои разделы + группы из вокабуляра (их заголовки рисует
+  // SvedenSection, якоря — groupAnchor).
+  const toc = [
+    { id: "objekty", label: "Объекты" },
+    ...(section ? [{ id: "mto", label: "Материально-техническое обеспечение" }] : []),
+    ...(section
+      ? sectionGroups(section).map((g) => ({ id: groupAnchor(g.key), label: groupLabel(g.key) }))
+      : []),
+  ];
 
   return (
     <>
@@ -47,21 +59,34 @@ export default function LocationsPage() {
         </div>
       </div>
 
-      <main className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border max-[768px]:px-5 flex flex-col gap-9 font-ui">
-        <section>
-          <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Объекты</h2>
-          <MestaView objects={objects} />
-        </section>
+      <div className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border grid grid-cols-[250px_1fr] gap-10 max-[900px]:grid-cols-1 max-[768px]:px-5 font-ui">
+        {/* Страница длинная: свои два раздела плюс группы из вокабуляра
+            (кабинеты, практика, библиотеки, спорт) — без оглавления до них
+            приходилось листать. Якоря групп даёт SvedenSection. */}
+        <aside>
+          <div className="min-[901px]:sticky min-[901px]:top-6">
+            <SectionToc title="Разделы" items={toc} />
+          </div>
+        </aside>
 
-        {section && (
+        <main className="min-w-0 flex flex-col gap-9">
           <section>
-            <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">
-              Материально-техническое обеспечение и доступная среда
+            <h2 id="objekty" className="m-0 mb-4 font-display font-bold text-[24px] text-brand scroll-mt-[100px]">
+              Объекты
             </h2>
-            <SvedenSection sectionKey="objects" section={section} />
+            <MestaView objects={objects} />
           </section>
-        )}
-      </main>
+
+          {section && (
+            <section>
+              <h2 id="mto" className="m-0 mb-4 font-display font-bold text-[24px] text-brand scroll-mt-[100px]">
+                Материально-техническое обеспечение и доступная среда
+              </h2>
+              <SvedenSection sectionKey="objects" section={section} />
+            </section>
+          )}
+        </main>
+      </div>
     </>
   );
 }
