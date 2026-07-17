@@ -1,10 +1,11 @@
 {
   "_comment": [
-    "Данные инстансов 1С для страниц <инстанс>.app.orgma.ru.",
-    "Правьте этот файл: страницы читают его на лету, пересобирать HTML не нужно —",
-    "достаточно положить обновлённый apps.json рядом с index.html на сервере.",
-    "Собрать страницы: node scripts/apps/build-launcher.mjs → dist-app/",
-    "bases[].code — код базы в адресе (buh_001), name — как показывать."
+    "Данные инстансов 1С для страниц <инстанс>.app.orgma.ru и лаунчера app.orgma.ru.",
+    "Правьте здесь, затем: node scripts/apps/build-launcher.mjs → dist-app/<хост>/ разложить.",
+    "bases[].desc — описание базы, показывается на плитке. Пустое — плитка без описания.",
+    "Описания заполнены только для типовых конфигураций 1С (по названию конфигурации).",
+    "Локальные базы (Приёмка, Эфикон, Корпоративный Университет, Универкон) — пустые:",
+    "их назначение знает только заказчик, выдумывать нельзя."
   ],
   "instances": {
     "adm": {
@@ -17,12 +18,14 @@
         {
           "name": "Документооборот 2.1",
           "code": "",
-          "href": "https://adm.app.orgma.ru/doc_001/"
+          "href": "https://adm.app.orgma.ru/doc_001/",
+          "desc": "1С:Документооборот — служебная переписка, задачи и согласование документов. Редакция 2.1."
         },
         {
           "name": "Документооборот 3.0",
           "code": "",
-          "href": "https://adm.app.orgma.ru/doc_002/"
+          "href": "https://adm.app.orgma.ru/doc_002/",
+          "desc": "1С:Документооборот, редакция 3.0."
         }
       ],
       "install": {
@@ -41,22 +44,26 @@
         {
           "name": "БГУ - 2024",
           "code": "buh_001",
-          "href": "https://buh.app.orgma.ru/buh_001/"
+          "href": "https://buh.app.orgma.ru/buh_001/",
+          "desc": "Бухгалтерия государственного учреждения, учётный период 2024 года."
         },
         {
           "name": "БГУ - 2025",
           "code": "buh_002",
-          "href": "https://buh.app.orgma.ru/buh_002/"
+          "href": "https://buh.app.orgma.ru/buh_002/",
+          "desc": "Бухгалтерия государственного учреждения, учётный период 2025 года."
         },
         {
           "name": "ЗГУ - Сотрудники",
           "code": "zup_001",
-          "href": "https://buh.app.orgma.ru/zup_001/"
+          "href": "https://buh.app.orgma.ru/zup_001/",
+          "desc": "Зарплата и кадры государственного учреждения — расчёты по сотрудникам."
         },
         {
           "name": "ЗГУ - Студенты",
           "code": "zup_002",
-          "href": "https://buh.app.orgma.ru/zup_002/"
+          "href": "https://buh.app.orgma.ru/zup_002/",
+          "desc": "Зарплата и кадры государственного учреждения — стипендии и выплаты обучающимся."
         }
       ],
       "install": {
@@ -75,52 +82,62 @@
         {
           "name": "Управление учебным центром довузовского образования",
           "code": "",
-          "href": "https://edu.app.orgma.ru/uuc_001/"
+          "href": "https://edu.app.orgma.ru/uuc_001/",
+          "desc": "1С:Управление учебным центром — довузовская подготовка."
         },
         {
           "name": "Управление учебным центром ИПО",
           "code": "",
-          "href": "https://edu.app.orgma.ru/uuc_002/"
+          "href": "https://edu.app.orgma.ru/uuc_002/",
+          "desc": "1С:Управление учебным центром — Институт профессионального образования."
         },
         {
           "name": "Университет ПРОФ",
           "code": "",
-          "href": "https://edu.app.orgma.ru/unv_001/"
+          "href": "https://edu.app.orgma.ru/unv_001/",
+          "desc": "1С:Университет ПРОФ — учебные планы, контингент, успеваемость."
         },
         {
           "name": "Приёмка 2026",
           "code": "",
-          "href": "https://edu.app.orgma.ru/unv_002/"
+          "href": "https://edu.app.orgma.ru/unv_002/",
+          "desc": ""
         },
         {
           "name": "Эфикон - ВУЗ:Эффективный контракт",
           "code": "",
-          "href": "https://edu.app.orgma.ru/eficon/"
+          "href": "https://edu.app.orgma.ru/eficon/",
+          "desc": ""
         },
         {
           "name": "Корпоративный Университет - ВУЗ",
           "code": "",
-          "href": "https://1c.orgma.ru/CUN_001/"
+          "href": "https://1c.orgma.ru/CUN_001/",
+          "desc": ""
         },
         {
           "name": "Корпоративный Университет - Довуз",
           "code": "",
-          "href": "https://1c.orgma.ru/CorpUniverDovuz/"
+          "href": "https://1c.orgma.ru/CorpUniverDovuz/",
+          "desc": ""
         },
         {
           "name": "Корпоративный Университет - ФИС",
           "code": "",
-          "href": "https://edu.app.orgma.ru/CUN_002/"
+          "href": "https://edu.app.orgma.ru/CUN_002/",
+          "desc": ""
         },
         {
           "name": "Корпоративный Университет - Абитур",
           "code": "",
-          "href": "https://edu.app.orgma.ru/CUN_005/"
+          "href": "https://edu.app.orgma.ru/CUN_005/",
+          "desc": ""
         },
         {
           "name": "CMS:Универкон",
           "code": "",
-          "href": "https://edu.app.orgma.ru/cms_001/"
+          "href": "https://edu.app.orgma.ru/cms_001/",
+          "desc": ""
         }
       ],
       "install": {
@@ -138,12 +155,14 @@
         {
           "name": "Поликлиника 2.1",
           "code": "cln_001",
-          "href": "https://med.app.orgma.ru/cln_001/"
+          "href": "https://med.app.orgma.ru/cln_001/",
+          "desc": "1С:Медицина.Поликлиника — приём пациентов, расписание и медицинские карты."
         },
         {
           "name": "Больничная аптека 2.2",
           "code": "apt_001",
-          "href": "https://med.app.orgma.ru/apt_001/"
+          "href": "https://med.app.orgma.ru/apt_001/",
+          "desc": "1С:Медицина.Больничная аптека — учёт медикаментов и расходных материалов."
         }
       ],
       "install": {
@@ -162,7 +181,8 @@
         {
           "name": "Университет ПРОФ",
           "code": "тестовый контур",
-          "href": "https://dev.app.orgma.ru/tmp_unv_001/"
+          "href": "https://dev.app.orgma.ru/tmp_unv_001/",
+          "desc": "1С:Университет ПРОФ — учебные планы, контингент, успеваемость."
         }
       ],
       "install": {

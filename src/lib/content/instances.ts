@@ -4,7 +4,7 @@ import path from "node:path";
 // Инстансы 1С для страниц <инстанс>.app.orgma.ru. Данные правятся в
 // content/apps/instances.json — там же лежит эталон, собранный с самих
 // инстансов (коды баз, ссылки, версии).
-export type Base = { name: string; code: string; href: string };
+export type Base = { name: string; code: string; href: string; desc?: string };
 export type Instance = {
   host: string;
   name: string;

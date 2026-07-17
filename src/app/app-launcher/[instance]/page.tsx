@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getInstance, getInstanceIds } from "@/lib/content/instances";
+import { getApps } from "@/lib/content/navigation";
+import { Icon } from "@/components/icons";
 
 // Страница инстанса 1С (buh.app.orgma.ru и др.). Страница САЙТА: тот же
 // layout, шапка, подвал и панель. Раскладывается в корень своего хоста.
@@ -23,6 +25,12 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
   const { instance } = await params;
   const i = getInstance(instance);
   if (!i) notFound();
+
+  // Иконка и акцент — те же, что у этого инстанса на лаунчере: карточка
+  // приложения и его базы должны читаться как одно целое.
+  const app = getApps().find((a) => a.tag === i.host);
+  const accent = app?.accent ?? "rgb(0,101,155)";
+  const icon = app?.icon ?? "grid";
 
   const tools = [
     { label: "Клиент 1С · x86", href: i.install.x86 },
@@ -58,19 +66,37 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
           </span>
         </h2>
 
-        <div className="flex flex-col gap-2">
+        {/* Плитка — как на лаунчере: между платформой и инстансом не должно
+            быть разрыва в стилистике. */}
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
           {i.bases.map((b) => (
-            <a
+            <div
               key={b.href}
-              href={b.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-white border border-line rounded-[10px] px-[18px] py-[14px] no-underline shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:border-accent hover:shadow-[0_6px_16px_rgba(0,0,0,0.09)] transition-[border-color,box-shadow] flex-wrap"
+              className="flex flex-col gap-3 bg-white border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
             >
-              <span className="flex-1 min-w-[180px] font-bold text-[17px] text-brand">{b.name}</span>
-              {b.code && <span className="shrink-0 text-[13px] text-ink-3 tabular-nums">{b.code}</span>}
-              <span className="shrink-0 text-accent font-bold text-[14px]">Открыть →</span>
-            </a>
+              <div className="flex items-start gap-3">
+                <span className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-white" style={{ background: accent }}>
+                  <Icon name={icon} />
+                </span>
+                <span className="flex-1 min-w-0">
+                  <span className="block font-display font-bold text-[18px] text-brand leading-[1.2]">{b.name}</span>
+                  {b.code && <span className="block text-[13px] text-ink-3 mt-[2px] tabular-nums">{b.code}</span>}
+                </span>
+              </div>
+              {b.desc ? (
+                <p className="m-0 text-[15px] leading-[1.45] text-steel flex-1">{b.desc}</p>
+              ) : (
+                <p className="m-0 text-[15px] leading-[1.45] text-ink-3 flex-1">Описание не заполнено.</p>
+              )}
+              <a
+                href={b.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center font-ui font-bold text-[15px] text-white bg-accent rounded-[10px] py-[11px] no-underline hover:bg-[rgb(150,46,3)] transition-colors"
+              >
+                Открыть базу
+              </a>
+            </div>
           ))}
         </div>
 
