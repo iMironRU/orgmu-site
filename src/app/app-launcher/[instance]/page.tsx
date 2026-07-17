@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getInstance, getInstanceIds, getSetup, appNavItems, instanceHref } from "@/lib/content/instances";
+import { getInstance, getInstanceIds, getSetup, appNavItems, instanceHref, registryHref } from "@/lib/content/instances";
 import { PageNav } from "@/components/PageNav";
 import { getApps } from "@/lib/content/navigation";
 import { Icon } from "@/components/icons";
@@ -33,6 +33,7 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
   const accent = app?.accent ?? "rgb(0,101,155)";
   const icon = app?.icon ?? "grid";
   const setup = getSetup();
+  const soft = accent.replace("rgb(", "rgba(").replace(")", ",0.12)");
 
   return (
     <>
@@ -45,12 +46,23 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
             <span>/</span>
             <span>{i.name}</span>
           </div>
-          <h1 className="m-0 mb-2 font-display font-bold text-[40px] leading-[1.1] max-[768px]:text-[28px]">
-            {i.name}
-          </h1>
-          <p className="m-0 max-w-[680px] font-ui text-[18px] text-white/85">
-            {i.host} · Выберите информационную базу. Для входа нужна учётная запись.
-          </p>
+          {/* Шапка — по макету AppDetail.dc.html: плитка иконки, имя, лид.
+              Кнопки «Открыть приложение» тут нет намеренно: на сборке для
+              внутренних хостов эта страница И ЕСТЬ хост, кнопка вела бы сама
+              на себя. Точки входа — базы ниже, у каждой своя. */}
+          <div className="flex items-center gap-6 max-[768px]:gap-4">
+            <span className="shrink-0 w-[88px] h-[88px] rounded-[22px] bg-white/15 flex items-center justify-center max-[768px]:w-16 max-[768px]:h-16">
+              <Icon name={icon} size={44} strokeWidth={1.7} />
+            </span>
+            <div className="flex-1 min-w-0">
+              <h1 className="m-0 mb-[6px] font-display font-bold text-[38px] leading-[1.1] max-[768px]:text-[26px]">
+                {i.name}
+              </h1>
+              <p className="m-0 font-ui text-[19px] text-white/85 max-[768px]:text-[16px]">
+                {i.host} · Для входа нужна учётная запись.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -62,6 +74,13 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
         </aside>
 
         <main className="min-w-0">
+        {app?.desc && (
+          <section className="mb-9 max-w-[820px]">
+            <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">О приложении</h2>
+            <p className="m-0 text-[19px] leading-[1.7] text-ink">{app.desc}</p>
+          </section>
+        )}
+
         <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">
           Информационные базы
           <span className="ml-3 font-ui text-[14px] font-bold text-ink-3 bg-[rgb(240,243,246)] rounded-full px-[11px] py-[3px] align-middle">
@@ -78,11 +97,14 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
               className="flex flex-col gap-3 bg-white border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
             >
               <div className="flex items-start gap-3">
-                <span className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-white" style={{ background: accent }}>
+                <span
+                  className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+                  style={{ background: soft, color: accent }}
+                >
                   <Icon name={icon} />
                 </span>
                 <span className="flex-1 min-w-0">
-                  <span className="block font-display font-bold text-[18px] text-brand leading-[1.2]">{b.name}</span>
+                  <span className="block font-display font-bold text-[19px] text-brand leading-[1.2]">{b.name}</span>
                   {b.code && <span className="block text-[13px] text-ink-3 mt-[2px] tabular-nums">{b.code}</span>}
                 </span>
               </div>
@@ -106,7 +128,8 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
         {/* Настройка рабочего места: раньше здесь висели три голые кнопки —
             что с ними делать, было непонятно. Теперь шаги, а кнопки внутри
             того шага, к которому относятся. Текст — в instances.json. */}
-        <section className="mt-10">
+        <section className="mt-10 grid grid-cols-[1.3fr_1fr] gap-8 items-start max-[900px]:grid-cols-1">
+          <div>
           <h2 className="m-0 mb-2 font-display font-bold text-[24px] text-brand">{setup.title}</h2>
           <p className="m-0 mb-5 text-[17px] text-steel max-w-[720px]">{setup.lead}</p>
 
@@ -158,6 +181,48 @@ export default async function InstancePage({ params }: { params: Promise<{ insta
               <div className="text-[14px] leading-[1.5] text-ink-2">{setup.note}</div>
             </div>
           )}
+          </div>
+
+          {/* Панель «Доступ» — из макета. Значения только те, что реально
+              знаем из instances.json и apps.yml. */}
+          <aside className="bg-white border border-line rounded-[14px] p-6">
+            <div className="font-bold text-[16px] uppercase tracking-[0.04em] text-ink-2 mb-[14px]">Доступ</div>
+            <dl className="m-0 flex flex-col gap-3 mb-5">
+              <div className="flex justify-between gap-3 text-[17px]">
+                <dt className="text-steel">Вход</dt>
+                <dd className="m-0 font-bold text-brand text-right">Учётная запись 1С</dd>
+              </div>
+              <div className="flex justify-between gap-3 text-[17px]">
+                <dt className="text-steel">Платформа</dt>
+                <dd className="m-0 font-bold text-brand text-right tabular-nums">1С {i.version}</dd>
+              </div>
+              <div className="flex justify-between gap-3 text-[17px]">
+                <dt className="text-steel">Адрес</dt>
+                <dd className="m-0 font-bold text-brand text-right break-all">{i.host}</dd>
+              </div>
+              {i.category && (
+                <div className="flex justify-between gap-3 text-[17px]">
+                  <dt className="text-steel">Направление</dt>
+                  <dd className="m-0 font-bold text-brand text-right">{i.category}</dd>
+                </div>
+              )}
+              <div className="flex justify-between gap-3 text-[17px]">
+                <dt className="text-steel">Баз</dt>
+                <dd className="m-0 font-bold text-brand text-right tabular-nums">{i.bases.length}</dd>
+              </div>
+            </dl>
+            {/* Внутренний адрес — через Link (см. AGENTS.md), но на сборке для
+                внутренних хостов он внешний: развилка обязательна. */}
+            {registryHref().startsWith("http") ? (
+              <a href={registryHref()} className="block text-center font-bold text-[16px] text-steel no-underline">
+                ← Все приложения
+              </a>
+            ) : (
+              <Link href={registryHref()} className="block text-center font-bold text-[16px] text-steel no-underline">
+                ← Все приложения
+              </Link>
+            )}
+          </aside>
         </section>
 
         </main>

@@ -77,37 +77,42 @@ export function AppsRegistry({ apps }: { apps: AppItem[] }) {
         />
       </div>
 
+      {/* Карточка — по макету Apps.dc.html: плитка иконки 64px на мягкой
+            подложке, крупное имя, описание, футер с кнопкой входа. Бейджи
+            статуса — наши: макет их не знает, но «Выводится» и «Нужна учётная
+            запись» без них сказать негде. */}
       {list.length === 0 ? (
         <div className="py-10 px-6 text-center bg-white border border-dashed border-line-strong rounded-xl text-ink-2">
           Ничего не найдено.
         </div>
       ) : (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-5">
           {list.map((a) => {
             const st = STATUS[a.status ?? "active"];
             const authNote = AUTH[a.auth ?? "none"];
             const replaced = a.replacedBy ? apps.find((x) => x.id === a.replacedBy) : undefined;
+            const soft = a.accent.replace("rgb(", "rgba(").replace(")", ",0.12)");
             return (
               <div
                 key={a.id}
-                className="flex flex-col gap-3 bg-white border border-line rounded-xl p-5 shadow-[0_1px_2px_rgba(0,0,0,0.05)]"
+                className="flex flex-col bg-white border border-line rounded-[14px] overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.08)]"
               >
-                <div className="flex items-start gap-3">
+                <div className="flex items-center gap-4 px-6 pt-6 pb-4">
                   <span
-                    className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-white"
-                    style={{ background: a.accent }}
+                    className="shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center"
+                    style={{ background: soft, color: a.accent }}
                   >
-                    <Icon name={a.icon} />
+                    <Icon name={a.icon} size={32} />
                   </span>
-                  <span className="flex-1 min-w-0">
-                    <span className="block font-display font-bold text-[18px] text-brand leading-[1.2]">
+                  <div className="min-w-0">
+                    <div className="font-display font-bold text-[22px] text-brand leading-[1.15]">
                       {a.name}
-                    </span>
-                    <span className="block text-[13px] text-ink-3 mt-[2px] break-words">{a.tag}</span>
-                  </span>
+                    </div>
+                    <div className="text-[15px] text-ink-3 break-words">{a.tag}</div>
+                  </div>
                 </div>
 
-                <div className="flex flex-wrap gap-[6px]">
+                <div className="flex flex-wrap gap-[6px] px-6 pb-3">
                   {st && (
                     <span
                       className="text-[11px] font-bold uppercase tracking-[0.04em] rounded-md px-2 py-[3px]"
@@ -128,30 +133,54 @@ export function AppsRegistry({ apps }: { apps: AppItem[] }) {
                   )}
                 </div>
 
-                <p className="m-0 text-[15px] leading-[1.45] text-steel flex-1">{a.desc}</p>
+                <p className="m-0 px-6 pb-5 text-[17px] leading-[1.5] text-steel">{a.desc}</p>
 
                 {replaced && (
-                  <div className="text-[13px] text-ink-2 bg-bg-muted border border-dashed border-line-strong rounded-lg px-3 py-2">
+                  <div className="mx-6 mb-5 text-[14px] text-ink-2 bg-bg-muted border border-dashed border-line-strong rounded-lg px-3 py-2">
                     Заменяется на <b className="text-brand">{replaced.name}</b>
                   </div>
                 )}
 
-                <div className="flex items-center justify-between gap-3 flex-wrap">
-                  {/* Внутренние адреса (наши страницы инстансов) — через
-                      Link: у обычного <a> basePath не применяется и ссылка
-                      ведёт в 404. Внешние сервисы — обычной ссылкой. */}
-                  {a.href === "#" ? (
-                    <span className="font-bold text-[15px] text-ink-3">Скоро</span>
-                  ) : a.href.startsWith("http") ? (
-                    <a href={a.href} className="font-bold text-[15px] text-accent no-underline hover:underline">
-                      {a.cta} →
-                    </a>
-                  ) : (
-                    <Link href={a.href} className="font-bold text-[15px] text-accent no-underline hover:underline">
-                      {a.cta} →
-                    </Link>
-                  )}
-                  {authNote && <span className="text-[12px] text-ink-3">{authNote}</span>}
+                <div className="mt-auto px-6 py-4 border-t border-line flex flex-col gap-[10px]">
+                  <div className="flex gap-[10px] flex-wrap items-center">
+                    {/* Внутренние адреса — через Link: у обычного <a> basePath
+                        не применяется и ссылка ведёт в 404. */}
+                    {a.href === "#" ? (
+                      <span className="font-ui font-bold text-[16px] text-ink-3 rounded-lg border border-dashed border-line-strong px-4 py-[9px]">
+                        Скоро
+                      </span>
+                    ) : a.href.startsWith("http") ? (
+                      <a
+                        href={a.href}
+                        target="_blank"
+                        rel="noopener"
+                        className="font-ui font-bold text-[16px] text-white no-underline rounded-lg px-[18px] py-[10px]"
+                        style={{ background: a.accent }}
+                      >
+                        {a.cta}
+                      </a>
+                    ) : (
+                      <Link
+                        href={a.href}
+                        className="font-ui font-bold text-[16px] text-white no-underline rounded-lg px-[18px] py-[10px]"
+                        style={{ background: a.accent }}
+                      >
+                        {a.cta}
+                      </Link>
+                    )}
+                    {/* «Подробнее» — только у инстансов 1С: своя страница есть
+                        лишь у них. Заводить пустые карточки ради кнопки нельзя. */}
+                    {a.platform === "1c" && a.href.startsWith("/") && (
+                      <Link
+                        href={a.href}
+                        className="font-ui font-bold text-[16px] no-underline rounded-lg border-2 px-4 py-2"
+                        style={{ color: a.accent, borderColor: a.accent }}
+                      >
+                        Подробнее
+                      </Link>
+                    )}
+                  </div>
+                  {authNote && <span className="text-[13px] text-ink-3">{authNote}</span>}
                 </div>
               </div>
             );
