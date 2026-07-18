@@ -6,8 +6,8 @@ export type Person = {
   degree: string; // учёная степень («» если нет)
   academStat: string; // учёное звание
   disciplines: string[];
-  education: string;
-  qualifications: string[]; // повышение квалификации (список)
+  education: string[]; // ступени образования (специалитет, аспирантура…) — по одной
+  qualifications: string[]; // повышение квалификации (список курсов)
   profDevelopment: string;
   experience: string; // стаж по специальности («21 год»)
   dept: string;

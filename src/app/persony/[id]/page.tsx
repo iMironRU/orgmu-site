@@ -155,9 +155,15 @@ export default async function PersonPage({
           <h3 className="m-0 mb-3 font-display font-bold text-[18px] text-brand">
             Образование и квалификация
           </h3>
-          <div {...ip("teachingLevel")} className="text-[16px] text-ink leading-[1.5] whitespace-pre-line">
-            {p.education || DASH}
-          </div>
+          {p.education.length > 0 ? (
+            <ul {...ip("teachingLevel")} className="m-0 pl-5 text-[16px] text-ink leading-[1.6] list-disc marker:text-brand/40 flex flex-col gap-1">
+              {p.education.map((e, i) => (
+                <li key={i}>{e}</li>
+              ))}
+            </ul>
+          ) : (
+            <div className="text-[16px] text-ink-3">{DASH}</div>
+          )}
 
           {p.qualifications.length > 0 && (
             <>
