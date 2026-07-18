@@ -1,7 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+
+// Прячет нижнюю панель при прокрутке вниз, возвращает при прокрутке вверх —
+// как шапка в Safari и большинстве приложений, жест людям знаком. Так во время
+// чтения панель не отъедает ~56px внизу невысокого экрана, но остаётся в одном
+// коротком движении. Порог в 6px гасит дрожь пальца; у самого верха страницы
+// панель всегда видна, чтобы первый экран не открывался «пустым».
+function useHideOnScroll(): boolean {
+  const [hidden, setHidden] = useState(false);
+  const last = useRef(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y < 40) setHidden(false);
+      else if (Math.abs(y - last.current) > 6) setHidden(y > last.current);
+      last.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return hidden;
+}
 
 // Левая боковая панель (~94px): поиск, приложения, соцсети, язык, доступная среда.
 // Sticky, на десктопе слева.
@@ -83,15 +104,24 @@ export function SideRail() {
   const [langOpen, setLangOpen] = useState(false);
 
   const cycleLang = () => setLang((l) => (l === "РУС" ? "ENG" : l === "ENG" ? "ҚАЗ" : "РУС"));
+  const hidden = useHideOnScroll();
 
   return (
     <>
     {/* Нижняя панель — только мобильный. z-40: cookie-баннер (z-1000)
-        перекрывает её, пока согласие не дано — согласие важнее. */}
+        перекрывает её, пока согласие не дано — согласие важнее.
+        Прячется при прокрутке вниз (translate за край + safe-area). */}
     <nav
       data-a11y-surface="brand"
       aria-label="Быстрые действия"
-      className="min-[769px]:hidden fixed bottom-0 left-0 right-0 z-40 bg-brand flex items-stretch justify-around border-t border-white/15 pb-[env(safe-area-inset-bottom)]"
+      aria-hidden={hidden}
+      className="min-[769px]:hidden fixed bottom-0 left-0 right-0 z-40 bg-brand flex items-stretch justify-around border-t border-white/15 pb-[env(safe-area-inset-bottom)] transition-transform duration-300 will-change-transform"
+      style={{
+        // Инлайном, а не Tailwind-утилитой: arbitrary-значение
+        // translate-y-[calc(100%+env(...))] в v4 не собирается в transform.
+        // «+1px» закрывает волосяную щель над safe-area на части устройств.
+        transform: hidden ? "translateY(calc(100% + env(safe-area-inset-bottom) + 1px))" : "translateY(0)",
+      }}
     >
       <Link href="/poisk" className={MOBILE_ITEM}>
         {ICONS.search}
