@@ -178,14 +178,16 @@ export default async function PersonPage({
             </>
           )}
 
-          {p.profDevelopment && (
+          {p.profDevelopment.length > 0 && (
             <>
               <div className="text-[14px] text-ink-3 mt-4 mb-2 font-bold uppercase tracking-[0.03em]">
                 Профессиональная переподготовка
               </div>
-              <div {...ip("profDevelopment")} className="text-[15px] text-steel leading-[1.6] whitespace-pre-line">
-                {p.profDevelopment}
-              </div>
+              <ul className="m-0 pl-5 text-[15px] text-steel leading-[1.7] list-disc">
+                {p.profDevelopment.map((d, i) => (
+                  <li key={i} {...ip("profDevelopment")}>{d}</li>
+                ))}
+              </ul>
             </>
           )}
         </div>

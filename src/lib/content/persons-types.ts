@@ -8,7 +8,7 @@ export type Person = {
   disciplines: string[];
   education: string[]; // ступени образования (специалитет, аспирантура…) — по одной
   qualifications: string[]; // повышение квалификации (список курсов)
-  profDevelopment: string;
+  profDevelopment: string[]; // профессиональная переподготовка (список дипломов)
   experience: string; // стаж по специальности («21 год»)
   dept: string;
   phone: string;

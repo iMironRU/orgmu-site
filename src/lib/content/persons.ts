@@ -27,18 +27,19 @@ function splitList(s: string, re: RegExp, limit = 8): string[] {
     .slice(0, limit);
 }
 
-// Повышение квалификации на orgma лежит одной строкой без единого формата: у
-// кого-то курсы разделены переводом строки, у кого-то «;», у кого-то нумерацией
-// «1. … 2. …», а у большинства — ничем, кроме даты в конце каждой записи. Одной
-// «свалкой буковок» это и выглядело. Режем по самому надёжному признаку из
-// присутствующих, сверху вниз; дата (числовая или словесная) — последний рубеж,
-// т.к. каждый курс заканчивается датой выдачи удостоверения.
+// Повышение квалификации и профпереподготовка на orgma лежат одной строкой без
+// единого формата: у кого-то записи разделены переводом строки, у кого-то «;»,
+// у кого-то нумерацией «1. … 2. …», а у большинства — ничем, кроме даты в конце
+// каждой записи. Одной «свалкой буковок» это и выглядело. Режем по самому
+// надёжному признаку из присутствующих, сверху вниз; дата (числовая или
+// словесная) — последний рубеж, т.к. каждая запись кончается датой выдачи
+// документа. Одна функция на оба поля — формат у них одинаковый.
 const MONTH = "(?:январ|феврал|март|апрел|ма[йяое]|июн|июл|август|сентябр|октябр|ноябр|декабр)[а-я]*";
 const DATE_END = new RegExp(`\\d{1,2}\\.\\d{2}\\.\\d{4}\\s*г?\\.?|\\d{1,2}\\s+${MONTH}\\s+\\d{4}\\s*г?[од.]*`, "g");
 const NUM_MARK = /(?<!\d)\d{1,2}[.)]\s+(?=[А-ЯЁ"«])/g;
 const trimItem = (s: string): string => s.replace(/^[\s;.]+|[\s;.]+$/g, "");
 
-function splitQualifications(raw: string): string[] {
+function splitCredentials(raw: string): string[] {
   const s = raw.trim();
   if (!s) return [];
   let parts: string[];
@@ -108,8 +109,8 @@ function build() {
       disciplines: splitList(str(t.teachingDiscipline), /[;,]/, 16),
       // Ступени образования разделены «;» — по одной в строку, а не сплошняком.
       education: splitList(clean(str(t.teachingLevel)), /;/, 6),
-      qualifications: splitQualifications(str(t.qualification)),
-      profDevelopment: clean(str(t.profDevelopment)),
+      qualifications: splitCredentials(str(t.qualification)),
+      profDevelopment: splitCredentials(str(t.profDevelopment)),
       experience: experience(str(t.specExperience)),
       dept: "",
       phone: "",
@@ -141,7 +142,7 @@ function build() {
       disciplines: [],
       education: [],
       qualifications: [],
-      profDevelopment: "",
+      profDevelopment: [],
       experience: "",
       dept,
       phone,
