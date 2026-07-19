@@ -32,7 +32,33 @@ export function StaffDirectory({ people }: { people: PersonCardItem[] }) {
   const [q, setQ] = useState("");
   const [pos, setPos] = useState<string[]>([]);
   const [deg, setDeg] = useState<string[]>([]);
+  const [disc, setDisc] = useState<string[]>([]);
   const [sort, setSort] = useState<Sort>("fio");
+
+  // Список дисциплин для фильтра: собираем из состава, схлопываем регистр (в
+  // источнике «Микробиология» и «микробиология» — одно и то же), каноничная
+  // подпись — самая частая форма написания. 270+ дисциплин, поэтому селект с
+  // поиском (searchable). Значение — ключ в нижнем регистре, по нему и матчим.
+  const discOptions = useMemo(() => {
+    // key (нижний регистр) → сколько раз встретилась каждая точная форма записи.
+    const forms = new Map<string, Map<string, number>>();
+    for (const p of people) {
+      for (const raw of p.disciplines) {
+        const label = raw.trim();
+        if (!label) continue;
+        const key = label.toLowerCase();
+        const m = forms.get(key) ?? new Map<string, number>();
+        m.set(label, (m.get(label) ?? 0) + 1);
+        forms.set(key, m);
+      }
+    }
+    return [...forms.entries()]
+      .map(([value, m]) => {
+        const label = [...m.entries()].sort((a, b) => b[1] - a[1])[0][0];
+        return { value, label };
+      })
+      .sort((a, b) => a.label.localeCompare(b.label, "ru"));
+  }, [people]);
   // На мобиле панель свёрнута по умолчанию, чтобы список был виден сразу (как
   // «Разделы»); на десктопе класс min-[901px]:flex всегда показывает тело.
   const [open, setOpen] = useState(false);
@@ -43,6 +69,7 @@ export function StaffDirectory({ people }: { people: PersonCardItem[] }) {
       (p) =>
         (pos.length === 0 || pos.includes(positionCat(p.position) ?? "")) &&
         (deg.length === 0 || deg.some((k) => p.degree.toLowerCase().includes(k))) &&
+        (disc.length === 0 || p.disciplines.some((d) => disc.includes(d.trim().toLowerCase()))) &&
         (!query ||
           p.fio.toLowerCase().includes(query) ||
           p.disciplines.some((d) => d.toLowerCase().includes(query))),
@@ -56,9 +83,9 @@ export function StaffDirectory({ people }: { people: PersonCardItem[] }) {
       }
       return a.fio.localeCompare(b.fio, "ru");
     });
-  }, [people, q, pos, deg, sort]);
+  }, [people, q, pos, deg, disc, sort]);
 
-  const isFiltered = !!q.trim() || pos.length > 0 || deg.length > 0;
+  const isFiltered = !!q.trim() || pos.length > 0 || deg.length > 0 || disc.length > 0;
   // Показываем только те категории, что реально есть в составе, — иначе фильтр
   // предлагал бы заведомо пустые варианты.
   const presentPos = POSITION_CATS.filter((c) => people.some((p) => positionCat(p.position) === c.key));
@@ -98,6 +125,16 @@ export function StaffDirectory({ people }: { people: PersonCardItem[] }) {
         />
       </label>
       <label className="flex flex-col gap-[6px]">
+        <span className="font-bold text-[14px] text-ink-2">Дисциплина</span>
+        <FilterSelect
+          multi
+          value={disc}
+          onChange={setDisc}
+          placeholder="Все дисциплины"
+          options={discOptions}
+        />
+      </label>
+      <label className="flex flex-col gap-[6px]">
         <span className="font-bold text-[14px] text-ink-2">Сортировка</span>
         <FilterSelect
           value={sort}
@@ -119,6 +156,7 @@ export function StaffDirectory({ people }: { people: PersonCardItem[] }) {
               setQ("");
               setPos([]);
               setDeg([]);
+              setDisc([]);
             }}
             className="font-bold text-[15px] text-accent bg-none border-none cursor-pointer"
           >
