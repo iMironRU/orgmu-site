@@ -35,9 +35,9 @@ export default function StaffDirectoryPage() {
         </div>
       </div>
 
-      <main className="mx-auto max-w-[1146px] w-full px-10 pt-7 pb-16 box-border max-[768px]:px-5">
-        <StaffDirectory people={people} />
-      </main>
+      {/* Сетку (боковая панель фильтров + список) держит сам StaffDirectory —
+          фильтры и список должны жить в одном клиентском компоненте. */}
+      <StaffDirectory people={people} />
     </>
   );
 }
