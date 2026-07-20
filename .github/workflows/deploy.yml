@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Вызывается скрапером новостей: его коммит сам деплой не запускает —
+  # GitHub не триггерит workflow на пуш, сделанный штатным GITHUB_TOKEN
+  # (защита от рекурсии). Поэтому сборку зовём явно.
+  workflow_call:
 
 # Права для деплоя на Pages
 permissions:

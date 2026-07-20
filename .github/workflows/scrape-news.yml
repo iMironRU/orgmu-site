@@ -1,9 +1,16 @@
-name: Scrape news (nightly)
+name: Scrape news
 
 on:
   schedule:
-    # каждый день в 02:30 МСК (23:30 UTC)
-    - cron: "30 23 * * *"
+    # ВНИМАНИЕ: cron в GitHub Actions идёт по UTC, а Оренбург — UTC+5.
+    # Время ниже указано и по UTC, и по местному, чтобы не пересчитывать заново.
+    #
+    # Рабочие часы: каждые 2 часа с 09:00 до 17:00 по Оренбургу, пн–пт —
+    # новости на orgma.ru публикуют в течение рабочего дня, и ждать до ночи
+    # незачем. Режим incremental: берём только то, чего ещё нет.
+    - cron: "0 4,6,8,10,12 * * 1-5"   # 09,11,13,15,17 Оренбург, будни
+    # Ночной прогон остаётся: подбирает всё, что вышло вечером и в выходные.
+    - cron: "30 23 * * *"             # 04:30 Оренбург, ежедневно
   workflow_dispatch:
     inputs:
       mode:
@@ -23,6 +30,8 @@ concurrency:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,14 +51,29 @@ jobs:
             --media hotlink
 
       - name: Commit new news
+        id: commit
         run: |
           git config user.name  "orgma-news-bot"
           git config user.email "actions@github.com"
           git add content/news
           if git diff --cached --quiet; then
             echo "Новых новостей нет — коммит не нужен."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             count=$(git diff --cached --name-only -- 'content/news/*.json' | grep -v _state | wc -l | tr -d ' ')
-            git commit -m "news: обновление ленты (${count} файлов) [skip ci-noop]"
+            git commit -m "news: обновление ленты (${count} файлов)"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+  # Пуш бота сам пересборку не запускает (GitHub не триггерит workflow на
+  # коммиты от GITHUB_TOKEN), поэтому деплой вызываем явно — и только когда
+  # новости действительно появились.
+  deploy:
+    needs: scrape
+    if: needs.scrape.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
