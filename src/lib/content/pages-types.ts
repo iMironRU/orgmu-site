@@ -24,6 +24,19 @@ export type Block =
   | { type: "files"; items: FileRef[] }
   | { type: "faq"; items: FaqItem[] }
   | { type: "stats"; items: { value: string; label: string }[] }
+  // Адреса/пункты приёма — единый вид карточки (макет Contacts.dc.html,
+  // блок «Быстрые контакты»): своей вёрстки адреса быть не должно.
+  | {
+      type: "contacts";
+      items: {
+        name: string;
+        address?: string;
+        phone?: string;
+        email?: string;
+        hours?: string;
+        note?: string;
+      }[];
+    }
   | { type: "tabs"; items: { label: string; items: string[] }[] }
   | {
       type: "form";

@@ -188,6 +188,8 @@ function BlockView({ b, i, num, count }: { b: Block; i: number; num?: number; co
           ))}
         </div>
       );
+    case "contacts":
+      return <ContactCards items={b.items} />;
     case "tabs":
       return <Tabs items={b.items} />;
     case "files":
@@ -199,6 +201,103 @@ function BlockView({ b, i, num, count }: { b: Block; i: number; num?: number; co
     default:
       return null;
   }
+}
+
+// Адрес/пункт приёма — карточка из макета Contacts.dc.html: полоса слева,
+// название, затем строки с иконками. Единый вид для всех адресов на сайте.
+function ContactRow({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <div className="flex items-start gap-[9px] text-[15px] text-steel leading-[1.45]">
+      <span className="shrink-0 mt-[2px] text-brand/70">{icon}</span>
+      <span className="min-w-0 break-words">{children}</span>
+    </div>
+  );
+}
+
+const ico = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+};
+
+function ContactCards({
+  items,
+}: {
+  items: { name: string; address?: string; phone?: string; email?: string; hours?: string; note?: string }[];
+}) {
+  return (
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
+      {items.map((c, k) => (
+        <div
+          key={k}
+          className="bg-white border border-line border-l-4 border-l-accent rounded-xl px-5 py-[18px] flex flex-col gap-[10px]"
+        >
+          <div className="font-display font-bold text-[17px] leading-[1.25] text-brand">{c.name}</div>
+          {c.address && (
+            <ContactRow
+              icon={
+                <svg width="15" height="15" viewBox="0 0 24 24" {...ico}>
+                  <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              }
+            >
+              {c.address}
+            </ContactRow>
+          )}
+          {c.phone && (
+            <ContactRow
+              icon={
+                <svg width="15" height="15" viewBox="0 0 24 24" {...ico}>
+                  <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z" />
+                </svg>
+              }
+            >
+              {/* Несколько номеров через запятую — каждый отдельной ссылкой,
+                  иначе на телефоне не позвонить ни по одному. */}
+              {c.phone.split(/\s*,\s*/).map((t, i) => (
+                <span key={i}>
+                  {i > 0 && ", "}
+                  <a href={`tel:${t.replace(/[^+\d]/g, "")}`} className="font-bold text-steel no-underline hover:text-accent">
+                    {t}
+                  </a>
+                </span>
+              ))}
+            </ContactRow>
+          )}
+          {c.email && (
+            <ContactRow
+              icon={
+                <svg width="15" height="15" viewBox="0 0 24 24" {...ico}>
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m2 7 10 6 10-6" />
+                </svg>
+              }
+            >
+              <a href={`mailto:${c.email}`} className="text-accent no-underline hover:underline">
+                {c.email}
+              </a>
+            </ContactRow>
+          )}
+          {c.hours && (
+            <ContactRow
+              icon={
+                <svg width="15" height="15" viewBox="0 0 24 24" {...ico}>
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+              }
+            >
+              {c.hours}
+            </ContactRow>
+          )}
+          {c.note && <div className="text-[14px] text-ink-3 leading-[1.45]">{c.note}</div>}
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export function ContentPage({

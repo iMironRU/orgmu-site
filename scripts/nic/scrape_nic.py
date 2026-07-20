@@ -227,6 +227,59 @@ def tidy_table(b):
     }
 
 
+# Подписи полей у пунктов забора на сайте-источнике.
+FIELD_RE = {
+    "address": re.compile(r"^Адрес\s*:\s*(.+)", re.I),
+    "phone": re.compile(r"^Телефон[ыа]?\s*:\s*(.+)", re.I),
+    "email": re.compile(r"^(?:Эл\.?\s*почта|E-?mail)\s*:\s*(.+)", re.I),
+    "hours": re.compile(r"^Режим работы\s*:\s*(.+)", re.I),
+}
+
+
+def fold_contacts(blocks):
+    """Заголовок + идущие за ним строки «Адрес/Телефоны/Почта/Режим работы»
+    сворачиваются в карточку-контакт (блок contacts). Адреса на сайте
+    показываются одним способом — карточкой, а не абзацами (Contacts.dc.html)."""
+    out, run, i = [], [], 0
+
+    def flush():
+        # Подряд идущие карточки — одной сеткой, на своём месте в потоке
+        # (а не в конце страницы, иначе сноски окажутся выше адресов).
+        if run:
+            out.append({"type": "contacts", "items": list(run)})
+            run.clear()
+
+    while i < len(blocks):
+        b = blocks[i]
+        if b["type"] != "h2":
+            flush()
+            out.append(b)
+            i += 1
+            continue
+        card, j = {"name": b["text"]}, i + 1
+        while j < len(blocks) and blocks[j]["type"] == "text":
+            hit = False
+            for key, rx in FIELD_RE.items():
+                m = rx.match(blocks[j]["text"])
+                if m:
+                    card[key] = m.group(1).strip()
+                    hit = True
+                    break
+            if not hit:
+                break
+            j += 1
+        # Заголовок без единого поля — обычный раздел, не контакт.
+        if len(card) == 1:
+            flush()
+            out.append(b)
+            i += 1
+            continue
+        run.append(card)
+        i = j
+    flush()
+    return out
+
+
 def clean_blocks(blocks, slug):
     """Убирает мусор и ковидные фрагменты 2022 года."""
     out = []
@@ -271,6 +324,8 @@ def main():
         p = Blocks()
         p.feed(fetch(rel))
         blocks = clean_blocks(p.blocks, slug)
+        if slug == "punkty-zabora":
+            blocks = fold_contacts(blocks)
 
         if slug == "analizy-i-ceny":
             # Прайс с сайта-источника не обновлялся с 2022 года. Молча
