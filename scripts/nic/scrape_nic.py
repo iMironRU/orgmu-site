@@ -66,6 +66,7 @@ class Blocks(HTMLParser):
         self.li_had_link = False
         self.li_href = ""
         self.li_has_blocks = False
+        self.summary = ""        # текущая <summary> — название лаборатории
         self.list_files = []     # [{"name","href"}] — ссылки на документы
         self.table = None        # {"head": [...], "rows": [[...]]}
         self.row = None
@@ -114,6 +115,8 @@ class Blocks(HTMLParser):
             self.row = []
         elif tag in ("td", "th"):
             self.buf = ""
+        elif tag == "summary":
+            self.buf = ""
         elif tag in ("h1", "h2", "h3", "h4", "h5", "p"):
             self.buf = ""
         elif tag == "a" and "li" in self.stack:
@@ -135,6 +138,13 @@ class Blocks(HTMLParser):
 
         if self.table is not None and tag in ("ul", "ol", "li", "p", "h1", "h2", "h3", "h4", "h5"):
             return                   # см. handle_starttag: это содержимое ячейки
+        if tag == "summary":
+            t = norm(self.buf)
+            self.buf = ""
+            if t:
+                self.summary = t
+                self.blocks.append({"type": "h2", "text": t})
+            return
         if tag in ("h1", "h2", "h3", "h4", "h5"):
             self._flush_text("h")
         elif tag == "p":
@@ -175,7 +185,7 @@ class Blocks(HTMLParser):
             self.row = None
         elif tag == "table":
             if self.table and self.table["rows"]:
-                self.blocks.append({"type": "table", **self.table})
+                self.blocks.append({"type": "table", "lab": self.summary, **self.table})
             self.table = None
 
     def handle_data(self, data):
@@ -222,6 +232,7 @@ def tidy_table(b):
     keep = [i for i in range(width) if head[i].strip() or any(r[i].strip() for r in rows)]
     return {
         "type": "table",
+        "lab": b.get("lab", ""),
         "head": [head[i] for i in keep],
         "rows": [[r[i] for i in keep] for r in rows],
     }
@@ -280,6 +291,69 @@ def fold_contacts(blocks):
     return out
 
 
+def col_index(head):
+    """Сопоставляем колонки по смыслу: у трёх лабораторий шапки разные
+    (где-то есть код услуги, где-то единица измерения)."""
+    idx = {"code": None, "name": None, "unit": None, "price": None}
+    for i, h in enumerate(head):
+        h = h.lower()
+        if idx["code"] is None and "код" in h:
+            idx["code"] = i
+        elif idx["name"] is None and ("наимен" in h or "вид услуги" in h):
+            idx["name"] = i
+        elif idx["unit"] is None and "единиц" in h:
+            idx["unit"] = i
+        elif idx["price"] is None and "цена" in h:
+            idx["price"] = i
+    return idx
+
+
+def price_num(v):
+    """«170-00» и «5790» → число, чтобы сортировать по цене."""
+    m = re.match(r"^\s*(\d+)(?:\s*[-–]\s*(\d{2}))?\s*$", v or "")
+    if not m:
+        return None
+    return int(m.group(1)) + (int(m.group(2)) / 100 if m.group(2) else 0)
+
+
+def fold_pricelist(blocks):
+    """Три таблицы разных лабораторий → один прайс с колонками
+    лаборатория/раздел/код/услуга/единица/цена. Так его можно искать и
+    сортировать целиком, а не глазами по трём таблицам."""
+    out, rows, lab = [], [], ""
+    for b in blocks:
+        if b["type"] == "h2":
+            lab = b["text"]          # заголовок перед таблицей — лаборатория
+            continue
+        if b["type"] != "table":
+            out.append(b)
+            continue
+        idx = col_index(b["head"])
+        section = ""
+        for r in b["rows"]:
+            filled = [c for c in r if c.strip()]
+            if len(filled) == 1:
+                section = filled[0]  # строка-группа внутри таблицы
+                continue
+            name = r[idx["name"]] if idx["name"] is not None and idx["name"] < len(r) else ""
+            if not name.strip():
+                continue
+            price = r[idx["price"]] if idx["price"] is not None and idx["price"] < len(r) else ""
+            rows.append({
+                "lab": lab,
+                "section": section,
+                "code": r[idx["code"]] if idx["code"] is not None and idx["code"] < len(r) else "",
+                "name": name,
+                "unit": r[idx["unit"]] if idx["unit"] is not None and idx["unit"] < len(r) else "",
+                "price": price,
+                "num": price_num(price),
+            })
+    if rows:
+        out.insert(1 if out and out[0]["type"] == "callout" else 0,
+                   {"type": "pricelist", "items": rows})
+    return out
+
+
 def clean_blocks(blocks, slug):
     """Убирает мусор и ковидные фрагменты 2022 года."""
     out = []
@@ -326,6 +400,8 @@ def main():
         blocks = clean_blocks(p.blocks, slug)
         if slug == "punkty-zabora":
             blocks = fold_contacts(blocks)
+        if slug == "analizy-i-ceny":
+            blocks = fold_pricelist(blocks)
 
         if slug == "analizy-i-ceny":
             # Прайс с сайта-источника не обновлялся с 2022 года. Молча

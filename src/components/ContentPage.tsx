@@ -7,6 +7,7 @@ import { DocCards } from "@/components/sveden/DocCards";
 import type { DocItem } from "@/lib/sveden/documents";
 import { Tabs } from "@/components/Tabs";
 import { SectionToc } from "@/components/SectionToc";
+import { PriceList } from "@/components/PriceList";
 
 // Типовая страница по макету PageTemplate.dc.html: титульная плашка, слева
 // липкая навигация «В разделе» (строится из заголовков h2) и карточка помощи,
@@ -188,6 +189,8 @@ function BlockView({ b, i, num, count }: { b: Block; i: number; num?: number; co
           ))}
         </div>
       );
+    case "pricelist":
+      return <PriceList items={b.items} />;
     case "contacts":
       return <ContactCards items={b.items} />;
     case "tabs":

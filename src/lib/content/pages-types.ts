@@ -24,6 +24,19 @@ export type Block =
   | { type: "files"; items: FileRef[] }
   | { type: "faq"; items: FaqItem[] }
   | { type: "stats"; items: { value: string; label: string }[] }
+  // Прайс лаборатории: одна таблица с поиском, фильтрами и сортировкой.
+  | {
+      type: "pricelist";
+      items: {
+        lab: string;
+        section: string;
+        code: string;
+        name: string;
+        unit: string;
+        price: string;
+        num: number | null;
+      }[];
+    }
   // Адреса/пункты приёма — единый вид карточки (макет Contacts.dc.html,
   // блок «Быстрые контакты»): своей вёрстки адреса быть не должно.
   | {
