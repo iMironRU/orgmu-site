@@ -23,7 +23,10 @@ export function PageNav({
 }) {
   return (
     <>
+      {/* На мобиле селект показывает выбранный пункт, а не заголовок, — без
+          подписи два соседних селекта (меню страниц и оглавление) неотличимы. */}
       <div className="min-[901px]:hidden sticky top-[60px] z-30 mb-4 -mx-1 px-1 py-2 bg-bg">
+        <div className="font-ui font-bold text-[12px] uppercase tracking-[0.05em] text-ink-3 mb-[6px] px-[2px]">{title}</div>
         <NavSelect title={title} items={items} current={current} />
       </div>
 

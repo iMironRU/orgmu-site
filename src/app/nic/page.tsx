@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getUnit, getUnitExtra, initials, avatarColor } from "@/lib/content/structure";
 import { getPersonIdByFio } from "@/lib/content/persons";
 import { SectionToc } from "@/components/SectionToc";
+import { PageNav } from "@/components/PageNav";
 import { asset } from "@/lib/asset";
 import { nicPages, nicNavItems, nicHref } from "@/lib/content/nic";
 
@@ -10,7 +11,7 @@ import { nicPages, nicNavItems, nicHref } from "@/lib/content/nic";
 // есть в оргструктуре под id 14-7, и руководитель, адрес и телефон берутся
 // оттуда — дублировать их в данных раздела было бы двумя источниками правды.
 // Отличие от обычного подразделения одно: у НИЦ есть свои страницы (перенесённый
-// сайт nic.orgma.ru), поэтому добавлен раздел «Разделы центра».
+// сайт nic.orgma.ru) — их список даёт PageNav в сайдбаре, общий «меню страницы».
 const UNIT_ID = "14-7";
 const DASH = "—";
 
@@ -33,7 +34,6 @@ export default function NicIndexPage() {
   const u = getUnit(UNIT_ID);
   const extra = getUnitExtra(UNIT_ID);
   const pages = nicPages();
-  const notes = new Map(nicNavItems().map((n, i) => [pages[i]?.slug, n.note]));
 
   const headFio = u?.head?.fio && u.head.fio !== "—" ? u.head.fio : "";
   const headPersonId = headFio ? getPersonIdByFio(headFio) : undefined;
@@ -41,7 +41,6 @@ export default function NicIndexPage() {
   const sections = [
     { id: "about", label: "О центре" },
     ...(extra.directions?.length ? [{ id: "directions", label: "Направления работы" }] : []),
-    { id: "razdely", label: "Разделы центра" },
     ...(headFio ? [{ id: "head", label: "Руководитель" }] : []),
     { id: "contacts", label: "Контакты" },
   ];
@@ -65,8 +64,12 @@ export default function NicIndexPage() {
 
       <div className="mx-auto max-w-[1146px] w-full px-10 py-10 box-border grid grid-cols-[264px_1fr] gap-10 max-[768px]:grid-cols-1 max-[768px]:px-5">
         <aside>
-          <div className="min-[769px]:sticky min-[769px]:top-6">
-            <SectionToc title="Разделы" items={sections} />
+          {/* Меню разделов центра — общий паттерн «меню страницы» (PageNav),
+              тот же, что на подстраницах НИЦ и в sveden. Ниже — оглавление
+              этой страницы. Своей вёрстки списка разделов быть не должно. */}
+          <div className="min-[769px]:sticky min-[769px]:top-6 flex flex-col gap-4">
+            <PageNav title="Разделы центра" items={nicNavItems()} current={nicHref()} />
+            <SectionToc title="На этой странице" items={sections} />
           </div>
         </aside>
 
@@ -102,27 +105,6 @@ export default function NicIndexPage() {
               </ul>
             </section>
           )}
-
-          <section id="razdely" className="scroll-mt-6">
-            <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">
-              Разделы центра
-              <span className="text-ink-3 font-normal text-[16px]"> · {pages.length}</span>
-            </h2>
-            <div className="flex flex-col gap-2">
-              {pages.map((p) => (
-                <Link
-                  key={p.slug}
-                  href={nicHref(p.slug)}
-                  className="flex flex-col gap-[3px] bg-white border border-line border-l-4 border-l-accent rounded-[10px] px-[18px] py-[13px] no-underline hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)]"
-                >
-                  <span className="font-bold text-[16px] text-brand">{p.title}</span>
-                  {notes.get(p.slug) && (
-                    <span className="text-[14px] text-ink-3">{notes.get(p.slug)}</span>
-                  )}
-                </Link>
-              ))}
-            </div>
-          </section>
 
           {headFio && (
             <section id="head" className="scroll-mt-6">
