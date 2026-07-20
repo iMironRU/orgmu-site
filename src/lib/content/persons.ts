@@ -65,6 +65,22 @@ function splitCredentials(raw: string): string[] {
   return parts.map(trimItem).filter(Boolean).slice(0, 20);
 }
 
+// Объединяет списки нескольких записей одного человека в один без повторов.
+// Ключ дедупа — нижний регистр (в источнике «Микробиология»/«микробиология» —
+// одно и то же); показываем первую встретившуюся форму записи.
+function mergeUnique(lists: string[][], limit: number): string[] {
+  const seen = new Map<string, string>();
+  for (const list of lists) {
+    for (const raw of list) {
+      const label = raw.trim();
+      if (!label) continue;
+      const key = label.toLowerCase();
+      if (!seen.has(key)) seen.set(key, label);
+    }
+  }
+  return [...seen.values()].slice(0, limit);
+}
+
 function experience(raw: string): string {
   const n = parseInt(raw, 10);
   if (!n) return "";
@@ -98,20 +114,36 @@ function build() {
     return id;
   };
 
-  const teachers: Person[] = teachersRaw.map((t) => {
+  // Один преподаватель в выгрузке orgma встречается несколькими записями (по
+  // кафедрам/должностям) — до 6 раз на человека, 173 записи против 137 людей.
+  // Объединяем по ФИО. Списки (дисциплины, образование, ПК, ПП) — объединением
+  // без повторов; должность у дублей всегда совпадает; степень — самая короткая
+  // непустая (у части приписаны коды специальностей — на плитке они лишние,
+  // фильтр по «доктор/кандидат» работает и так); стаж — максимальный.
+  const groups = new Map<string, Raw[]>();
+  for (const t of teachersRaw) {
     const fio = str(t.fio);
+    if (!fio) continue;
+    (groups.get(fio) ?? groups.set(fio, []).get(fio)!).push(t);
+  }
+
+  const teachers: Person[] = [...groups.entries()].map(([fio, recs]) => {
+    const firstNonEmpty = (f: (r: Raw) => string) => recs.map(f).find(Boolean) ?? "";
+    const shortestNonEmpty = (f: (r: Raw) => string) =>
+      recs.map((r) => clean(f(r))).filter(Boolean).sort((a, b) => a.length - b.length)[0] ?? "";
+    const maxYears = Math.max(0, ...recs.map((r) => parseInt(str(r.specExperience), 10) || 0));
     return {
       id: mkId(fio),
       fio,
-      position: str(t.post),
-      degree: clean(str(t.degree)),
-      academStat: clean(str(t.academStat)),
-      disciplines: splitList(str(t.teachingDiscipline), /[;,]/, 16),
+      position: firstNonEmpty((r) => str(r.post)),
+      degree: shortestNonEmpty((r) => str(r.degree)),
+      academStat: shortestNonEmpty((r) => str(r.academStat)),
+      disciplines: mergeUnique(recs.map((r) => splitList(str(r.teachingDiscipline), /[;,]/, 16)), 40),
       // Ступени образования разделены «;» — по одной в строку, а не сплошняком.
-      education: splitList(clean(str(t.teachingLevel)), /;/, 6),
-      qualifications: splitCredentials(str(t.qualification)),
-      profDevelopment: splitCredentials(str(t.profDevelopment)),
-      experience: experience(str(t.specExperience)),
+      education: mergeUnique(recs.map((r) => splitList(clean(str(r.teachingLevel)), /;/, 6)), 12),
+      qualifications: mergeUnique(recs.map((r) => splitCredentials(str(r.qualification))), 30),
+      profDevelopment: mergeUnique(recs.map((r) => splitCredentials(str(r.profDevelopment))), 20),
+      experience: experience(String(maxYears)),
       dept: "",
       phone: "",
       email: "",
