@@ -1,0 +1,33 @@
+# Раздел НИЦ. Собран скриптом scripts/nic/scrape_nic.py с nic.orgma.ru.
+# ВНИМАНИЕ: сайт-источник заморожен на 2022 годе — тексты и особенно
+# цены требуют проверки. Перезапуск скрипта затирает ручные правки.
+
+slug: organizaciyam
+title: Организациям
+toc:
+  numbered: true
+breadcrumb:
+  href: /nic
+  label: Научно-исследовательский центр
+lead: Лабораторные исследования и научные работы по договорам с организациями.
+blocks:
+- type: files
+  items:
+  - name: Согласие на обработку персональных данных
+    href: https://nic.orgma.ru/Content/file/Согласие_на_обработку_персональных_данных.docx
+  - name: Реквизиты
+    href: https://nic.orgma.ru/Content/file/Реквизиты.docx
+  - name: Направление на лабораторное исследование на COVID-19
+    href: https://nic.orgma.ru/Content/file/Направление_на_лаб_исследование_на_COVID_19.docx
+  - name: Направление на лабораторное исследование материала
+    href: https://nic.orgma.ru/Content/file/Направление_на_лабораторное_исследование_материала.docx
+  - name: Договор на оказание медицинских услуг
+    href: https://nic.orgma.ru/Content/file/договор_на_оказание_медицинских_услуг.doc
+  - name: Правила предоставления платных медицинских услуг
+    href: https://nic.orgma.ru/Content/file/Правила_предоставления_платных_медицинских_услуг.doc
+  - name: Прайс лабораторная диагностика
+    href: https://nic.orgma.ru/Content/file/Прайс_лабораторная_диагностика.pdf
+  - name: Прайс микробиология
+    href: https://nic.orgma.ru/Content/file/Прайс_микробиология.docx
+  - name: Прайс проблемная лаборатория
+    href: https://nic.orgma.ru/Content/file/Прайс_проблемная_лаборатория.pdf

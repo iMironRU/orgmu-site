@@ -35,7 +35,14 @@ console.log("Сборка сайта для внутренних хостов (b
 execSync("npm run build", {
   cwd: ROOT,
   stdio: ["ignore", "ignore", "inherit"],
-  env: { ...process.env, NEXT_PUBLIC_BASE_PATH: "", NEXT_PUBLIC_LINK_BASE: SITE, NEXT_DIST_DIR: ".launcher-next" },
+  env: {
+    ...process.env,
+    NEXT_PUBLIC_BASE_PATH: "",
+    NEXT_PUBLIC_LINK_BASE: SITE,
+    // Раздел НИЦ на своём домене — корень сайта, а не /nic.
+    NEXT_PUBLIC_NIC_ROOT: "1",
+    NEXT_DIST_DIR: ".launcher-next",
+  },
 });
 
 const SRC = path.join(ROOT, "out");
@@ -73,6 +80,25 @@ for (const [id, inst] of Object.entries(reg)) {
   console.log(`  ${inst.host.padEnd(18)} ← dist-app/${inst.host}/  (${inst.bases.length} ${what})`);
 }
 
+// НИЦ — не одна страница, а раздел: кладём всё поддерево out/nic/* в корень
+// nic.orgma.ru (index.html раздела становится главной хоста).
+const NIC_SRC = path.join(SRC, "nic");
+if (fs.existsSync(NIC_SRC)) {
+  const dir = path.join(OUT, "nic.orgma.ru");
+  fs.mkdirSync(dir, { recursive: true });
+  for (const item of fs.readdirSync(NIC_SRC)) {
+    fs.cpSync(path.join(NIC_SRC, item), path.join(dir, item), { recursive: true });
+  }
+  for (const item of SHARED) {
+    const from = path.join(SRC, item);
+    if (fs.existsSync(from)) fs.cpSync(from, path.join(dir, item), { recursive: true });
+  }
+  const pages = fs.readdirSync(NIC_SRC).filter((f) =>
+    fs.statSync(path.join(NIC_SRC, f)).isDirectory(),
+  );
+  console.log(`  nic.orgma.ru       ← dist-app/nic.orgma.ru/  (${pages.length} разделов)`);
+}
+
 fs.rmSync(BUILD, { recursive: true, force: true });
 // out/ сейчас содержит сборку для внутренних хостов (basePath=""), а не сайта.
 // Если её оставить, легко принять одно за другое — и проверять сайт по чужой
@@ -81,7 +107,7 @@ fs.rmSync(SRC, { recursive: true, force: true });
 
 // README рядом со сборкой: инструкция должна лежать там же, где артефакт,
 // а не в переписке — раскладывать будет человек и, возможно, не сегодня.
-const hosts = ["app.orgma.ru", ...Object.values(reg).map((i) => i.host)];
+const hosts = ["app.orgma.ru", ...Object.values(reg).map((i) => i.host), "nic.orgma.ru"];
 fs.writeFileSync(
   path.join(OUT, "README.txt"),
   [
@@ -102,6 +128,7 @@ fs.writeFileSync(
     "Что менять и где",
     "----------------",
     "  состав баз, версии, описания → content/apps/instances.json",
+    "  страницы НИЦ                  → content/pages/nic/*.yml",
     "  список приложений             → content/navigation/apps.yml",
     "  тексты «Настройка рабочего места» → instances.json, секция setup",
     "",

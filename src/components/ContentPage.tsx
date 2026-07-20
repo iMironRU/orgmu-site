@@ -201,7 +201,16 @@ function BlockView({ b, i, num, count }: { b: Block; i: number; num?: number; co
   }
 }
 
-export function ContentPage({ page }: { page: ContentPageData }) {
+export function ContentPage({
+  page,
+  sideNav,
+}: {
+  page: ContentPageData;
+  // Меню соседних страниц раздела (паттерн «Подразделы» из sveden). Ставится
+  // над оглавлением этой страницы. Нужен разделам вроде НИЦ, где страниц
+  // несколько; у одиночных типовых страниц его просто нет.
+  sideNav?: React.ReactNode;
+}) {
   // Оглавление — заголовки h2 страницы.
   const nav = page.blocks
     .map((b, i) => (b.type === "h2" ? { label: b.text, id: anchorId(b.text, i) } : null))
@@ -244,6 +253,7 @@ export function ContentPage({ page }: { page: ContentPageData }) {
         {/* Навигация по разделу */}
         <aside>
           <div className="min-[901px]:sticky min-[901px]:top-6 flex flex-col gap-4">
+            {sideNav}
             {nav.length > 0 &&
               (numbered ? (
                 <SectionToc title={page.toc?.title ?? "Разделы"} items={nav} />
