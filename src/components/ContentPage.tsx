@@ -235,10 +235,12 @@ function ContactCards({
       {items.map((c, k) => (
         <div
           key={k}
-          className="bg-white border border-line border-l-4 border-l-accent rounded-xl px-5 py-[18px] flex flex-col gap-[10px]"
+          className="bg-white border border-line border-l-4 border-l-accent rounded-xl px-5 py-[18px] grid grid-rows-subgrid row-span-6 gap-y-[10px] content-start"
         >
+          {/* Пустые ячейки для незаполненных полей обязательны: без них строки
+              съедут и выравнивание между карточками сломается. */}
           <div className="font-display font-bold text-[17px] leading-[1.25] text-brand">{c.name}</div>
-          {c.address && (
+          {c.address ? (
             <ContactRow
               icon={
                 <svg width="15" height="15" viewBox="0 0 24 24" {...ico}>
@@ -249,8 +251,10 @@ function ContactCards({
             >
               {c.address}
             </ContactRow>
+          ) : (
+            <span />
           )}
-          {c.phone && (
+          {c.phone ? (
             <ContactRow
               icon={
                 <svg width="15" height="15" viewBox="0 0 24 24" {...ico}>
@@ -269,8 +273,10 @@ function ContactCards({
                 </span>
               ))}
             </ContactRow>
+          ) : (
+            <span />
           )}
-          {c.email && (
+          {c.email ? (
             <ContactRow
               icon={
                 <svg width="15" height="15" viewBox="0 0 24 24" {...ico}>
@@ -283,8 +289,10 @@ function ContactCards({
                 {c.email}
               </a>
             </ContactRow>
+          ) : (
+            <span />
           )}
-          {c.hours && (
+          {c.hours ? (
             <ContactRow
               icon={
                 <svg width="15" height="15" viewBox="0 0 24 24" {...ico}>
@@ -295,8 +303,10 @@ function ContactCards({
             >
               {c.hours}
             </ContactRow>
+          ) : (
+            <span />
           )}
-          {c.note && <div className="text-[14px] text-ink-3 leading-[1.45]">{c.note}</div>}
+          {c.note ? <div className="text-[14px] text-ink-3 leading-[1.45]">{c.note}</div> : <span />}
         </div>
       ))}
     </div>
