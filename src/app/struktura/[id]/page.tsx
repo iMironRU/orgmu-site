@@ -121,6 +121,23 @@ export default async function DepartmentPage({
             aria-hidden
           />
 
+          {/* Свой раздел на сайте (например, НИЦ → /nic) — сразу под обложкой:
+              иначе из структуры в него не попасть. */}
+          {extra.section && (
+            <Link
+              href={extra.section.href}
+              className="flex items-center gap-3 bg-white border border-line border-l-4 border-l-accent rounded-xl px-[22px] py-[18px] no-underline hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)]"
+            >
+              <span className="min-w-0">
+                <span className="block font-bold text-[17px] text-brand">{extra.section.label}</span>
+                {extra.section.note && (
+                  <span className="block text-[15px] text-ink-3 mt-[2px]">{extra.section.note}</span>
+                )}
+              </span>
+              <span className="ml-auto shrink-0 text-accent font-bold text-[15px]">Перейти →</span>
+            </Link>
+          )}
+
           {/* Статы (год основания / преподавателей / докторов — прочерки, где нет данных) */}
           <div className="flex gap-6 flex-wrap px-[22px] py-[18px] bg-white border border-line rounded-xl">
             <Stat value={extra.founded ?? ""} label="год основания" />

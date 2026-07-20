@@ -1,7 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageNav } from "@/components/PageNav";
+import { getUnit, getUnitExtra, initials, avatarColor } from "@/lib/content/structure";
+import { getPersonIdByFio } from "@/lib/content/persons";
+import { SectionToc } from "@/components/SectionToc";
+import { asset } from "@/lib/asset";
 import { nicPages, nicNavItems, nicHref } from "@/lib/content/nic";
+
+// Титульная НИЦ оформлена как карточка подразделения (макет Department): центр
+// есть в оргструктуре под id 14-7, и руководитель, адрес и телефон берутся
+// оттуда — дублировать их в данных раздела было бы двумя источниками правды.
+// Отличие от обычного подразделения одно: у НИЦ есть свои страницы (перенесённый
+// сайт nic.orgma.ru), поэтому добавлен раздел «Разделы центра».
+const UNIT_ID = "14-7";
+const DASH = "—";
 
 export const metadata: Metadata = {
   title: "Научно-исследовательский центр",
@@ -9,10 +20,31 @@ export const metadata: Metadata = {
     "НИЦ ОрГМУ: лабораторные исследования, пункты забора анализов, перечень исследований и подготовка к сдаче материала.",
 };
 
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div>
+      <div className="font-display font-bold text-[28px] text-brand leading-none">{value || DASH}</div>
+      <div className="text-[15px] text-ink-3 mt-1">{label}</div>
+    </div>
+  );
+}
+
 export default function NicIndexPage() {
+  const u = getUnit(UNIT_ID);
+  const extra = getUnitExtra(UNIT_ID);
   const pages = nicPages();
-  const nav = nicNavItems();
-  const noteBySlug = new Map(pages.map((p, i) => [p.slug, nav[i]?.note ?? ""]));
+  const notes = new Map(nicNavItems().map((n, i) => [pages[i]?.slug, n.note]));
+
+  const headFio = u?.head?.fio && u.head.fio !== "—" ? u.head.fio : "";
+  const headPersonId = headFio ? getPersonIdByFio(headFio) : undefined;
+
+  const sections = [
+    { id: "about", label: "О центре" },
+    ...(extra.directions?.length ? [{ id: "directions", label: "Направления работы" }] : []),
+    { id: "razdely", label: "Разделы центра" },
+    ...(headFio ? [{ id: "head", label: "Руководитель" }] : []),
+    { id: "contacts", label: "Контакты" },
+  ];
 
   return (
     <>
@@ -21,44 +53,137 @@ export default function NicIndexPage() {
           <div className="flex items-center gap-2 text-[15px] text-white/70 mb-[14px] font-ui flex-wrap">
             <Link href="/" className="text-white/90 no-underline">Главная</Link>
             <span>/</span>
+            <Link href="/struktura" className="text-white/90 no-underline">Структура</Link>
+            <span>/</span>
             <span>Научно-исследовательский центр</span>
           </div>
-          <h1 className="m-0 mb-2 font-display font-bold text-[40px] leading-[1.1] max-[768px]:text-[28px]">
-            Научно-исследовательский центр
+          <h1 className="m-0 font-display font-bold text-[36px] leading-[1.1] max-[768px]:text-[26px]">
+            {u?.name ?? "Научно-исследовательский центр"}
           </h1>
-          <p className="m-0 max-w-[720px] font-ui text-[18px] text-white/85">
-            Лабораторные исследования для населения и организаций: иммунология,
-            микробиология, общеклиническая и биохимическая диагностика.
-          </p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border grid grid-cols-[264px_1fr] gap-10 max-[900px]:grid-cols-1 max-[768px]:px-5 font-ui">
+      <div className="mx-auto max-w-[1146px] w-full px-10 py-10 box-border grid grid-cols-[264px_1fr] gap-10 max-[768px]:grid-cols-1 max-[768px]:px-5">
         <aside>
-          <div className="min-[901px]:sticky min-[901px]:top-6">
-            <PageNav title="Научно-исследовательский центр" items={nav} current={nicHref()} />
+          <div className="min-[769px]:sticky min-[769px]:top-6">
+            <SectionToc title="Разделы" items={sections} />
           </div>
         </aside>
 
-        <main className="min-w-0">
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
-            {pages.map((p) => (
-              <Link
-                key={p.slug}
-                href={nicHref(p.slug)}
-                className="flex flex-col gap-2 bg-white border border-line rounded-[14px] p-6 no-underline shadow-[0_1px_2px_rgba(0,0,0,0.08)] hover:border-accent transition-colors"
-              >
-                <span className="font-display font-bold text-[20px] text-brand leading-[1.2]">
-                  {p.title}
-                </span>
-                {noteBySlug.get(p.slug) && (
-                  <span className="text-[14px] text-ink-3">{noteBySlug.get(p.slug)}</span>
-                )}
-                {p.lead && <span className="text-[16px] leading-[1.5] text-steel">{p.lead}</span>}
-              </Link>
-            ))}
+        <article className="min-w-0 flex flex-col gap-6 font-ui">
+          <div
+            className="a11y-decorative w-full aspect-[21/9] rounded-xl bg-cover bg-center"
+            style={{ backgroundImage: `url('${asset("/brand/corpus.jpg")}')` }}
+            aria-hidden
+          />
+
+          <div className="flex gap-6 flex-wrap px-[22px] py-[18px] bg-white border border-line rounded-xl">
+            <Stat value={extra.founded ?? ""} label="год основания" />
+            <div className="w-px bg-line self-stretch" />
+            <Stat value={extra.staff ?? ""} label="сотрудников" />
+            <div className="w-px bg-line self-stretch" />
+            <Stat value={String(pages.length)} label="разделов" />
           </div>
-        </main>
+
+          <section id="about" className="scroll-mt-6">
+            <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">О центре</h2>
+            <div className="bg-white border border-line rounded-xl px-[22px] py-5 text-[17px] leading-[1.6] text-ink">
+              {extra.description || <span className="text-ink-3">{DASH}</span>}
+            </div>
+          </section>
+
+          {extra.directions && extra.directions.length > 0 && (
+            <section id="directions" className="scroll-mt-6">
+              <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Направления работы</h2>
+              <ul className="m-0 pl-5 list-disc marker:text-accent flex flex-col gap-2 text-[16px] leading-[1.55] text-steel">
+                {extra.directions.map((d, i) => (
+                  <li key={i}>{d}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          <section id="razdely" className="scroll-mt-6">
+            <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">
+              Разделы центра
+              <span className="text-ink-3 font-normal text-[16px]"> · {pages.length}</span>
+            </h2>
+            <div className="flex flex-col gap-2">
+              {pages.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={nicHref(p.slug)}
+                  className="flex flex-col gap-[3px] bg-white border border-line border-l-4 border-l-accent rounded-[10px] px-[18px] py-[13px] no-underline hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)]"
+                >
+                  <span className="font-bold text-[16px] text-brand">{p.title}</span>
+                  {notes.get(p.slug) && (
+                    <span className="text-[14px] text-ink-3">{notes.get(p.slug)}</span>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {headFio && (
+            <section id="head" className="scroll-mt-6">
+              <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Руководитель</h2>
+              {(() => {
+                const inner = (
+                  <>
+                    <span
+                      className="shrink-0 w-[54px] h-[54px] rounded-full flex items-center justify-center text-white font-display font-bold text-[18px]"
+                      style={{ background: avatarColor(headFio) }}
+                    >
+                      {initials(headFio)}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-bold text-[18px] text-brand">{headFio}</span>
+                      <span className="block text-[15px] text-ink-3">{u?.head?.post}</span>
+                    </span>
+                  </>
+                );
+                return headPersonId ? (
+                  <Link
+                    href={`/persony/${headPersonId}`}
+                    className="flex items-center gap-4 bg-white border border-line rounded-xl px-6 py-5 no-underline hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)]"
+                  >
+                    {inner}
+                    <span className="ml-auto text-accent font-bold text-[14px]">Профиль →</span>
+                  </Link>
+                ) : (
+                  <div className="flex items-center gap-4 bg-white border border-line rounded-xl px-6 py-5">{inner}</div>
+                );
+              })()}
+            </section>
+          )}
+
+          <section id="contacts" className="scroll-mt-6">
+            <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Контакты</h2>
+            <div className="bg-white border border-line rounded-xl overflow-hidden">
+              {[
+                ["Место нахождения", u?.address ?? ""],
+                ["Телефон", u?.phone ?? ""],
+              ].map(([label, value]) => (
+                <div key={label} className="flex gap-5 px-[22px] py-[15px] border-b border-line flex-wrap">
+                  <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">{label}</div>
+                  <div className={`flex-1 min-w-[180px] text-[16px] ${value ? "font-medium text-ink" : "text-ink-3"}`}>
+                    {value || DASH}
+                  </div>
+                </div>
+              ))}
+              {/* Адреса пунктов забора — на своей странице: там их два, с
+                  режимом работы и телефонами лабораторий. */}
+              <div className="flex gap-5 px-[22px] py-[15px] flex-wrap">
+                <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">Пункты забора анализов</div>
+                <div className="flex-1 min-w-[180px] text-[16px]">
+                  <Link href={nicHref("punkty-zabora")} className="text-accent no-underline hover:underline">
+                    Адреса и режим работы →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        </article>
       </div>
     </>
   );

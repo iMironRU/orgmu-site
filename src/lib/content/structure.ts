@@ -18,6 +18,10 @@ export type UnitExtra = {
   employees?: string[]; // ФИО сотрудников; карточки подтягиваются по имени
   teaching?: string[]; // учебная работа: дисциплины/направления подготовки
   schedule?: { label: string; href: string }[]; // расписание: ссылки/файлы
+  // У части подразделений есть собственный раздел на сайте (перенесённый
+  // сайт-спутник): НИЦ — /nic. Ссылка выносится наверх карточки, иначе раздел
+  // из структуры не найти.
+  section?: { label: string; href: string; note?: string };
 };
 
 let extraCache: Record<string, UnitExtra> | null = null;
