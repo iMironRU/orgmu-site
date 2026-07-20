@@ -26,6 +26,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Именно вершину ветки, а не github.sha: когда деплой вызван
+          # скрапером, свежий коммит с новостями сделан уже внутри прогона и
+          # в github.sha его нет — собралось бы состояние до новостей.
+          ref: main
 
       - name: Setup Node
         uses: actions/setup-node@v4

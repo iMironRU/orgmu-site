@@ -7,7 +7,10 @@ import { execSync } from "node:child_process";
 // В человеческий вид и пояс браузера её приводит BuildStamp.tsx: здесь только
 // ISO, пересчитывать на сервере нечего — пояс знает лишь клиент.
 function buildSha(): string {
-  return (process.env.GITHUB_SHA || gitSha()).slice(0, 7);
+  // Сначала git, потом GITHUB_SHA: в Actions мы выкачиваем вершину ветки, а
+  // GITHUB_SHA остаётся равен коммиту, которым запущен workflow, — метка врала
+  // бы о том, что именно собрано.
+  return (gitSha() || process.env.GITHUB_SHA || "").slice(0, 7);
 }
 function gitSha(): string {
   try {
