@@ -22,6 +22,7 @@ function loadAll(): NoticeItem[] {
       title: n.title!,
       text: n.text,
       issuedBy: n.issuedBy,
+      date: n.date,
       until: n.until,
       body: Array.isArray(n.body) ? n.body : n.body ? [n.body as unknown as string] : [],
       gallery: Array.isArray(n.gallery) ? n.gallery : [],
@@ -29,15 +30,25 @@ function loadAll(): NoticeItem[] {
   return cache;
 }
 
-// Не истёкшие на момент сборки (для полосы на главной и списка).
+// Не истёкшие на момент сборки, отсортированы по дате публикации — свежие
+// сверху (и на полосе главной, и в списке /izvestiya). Известия без даты
+// уходят в конец, сохраняя порядок файла.
 export function getActiveNotices(): NoticeItem[] {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  return loadAll().filter((n) => {
+  const active = loadAll().filter((n) => {
     if (!n.until) return true;
     const end = new Date(`${n.until}T23:59:59`);
     return !Number.isNaN(end.getTime()) && end >= today;
   });
+  const ts = (iso?: string) => {
+    const t = iso ? Date.parse(iso) : NaN;
+    return Number.isNaN(t) ? -Infinity : t;
+  };
+  return active
+    .map((n, i) => ({ n, i }))
+    .sort((a, b) => ts(b.n.date) - ts(a.n.date) || a.i - b.i)
+    .map((x) => x.n);
 }
 
 export function getNotice(id: string): NoticeItem | undefined {

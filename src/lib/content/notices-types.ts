@@ -8,7 +8,8 @@ export type NoticeItem = {
   title: string;
   text?: string;
   issuedBy?: string;
-  until?: string; // ISO ГГГГ-ММ-ДД
+  date?: string; // дата публикации, ISO ГГГГ-ММ-ДД — по ней сортируется лента
+  until?: string; // срок действия, ISO ГГГГ-ММ-ДД
   body: string[];
   // Галерея-слайдер: пути к картинкам из public (например
   // /izvestiya/celevoe-obuchenie/01.jpg). Показываются вписанными, не обрезаясь.
