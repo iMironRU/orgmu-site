@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllNoticeIds, getNotice } from "@/lib/content/notices";
 import { noticeKindMeta, noticeUntilLong } from "@/lib/content/notices-types";
+import { NewsGallery } from "@/components/NewsGallery";
+import { asset } from "@/lib/asset";
 
 export const dynamicParams = false;
 
@@ -63,6 +65,10 @@ export default async function NoticePage({
       </div>
 
       <div className="mx-auto max-w-[900px] w-full px-10 pt-9 pb-16 box-border max-[768px]:px-5">
+        {n.gallery && n.gallery.length > 0 && (
+          <NewsGallery images={n.gallery.map(asset)} contain />
+        )}
+
         <div className="bg-white border border-line rounded-[14px] px-[30px] py-7 flex flex-col gap-4">
           <div className="text-[19px] leading-[1.7] text-ink flex flex-col gap-4">
             {n.body.length > 0 ? (

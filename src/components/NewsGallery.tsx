@@ -10,9 +10,14 @@ const SWIPE_PX = 40;
 export function NewsGallery({
   images,
   caption,
+  contain = false,
 }: {
   images: string[];
   caption?: string;
+  // contain: вписывать кадр целиком, не обрезая. Для инфографики и карточек с
+  // текстом — обрезка (object-cover) срезала бы половину смысла. Фон под
+  // вписанным кадром светлый, соотношение 3:2 под ландшафтные карточки.
+  contain?: boolean;
 }) {
   const [i, setI] = useState(0);
   const count = images.length;
@@ -56,7 +61,9 @@ export function NewsGallery({
   return (
     <figure className="m-0 mb-7">
       <div
-        className="relative w-full rounded-xl overflow-hidden bg-line touch-pan-y select-none"
+        className={`relative w-full rounded-xl overflow-hidden touch-pan-y select-none ${
+          contain ? "bg-[rgb(245,247,249)] border border-line" : "bg-line"
+        }`}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
@@ -65,7 +72,11 @@ export function NewsGallery({
           src={images[i]}
           alt=""
           draggable={false}
-          className="w-full h-[300px] min-[768px]:h-[460px] object-cover block"
+          className={
+            contain
+              ? "w-full aspect-[3/2] object-contain block"
+              : "w-full h-[300px] min-[768px]:h-[460px] object-cover block"
+          }
         />
 
         {!single && (

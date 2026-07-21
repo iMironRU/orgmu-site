@@ -2,6 +2,7 @@
 # tone — цвет-подложка (обязательно). image — URL (https://…) или локальный путь из public
 # (например /brand/corpus.jpg), необязательно. href — куда ведёт баннер.
 
+- { kicker: "Абитуриенту", title: "Целевое обучение: как поступить на целевую квоту", image: "/izvestiya/celevoe-obuchenie/01.jpg", tone: "rgb(0,101,155)", href: "/izvestiya/celevoe-obuchenie" }
 - { kicker: "Клуб выпускников", title: "Встреча выпускников ОГМИ 1971 года — 22 августа", image: "", tone: "rgb(50,173,230)", href: "/meropriyatiya/vstrecha-vypusknikov-ogmi-1971" }
 - { kicker: "Абитуриенту", title: "Приёмная кампания 2026 открыта", image: "/brand/corpus.jpg", tone: "rgb(0,101,155)", href: "#" }
 - { kicker: "", title: "День открытых дверей", image: "", tone: "rgb(48,176,199)", href: "/meropriyatiya" }

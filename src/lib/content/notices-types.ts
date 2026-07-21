@@ -10,6 +10,9 @@ export type NoticeItem = {
   issuedBy?: string;
   until?: string; // ISO ГГГГ-ММ-ДД
   body: string[];
+  // Галерея-слайдер: пути к картинкам из public (например
+  // /izvestiya/celevoe-obuchenie/01.jpg). Показываются вписанными, не обрезаясь.
+  gallery?: string[];
 };
 
 // Оформление по виду — совпадает с полосой AnnouncementBar / шаблоном Notice.

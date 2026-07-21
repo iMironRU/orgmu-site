@@ -24,6 +24,7 @@ function loadAll(): NoticeItem[] {
       issuedBy: n.issuedBy,
       until: n.until,
       body: Array.isArray(n.body) ? n.body : n.body ? [n.body as unknown as string] : [],
+      gallery: Array.isArray(n.gallery) ? n.gallery : [],
     }));
   return cache;
 }
