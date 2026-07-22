@@ -1,19 +1,7 @@
 {
-  "001a2cdfa131": {
-    "src": "Приказ об утверждении плана по профилактике коррупции в ОрГМУ",
-    "text": "The order on approval of the plan on prevention of corruption in ORGMU",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "006011010021": {
     "src": "Тщательно вымойте руки и гениталии, чтобы в мочу не попали выделения из них. Подмывание следует проводить теплой водой с мылом в направлении от уретры к промежности",
     "text": "Wash your hands and genitals thoroughly so that no discharge from them gets into the urine. Washing should be carried out with warm water and soap in the direction from the urethra to the perineum",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "0066a799594f": {
-    "src": "БГУ-2024, БГУ-2025, ЗГУ — сотрудники, ЗГУ — студенты.",
-    "text": "BSU-2024, BSU-2025, ZSU — employees, ZSU — students.",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -77,18 +65,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "01cd91967dc9": {
-    "src": "О внесении изменений в состав комиссии по соблюдению требований к служеб поведению рабо-в и урег-ю конфликта интересов",
-    "text": "On amendments to the composition of the Commission on compliance with the requirements for professional conduct of Work and Conflict of interest Management",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "0202800c074f": {
-    "src": "УГОЛОВНЫЙ КОДЕКС РОССИЙСКОЙ ФЕДЕРАЦИИ. Статья 291.1. Посредничество во взяточничестве.",
-    "text": "THE CRIMINAL CODE OF THE RUSSIAN FEDERATION. Article 291.1. Mediation in bribery.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "020d3b2f9800": {
     "src": "Мероприятия",
     "text": "Events",
@@ -101,12 +77,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "02984e275c2d": {
-    "src": "Приказ № 2058 от 02.11.2017 г. О внесении изменений в Приказ № 1913 от 23.10.2017 г. Об утверждении состава комиссии по противодейсвию коррупции в ФГБОУ ВО ОрГМУ Минздрава России",
-    "text": "Order No. 2058 dated 02.11.2017 On amendments to the Order No. 1913 dated 23.10.2017 On approval of the composition of the Anti-corruption Commission in the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "02c1e9ff5533": {
     "src": "Комиссия по урегулированию конфликта интересов",
     "text": "Conflict of Interest Resolution Commission",
@@ -116,12 +86,6 @@
   "0311ae5757c4": {
     "src": "Результаты исследований на наличие инфекций зависят от периода инфицирования и состояния иммунной системы, поэтому отрицательный результат полностью не исключает инфекции. На раннем этапе заболевания происходит сероконверсия (отсутствие антител в острый период заболевания)",
     "text": "The results of studies for infections depend on the period of infection and the state of the immune system, so a negative result does not completely exclude infection. Seroconversion occurs at an early stage of the disease (absence of antibodies during the acute period of the disease)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "0320bf0bd272": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 4 октября 2012 г. № 396н «О Порядке уведомления представителя нанимателя о фактах обращения в целях склонения федеральных государственных гражданских служащих Министерства здравоохранения Российской Федерации и руководителей Федеральной службы по надзору в сфере здравоохранения, Федерального медико-биологического агентства к совершению коррупционных правонарушений»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 396n dated October 4, 2012 \"On the Procedure for Notifying the Employer's Representative of the Facts of Appeals for the Purpose of Inducing Federal Government Civil Servants of the Ministry of Health of the Russian Federation and Heads of the Federal Service for Healthcare Supervision, the Federal Medical and Biological Agency to Commit Corruption Offenses\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -182,12 +146,6 @@
   "04622a8b1336": {
     "src": "Проректор по научной, инновационной и международной деятельности",
     "text": "Vice-Rector for Scientific, Innovative and International Activities",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "04aa8e00894a": {
-    "src": "Постановление Правительства Российской Федерации от 06.11.2014 № 1164 «О внесении изменений в некоторые акты Правительства Российской Федерации»",
-    "text": "Resolution of the Government of the Russian Federation dated 06.11.2014 No. 1164 \"On Amendments to Certain Acts of the Government of the Russian Federation\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -269,12 +227,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "06f928787f73": {
-    "src": "Уведомление представителя нанимателя (работодателя) и своего непосредственного начальника о возникшем конфликте интересов или о возможности его возникновения",
-    "text": "Notification of the representative of the employer (employer) and his immediate superior about a conflict of interest or the possibility of its occurrence",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "06f9de0e0f3d": {
     "src": "г. Оренбург, ул. Советская, зд. 6",
     "text": "Orenburg, Sovetskaya St., building 6",
@@ -311,12 +263,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "07e1862afb6d": {
-    "src": "П 066.03-2025 Положение «О порядке сообщения ректором, работниками о получении подарка»",
-    "text": "N 066.03-2025 Regulation \"On the procedure for notifying the rector and employees of the receipt of a gift\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "07fa5c78073b": {
     "src": "С помощью специально переходника набрать мочу из контейнера в вакуумную пробирку с бежевой крышкой",
     "text": "Using a special adapter, collect urine from the container into a vacuum tube with a beige lid.",
@@ -347,12 +293,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "08d103cdf4ba": {
-    "src": "Приказ № 930 от 28.04.2018 г. «О внесении изменений в Приказ № 1913 от 23.10.2017 Об утверждении состава комиссии по противодейсвию коррупции в ФГБОУ ВО ОрГМУ Минздрава Росси» и Положения «О комиссии по противодейсвию коррупции»",
-    "text": "Order No. 930 dated 28.04.2018 \"On Amendments to Order No. 1913 dated 10/23/2017 On Approval of the Composition of the Anti-Corruption Commission at the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of Russia\" and the Regulations \"On the Anti-Corruption Commission\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "08f73f01b7f5": {
     "src": "Тест толерантности к глюкозе (3х кратный забор крови)",
     "text": "Glucose tolerance test (3-fold blood sampling)",
@@ -377,12 +317,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "09940e4e635e": {
-    "src": "Федеральный закон от 7 мая 2013 № 79-ФЗ «О запрете отдельным категориям лиц открывать и иметь счета (вклады), хранить наличные денежные средства и ценности в иностранных банках, расположенных за пределами территории Российской Федерации, владеть и (или) пользоваться иностранными финансовыми инструментами»",
-    "text": "Federal Law No. 79-FZ of May 7, 2013 \"On the Prohibition of Certain Categories of Persons from Opening and Having Accounts (Deposits), Storing Cash and Valuables in Foreign Banks Located Outside the Territory of the Russian Federation, Owning and (or) Using Foreign Financial Instruments\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "09b62818112a": {
     "src": "Отмена лекарственных препаратов производится только после предварительной консультации пациента с врачом",
     "text": "Cancellation of medications is made only after prior consultation of the patient with a doctor.",
@@ -392,12 +326,6 @@
   "0a0297c9614a": {
     "src": "При невозможности удержать мочеиспускание 10–12 часов, помочитесь в контейнер в несколько приемов и отметьте время последнего мочеиспускания",
     "text": "If it is impossible to hold urination for 10-12 hours, urinate into the container in several steps and mark the time of the last urination.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "0a402a2e37d8": {
-    "src": "Сведения об официальном оппоненте",
-    "text": "Information about the official opponent",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -455,12 +383,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "0be07698aa55": {
-    "src": "Указ Президента Российской Федерации от 1 июля 2010 г. № 821 «О комиссиях по соблюдению требований к служебному поведению федеральных государственных служащих и урегулированию конфликта интересов»",
-    "text": "Decree of the President of the Russian Federation No. 821 dated July 1, 2010 \"On Commissions for Compliance with the Requirements for Official Conduct of Federal Civil Servants and Conflict of Interest Resolution\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "0be18b132ae2": {
     "src": "Договор заключается потребителем и исполнителем, он составляется в 2 экземплярах",
     "text": "The contract is concluded by the consumer and the contractor, it is drawn up in 2 copies",
@@ -473,33 +395,15 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "0bed84fba449": {
-    "src": "Постановление Правительства Российской Федерации от 05.07.2013 № 568 «О распространении на отдельные категории граждан ограничений, запретов и обязанностей, установленных Федеральным законом \"О противодействии коррупции\" и другими федеральными законами в целях противодействия коррупционного характера своих супруга (супруги) и несовершеннолетних детей»",
-    "text": "Decree of the Government of the Russian Federation No. 568 dated 05.07.2013 \"On the Extension to Certain Categories of Citizens of Restrictions, Prohibitions and Duties Established by the Federal Law on Combating Corruption and Other Federal Laws in order to counteract the Corrupt Nature of their Spouse and minor Children\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "0c13fe3fd992": {
     "src": "проведение научных исследований по заказу органов государственной власти, предприятий, организаций и населения, а также преподавателей и студентов",
     "text": "conducting scientific research commissioned by government authorities, enterprises, organizations and the public, as well as teachers and students",
     "status": "machine",
     "at": "2026-07-22"
   },
-  "0c1dd164ed0d": {
-    "src": "Уведомление о получении подарков, полученных гражданским служащим в связи с протокольными мероприятиями, служебными командировками и другими официальными мероприятиями",
-    "text": "Notification of receipt of gifts received by civil servants in connection with protocol events, business trips and other official events",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "0c3c7383ebc7": {
     "src": "Общие требования сбора мочи:",
     "text": "General requirements for urine collection:",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "0c46409e75b7": {
-    "src": "Прайс микробиология",
-    "text": "Microbiology Price List",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -563,12 +467,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "0eb4ddf3a2a1": {
-    "src": "Указ Президента Российской Федерации от 21 июля 2010 г. № 925 «О мерах по реализации отдельных положений Федерального закона «О противодействии коррупции»",
-    "text": "Decree of the President of the Russian Federation No. 925 dated July 21, 2010 On Measures to Implement Certain Provisions of the Federal Law on Combating Corruption",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "0f4cbcd0c194": {
     "src": "Нагин Андрей Юрьевич",
     "text": "Nagin Andrey Yurievich",
@@ -578,12 +476,6 @@
   "0f56f17ca3f5": {
     "src": "Проба с нагрузкой сахарозой",
     "text": "Sucrose-loaded sample",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "0f77eb20347c": {
-    "src": "Ходатайство",
-    "text": "The petition",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -629,12 +521,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "1194b8571d87": {
-    "src": "Сведения о доходах, расходах, обязательствах имущественного характера представленные работниками ГБОУ ВПО ОрГМУ Минздрава России за отчетный период с 1 января 2015 года по 31 декабря 2015 года",
-    "text": "Information on income, expenses, and property obligations provided by employees of the GBOU VPO OrGMU of the Ministry of Health of the Russian Federation for the reporting period from January 1, 2015 to December 31, 2015",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "122f9326ff3d": {
     "src": "Порядок проведения личного приёма",
     "text": "The procedure for conducting a personal reception",
@@ -644,12 +530,6 @@
   "12c87c38e945": {
     "src": "Молекулярно-биологическое исследование отделяемого слизистых оболочек женских половых органов на гонококк (Neisseria gonorrhoeae)",
     "text": "Molecular biological examination of secreted mucous membranes of female genital organs for gonococcus (Neisseria gonorrhoeae)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "13196d68496a": {
-    "src": "Указ Президента Российской Федерации от 18 мая 2009 г. № 557 «Об утверждении перечня должностей федеральной государственной службы, при назначении на которые граждане и при замещении которых федеральные государственные служащие обязаны представлять сведения о своих доходах, об имуществе и обязательствах имущественного характера, а также сведения о доходах, об имуществе и обязательствах имущественного характера своих супруги (супруга) и несовершеннолетних детей»",
-    "text": "Decree of the President of the Russian Federation of May 18, 2009 No. 557 \"On Approval of the List of Federal Civil Service Positions, for which Citizens and Federal Civil Servants are required to Provide Information on Their Income, Property and Property-related obligations, as well as information on income, property and property-related obligations of their spouses.\" (spouse) and minor children\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -815,12 +695,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "17ef1d1e6bb2": {
-    "src": "План управления по воспитательной и социальной работе и связям с общественностью по проведению просветительских и воспитательных мероприятий антикоррупционной направленности на 2015-2016 учебный год.",
-    "text": "The plan of the Department of Educational and Social Work and Public Relations for the implementation of educational and educational measures of anti-corruption orientation for the 2015-2016 academic year.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "17feafbf31ef": {
     "src": "Ставка",
     "text": "Bet",
@@ -866,12 +740,6 @@
   "1919c2fed68f": {
     "src": "Симуляционный центр",
     "text": "Simulation Center",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "19682144bd53": {
-    "src": "План мероприятий по противодействию коррупции в ФГБОУ ВО ОрГМУ Минздрава России на 2020-2021 гг",
-    "text": "The action plan for combating corruption in the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation for 2020-2021",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -995,12 +863,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "1c9ea99b8fd9": {
-    "src": "Список победителей и призёров 2026 года",
-    "text": "List of winners and prize-winners in 2026",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "1ca267db3bf4": {
     "src": "Микробиологическое исследование крови на анаэробные микроорганизмы с последующей их идентификацией",
     "text": "Microbiological examination of blood for anaerobic microorganisms with their subsequent identification",
@@ -1064,12 +926,6 @@
   "1eb54707a6a5": {
     "src": "Биология — «Человек и его здоровье»",
     "text": "Biology — \"Man and his Health\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "1eb93e66fb68": {
-    "src": "Положение об олимпиаде",
-    "text": "Regulations on the Olympiad",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -1139,12 +995,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "205c1efe95d7": {
-    "src": "Согласие на обработку персональных данных",
-    "text": "Consent to the processing of personal data",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "20b63b413470": {
     "src": "кафедре микробиологии, вирусологии, иммунологии;",
     "text": "Department of Microbiology, Virology, and Immunology;",
@@ -1154,12 +1004,6 @@
   "20e4f3381859": {
     "src": "с 9.00 по 13.00",
     "text": "from 9.00 to 13.00",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "20eab3fae7bb": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 15 июля 2013 г. № 463н «Об утверждении порядка представления гражданами, претендующими на замещение должностей, и работниками, замещающими должности в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, сведений о своих доходах, расходах, об имуществе и обязательствах имущественного характера, а также сведений о доходах, расходах, об имуществе и обязательствах имущественного характера своих супруги (супруга) и несовершеннолетних детей»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 463n dated July 15, 2013 \"On Approval of the Procedure for Citizens Applying for Positions and Employees Holding Positions in Organizations Established to Perform Tasks Assigned to the Ministry of Health of the Russian Federation to Provide Information about their Income, Expenses, Property and Property Obligations, as well as information about the income, expenses, property and property obligations of their spouse and minor children\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -1178,12 +1022,6 @@
   "216ed93fb2a4": {
     "src": "Отправка с этого сайта пока не подключена. Действующая форма отправки обращения университета —",
     "text": "Sending from this site is not enabled yet. The current form of sending the university's application —",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "217f895e4bf3": {
-    "src": "Оформление титульного листа автореферата",
-    "text": "Design of the title page of the abstract",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -1217,12 +1055,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "22b8ffbaab1c": {
-    "src": "Указ Президента Российской Федерации от 11 апреля 2014 № 226 \"О Национальном плане противодействия коррупции на 2014-2015 годы»",
-    "text": "Decree of the President of the Russian Federation dated April 11, 2014 No. 226 \"On the National Anti-Corruption Plan for 2014-2015\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "22eafff3ecb5": {
     "src": "Общественный совет по НОК",
     "text": "Public Council for NOC",
@@ -1238,12 +1070,6 @@
   "235014807920": {
     "src": "Глюкозотолерантный тест",
     "text": "Glucose tolerance test",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "2369d4ef8a74": {
-    "src": "Постановление Правительства Российской Федерации от 09.01.2014 № 10 «О порядке сообщения отдельными категориями лиц о получении подарка в связи с их должностным положением или исполнением ими служебных (должностных) обязанностей, сдачи и оценки подарка, реализации (выкупа) и зачисления средств, вырученных от его реализации» (вместе с «Типовым положением о сообщении отдельными категориями лиц о получении подарка в связи с их должностным положением или исполнением ими служебных (должностных) обязанностей, сдаче и оценке подарка, реализации (выкупе) и зачислении средств, вырученных от его реализации»)»",
-    "text": "Decree of the Government of the Russian Federation dated 09.01.2014 No. 10 \"On the Procedure for Notifying Certain Categories of Persons about receiving a Gift in connection with their Official Position or Performance of their Official (official) Duties, handing over and Evaluating the gift, Selling (Repurchasing) and Crediting the Proceeds from its sale\" (together with the \"Model Regulation on the notification of Individual categories of persons about receiving a gift in connection with their official position or the performance of their official (official) duties, handing over and evaluating the gift, selling (buying back) and crediting the proceeds from its sale\")\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -1271,12 +1097,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "240d7af1a51c": {
-    "src": "Указ Президента Российской Федерации от 13 марта 2012 г. № 297 «О Национальном плане противодействия коррупции на 2012-2013 годы и внесении изменений в некоторые акты Президента Российской Федерации по вопросам противодействия коррупции»",
-    "text": "Decree of the President of the Russian Federation No. 297 dated March 13, 2012 \"On the National Anti-Corruption Plan for 2012-2013 and Amendments to Certain Acts of the President of the Russian Federation on Anti-Corruption issues\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "241cae27e9f9": {
     "src": "Осмоляльность плазмы",
     "text": "Plasma osmolality",
@@ -1286,12 +1106,6 @@
   "248c09cddbfe": {
     "src": "Что нужно сделать",
     "text": "What needs to be done",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "24f389bda7a3": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 31 июля 2015 г. № 509н «О порядке уведомления работодателя (его представителя) о фактах обращения в целях склонения работников, замещающих отдельные должности на основании трудового договора в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, к совершению коррупционных правонарушений»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 509n dated July 31, 2015 \"On the Procedure for Notifying an Employer (his Representative) of the Facts of appeals for the Purpose of inducing Employees holding Certain Positions on the Basis of an Employment Contract in organizations established to Perform Tasks assigned to the Ministry of Health of the Russian Federation to commit Corruption offenses\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -1331,12 +1145,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "25ccea01e923": {
-    "src": "Требования к содержанию и оформлению",
-    "text": "Requirements for content and design",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "25cd8e3ae47d": {
     "src": "Вынуть пробирку из держателя",
     "text": "Remove the tube from the holder",
@@ -1346,12 +1154,6 @@
   "25d37afc1895": {
     "src": "Куда",
     "text": "Where",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "25efbe23549b": {
-    "src": "Сведения о доходах, расходах, об имуществе и обязательствах имущественного характера, представленные работниками ФГБОУ ВО «Оренбургский государственный медицинский университет» Министерства здравоохранения Российской Федерации за отчетный период с 01 января 2019 года по 31 декабря 2019 года.",
-    "text": "Information on income, expenses, property and property-related obligations provided by employees of the Orenburg State Medical University of the Ministry of Health of the Russian Federation for the reporting period from January 01, 2019 to December 31, 2019.",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -1454,12 +1256,6 @@
   "28df7d495748": {
     "src": "Архив защит",
     "text": "Protection Archive",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "28fad89278f8": {
-    "src": "Федеральный закон от 7 мая 2013 № 102-ФЗ «О внесении изменений в отдельные законодательные акты Российской Федерации в связи с принятием Федерального закона «О запрете отдельным категориям лиц открывать и иметь счета (вклады), хранить наличные денежные средства и ценности в иностранных банках, расположенных за пределами территории Российской Федерации, владеть и (или) пользоваться иностранными финансовыми инструментами»",
-    "text": "Federal Law No. 102-FZ of May 7, 2013 On Amendments to Certain Legislative Acts of the Russian Federation in Connection with the Adoption of the Federal Law Prohibiting Certain Categories of Persons from Opening and Maintaining Accounts (Deposits), Storing Cash and Valuables in Foreign Banks Located Outside the Territory of the Russian Federation, Owning and (or) use foreign financial instruments\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -1661,12 +1457,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "30a44ffb901e": {
-    "src": "Положение об антикоррупционной политике университета",
-    "text": "Regulation on the University's Anti-Corruption Policy",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "30ce72ee087a": {
     "src": "При личном приёме гражданин предъявляет документ, удостоверяющий личность",
     "text": "At a personal reception, a citizen presents an identity document.",
@@ -1712,12 +1502,6 @@
   "32be1ac911b4": {
     "src": "Выпускникам",
     "text": "Graduates",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "32c3b657d327": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 31 июля 2015 г. № 508н «О распространении на работников, замещающих отдельные должности на основании трудового договора в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, ограничений, запретов и обязанностей»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 508n dated July 31, 2015 \"On the Extension of Restrictions, Prohibitions and Duties to Employees holding Certain Positions on the Basis of an Employment Contract in Organizations Established to Perform Tasks Assigned to the Ministry of Health of the Russian Federation\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -1895,27 +1679,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "377bf7267931": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 19 апреля 2016 г. №241н «Об утверждении Порядка представления гражданами, претендующими на замещение должностей, и работниками, замещающими должности в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, сведений о своих доходах, расходах, об имуществе и обязательствах имущественного характера, а также сведений о доходах, расходах, об имуществе и обязательствах имущественного характера своих супруги (супруга) и несовершеннолетних детей»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 241n dated April 19, 2016 \"On Approval of the Procedure for Citizens Applying for Positions and Employees Holding Positions in Organizations Established to Perform Tasks Assigned to the Ministry of Health of the Russian Federation to Provide Information on Their Income, Expenses, Property and Property Obligations, as well as information about the income, expenses, property and property obligations of their spouse and minor children\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "378151a2d7e4": {
-    "src": "Указ Президента Российской Федерации от 15.07.2015 № 364 «О мерах по совершенствованию организации деятельности в области противодействия коррупции»",
-    "text": "Decree of the President of the Russian Federation dated 07/15/2015 No. 364 \"On measures to improve the organization of activities in the field of combating corruption\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "3789b3997a0a": {
     "src": "Архив",
     "text": "Archive",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "37bdcd9a24b5": {
-    "src": "Форма заключения диссовета_Приложение N 4",
-    "text": "The form of the conclusion of the dissociation_application N 4",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -1964,18 +1730,6 @@
   "393c3cf4d22d": {
     "src": "Определение количества антител к HBs-антигену вируса гепатита B в сыворотке крови (при групповой постановке не менее 5 проб)",
     "text": "Determination of the amount of antibodies to hepatitis B virus HBs antigen in blood serum (with a group of at least 5 samples)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "393ccdb7f337": {
-    "src": "Постановление Правительства Российской Федерации от 13.03.2013 № 207 «Об утверждении Правил проверки достоверности и полноты сведений о доходах, об имуществе и обязательствах имущественного характера, представляемых гражданами, претендующими на замещение должностей руководителей федеральных государственных учреждений, и лицами, замещающими эти должности»",
-    "text": "Decree of the Government of the Russian Federation No. 207 dated 13.03.2013 \"On Approval of the Rules for Verifying the Accuracy and Completeness of Information on Income, Property and Property-related Obligations Submitted by Citizens Applying for Positions of Heads of Federal Government Institutions and Persons holding these Positions\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "396b02c41ee7": {
-    "src": "Список публикаций",
-    "text": "List of publications",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2033,18 +1787,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "3ae5fe77457b": {
-    "src": "\"Кодекс этики и служебного поведения работников университета\"",
-    "text": "\"Code of Ethics and Professional Conduct of University employees\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "3b4d1e749e84": {
-    "src": "Приказ №573 от 13.03.2019 г. О внесении изменений в приказ №1913 от 23.10.2017г. «Об утверждении состава комиссии по противодействию коррупции в ФГБОУ ВО ОрГМУ Минздрава России»",
-    "text": "Order No. 573 dated 13.03.2019 On Amendments to Order No. 1913 dated 10/23/2017 \"On Approval of the Composition of the Anti-Corruption Commission at the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "3b5e9f0ece44": {
     "src": "Молекулярно-биологическое исследование отделяемого из цервикального канала на вирус простого герпеса 1 и 2 типов (Herpes simplex virus types 1, 2)",
     "text": "Molecular biological examination of discharge from the cervical canal for herpes simplex virus types 1 and 2 (Herpes simplex virus types 1, 2)",
@@ -2081,12 +1823,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "3c6f78ee5a85": {
-    "src": "Межрегиональная олимпиада исследовательских работ «Путь в медицину» 2021–2022",
-    "text": "Interregional Olympiad of research papers \"Path to Medicine\" 2021-2022",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "3c9f37ecb777": {
     "src": "Схемы охраны, состав сил и средств",
     "text": "Security schemes, composition of forces and means",
@@ -2105,21 +1841,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "3d48e6ae2b6f": {
-    "src": "Постановление Правительства Российской Федерации от 21.01.2015 № 29 «Об утверждении Правил сообщения работодателем о заключении трудового или гражданско-правового договора на выполнение работ (оказание услуг) с гражданином, замещавшим должности государственной или муниципальной службы, перечень которых устанавливается нормативными правовыми актами Российской Федерации»",
-    "text": "Decree of the Government of the Russian Federation dated January 21, 2015 No. 29 \"On Approval of the Rules for Notification by an Employer of the Conclusion of an Employment or Civil Law Contract for the performance of work (Provision of services) with a Citizen who held positions of State or municipal Service, the list of which is established by regulatory legal acts of the Russian Federation\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "3daaaaa2cebd": {
     "src": "CD20-лимфоциты - зрелые В-лимфоциты;",
     "text": "CD20 lymphocytes are mature B lymphocytes;",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "3dbb8e1b7554": {
-    "src": "План по противодействию коррупции ФГБОУ ВО ОрГМУ Минздрава России на 2025-2026 гг.",
-    "text": "The Anti-Corruption Plan of the Ministry of Health of the Russian Federation for 2025-2026.",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2189,33 +1913,15 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "3f924d87dd4c": {
-    "src": "Сведения о ведущей организации",
-    "text": "Information about the leading organization",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "3fa848776283": {
     "src": "Микробиологическое исследование отделяемого зева и носа на носительство патогенного стафилококка (при отсутствии микроорганизмов)(основное исследование)",
     "text": "Microbiological examination of the pharynx and nasal discharge for carriage of pathogenic staphylococcus (in the absence of microorganisms) (main study)",
     "status": "machine",
     "at": "2026-07-22"
   },
-  "40c6f9f2c4fb": {
-    "src": "План мероприятий антикоррупции ОрГМУ на период 01.11.2021- 31.12.2024 С ИЗМЕНЕНИЕМ от января 2024",
-    "text": "OrGMU Anti-corruption Action Plan for the period 01.11.2021- 31.12.2024 AS AMENDED from January 2024",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "4109d26c7c8a": {
     "src": "Микробиологический анализ на определение стерильности (инструментарий- перевязочный материал)",
     "text": "Microbiological analysis to determine sterility (instrumentation- dressing material)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "41179c4566ae": {
-    "src": "План управления по воспитательной и социальной работе по проведению просветительских и воспитательных мероприятий антикоррупционной направленности на 2014-2015 учебный год.",
-    "text": "The plan of the Department of Educational and Social Work for the implementation of educational and educational measures of anti-corruption orientation for the 2014-2015 academic year.",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2240,12 +1946,6 @@
   "42220f2e8895": {
     "src": "Микробиологическое исследование ногтевого спила- кожи- волос на возбудителей дерматомикозов (при отсутствии микроорганизмов)(основное исследование)",
     "text": "Microbiological examination of nail saw-skin-hair for dermatomycosis pathogens (in the absence of microorganisms) (main study)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "4231b2837fc0": {
-    "src": "Список документов,представляемых соискателем в диссертационный совет",
-    "text": "List of documents submitted by the applicant to the dissertation Council",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2276,12 +1976,6 @@
   "42f12784da5f": {
     "src": "30 дней со дня регистрации обращения (Федеральный закон № 59-ФЗ). Если для ответа нужен запрос в другие организации, срок может быть продлён не более чем на 30 дней — об этом заявителя уведомляют.",
     "text": "30 days from the date of registration of the application (Federal Law No. 59-FZ). If a request to other organizations is needed to respond, the deadline can be extended by no more than 30 days. The applicant will be notified about this.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "4372ff63f0b9": {
-    "src": "Информационное письмо о предметной олимпиаде «Основы общей и коммунальной гигиены»",
-    "text": "Information letter about the subject Olympiad \"Fundamentals of general and communal hygiene\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2351,12 +2045,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "45d65f55540e": {
-    "src": "План управления по воспитательной и социальной работе и связям с общественностью по проведению просветительских и воспитательных мероприятий антикоррупционной направленности на 2016-2017 учебный год",
-    "text": "The plan of the Department of Educational and Social Work and Public Relations for the implementation of educational and educational measures of anti-corruption orientation for the 2016-2017 academic year",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "45d7d3828d72": {
     "src": "ПЦР исследования",
     "text": "PCR studies",
@@ -2393,12 +2081,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "47091585dfb8": {
-    "src": "Сведения о доходах, расходах, об имуществе и обязательствах имущественного характера, представленные работниками ФГБОУ ВО «Оренбургский государственный медицинский университет» Министерства здравоохранения Российской Федерации за отчетный период с 01 января 2020 года по 31 декабря 2020 года.",
-    "text": "Information on income, expenses, property and property-related obligations provided by employees of the Orenburg State Medical University of the Ministry of Health of the Russian Federation for the reporting period from January 01, 2020 to December 31, 2020.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "47251012aecb": {
     "src": "Кровь сдавать строго в утренние часы",
     "text": "Blood should be given strictly in the morning",
@@ -2426,12 +2108,6 @@
   "4831a2241a5a": {
     "src": "Извещения о закупках",
     "text": "Purchase notifications",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "485351e6df1c": {
-    "src": "Прайс лабораторная диагностика",
-    "text": "Price list for laboratory diagnostics",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2468,12 +2144,6 @@
   "49817c808992": {
     "src": "Общий анализ крови",
     "text": "General blood test",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "49d031875d5a": {
-    "src": "Список научных трудов по диссертации -(образец)",
-    "text": "List of scientific papers on the dissertation -(sample)",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2516,12 +2186,6 @@
   "4b2138d5dc55": {
     "src": "Закупки",
     "text": "Purchases",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "4b54b6c6d0b2": {
-    "src": "Указ Президента Российской Федерации от 08.03.2015 № 120 «О некоторых вопросах противодействия коррупции»",
-    "text": "Decree of the President of the Russian Federation dated 08.03.2015 No. 120 \"On certain anti-corruption issues\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2609,12 +2273,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "4e1736653749": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 6 ноября 2012 г. № 580н «О перечне должностей федеральной государственной гражданской службы Министерства здравоохранения Российской Федерации, при назначении на которые граждане и при замещении которых федеральные государственные гражданские служащие обязаны представлять сведения о своих доходах, об имуществе и обязательствах имущественного характера, а также сведения о доходах, об имуществе и обязательствах имущественного характера своих супруги (супруга) и несовершеннолетних детей»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 580n dated November 6, 2012 \"On the List of Positions of the Federal State Civil Service of the Ministry of Health of the Russian Federation, for which Citizens and Federal Government Civil Servants are Required to Provide Information on their income, Property and Property Obligations, as well as Information on income, property and the property obligations of their spouse and minor children\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "4e37cf5a5f5b": {
     "src": "Антистрептолизин О (латексный метод) в сыворотке крови",
     "text": "Antistreptolysin O (latex method) in blood serum",
@@ -2651,12 +2309,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "4f3bb607cb77": {
-    "src": "Приказ 88 от 25.01.2024 О внесении Изменений №1 в приказ № 707 от 01.04.2022 г. Об утверждении Карты коррупционных рисков ФГБОУ ВО ОрГМУ Минздрава России и мер по их минимизации.",
-    "text": "Order 88 dated 01/25/2024 On Amendments No. 1 to Order No. 707 dated 04/01/2022 On Approval of the Corruption Risk Map of the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation and Measures to Minimize Them.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "4f58df622211": {
     "src": "Сведения о доходах, расходах и имуществе",
     "text": "Information about income, expenses and property",
@@ -2675,18 +2327,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "4f8b23f3ca00": {
-    "src": "Сведения о доходах, расходах, обязательствах имущественного характера представленные работниками ГБОУ ВПО ОрГМУ Минздрава России за отчетный период с 1 января 2016 года по 31 декабря 2016 года",
-    "text": "Information on income, expenses, and property obligations provided by employees of the GBOU VPO OrGMU of the Ministry of Health of the Russian Federation for the reporting period from January 1, 2016 to December 31, 2016",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "4f8b80530b49": {
-    "src": "Приказ № 1913 от 23.10.2017 г. Об утверждении состава комиссии по противодейсвию коррупции в ФГБОУ ВО ОрГМУ Минздрава России",
-    "text": "Order No. 1913 dated 23.10.2017 On approval of the composition of the Anti-corruption Commission in the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "4fcd1de5ec61": {
     "src": "Определение железосвязывающей способности ОЖСС",
     "text": "Determination of the iron binding capacity of the OGCC",
@@ -2702,18 +2342,6 @@
   "4ffd90968859": {
     "src": "За 1-2 дня до исследования исключить из рациона продукты с высоким содержанием жиров. За 2 дня до сдачи крови на вирусные гепатиты исключить из рациона цитрусовые, оранжевые фрукты и овощи",
     "text": "Exclude high-fat foods from the diet 1-2 days before the study. Exclude citrus fruits, orange fruits and vegetables from the diet 2 days before blood donation for viral hepatitis",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "5016bf9c4e33": {
-    "src": "Акт внедрения",
-    "text": "The act of implementation",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "503b829d3dcc": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 19 апреля 2016 г. № 243н «О внесении изменений в Положение о проверке достоверности и полноты сведений, предоставляемых гражданами, претендующими на замещение отдельных должностей, и работниками, замещающими отдельные должности на основании трудового договора в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, утвержденного приказом Министерства здравоохранения Российской Федерации от 15 июля 2013 г. № 464н»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 243n dated April 19, 2016 \"On Amendments to the Regulation on Verifying the Accuracy and Completeness of Information Provided by Citizens Applying for Certain Positions and Employees Filling Certain Positions on the Basis of an Employment Contract in Organizations Established to Fulfill the Tasks Assigned to the Ministry of Health of the Russian Federation, approved by by Order of the Ministry of Health of the Russian Federation No. 464n dated July 15, 2013\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2738,12 +2366,6 @@
   "5128513fe4e5": {
     "src": "3.Биохимические исследования",
     "text": "3. Biochemical research",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "5145a38d5292": {
-    "src": "Приказ №1323 от 11.06.19 О внесении изменении в раздел 5 Положения «Об антикоррупционной политики университета»изменении в раздел 5 Положения «Об антикоррупционной политики университета»",
-    "text": "Order No. 1323 dated 11.06.19 On Amendments to Section 5 of the Regulation \"On the Anti-Corruption Policy of the University\"amendments to Section 5 of the Regulation \"On the Anti-Corruption Policy of the University\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2777,12 +2399,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "52a384bd3cf9": {
-    "src": "УГОЛОВНЫЙ КОДЕКС РОССИЙСКОЙ ФЕДЕРАЦИИ. Статья 290. Получение взятки.",
-    "text": "THE CRIMINAL CODE OF THE RUSSIAN FEDERATION. Article 290. Receiving a bribe.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "5328623ef9c2": {
     "src": "Правила приёма",
     "text": "Admission rules",
@@ -2798,12 +2414,6 @@
   "535b842b4844": {
     "src": "Диссертационные советы созданы на базе ФГБОУ ВО ОрГМУ Минздрава России и проводят защиту диссертаций на соискание учёной степени кандидата и доктора наук по закреплённым за ними специальностям.",
     "text": "Dissertation councils are established on the basis of the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation and defend dissertations for the degree of candidate and Doctor of Sciences in their assigned specialties.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "5375337a13b6": {
-    "src": "Приказ 1838 от 08.12.2025 Об утверждении состава комиссии по противод.коррупции ОрГМУ",
-    "text": "Order 1838 of 12/08/2025 On the approval of the composition of the Commission on anti-corruption.corruption OrGMU",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -2915,12 +2525,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "56aeca12b68c": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 25 июня 2014 г. № 320н «Об утверждении перечня должностей, замещение которых влечет за собой размещение сведений о доходах, расходах, об имуществе и обязательствах имущественного характера федеральных государственных гражданских служащих Министерства здравоохранения Российской Федерации и работников, замещающих должности на основании трудового договора в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, а также сведений о доходах, расходах, об имуществе и обязательствах имущественного характера их супруг (супругов) и несовершеннолетних детей на официальном сайте Министерства здравоохранения Российской Федерации в информационно-телекоммуникационной сети «Интернет»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 320n dated June 25, 2014 \"On Approval of the List of Positions, the Replacement of which entails the Posting of Information on Income, Expenses, Property and Property Obligations of Federal Government Civil Servants of the Ministry of Health of the Russian Federation and employees Filling positions on the basis of an Employment Contract in organizations established to perform tasks submitted to the Ministry of Health of the Russian Federation, as well as information on income, expenses, property and property obligations of their spouses and minor children on the official website of the Ministry of Health of the Russian Federation on the Internet information and telecommunications network",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "571e82074882": {
     "src": "Федеральный закон от 29.12.2012 № 273-ФЗ «Об образовании в Российской Федерации»",
     "text": "Federal Law No. 273-FZ dated December 29, 2012 \"On Education in the Russian Federation\"",
@@ -2954,12 +2558,6 @@
   "57cb7734cb6b": {
     "src": "8 (3532) 500-606, доб. 638–640",
     "text": "8 (3532) 500-606, ext. 638-640",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "5851dc18d6ab": {
-    "src": "Уведомление работодателя о фактах обращения в целях склонения работников организаций, созданных для выполнения задач, поставленных перед Минздравом России, к совершению коррупционных правонарушений",
-    "text": "Notifying the employer of the facts of applying for the purpose of inducing employees of organizations created to perform tasks assigned to the Ministry of Health of the Russian Federation to commit corruption offenses",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3047,21 +2645,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "5a72d599b1c4": {
-    "src": "Согласие на обработку и публикацию персональных данных",
-    "text": "Consent to the processing and publication of personal data",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "5a9383c5b2e6": {
     "src": "Определение количества антител к HBs-антигену вируса гепатита B в сыворотке крови (при единичной постановке)",
     "text": "Determination of the amount of antibodies to hepatitis B virus HBs antigen in blood serum (with a single diagnosis)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "5b6c0809fd3a": {
-    "src": "Федеральный закон от 25 декабря 2008 г. № 273-ФЗ «О противодействии коррупции»",
-    "text": "Federal Law No. 273-FZ of December 25, 2008 \"On Combating Corruption\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3095,12 +2681,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "5c598f45e1f0": {
-    "src": "Сведения о дополнительных членах диссовета",
-    "text": "Information about additional members of the dissertation Council",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "5cd4659f98eb": {
     "src": "За 3 дня до теста отменить тиазидные диуретики, контрацептивы и глюкокортикоиды (по согласованию с врачом)",
     "text": "Discontinue thiazide diuretics, contraceptives, and glucocorticoids 3 days before the test (in consultation with your doctor)",
@@ -3122,12 +2702,6 @@
   "5d2ce1b50554": {
     "src": "Микробиологический анализ общих колиморфных бактерий (БГКП) методом смывов",
     "text": "Microbiological analysis of common colimorphic bacteria (BGCP) by flushing method",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "5d4327de20bf": {
-    "src": "Форма заключения организации",
-    "text": "Organization's conclusion form",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3191,45 +2765,15 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "5edd64d48894": {
-    "src": "Постановление Правительства Российской Федерации от 13.03.2013 № 208 «Об утверждении Правил представления лицом, поступающим на работу на должность руководителя федерального государственного учреждения, а также руководителем федерального государственного учреждения сведений о своих доходах, об имуществе и обязательствах имущественного характера и о доходах, об имуществе и обязательствах имущественного характера и о доходах, об имуществе и обязательствах имущественного характера своих супруга (супруги) и несовершеннолетних детей»",
-    "text": "Decree of the Government of the Russian Federation No. 208 dated 13.03.2013 \"On Approval of the Rules for the Submission by a Person Applying for a Position as Head of a Federal State Institution, as well as by the Head of a Federal State Institution, of Information on Their Income, Property and Property-Related Obligations and Income, Property and Property-Related Obligations property rights of their spouse and minor children\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "5f2fbe2d4bb8": {
     "src": "Содержание",
     "text": "Content",
     "status": "machine",
     "at": "2026-07-22"
   },
-  "5f35dc98bff5": {
-    "src": "Отзыв официального оппонента",
-    "text": "Official opponent's review",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "5f492383cb71": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 12 мая 2016 г. № 290 «Об утверждении Плана Министерства здравоохранения Российской Федерации по противодействию коррупции на 2016-2017 годы»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 290 dated May 12, 2016 \"On Approval of the Anti-Corruption Plan of the Ministry of Health of the Russian Federation for 2016-2017\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "5f5fab229cb2": {
-    "src": "Заявка на участие",
-    "text": "Application for participation",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "5f993450ce64": {
     "src": "Определение иммуноглобулинов класса G к антигенам описторхисов- трихинелл- токсокар и эхинококков в сыворотке крови (при единичной постановке)",
     "text": "Determination of class G immunoglobulins to opisthorchiasis-trichinella-toxocara and echinococcal antigens in blood serum (with a single diagnosis)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "5f9b6eba4ec3": {
-    "src": "Справка к справке о доходах, об имуществе и обязательствах имущественного характера, содержащей сведения о счетах (вкладах) и наличных денежных средствах в иностранных банках, расположенных за пределами Российской Федерации, государственных ценных бумагах иностранных государств, облигациях и акциях иных иностранных эмитентов, о недвижимом имуществе, находящемся за пределами территории Российской Федерации",
-    "text": "A certificate of income, property, and property-related obligations containing information on accounts (deposits) and cash in foreign banks located outside the Russian Federation, government securities of foreign states, bonds and shares of other foreign issuers, and real estate located outside the territory of the Russian Federation",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3263,12 +2807,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "60ca79724f1e": {
-    "src": "Указ Президента Российской Федерации от 21 сентября 2009 г. № 1065 «О проверке достоверности и полноты сведений, представляемых гражданами, претендующими на замещение должностей федеральной государственной службы, и федеральными государственными служащими, и соблюдения федеральными государственными служащими требований к служебному поведению»",
-    "text": "Decree of the President of the Russian Federation No. 1065 dated September 21, 2009 \"On Verifying the Accuracy and Completeness of Information Provided by Citizens Applying for Positions in the Federal Civil Service and Federal Civil Servants, and Compliance by Federal Civil Servants with the Requirements for Official Conduct\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "612a38cdc933": {
     "src": "Организационно-аналитический отдел",
     "text": "Organizational and Analytical Department",
@@ -3278,12 +2816,6 @@
   "615eaf7292a2": {
     "src": "Специальная оценка условий труда проводится в соответствии с Федеральным законом от 28.12.2013 № 426-ФЗ «О специальной оценке условий труда». Работодатель обязан размещать на своём официальном сайте сводные данные о результатах СОУТ и перечень мероприятий по улучшению условий и охраны труда.",
     "text": "Special assessment of working conditions is carried out in accordance with Federal Law No. 426-FZ dated December 28, 2013 \"On Special assessment of working conditions\". The employer is obliged to post on its official website summary data on the results of the SOT and a list of measures to improve working conditions and safety.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "6172149b3a27": {
-    "src": "Указ Президента Российской Федерации от 13 апреля 2010 г. № 460 «О Национальной стратегии противодействия коррупции и Национальном плане противодействия коррупции на 2010 - 2011 годы»",
-    "text": "Decree of the President of the Russian Federation No. 460 dated April 13, 2010 \"On the National Anti-Corruption Strategy and the National Anti-Corruption Plan for 2010 - 2011\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3302,12 +2834,6 @@
   "6246540c4813": {
     "src": "Приказы и локальные акты",
     "text": "Orders and local acts",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "6261beaa4c76": {
-    "src": "П 200.01-2024 О комиссии по соблюдению требований к служебному поведению и урегулированию конфликта интересов",
-    "text": "N 200.01-2024 On the Commission for Compliance with the Requirements for Official Conduct and Conflict of Interest Resolution",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3401,12 +2927,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "6591991186f6": {
-    "src": "Указ Президента Российской Федерации от 18 мая 2009 г. № 559 «О представлении гражданами, претендующими на замещение должностей федеральной государственной службы, и федеральными государственными служащими сведений о доходах, об имуществе и обязательствах имущественного характера»",
-    "text": "Decree of the President of the Russian Federation No. 559 of May 18, 2009 \"On the Submission by Citizens Applying for Positions in the Federal Civil Service and Federal Civil Servants of Information on Income, Property and Property-related obligations\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "65ba3a44fbca": {
     "src": "Тиреотропный гормон (ТТГ)",
     "text": "Thyroid-stimulating hormone (TSH)",
@@ -3422,12 +2942,6 @@
   "66914e8a3770": {
     "src": "Определение специфического Т-клеточного иммунитета к антигенам SARS-CoV-2",
     "text": "Determination of specific T-cell immunity to SARS-CoV-2 antigens",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "66973add5bde": {
-    "src": "Правила предоставления платных медицинских услуг",
-    "text": "Rules for the provision of paid medical services",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3458,18 +2972,6 @@
   "6733cb7f7558": {
     "src": "АКТГ, кортизол",
     "text": "ACTH, cortisol",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "6775b06aa2ea": {
-    "src": "Профилактика коррупции",
-    "text": "Prevention of corruption",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "67b513c17300": {
-    "src": "Олимпиада «Будущее медицины» 2024",
-    "text": "Olympiad \"The Future of Medicine\" 2024",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3581,12 +3083,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "6c2eaffeac22": {
-    "src": "Согласие ведущей организации",
-    "text": "Consent of the leading organization",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "6c61fa8e668e": {
     "src": "Граждане приглашаются на приём в заранее назначенное время",
     "text": "Citizens are invited to the reception at a pre-appointed time.",
@@ -3641,12 +3137,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "6ecd3ae7e88f": {
-    "src": "Межрегиональная олимпиада исследовательских работ «Путь в медицину» 2020–2021",
-    "text": "Interregional Olympiad of research papers \"Path to Medicine\" 2020-2021",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "6ed61c6976f6": {
     "src": "II возрастная группа — 5–7 классы",
     "text": "Age group II — grades 5-7",
@@ -3686,18 +3176,6 @@
   "70b13bb9b5dc": {
     "src": "Мужчины: отведите крайнюю плоть и выпустите небольшое количество мочи в унитаз. Не прекращая мочеиспускание, удерживая крайнюю плоть в отведенном состоянии, наполните мочой контейнер",
     "text": "Men: Pull back the foreskin and release a small amount of urine into the toilet. Without stopping urination, keeping the foreskin in the retracted state, fill the container with urine",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "70d73212c4e1": {
-    "src": "Обращение гражданина, юридического лица по фактам коррупционных правонарушений",
-    "text": "Appeal of a citizen or a legal entity on the facts of corruption offenses",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "70e973cf1482": {
-    "src": "Сведения о доходах, расходах, об имуществе и обязательствах имущественного характера, представленные работниками ФГБОУ ВО «Оренбургский государственный медицинский университет» Министерства здравоохранения Российской Федерации за отчетный период с 01 января 2021 года по 31 декабря 2021 года.",
-    "text": "Information on income, expenses, property and property-related obligations provided by employees of the Orenburg State Medical University of the Ministry of Health of the Russian Federation for the reporting period from January 01, 2021 to December 31, 2021.",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3911,12 +3389,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "777c1c175fb4": {
-    "src": "Обращение бывшего служащего о даче согласия на замещение должности в коммерческой (некоммерческой) организации или выполнение работ на условиях гражданско-правового договора",
-    "text": "An application from a former employee for consent to fill a position in a commercial (non-profit) organization or to perform work under the terms of a civil contract",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "778258d99275": {
     "src": "Пролактин, Макропролактин",
     "text": "Prolactin, Macroprolactin",
@@ -3941,21 +3413,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "780facdb9362": {
-    "src": "Заключение членов комиссии диссовета",
-    "text": "Conclusion of the members of the Dissertation Council commission",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "784f9f1ef055": {
     "src": "Раздел о защите информации и персональных данных в университете, памятках для обучающихся и работников, безопасном поведении в сети.",
     "text": "A section on the protection of information and personal data at the university, memos for students and employees, and safe online behavior.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "7858af840e37": {
-    "src": "Карта коррупционных рисков ФГБОУ ВО ОрГМУ Минздрава России 01.04.2022 С Изм.№1.",
-    "text": "Corruption Risk Map of the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation On 04/01/2022 With Revision No. 1.",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -3974,12 +3434,6 @@
   "789cd3c54fb7": {
     "src": "Определение иммуноглобулинов класса G к эхинококку однокамерному в сыворотке крови (при групповой постановке не менее 5 проб)",
     "text": "Determination of class G immunoglobulins to single-chamber echinococcus in blood serum (with a group of at least 5 samples)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "78c3d5e52e18": {
-    "src": "Федеральный закон от 17 июля 2009 г. № 172-ФЗ «Об антикоррупционной экспертизе нормативных правовых актов и проектов нормативных правовых актов»",
-    "text": "Federal Law No. 172-FZ of July 17, 2009 \"On Anti-Corruption Expertise of Regulatory Legal Acts and Draft Regulatory Legal Acts\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -4019,18 +3473,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "7a1acbf7260b": {
-    "src": "Уведомление представителя нанимателя о фактах обращения в целях склонения федерального государственного служащего к совершению коррупционных правонарушений",
-    "text": "Notification of the employer's representative about the facts of applying for the purpose of inducing a federal civil servant to commit corruption offenses",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "7a71a4f332cc": {
-    "src": "Обзор об антикоррупционной деятельности ОрГМУ за 2014-2016г.",
-    "text": "Review of the anti-corruption activities of OrGMU for 2014-2016.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "7a93c33e3f02": {
     "src": "Согласен на обработку персональных данных",
     "text": "I agree to the processing of personal data",
@@ -4040,12 +3482,6 @@
   "7ac872e948fd": {
     "src": "За 1-2 дня до исследования необходимо соблюдать диету: отказаться от употребления богатой пуринами пищи — печени, почек, а также максимально ограничить в рационе мясо, рыбу, кофе, чай. Противопоказаны интенсивные физические нагрузки",
     "text": "1-2 days before the study, it is necessary to follow a diet: avoid eating purine—rich foods such as liver, kidneys, and limit meat, fish, coffee, and tea as much as possible in the diet. Intense physical activity is contraindicated",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "7c1afe02d73e": {
-    "src": "Заявление принятие диссертации к рассмотрению и защите",
-    "text": "Application acceptance of the dissertation for consideration and defense",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -4124,18 +3560,6 @@
   "7e6b58dc2513": {
     "src": "ул. Советская, 6",
     "text": "Sovetskaya St., 6",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "7eb28cd2c16b": {
-    "src": "П 199.01-2024 Положение о конфликте интересов",
-    "text": "N 199.01-2024 Regulation on conflict of interests",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "7ec4f94febd4": {
-    "src": "КАРТА коррупционных рисков ФГБОУ ВО ОрГМУ Минздрава России",
-    "text": "MAP of corruption risks of the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -4277,12 +3701,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "83771c48885d": {
-    "src": "Указ Президента Российской Федерации от 10.12.2020 № 778",
-    "text": "Decree of the President of the Russian Federation dated 10.12.2020 No. 778",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "838e80c2574a": {
     "src": "Недостаток",
     "text": "Disadvantage",
@@ -4292,12 +3710,6 @@
   "839e57379385": {
     "src": "Оператор",
     "text": "Operator",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "83aa10c2b030": {
-    "src": "Стенограмма-образец",
-    "text": "Sample transcript",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -4355,18 +3767,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "85cedb7d9fdd": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 1 сентября 2014 г. № 487 «О Кодексе этики и служебного поведения федеральных государственных гражданских служащих Министерства здравоохранения Российской Федерации»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 487 dated September 1, 2014 \"On the Code of Ethics and Official Conduct of Federal Government Civil Servants of the Ministry of Health of the Russian Federation\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "85d4e811ee51": {
-    "src": "Указ Президента Российской Федерации от 23.06.2014 № 453 «О внесении изменений в некоторые акты Президента Российской Федерации по вопросам противодействия коррупции»",
-    "text": "Decree of the President of the Russian Federation dated 06/23/2014 No. 453 \"On Amendments to Certain Acts of the President of the Russian Federation on Anti-Corruption Issues\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "85e804ede694": {
     "src": "Что публикуется, а что нет",
     "text": "What is published and what is not",
@@ -4409,12 +3809,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "87317dbd09a6": {
-    "src": "План мероприятий по противодействию коррупции в ФГБОУ ВО ОрГМУ Минздрава России на 2016-2017 г.г.",
-    "text": "The action plan for combating corruption in the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation for 2016-2017",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "87386f0963af": {
     "src": "Определение уровня Ig A,M,G в сыворотке крови",
     "text": "Determination of the level of Ig A,M,G in blood serum",
@@ -4430,12 +3824,6 @@
   "875a6a8b896d": {
     "src": "8 (3532) 500-606, доб. 638, 639, 640",
     "text": "8 (3532) 500-606, ext. 638, 639, 640",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "87814dd9ac3a": {
-    "src": "План мероприятий по противодействию коррупции в ФГБОУ ВО ОрГМУ Минздрава России на 2022-2024 гг",
-    "text": "The action plan for combating corruption in the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation for 2022-2024",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -4559,12 +3947,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "8acfccc33bd6": {
-    "src": "План мероприятий по противодействию коррупции в ФГБОУ ВО ОрГМУ Минздрава России на 2021-2024 гг",
-    "text": "The action plan for combating corruption in the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation for 2021-2024",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "8ad9d865aefc": {
     "src": "Определение гликозилированного гемоглобина в капилярной крови",
     "text": "Determination of glycosylated hemoglobin in capillary blood",
@@ -4595,12 +3977,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "8c06dfd371e3": {
-    "src": "Приказ 87 от 25.01.2024 О внесении изменений в План по противодействию коррупции ФГБОУ ВО ОрГМУ Минздрава России на период с 01.11.2021г. до 31.12.2024г.",
-    "text": "Order 87 dated 01/25/2024 On Amendments to the Anti-Corruption Plan of the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation for the Period from 11/01/2021 to 12/31/2024.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "8c0a692355f3": {
     "src": "14 февраля 2026, 12:00",
     "text": "February 14, 2026, 12:00 p.m.",
@@ -4616,12 +3992,6 @@
   "8cd48c61c163": {
     "src": "Холестирин ЛПНП",
     "text": "LDL cholesterol",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "8cd5434241d7": {
-    "src": "Заявление на размещение диссертации на сайте",
-    "text": "Application for the publication of the dissertation on the website",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -4757,12 +4127,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "90094dc8287a": {
-    "src": "Акт проверки достоверности первичной документации",
-    "text": "The act of verifying the authenticity of primary documentation",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "908f362a4c29": {
     "src": "Даты утверждения отчётов",
     "text": "Report approval dates",
@@ -4829,12 +4193,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "926dbf812114": {
-    "src": "Приказ № 1914 от 23.10.2017 г. Об организации работы с обращениями по вопросам противодействия коррупции в ФГБОУ ВО ОрГМУ Минздрава России",
-    "text": "Order No. 1914 dated 23.10.2017 About the organization of work with appeals on anti-corruption issues in the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "929a62f12190": {
     "src": "1 балл — участнику второго очного этапа, набравшему на этом этапе ненулевое количество баллов по каждому из предметов",
     "text": "1 point is awarded to the participant of the second face—to-face stage who scored a non-zero number of points in each of the subjects at this stage.",
@@ -4877,21 +4235,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "94edfcfcbfda": {
-    "src": "Список призёров «Путь в медицину» 2026",
-    "text": "The list of winners of the Path to Medicine 2026",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "952637da3b94": {
     "src": "Если возникают трудности с отменой лекарств, обязательно сообщить об этом лечащему врачу",
     "text": "If you have difficulty canceling medications, be sure to inform your doctor about this.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "95801a5ef9f1": {
-    "src": "Отзыв ведущей организации",
-    "text": "Review of the leading organization",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -4904,12 +4250,6 @@
   "959a44d74e4e": {
     "src": "Взятие крови проводится строго натощак: от момента последнего приема пищи должно пройти не менее 8 часов (желательно не менее 12 часов). Разрешается пить воду (не минеральная, негазированная). Запрещается употреблять сок, чай, кофе. За 2-3 дня до исследования не переедать, особенно жирную пищу. Исключить алкоголь, интенсивные физические нагрузки, не посещать сауну, баню",
     "text": "Blood collection is carried out strictly on an empty stomach: at least 8 hours must have passed since the last meal (preferably at least 12 hours). It is allowed to drink water (non-mineral, non-carbonated). It is forbidden to drink juice, tea, coffee. 2-3 days before the study, do not overeat, especially fatty foods. Exclude alcohol, intense physical activity, do not visit the sauna, steam room",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "95b4fcf01020": {
-    "src": "УГОЛОВНЫЙ КОДЕКС РОССИЙСКОЙ ФЕДЕРАЦИИ. Статья 291. Дача взятки.",
-    "text": "THE CRIMINAL CODE OF THE RUSSIAN FEDERATION. Article 291. Giving a bribe.",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -4955,12 +4295,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "96bee13a7a76": {
-    "src": "Регламент творческого конкурса «Моё призвание — медицина» 2025–2026",
-    "text": "Rules of the creative contest \"My vocation is medicine\" 2025-2026",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "96e2e5ea6643": {
     "src": "Если решение вопроса не входит в компетенцию университета, гражданину разъясняется, куда следует обратиться",
     "text": "If the issue is not within the competence of the university, it is explained to the citizen where to apply.",
@@ -4991,12 +4325,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "983fd795702d": {
-    "src": "Указ Президента Российской Федерации от 8 июля 2013 № 613 «Вопросы противодействия коррупции» (вместе с «Порядком размещения сведений о доходах, расходах, об имуществе и обязательствах имущественного характера отдельных категорий лиц и членов их семей на официальных сайтах федеральных государственных органов, органов государственной власти субъектов Российской Федерации и организаций и предоставления этих сведений общероссийским средствам массовой информации для опубликования»)",
-    "text": "Decree of the President of the Russian Federation dated July 8, 2013 No. 613 \"Anti-corruption issues\" (together with the \"Procedure for posting information on income, expenses, property and property obligations of certain categories of persons and their family members on the official websites of federal government agencies, government authorities of the subjects of the Russian Federation and organizations and providing this information to the all-Russian to the mass media for publication\")",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "9870437e702b": {
     "src": "Способ",
     "text": "Way",
@@ -5006,12 +4334,6 @@
   "988abcbf03b3": {
     "src": "3. Необходимо помнить, что результат ТТГ может быть искажен действием принимаемых лекарственных препаратов или продуктами их метаболизма. Перед сдачей крови на анализ следует проконсультироваться у лечащего врача о возможности ограничения приема лекарственных препаратов в период подготовки к исследованию. Рекомендуется отказ от приема лекарственных препаратов, включая БАД, перед исследованием. При невозможности отказа от приема лекарств, следует сообщить наименование препарата и время его последнего приема при сдаче крови",
     "text": "3. It must be remembered that the TSH result may be distorted by the effect of medications taken or by the products of their metabolism. Before donating blood for analysis, you should consult your doctor about the possibility of limiting medication intake during the preparation period for the study. It is recommended to stop taking medications, including dietary supplements, before the study. If it is impossible to stop taking medications, you should provide the name of the drug and the time of its last intake during blood donation.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "98ad3214635a": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 19 апреля 2016 г. № 242н «О перечне должностей федеральной государственной гражданской службы Министерства здравоохранения Российской Федерации, при замещении которых федеральные государственные гражданские служащие обязаны представлять сведения о своих доходах, об имуществе и обязательствах имущественного характера, а также сведения о доходах, об имуществе и обязательствах имущественного характера своих супруги (супруга) и несовершеннолетних детей»",
-    "text": "Order No. 242n of the Ministry of Health of the Russian Federation dated April 19, 2016 \"On the List of Positions of the Federal State Civil Service of the Ministry of Health of the Russian Federation, in which Federal Government Civil Servants are required to Provide Information on their income, property and Property Obligations, as well as information on income, property and property Obligations of their spouses (spouse) and minor children\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -5081,12 +4403,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "9ada066c0af2": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 24 сентября 2012 г. № 218н «Об утверждении Порядка организации проведения антикоррупционной экспертизы нормативных правовых актов, проектов нормативных правовых актов и иных документов в Министерстве здравоохранения Российской Федерации»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 218n dated September 24, 2012 \"On Approval of the Procedure for Organizing an Anti-Corruption Examination of Regulatory Legal Acts, Draft Regulatory Legal Acts and Other Documents in the Ministry of Health of the Russian Federation\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "9adda4053c7f": {
     "src": "Этапы",
     "text": "Stages",
@@ -5102,12 +4418,6 @@
   "9b1ed189688d": {
     "src": "Витамин D*",
     "text": "Vitamin D*",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "9b4b1858c00e": {
-    "src": "П 027.04-2026 Положение «О комиссии по противодействию коррупции»",
-    "text": "N 027.04-2026 Regulation \"On the Anti-Corruption Commission\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -5291,12 +4601,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "a0f3fae99bf5": {
-    "src": "УГОЛОВНЫЙ КОДЕКС РОССИЙСКОЙ ФЕДЕРАЦИИ. Статья 204. Коммерческий подкуп.",
-    "text": "THE CRIMINAL CODE OF THE RUSSIAN FEDERATION. Article 204. Commercial bribery.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "a11732d1d32f": {
     "src": "Молекулярно-биологическоеисследованиеотделяемогослизистыхоболочекженскихполовыхоргановнавозбудителейинфекциипередаваемыеполовымпутем (Neisseria gonorrhoeae, Trichomonas vaginalis, Chlamydia trachomatis, Mycoplasma genitalium)",
     "text": "Molecular biological investigation of the separation of the mucous membranes of female genital organs from pathway-transmitted infections (Neisseria gonorrhoeae, Trichomonas vaginalis, Chlamydia trachomatis, Mycoplasma genitalium)",
@@ -5453,12 +4757,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "a5503fc510e3": {
-    "src": "Справка о доходах, расходах, об имуществе и обязательствах имущественного характера",
-    "text": "Certificate of income, expenses, property and property-related obligations",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "a5a0dddd47c9": {
     "src": "Поступающим",
     "text": "Incoming",
@@ -5468,12 +4766,6 @@
   "a5c664f2cd5d": {
     "src": "Класс условий труда",
     "text": "Class of working conditions",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "a603839d629a": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 6 июня 2016 г. № 353 «О создании Комиссии Министерства здравоохранения Российской Федерации по соблюдению требований к служебному поведению федеральных государственных гражданских служащих и работников организаций, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, и урегулированию конфликта интересов»",
-    "text": "Order No. 353 of the Ministry of Health of the Russian Federation dated June 6, 2016 \"On the Establishment of the Commission of the Ministry of Health of the Russian Federation on Compliance with the Requirements for Official Conduct of Federal Government Civil Servants and Employees of Organizations Established to Perform Tasks Assigned to the Ministry of Health of the Russian Federation and to Resolve Conflicts of Interest\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -5531,12 +4823,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "a7608df6029f": {
-    "src": "Приказ об утверждении памятки стоп коррупция",
-    "text": "The order approving the memo stop corruption",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "a7619cbc548d": {
     "src": "25 апреля 2026",
     "text": "April 25, 2026",
@@ -5558,12 +4844,6 @@
   "a8016fb95b2d": {
     "src": "Личный кабинет",
     "text": "Personal account",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "a821bd93b405": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 17 сентября 2015 г. № 643н «Об утверждении Порядка принятия работниками, замещающими отдельные должности на основании трудового договора в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, мер по недопущению любой возможности возникновения конфликта интересов»",
-    "text": "Order No. 643n of the Ministry of Health of the Russian Federation dated September 17, 2015 \"On Approval of the Procedure for Employees holding Certain Positions Based on an Employment Contract in Organizations Established to Fulfill the Tasks Assigned to the Ministry of Health of the Russian Federation to Prevent any Possibility of a Conflict of Interest\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -5597,21 +4877,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "a92413d9ad07": {
-    "src": "Регламент олимпиады 2025–2026",
-    "text": "Rules of the Olympic Games 2025-2026",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "a926f12b3fca": {
     "src": "Нет — служебная тайна (ДСП)",
     "text": "No — official secret (DSP)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "a933e7c1e3dd": {
-    "src": "Заключение Президиума от «21» ноября 2014 года № 42/226",
-    "text": "Conclusion of the Presidium dated November 21, 2014 No. 42/226",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -5699,12 +4967,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "ab39eb1de5de": {
-    "src": "Указ Президента Российской Федерации от 2 апреля 2013 г. № 309 «О мерах по реализации отдельных положений Федерального закона \"О противодействии коррупции»",
-    "text": "Decree of the President of the Russian Federation No. 309 dated April 2, 2013 On Measures to Implement Certain Provisions of the Federal Law on Combating Corruption",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "ab3cf014ff55": {
     "src": "Работникам",
     "text": "Employees",
@@ -5789,27 +5051,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "af420e1657c5": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 20 июня 2014 г. № 296 «Об утверждении Плана Министерства здравоохранения Российской Федерации по противодействию коррупции на 2014 - 2015 годы»",
-    "text": "Order of the Ministry of Health of the Russian Federation dated June 20, 2014 No. 296 \"On Approval of the Anti-Corruption Plan of the Ministry of Health of the Russian Federation for 2014-2015\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "afb227466902": {
-    "src": "Заключение диссертационного совета по защите диссертации",
-    "text": "Conclusion of the dissertation Council for the defense of the thesis",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "afde7ed82d1c": {
     "src": "Победитель и призёры",
     "text": "The winner and the prize-winners",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "afecb4ad8a5b": {
-    "src": "Сведения о доходах, об имуществе и обязательствах имущественного характера федерального государственного служащего",
-    "text": "Information on income, property, and property-related obligations of a federal government employee",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -5828,12 +5072,6 @@
   "b091628fb95b": {
     "src": "Клинико-диагностическая лаборатория",
     "text": "Clinical and diagnostic laboratory",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "b0af2eff9a0f": {
-    "src": "Приказ №722 от 12.04.2021 г. О назначении отв. за телефон доверия по противодействию коррупции ОрГМУ",
-    "text": "Order No. 722 dated 04/12/2021 On the appointment of the rel. for the anti-corruption helpline OrGMU",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -5882,18 +5120,6 @@
   "b1a588a47867": {
     "src": "Перед сбором мочи провести тщательный туалет наружных половых органов. Женщинам не следует собирать материал во время менструации. Накануне исследования не рекомендуется употреблять овощи и фрукты, которые могут изменить цвет мочи (свекла, морковь, черника и др.), по возможности не принимать ряд медикаментов (диуретики, витамины группы В, фурагин, аспирин). Биоматериал принимается только в одноразовых стерильных пластиковых контейнерах",
     "text": "Before collecting urine, perform a thorough toilet of the external genitalia. Women should not collect the material during menstruation. On the eve of the study, it is not recommended to eat vegetables and fruits that can change the color of urine (beets, carrots, blueberries, etc.), if possible, do not take a number of medications (diuretics, B vitamins, furagin, aspirin). Biomaterial is accepted only in disposable sterile plastic containers.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "b1b27951c467": {
-    "src": "Отзыв на автореферат",
-    "text": "Review of the abstract",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "b1da7af6ebca": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 31 июля 2015 г. № 510н «О внесении изменения в приказ Министерства здравоохранения Российской федерации от 25 июня 2014 г. № 320н «Об утверждении перечня должностей, замещение которых влечет за собой размещение сведений о доходах, расходах, об имуществе и обязательствах имущественного характера федеральных государственных гражданских служащих Министерства здравоохранения Российской Федерации и работников, замещающих должности на основании трудового договора в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, а также сведений о доходах, расходах, об имуществе и обязательствах имущественного характера их супруг (супругов) и несовершеннолетних детей на официальном сайте Министерства здравоохранения Российской Федерации в информационно-телекоммуникационной сети «Интернет»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 510n dated July 31, 2015 \"On Amendments to Order of the Ministry of Health of the Russian Federation No. 320n dated June 25, 2014 \"On Approval of the List of Positions, the Replacement of which entails Posting Information on Income, Expenses, Property and Property Obligations of Federal Government Civil Servants of the Ministry of Health of the Russian Federation Of the Russian Federation and employees holding positions based on an employment contract in organizations established to perform tasks assigned to the Ministry of Health of the Russian Federation, as well as information on income, expenses, property and property obligations of their spouses and minor children on the official website of the Ministry of Health of the Russian Federation in the information and telecommunications network \"The Internet\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -6011,33 +5237,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "b54e4853d680": {
-    "src": "Титульный лист автореферата",
-    "text": "The title page of the abstract",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "b583d0e32655": {
-    "src": "Приказ 1535 от 31.08.2018 об изм. состава комиссии по противод.коррупции",
-    "text": "Order 1535 of 08/31/2018 on amendments the composition of the anti-corruption commission.corruption",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "b58caf9721d7": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 15 июля 2013 г. № 462н «О перечне должностей, замещаемых на основании трудового договора в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, при назначении на которые и при замещении которых граждане обязаны представлять сведения о своих доходах, расходах, об имуществе и обязательствах имущественного характера, а также сведения о доходах, расходах, об имуществе и обязательствах имущественного характера своих супруги (супруга) и несовершеннолетних детей»",
-    "text": "The Order of the Ministry of Health of the Russian Federation dated July 15, 2013 No. 462n \"On the list of positions filled on the basis of an employment Contract in organizations established to fulfill the tasks assigned to the Ministry of Health of the Russian Federation, upon appointment to which and upon replacement of which citizens are required to provide information on their income, expenses, property and obligations of property personal information, as well as information about the income, expenses, property and property obligations of their spouse and minor children\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "b5e9e231f77a": {
     "src": "Протромбиновый индекс",
     "text": "The prothrombin index",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "b606475a4fc9": {
-    "src": "Оформление титульного листа диссертации",
-    "text": "Dissertation title page design",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -6227,12 +5429,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "bb0d745773c3": {
-    "src": "Памятка стоп коррупция",
-    "text": "Memo stop corruption",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "bb615e6b79c7": {
     "src": "Информация о вакантных должностях университета и о квоте для приёма на работу инвалидов.",
     "text": "Information about vacant university positions and the quota for hiring people with disabilities.",
@@ -6359,21 +5555,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "bf35a97b1685": {
-    "src": "Сведения о доходах, расходах, обязательствах имущественного характера представленные работниками ФГБОУ ВО ОрГМУ Минздрава России за отчетный период с 1 января 2018 года по 31 декабря 2018 года",
-    "text": "Information on income, expenses, and property obligations provided by employees of the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation for the reporting period from January 1, 2018 to December 31, 2018",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "bf618475230f": {
     "src": "Подготовка к анализам",
     "text": "Preparation for analyses",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "bf9983ff2010": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 2 июня 2015 г. № 295н «Об утверждении перечня должностей федеральной государственной гражданской службы Министерства здравоохранения Российской Федерации, при замещении которых федеральным государственным гражданским служащим запрещается открывать и иметь счета (вклады), хранить наличные денежные средства и ценности в иностранных банках, расположенных за пределами территории российской федерации, владеть и (или) пользоваться иностранными финансовыми инструментами»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 295n dated June 2, 2015 \"On Approval of the List of Positions of the Federal State Civil Service of the Ministry of Health of the Russian Federation, in which Federal State Civil Servants are Prohibited from Opening and Having Accounts (Deposits), storing Cash and Valuables in Foreign Banks Located outside the Territory of the Russian Federation, owning and (or) use foreign financial instruments\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -6401,12 +5585,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "c073e176fa46": {
-    "src": "Указ Президента Российской Федерации от 12 августа 2002 г. № 885 «Об утверждении общих принципов служебного поведения государственных служащих\"»",
-    "text": "Decree of the President of the Russian Federation of August 12, 2002 No. 885 \"On Approval of the General Principles of Official Conduct of Civil Servants\"\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "c08e8ace5ba7": {
     "src": "Независимая оценка качества",
     "text": "Independent quality assessment",
@@ -6428,12 +5606,6 @@
   "c1cba617e0db": {
     "src": "Положение о закупке",
     "text": "Purchase Regulations",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "c24e86c841cd": {
-    "src": "Приказ о внесении изменений в состав комиссии по соблюдению требований к служебному поведению и урегулированию конфликта интересов",
-    "text": "Order on amendments to the composition of the Commission on compliance with the requirements for official conduct and Conflict of interest resolution",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -6533,12 +5705,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "c59b0b28adf9": {
-    "src": "Оформление титульного листа научного доклада",
-    "text": "Design of the title page of the scientific report",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "c5a75f570d14": {
     "src": "Определение креатинин в сыворотке крови",
     "text": "Determination of serum creatinine",
@@ -6566,18 +5732,6 @@
   "c69e3643f430": {
     "src": "Определение иммуноглобулинов класса G к ранним антигенам EA вируса Эпштейна-Барр в сыворотке крови (при групповой постановке не менее 5 проб)",
     "text": "Determination of class G immunoglobulins to early EA antigens of Epstein-Barr virus in blood serum (with a group of at least 5 samples)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "c6a3ff6f3e21": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 30 июля 2012 г. № 53 «Об утверждении плана Министерства здравоохранения Российской Федерации по противодействию коррупции на 2012-2013 годы»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 53 dated July 30, 2012 \"On Approval of the Anti-Corruption Plan of the Ministry of Health of the Russian Federation for 2012-2013\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "c6a876bcad9d": {
-    "src": "Указ Президента Российской Федерации от 23.06.2014 № 460 «Об утверждении формы справки о доходах, расходах, об имуществе и обязательствах имущественного характера и внесении изменений в некоторые акты Президента Российской Федерации»",
-    "text": "Decree of the President of the Russian Federation dated 06/23/2014 No. 460 \"On Approval of the Form of a Certificate of Income, Expenses, Property and Property Obligations and Amendments to Certain Acts of the President of the Russian Federation\"",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -6620,12 +5774,6 @@
   "c80d7e81724d": {
     "src": "Время",
     "text": "Time",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "c87136349aec": {
-    "src": "Приказ 174 от 10.02.2025. Порядок работы телефона доверия по антикоррупции",
-    "text": "Order 174 dated 02/10/2025. How the anti-corruption helpline works",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -6683,27 +5831,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "ca63bc52e7b5": {
-    "src": "Указ Президента Российской Федерации от 19 мая 2008 г. № 815 «О мерах по противодействию коррупции»",
-    "text": "Decree of the President of the Russian Federation of May 19, 2008 No. 815 \"On Anti-corruption measures\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "ca86b31a7b42": {
     "src": "Тироксин общий (Т4)",
     "text": "Total Thyroxine (T4)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "ca936530b587": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 15 июля 2013 г. № 464н «Об утверждении положения о проверке достоверности и полноты сведений, предоставляемых гражданами, претендующими на замещение отдельных должностей, и работниками, замещающими отдельные должности на основании трудового договора в организациях, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 464n dated July 15, 2013 \"On Approval of the Regulations on Verifying the Accuracy and Completeness of Information Provided by Citizens Applying for Certain Positions and Employees Filling Certain Positions on the Basis of an Employment Contract in Organizations Established to fulfill the Tasks assigned to the Ministry of Health of the Russian Federation\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "cab16faf3666": {
-    "src": "План мероприятий по противод.коррупции ФГБОУ ВО ОрГМУ МЗ РФ с 01.09.2018 по 31.12.2019",
-    "text": "The action plan for the anti-terrorist operation.corruption of the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation from 01.09.2018 to 31.12.2019",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -6713,21 +5843,9 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "cb6b199f7dea": {
-    "src": "Требования к оформлению и структуре исследовательской работы",
-    "text": "Requirements for the design and structure of the research paper",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "cb96c8adde38": {
     "src": "Определение иммуноглобулинов класса M к трихинеллам (Trichinella spiralis) в сыворотке крови (при групповой постановке не менее 5 проб)",
     "text": "Determination of class M immunoglobulins to Trichinella spiralis in blood serum (with a group of at least 5 samples)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "cb9e2b4a8567": {
-    "src": "Олимпиада «Будущее медицины» 2022",
-    "text": "Olympiad \"The Future of Medicine\" 2022",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -6845,12 +5963,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "cf675e2d9eac": {
-    "src": "Прайс проблемная лаборатория",
-    "text": "Problem Lab Price list",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "cfdb26d65617": {
     "src": "Исследование бактериальной обсемененности воздушной среды (общее микробное число- в том числе плесени)",
     "text": "Investigation of bacterial contamination of the air environment (total microbial number, including mold)",
@@ -6947,12 +6059,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "d3b0ebc40cb4": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 19 апреля 2016 г. № 244 «Об организации работы по представлению в Министерство здравоохранения Российской Федерации и размещению сведений о доходах, расходах, об имуществе и обязательствах имущественного характера в информационно-телекоммуникационной сети «Интернет»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 244 dated April 19, 2016 \"On the organization of work on the submission to the Ministry of Health of the Russian Federation and the posting of information on income, expenses, property and Property obligations in the information and telecommunications network \"Internet\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "d444fb811f50": {
     "src": "Предмет закупки",
     "text": "Purchase item",
@@ -7007,12 +6113,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "d5a22d68df2e": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 25 декабря 2015 г. № 1010 «Об утверждении Перечня функций Министерства здравоохранения Российской Федерации, при реализации которых возникают коррупционные риски»",
-    "text": "Order of the Ministry of Health of the Russian Federation dated December 25, 2015 No. 1010 \"On Approval of the List of Functions of the Ministry of Health of the Russian Federation, in the implementation of which corruption risks arise\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "d5a643b19b74": {
     "src": "17 ноября — 22 декабря 2025",
     "text": "November 17 — December 22, 2025",
@@ -7028,12 +6128,6 @@
   "d6401f737f0b": {
     "src": "Забор крови из вены",
     "text": "Blood collection from a vein",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "d66ac8b67569": {
-    "src": "Приказ 89 от 17.01.2023 Изм. в ПЛАН противодействия коррупции",
-    "text": "Order 89 of 01/17/2023 Amendments to the ANTI-CORRUPTION PLAN",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -7145,12 +6239,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "d8fe8646408d": {
-    "src": "Федеральный закон от 22 декабря 2014 г. № 431-ФЗ «О внесении изменений в отдельные законодательные акты Российской Федерации по вопросам противодействия коррупции»",
-    "text": "Federal Law No. 431-FZ of December 22, 2014 \"On Amendments to Certain Legislative Acts of the Russian Federation on Anti-Corruption Issues\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "d927beee57ab": {
     "src": "Внимание. В течение всего периода сбора мочу хранить в холодильнике",
     "text": "Attention. Keep urine in the refrigerator during the entire collection period.",
@@ -7190,12 +6278,6 @@
   "da4fdd19b8e3": {
     "src": "После этого произведите отбор пробы в вакуумную пробирку",
     "text": "After that, take a sample into a vacuum tube.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "daa1fcbbe2e7": {
-    "src": "Сведения о доходах, расходах, обязательствах имущественного характера представленные работниками ФГБОУ ВО ОрГМУ Минздрава России за отчетный период с 1 января 2017 года по 31 декабря 2017 года",
-    "text": "Information on income, expenses, and property obligations provided by employees of the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation for the reporting period from January 1, 2017 to December 31, 2017",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -7301,12 +6383,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "de9105b78292": {
-    "src": "Личное согласие официального оппонента",
-    "text": "Personal consent of the official opponent",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "de918cf85540": {
     "src": "Микоплазма(IgG)",
     "text": "Mycoplasma(IgG)",
@@ -7334,12 +6410,6 @@
   "def6aad4abf3": {
     "src": "Определение метаболической активности фагоцитов в НСТ-тесте в крови",
     "text": "Determination of the metabolic activity of phagocytes in the HCT test in the blood",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "df1da5677cb1": {
-    "src": "Уведомление о намерении выполнять иную оплачиваемую работу (о выполнении иной оплачиваемой работы)",
-    "text": "Notification of the intention to perform other paid work (on performing other paid work)",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -7511,18 +6581,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "e4971fc6c248": {
-    "src": "Приказ Минобрнауки России от 24_02_2021 N 118 Об утверждении",
-    "text": "Order of the Ministry of Education and Science of the Russian Federation dated 24_02_2021 N 118 On approval",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "e4dab0ac032d": {
-    "src": "Договор на оказание медицинских услуг",
-    "text": "Contract for the provision of medical services",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "e51bf5162eab": {
     "src": "Политика обработки ПДн",
     "text": "Personal Data Processing Policy",
@@ -7532,12 +6590,6 @@
   "e56ce3a775d7": {
     "src": "выбросите контейнер и переходник в корзину для бытового мусора",
     "text": "throw the container and adapter into the household wastebasket.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "e5f6a41ae99e": {
-    "src": "Сведения о научном руководителе (консультанте)",
-    "text": "Information about the scientific supervisor (consultant)",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -7556,12 +6608,6 @@
   "e69d7d6bc8f8": {
     "src": "Открытые сведения о мерах антитеррористической защищённости университета — в соответствии с Федеральным законом от 06.03.2006 № 35-ФЗ «О противодействии терроризму» и требованиями учредителя.",
     "text": "Open information about the university's anti—terrorist protection measures is provided in accordance with Federal Law No. 35-FZ dated 06.03.2006 \"On Countering Terrorism\" and the requirements of the founder.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "e6a3ae83bae2": {
-    "src": "Направление на лабораторное исследование на COVID-19",
-    "text": "Referral for laboratory testing for COVID-19",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -7631,12 +6677,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "e9d6cde94004": {
-    "src": "План мероприятий по противодействию коррупции в ФГБОУ ВО ОрГМУ Минздрава России на 2017-2018 г.г.",
-    "text": "The action plan for combating corruption in the Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation for 2017-2018",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "ea224509da50": {
     "src": "Противодействие коррупции",
     "text": "Anti-corruption measures",
@@ -7703,18 +6743,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "ec07b6996f9e": {
-    "src": "Указ Президента Российской Федерации от 2 апреля 2013 г. № 310 «О мерах по реализации отдельных положений Федерального закона \"О контроле за соответствием расходов лиц, замещающих государственные должности, и иных лиц их доходам»",
-    "text": "Decree of the President of the Russian Federation No. 310 dated April 2, 2013 \"On Measures to Implement Certain Provisions of the Federal Law \"On Monitoring the Compliance of Expenses of Persons holding Public Positions and Other Persons with Their Incomes\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "ec15d0c11885": {
-    "src": "Олимпиада «Будущее медицины» 2023",
-    "text": "Olympiad \"The Future of Medicine\" 2023",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "ec1fb316d0ca": {
     "src": "В какой срок ответят на обращение?",
     "text": "How long will the request be answered?",
@@ -7757,12 +6785,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "ed4507ad7dfc": {
-    "src": "Положение о творческом конкурсе «Моё призвание — медицина» для школьников 7–9 классов",
-    "text": "Regulations on the creative contest \"My vocation is medicine\" for students in grades 7-9",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "ed665f48c87b": {
     "src": "Контрактная служба",
     "text": "Contract service",
@@ -7799,12 +6821,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "ee9a6e6f3b15": {
-    "src": "Федеральный закон от 3 декабря 2012 г. № 230-ФЗ «О контроле за соответствием расходов лиц, замещающих государственные должности, и иных лиц их доходам»",
-    "text": "Federal Law No. 230-FZ of December 3, 2012 \"On Monitoring the Compliance of Expenses of Persons holding Public Positions and Other Persons with Their Incomes\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "eeae9b1f3f20": {
     "src": "Адреса, режим работы и условия приёма биологического материала.",
     "text": "Addresses, working hours, and conditions for receiving biological material.",
@@ -7829,18 +6845,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "ef1e0b4d8c01": {
-    "src": "Межрегиональная олимпиада исследовательских работ «Путь в медицину» 2022–2023",
-    "text": "Interregional Research Olympiad \"Path to Medicine\" 2022-2023",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "ef4061b078f2": {
-    "src": "Направление на лабораторное исследование материала",
-    "text": "Referral for laboratory examination of the material",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "eff390dd5047": {
     "src": "Как подготовиться к сдаче биологического материала, чтобы результат был достоверным.",
     "text": "How to prepare for the delivery of biological material so that the result is reliable.",
@@ -7859,12 +6863,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "f0577d2235f0": {
-    "src": "Приказ о коммиссии по соблюдению требований к служебному поведению работников и урегулированию конфликта интересов №130 от 01.02.2024г.",
-    "text": "Order on the Commission for compliance with the requirements for employee conduct and Conflict of Interest Resolution No. 130 dated 02/01/2024",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "f078b7ee8fa2": {
     "src": "17-ОН",
     "text": "17-HE",
@@ -7874,12 +6872,6 @@
   "f0a0b80b6f18": {
     "src": "На базе лаборатории проходят обучение и практику студенты 3 курса медико-профилактического факультета, врачи-ординаторы, курсанты института по повышению квалификации врачей. Во время практики студентов на базе нашей лаборатории, которая проходит в течении двух недель, мы обучаем их навыкам работы с оборудованием, выполнению лабораторных исследований. В нашей лаборатории проводятся научные исследования для кандидатских и докторских работ ОрГМУ, проводится большая работа по преаналитическому этапу исследований и по пробоподготовке для исследований. Для врачей клиники ОрГМУ проводятся консультации по клинической лабораторной диагностике, по подготовке пациентов к исследованиям, по интерпретации результатов исследований",
     "text": "On the basis of the laboratory, 3rd-year students of the Faculty of Medicine and Prevention, resident doctors, and cadets of the Institute for Advanced Medical Training are trained and practiced. During the students' internship at our laboratory, which takes place over two weeks, we teach them the skills of working with equipment and performing laboratory research. Our laboratory conducts scientific research for PhD and doctoral studies at OrGMU, and a lot of work is being done on the preanalytical stage of research and on sample preparation for research. Consultations on clinical laboratory diagnostics, preparation of patients for research, and interpretation of research results are conducted for doctors of the OrGMU clinic.",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "f0d13b151b2e": {
-    "src": "Отзыв научного руководителя",
-    "text": "Review of the supervisor",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -7937,18 +6929,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "f2a04b51f639": {
-    "src": "Приказ Министерства здравоохранения Российской Федерации от 31 июля 2015 г. № 511н «Об утверждении положения о Комиссии Министерства здравоохранения Российской Федерации по соблюдению требований к служебному поведению федеральных государственных гражданских служащих и работников организаций, созданных для выполнения задач, поставленных перед Министерством здравоохранения Российской Федерации, и урегулированию конфликта интересов»",
-    "text": "Order of the Ministry of Health of the Russian Federation No. 511n dated July 31, 2015 \"On Approval of the Regulations on the Commission of the Ministry of Health of the Russian Federation on Compliance with the Requirements for Official Conduct of Federal Government Civil Servants and Employees of Organizations Established to Perform Tasks Assigned to the Ministry of Health of the Russian Federation and Conflict of Interest Resolution\"",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "f2a49d0bbc28": {
-    "src": "Приказ о составе комиссии по урег.конф.интересов 01.02.2024",
-    "text": "Order on the composition of the Commission for the settlement of conflicts of interest 02/01/2024",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "f2ab38bf2b9f": {
     "src": "Последнюю порцию соберите точно в то же время, когда накануне был начат сбор (время начала и конца сбора отметить)",
     "text": "Collect the last portion at exactly the same time when the collection was started the day before (mark the start and end times of the collection)",
@@ -7994,12 +6974,6 @@
   "f582940c45f9": {
     "src": "Иммунологическая лаборатория",
     "text": "Immunological Laboratory",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "f58b90deac13": {
-    "src": "Приказ о составе комиссии по проверке актов первичной документации",
-    "text": "The order on the composition of the commission for the verification of acts of primary documentation",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -8066,18 +7040,6 @@
   "f7464a70c81a": {
     "src": "Для школьников и студентов колледжей",
     "text": "For school and college students",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "f76f7acb87a9": {
-    "src": "План меропр противодействия коррупции ОрГМУ на период 01.11.2021- 31.12.2024 с изм., утв.пр.1510 от 15.07.2022 и пр.89 от 17.01.2023",
-    "text": "OrGMU's Anti-corruption Action Plan for the period 11/01/2021- 12/31/2024 as amended, approved by pr.1510 dated 07/15/2022 and pr.89 dated 01/17/2023",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "f776a832d228": {
-    "src": "Приказ №2132 от 12.10.22 г. О телефоне доверия антикоррупции",
-    "text": "Order No. 2132 dated 12.10.22 About the anti-corruption helpline",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -8255,12 +7217,6 @@
     "status": "machine",
     "at": "2026-07-22"
   },
-  "fce4744ea62f": {
-    "src": "Требования к структуре и оформлению творческой работы",
-    "text": "Requirements for the structure and design of creative work",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
   "fd031f184d1f": {
     "src": "Фолликулостимулирующий гормон (ФСГ)",
     "text": "Follicle Stimulating Hormone (FSH)",
@@ -8270,12 +7226,6 @@
   "fd0363504597": {
     "src": "д.м.н., профессор Борщук Евгений Леонидович",
     "text": "Doctor of Medical Sciences, Professor Borshchuk Evgeny Leonidovich",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "fd5892edc133": {
-    "src": "Заявление служащего (работника) о невозможности по объективным причинам представить сведения о доходах, об имуществе и обязательствах имущественного характера своих супруги (супруга) и несовершеннолетних детей",
-    "text": "The statement of the employee (employee) about the inability, for objective reasons, to provide information about the income, property and property obligations of his spouse and minor children",
     "status": "machine",
     "at": "2026-07-22"
   },
@@ -8324,12 +7274,6 @@
   "fed9e8a6343e": {
     "src": "Микробиологическое исследование кала на сальмонеллез (при выделении микроорганизмов и определении чувствительности к антибиотикам) (дополнительное исследование)",
     "text": "Microbiological examination of feces for salmonellosis (during isolation of microorganisms and determination of sensitivity to antibiotics) (additional study)",
-    "status": "machine",
-    "at": "2026-07-22"
-  },
-  "ff01725dc9a0": {
-    "src": "Межрегиональная олимпиада исследовательских работ «Путь в медицину» 2023–2024",
-    "text": "Interregional Research Olympiad \"Path to Medicine\" 2023-2024",
     "status": "machine",
     "at": "2026-07-22"
   },

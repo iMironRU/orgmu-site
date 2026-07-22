@@ -50,6 +50,16 @@ const SKIP_KEYS = new Set([
   "category", "fmt", "size", "value", "cta", "replacedBy", "host", "src",
 ]);
 
+// Расширения документов: если рядом с текстом стоит href на файл, это НАЗВАНИЕ
+// ДОКУМЕНТА. Не переводим: сам файл остаётся русским, и переведённый заголовок
+// над русским PDF вводил бы в заблуждение.
+const DOC_EXT = /\.(pdf|docx?|xlsx?|rtf|odt|pptx?|zip)(\?|$)/i;
+
+// Строки, которые переводить бессмысленно: внутренние имена баз 1С — русские
+// аббревиатуры (БГУ — «бухгалтерия государственного учреждения»), машина делает
+// из них транслитерацию вроде «BSU», нечитаемую ни на одном языке.
+const SKIP_STRINGS = [/БГУ/, /ЗГУ/, /ЗУП/];
+
 // Значения, которые выглядят техническими, а не текстом.
 const TECHNICAL = [
   /^https?:\/\//i, /^mailto:/i, /^tel:/i, /^\//, /^#/, /^rgb/i, /^\d[\d\s.,:%-]*$/,
@@ -71,6 +81,7 @@ function translatable(v) {
   const s = normalize(v);
   if (s.length < 2 || !/[А-Яа-яЁё]/.test(s)) return false;
   if (s === "—" || s === "-") return false;
+  if (SKIP_STRINGS.some((re) => re.test(s))) return false;
   return !TECHNICAL.some((re) => re.test(s));
 }
 
@@ -78,8 +89,12 @@ function walk(node, key, out) {
   if (Array.isArray(node)) {
     for (const v of node) walk(v, key, out);
   } else if (node && typeof node === "object") {
+    // Объект вида { name, href: "…/акт.pdf" } — это карточка файла: подпись
+    // относится к документу и остаётся на языке документа.
+    const isDoc = typeof node.href === "string" && DOC_EXT.test(node.href);
     for (const [k, v] of Object.entries(node)) {
       if (SKIP_KEYS.has(k) || k.startsWith("_")) continue;
+      if (isDoc && (k === "name" || k === "title" || k === "text")) continue;
       walk(v, k, out);
     }
   } else if (translatable(node)) {
@@ -146,23 +161,35 @@ async function run(locale, strings) {
   const file = path.join(OUT_DIR, `${locale}.json`);
   const mem = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : {};
 
+  const live = new Set(strings.map(keyOf));
+  let pruned = 0;
+  for (const [k, e] of Object.entries(mem)) {
+    if (e.status !== "human" && !live.has(k)) {
+      delete mem[k];
+      pruned++;
+    }
+  }
+
   const todo = strings.filter((s) => !mem[keyOf(s)]);
   const human = Object.values(mem).filter((e) => e.status === "human").length;
   const chars = todo.reduce((n, s) => n + s.length, 0);
 
   console.log(
     `\n[${locale}] всего строк: ${strings.length} | в памяти: ${Object.keys(mem).length}` +
-      ` (вычитано человеком: ${human}) | к переводу: ${todo.length} (${chars.toLocaleString("ru")} зн.)`,
+      ` (вычитано человеком: ${human}) | убрано устаревших: ${pruned}` +
+      ` | к переводу: ${todo.length} (${chars.toLocaleString("ru")} зн.)`,
   );
-  if (DRY || todo.length === 0) return;
+  if (DRY) return;
+  if (todo.length === 0 && pruned === 0) return;
 
-  const key = process.env.YANDEX_TRANSLATE_KEY;
-  const folder = process.env.YANDEX_FOLDER_ID;
-  if (!key || !folder) {
-    console.error("  ! нет YANDEX_TRANSLATE_KEY / YANDEX_FOLDER_ID");
-    process.exit(1);
-  }
-
+  if (todo.length > 0) {
+    // Ключ спрашиваем только здесь: уборка устаревших записей работает и без него.
+    const key = process.env.YANDEX_TRANSLATE_KEY;
+    const folder = process.env.YANDEX_FOLDER_ID;
+    if (!key || !folder) {
+      console.error("  ! нет YANDEX_TRANSLATE_KEY / YANDEX_FOLDER_ID");
+      process.exit(1);
+    }
   // Пачками: у API лимит ~10 000 знаков на запрос, берём с запасом.
   const LIMIT = 8000;
   const at = new Date().toISOString().slice(0, 10);
@@ -182,6 +209,7 @@ async function run(locale, strings) {
     process.stdout.write(`\r  переведено ${done}/${todo.length}`);
   }
   console.log();
+  }
 
   // Сортируем по ключу — иначе каждый прогон давал бы шумный diff.
   const sorted = Object.fromEntries(Object.entries(mem).sort(([a], [b]) => a.localeCompare(b)));
