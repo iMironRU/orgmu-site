@@ -1,0 +1,199 @@
+#!/usr/bin/env node
+/**
+ * Машинный перевод контента в память переводов content/i18n/<язык>.json.
+ *
+ *   node scripts/i18n/translate.mjs --locale en          # перевести недостающее
+ *   node scripts/i18n/translate.mjs --locale en --dry    # только показать объём
+ *   node scripts/i18n/translate.mjs                      # все языки
+ *
+ * Требует переменные окружения YANDEX_TRANSLATE_KEY и YANDEX_FOLDER_ID
+ * (в CI — из секретов репозитория). Ключ нигде не печатается.
+ *
+ * Как устроено
+ * ------------
+ * Исходники остаются чисто русскими: скрипт их только читает. Переводы лежат
+ * отдельно, ключ — хеш русского оригинала. Поэтому:
+ *   • правка русского текста делает перевод недействительным сама собой
+ *     (хеш другой → записи нет → на сайте покажется оригинал с пометкой);
+ *   • одинаковые строки («Подробнее», «Все новости») переводятся один раз;
+ *   • записи со status:"human" НИКОГДА не перезаписываются — вычитанное
+ *     человеком важнее любого автоперевода.
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { createHash } from "node:crypto";
+import { load as parseYaml } from "js-yaml";
+
+const ROOT = process.cwd();
+const OUT_DIR = path.join(ROOT, "content", "i18n");
+const API = "https://translate.api.cloud.yandex.net/translate/v2/translate";
+
+// Что переводим. Порядок = приоритет пилота: сначала то, что видит каждый.
+const SOURCES = [
+  "content/navigation/main.yml",
+  "content/navigation/footer.yml",
+  "content/navigation/apps.yml",
+  "content/navigation/sitemap.yml",
+  "content/navigation/subsites.yml",
+  "content/banners.yml",
+  "content/announcements.yml",
+  "content/mesta.yml",
+  "content/pages/**/*.yml",
+];
+
+// Ключи, значения которых переводить НЕЛЬЗЯ: адреса, идентификаторы, коды,
+// цвета, даты, контакты. Перевести href или email — сломать ссылку.
+const SKIP_KEYS = new Set([
+  "id", "slug", "href", "url", "link", "image", "icon", "accent", "soft", "tone",
+  "color", "code", "date", "until", "email", "phone", "tel", "site", "version",
+  "num", "parent", "type", "kind", "status", "platform", "auth", "audience",
+  "category", "fmt", "size", "value", "cta", "replacedBy", "host", "src",
+]);
+
+// Значения, которые выглядят техническими, а не текстом.
+const TECHNICAL = [
+  /^https?:\/\//i, /^mailto:/i, /^tel:/i, /^\//, /^#/, /^rgb/i, /^\d[\d\s.,:%-]*$/,
+  /^[A-Za-z0-9._-]+@/, /^\d{4}-\d{2}-\d{2}$/,
+];
+
+const args = process.argv.slice(2);
+const DRY = args.includes("--dry");
+const LIST = args.includes("--list"); // показать, что попало в перевод
+const only = args.includes("--locale") ? args[args.indexOf("--locale") + 1] : null;
+const LOCALES = only ? [only] : ["en", "kk"];
+
+const normalize = (s) => s.replace(/ /g, " ").replace(/\s+/g, " ").trim();
+const keyOf = (s) => createHash("sha1").update(normalize(s)).digest("hex").slice(0, 12);
+
+// Строку берём в перевод, только если в ней есть кириллица и она не техническая.
+function translatable(v) {
+  if (typeof v !== "string") return false;
+  const s = normalize(v);
+  if (s.length < 2 || !/[А-Яа-яЁё]/.test(s)) return false;
+  if (s === "—" || s === "-") return false;
+  return !TECHNICAL.some((re) => re.test(s));
+}
+
+function walk(node, key, out) {
+  if (Array.isArray(node)) {
+    for (const v of node) walk(v, key, out);
+  } else if (node && typeof node === "object") {
+    for (const [k, v] of Object.entries(node)) {
+      if (SKIP_KEYS.has(k) || k.startsWith("_")) continue;
+      walk(v, k, out);
+    }
+  } else if (translatable(node)) {
+    out.add(normalize(node));
+  }
+}
+
+function expand(pattern) {
+  if (!pattern.includes("*")) return fs.existsSync(path.join(ROOT, pattern)) ? [pattern] : [];
+  const [base] = pattern.split("**");
+  const dir = path.join(ROOT, base);
+  if (!fs.existsSync(dir)) return [];
+  const found = [];
+  const rec = (d) => {
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      const p = path.join(d, e.name);
+      if (e.isDirectory()) rec(p);
+      else if (e.name.endsWith(".yml")) found.push(path.relative(ROOT, p));
+    }
+  };
+  rec(dir);
+  return found;
+}
+
+function collect() {
+  const strings = new Set();
+  for (const pattern of SOURCES) {
+    for (const rel of expand(pattern)) {
+      const raw = fs.readFileSync(path.join(ROOT, rel), "utf8");
+      let data;
+      try {
+        data = parseYaml(raw);
+      } catch (e) {
+        console.error(`  ! пропускаю ${rel}: ${e.message.split("\n")[0]}`);
+        continue;
+      }
+      walk(data, null, strings);
+    }
+  }
+  return [...strings];
+}
+
+async function translateBatch(texts, locale, key, folder) {
+  const res = await fetch(API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Api-Key ${key}` },
+    body: JSON.stringify({
+      folderId: folder,
+      texts,
+      sourceLanguageCode: "ru",
+      targetLanguageCode: locale,
+      format: "PLAIN_TEXT",
+    }),
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`HTTP ${res.status}: ${body.slice(0, 300)}`);
+  }
+  const json = await res.json();
+  return json.translations.map((t) => t.text);
+}
+
+async function run(locale, strings) {
+  const file = path.join(OUT_DIR, `${locale}.json`);
+  const mem = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : {};
+
+  const todo = strings.filter((s) => !mem[keyOf(s)]);
+  const human = Object.values(mem).filter((e) => e.status === "human").length;
+  const chars = todo.reduce((n, s) => n + s.length, 0);
+
+  console.log(
+    `\n[${locale}] всего строк: ${strings.length} | в памяти: ${Object.keys(mem).length}` +
+      ` (вычитано человеком: ${human}) | к переводу: ${todo.length} (${chars.toLocaleString("ru")} зн.)`,
+  );
+  if (DRY || todo.length === 0) return;
+
+  const key = process.env.YANDEX_TRANSLATE_KEY;
+  const folder = process.env.YANDEX_FOLDER_ID;
+  if (!key || !folder) {
+    console.error("  ! нет YANDEX_TRANSLATE_KEY / YANDEX_FOLDER_ID");
+    process.exit(1);
+  }
+
+  // Пачками: у API лимит ~10 000 знаков на запрос, берём с запасом.
+  const LIMIT = 8000;
+  const at = new Date().toISOString().slice(0, 10);
+  let done = 0;
+  for (let i = 0; i < todo.length; ) {
+    const batch = [];
+    let size = 0;
+    while (i < todo.length && batch.length < 100 && size + todo[i].length < LIMIT) {
+      size += todo[i].length;
+      batch.push(todo[i++]);
+    }
+    const out = await translateBatch(batch, locale, key, folder);
+    batch.forEach((src, j) => {
+      mem[keyOf(src)] = { src, text: out[j], status: "machine", at };
+    });
+    done += batch.length;
+    process.stdout.write(`\r  переведено ${done}/${todo.length}`);
+  }
+  console.log();
+
+  // Сортируем по ключу — иначе каждый прогон давал бы шумный diff.
+  const sorted = Object.fromEntries(Object.entries(mem).sort(([a], [b]) => a.localeCompare(b)));
+  fs.mkdirSync(OUT_DIR, { recursive: true });
+  fs.writeFileSync(file, JSON.stringify(sorted, null, 2) + "\n", "utf8");
+  console.log(`  записано: content/i18n/${locale}.json`);
+}
+
+const strings = collect();
+console.log(`Источники: ${SOURCES.length} шаблонов → уникальных строк: ${strings.length}`);
+if (LIST) {
+  for (const s of strings) console.log("  ·", s.length > 100 ? s.slice(0, 100) + "…" : s);
+  process.exit(0);
+}
+for (const l of LOCALES) await run(l, strings);

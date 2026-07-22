@@ -1,0 +1,79 @@
+name: Машинный перевод контента
+
+# Догоняет память переводов: переводит только то, чего в ней ещё нет.
+# Записи, вычитанные человеком (status: human), скрипт не трогает.
+#
+# Запуск ручной. Позже можно повесить следом за скрапером новостей, чтобы
+# свежие новости приезжали уже переведёнными.
+on:
+  workflow_dispatch:
+    inputs:
+      locale:
+        description: "Язык (пусто — оба)"
+        type: choice
+        default: ""
+        options: ["", "en", "kk"]
+      dry:
+        description: "Только показать объём, не переводить"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: i18n-translate
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Перевод
+        env:
+          YANDEX_TRANSLATE_KEY: ${{ secrets.YANDEX_TRANSLATE_KEY }}
+          YANDEX_FOLDER_ID: ${{ secrets.YANDEX_FOLDER_ID }}
+        run: |
+          ARGS=""
+          [ -n "${{ inputs.locale }}" ] && ARGS="--locale ${{ inputs.locale }}"
+          [ "${{ inputs.dry }}" = "true" ] && ARGS="$ARGS --dry"
+          node scripts/i18n/translate.mjs $ARGS
+
+      - name: Показать примеры переводов
+        if: ${{ inputs.dry != true }}
+        run: |
+          for f in content/i18n/*.json; do
+            [ -f "$f" ] || continue
+            echo "═══ $f ═══"
+            # 8 случайных пар «оригинал → перевод» для оценки качества
+            jq -r 'to_entries | .[0:400] | map(select(.value.status=="machine"))
+                   | .[0:8][] | "  \(.value.src)\n    → \(.value.text)\n"' "$f"
+          done
+
+      - name: Коммит памяти переводов
+        if: ${{ inputs.dry != true }}
+        run: |
+          git config user.name  "orgma-i18n-bot"
+          git config user.email "actions@github.com"
+          git add content/i18n
+          if git diff --cached --quiet; then
+            echo "Новых переводов нет."
+          else
+            n=$(git diff --cached --numstat | awk '{s+=$1} END {print s+0}')
+            git commit -m "i18n: машинный перевод (+${n} строк памяти)"
+            git push
+          fi
