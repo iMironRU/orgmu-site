@@ -318,8 +318,8 @@
   },
   "0764b248ca83": {
     "src": "Наука",
-    "text": "The science",
-    "status": "machine",
+    "text": "Research",
+    "status": "human",
     "at": "2026-07-22"
   },
   "07b3f0baa8c9": {
@@ -762,8 +762,8 @@
   },
   "14f781568788": {
     "src": "СНО",
-    "text": "SNO",
-    "status": "machine",
+    "text": "Student Research Society",
+    "status": "human",
     "at": "2026-07-22"
   },
   "14fdf757c357": {
@@ -1888,8 +1888,8 @@
   },
   "32e0e80a6f05": {
     "src": "Диссертационные советы",
-    "text": "Dissertation advice",
-    "status": "machine",
+    "text": "Dissertation councils",
+    "status": "human",
     "at": "2026-07-22"
   },
   "3310a0a37573": {
@@ -3377,8 +3377,8 @@
   },
   "5bd3927d56e7": {
     "src": "Приложения вуза",
-    "text": "University Applications",
-    "status": "machine",
+    "text": "Apps and services",
+    "status": "human",
     "at": "2026-07-22"
   },
   "5bf247f391d0": {
@@ -3401,8 +3401,8 @@
   },
   "5ceeb4c2d2b0": {
     "src": "Объявление",
-    "text": "Advertisement",
-    "status": "machine",
+    "text": "Announcement",
+    "status": "human",
     "at": "2026-07-22"
   },
   "5cf975005104": {
@@ -4164,8 +4164,8 @@
   },
   "72a0a50a4845": {
     "src": "Практика",
-    "text": "Practice",
-    "status": "machine",
+    "text": "Clinical practice",
+    "status": "human",
     "at": "2026-07-22"
   },
   "7338a85e374b": {
@@ -4556,8 +4556,8 @@
   },
   "7f9277f7b2c1": {
     "src": "Афиша мероприятий",
-    "text": "Event poster",
-    "status": "machine",
+    "text": "Events calendar",
+    "status": "human",
     "at": "2026-07-22"
   },
   "7fad39204814": {
@@ -4750,8 +4750,8 @@
   },
   "84f46eb3c74f": {
     "src": "Известия",
-    "text": "Izvestia",
-    "status": "machine",
+    "text": "Notices",
+    "status": "human",
     "at": "2026-07-22"
   },
   "84f68fa664b6": {
@@ -4967,8 +4967,8 @@
   },
   "88d6e4bd5c43": {
     "src": "Руководство",
-    "text": "Guide",
-    "status": "machine",
+    "text": "Leadership",
+    "status": "human",
     "at": "2026-07-22"
   },
   "88fb59beb46d": {
@@ -5423,8 +5423,8 @@
   },
   "94a159ae74ae": {
     "src": "Наверх",
-    "text": "Up",
-    "status": "machine",
+    "text": "Back to top",
+    "status": "human",
     "at": "2026-07-22"
   },
   "94af93b724cb": {
@@ -5603,8 +5603,8 @@
   },
   "98c14b8061dc": {
     "src": "НИЦ",
-    "text": "PROSTRATE",
-    "status": "machine",
+    "text": "Research Center",
+    "status": "human",
     "at": "2026-07-22"
   },
   "98e32e30b9bb": {
@@ -5887,8 +5887,8 @@
   },
   "9fab2d52c742": {
     "src": "Дубликат диплома",
-    "text": "Duplicate diploma",
-    "status": "machine",
+    "text": "Diploma duplicate",
+    "status": "human",
     "at": "2026-07-22"
   },
   "9faf51f0e57e": {
@@ -6164,8 +6164,8 @@
   },
   "a5a0dddd47c9": {
     "src": "Поступающим",
-    "text": "Incoming",
-    "status": "machine",
+    "text": "Admissions",
+    "status": "human",
     "at": "2026-07-22"
   },
   "a5c664f2cd5d": {
@@ -6613,8 +6613,8 @@
   },
   "b16833eee4e2": {
     "src": "Спорт и творчество",
-    "text": "Sports and creativity",
-    "status": "machine",
+    "text": "Sports and arts",
+    "status": "human",
     "at": "2026-07-22"
   },
   "b19bafc85960": {
@@ -7726,8 +7726,8 @@
   },
   "ce237aed88f8": {
     "src": "Подразделения",
-    "text": "Divisions",
-    "status": "machine",
+    "text": "Departments",
+    "status": "human",
     "at": "2026-07-22"
   },
   "ce2e81f04d4a": {
@@ -8107,8 +8107,8 @@
   },
   "d86e6866ef94": {
     "src": "Специалитет",
-    "text": "Specialty",
-    "status": "machine",
+    "text": "Specialist degree",
+    "status": "human",
     "at": "2026-07-22"
   },
   "d87bb0c73792": {
@@ -9232,8 +9232,8 @@
   },
   "f8fe262ccf53": {
     "src": "Схема проезда",
-    "text": "Driving directions",
-    "status": "machine",
+    "text": "How to find us",
+    "status": "human",
     "at": "2026-07-22"
   },
   "f9167b8a7cec": {

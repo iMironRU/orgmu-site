@@ -87,7 +87,11 @@ jobs:
         env:
           YANDEX_TRANSLATE_KEY: ${{ secrets.YANDEX_TRANSLATE_KEY }}
           YANDEX_FOLDER_ID: ${{ secrets.YANDEX_FOLDER_ID }}
-        run: node scripts/i18n/translate.mjs
+        run: |
+          node scripts/i18n/translate.mjs
+          # Ручные правки применяем после перевода: если строка появилась
+          # впервые, машина её переведёт, а правка тут же перекроет.
+          node scripts/i18n/apply-overrides.mjs
       - name: Коммит переводов
         run: |
           git config user.name  "orgma-i18n-bot"

@@ -54,6 +54,7 @@ jobs:
           [ -n "${{ inputs.locale }}" ] && ARGS="--locale ${{ inputs.locale }}"
           [ "${{ inputs.dry }}" = "true" ] && ARGS="$ARGS --dry"
           node scripts/i18n/translate.mjs $ARGS
+          node scripts/i18n/apply-overrides.mjs
 
       - name: Показать примеры переводов
         if: ${{ inputs.dry != true }}
