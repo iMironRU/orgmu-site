@@ -100,7 +100,7 @@ const LANGS: { locale: Locale; label: string; code: string }[] = [
   ...TARGET_LOCALES,
 ].map((l) => ({ locale: l as Locale, label: LOCALE_NAMES[l as Locale].native, code: LOCALE_NAMES[l as Locale].code }));
 
-export function SideRail() {
+export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] }) {
   const [langOpen, setLangOpen] = useState(false);
   // Текущий язык определяем по адресу, а не храним в состоянии: иначе после
   // перехода подпись рассинхронизировалась бы со страницей.
@@ -109,8 +109,15 @@ export function SideRail() {
     (TARGET_LOCALES.find((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)) as Locale) ??
     SOURCE_LOCALE;
   const lang = LOCALE_NAMES[current].code;
-  // Переход на тот же адрес в другом языке.
-  const hrefFor = (l: Locale) => localeHref(pathname, l);
+  // Переход на тот же адрес в другом языке. Если этой страницы на нужном языке
+  // нет — ведём на языковую главную: попасть в 404, переключив язык, хуже, чем
+  // оказаться на разделе с тем, что переведено.
+  const hrefFor = (l: Locale) => {
+    if (l === SOURCE_LOCALE) return localeHref(pathname, l);
+    const base = pathname.replace(/^\/(en|kk)(?=\/|$)/, "") || "/";
+    const known = translatedPaths.some((p) => base === p || base.startsWith(`${p}/`));
+    return known ? localeHref(pathname, l) : `/${l}`;
+  };
   const hidden = useHideOnScroll();
 
   return (

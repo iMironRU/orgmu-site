@@ -9,6 +9,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { getMainMenu, getFooter } from "@/lib/content/navigation";
 import { TARGET_LOCALES } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
+import { getPageSlugs } from "@/lib/content/pages";
 import { A11Y_INLINE_SCRIPT } from "@/lib/a11y";
 
 const inter = Inter({
@@ -43,6 +44,10 @@ export default function RootLayout({
   // сегмент [lang] лежит глубже. Поэтому считаем меню на всех языках здесь, а
   // нужный вариант выбирает клиент по адресу. Меню весит ~2,8 КБ, три языка —
   // около 9 КБ, это дешевле, чем переносить все 29 маршрутов ради локали.
+  // Какие разделы вообще переведены. Нужно переключателю: с непереведённой
+  // страницы он должен вести на языковую главную, а не в 404.
+  const translatedPaths = ["/novosti", ...getPageSlugs("info").map((s) => `/${s}`)];
+
   const navByLocale: Record<string, typeof nav> = { ru: nav };
   const footerByLocale: Record<string, typeof footer> = { ru: footer };
   for (const l of TARGET_LOCALES) {
@@ -58,7 +63,7 @@ export default function RootLayout({
       <body className="min-h-full flex items-stretch">
         {/* Раннее применение настроек доступности до гидрации — без мигания */}
         <script dangerouslySetInnerHTML={{ __html: A11Y_INLINE_SCRIPT }} />
-        <SideRail />
+        <SideRail translatedPaths={translatedPaths} />
         {/* Отступ снизу на мобиле — под фиксированную панель SideRail,
             иначе подвал уезжает под неё. */}
         <div className="a11y-zoom flex-1 min-w-0 flex flex-col max-[768px]:pb-[56px]">
