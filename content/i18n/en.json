@@ -3399,6 +3399,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "5ceeb4c2d2b0": {
+    "src": "Объявление",
+    "text": "Advertisement",
+    "status": "machine",
+    "at": "2026-07-22"
+  },
   "5cf975005104": {
     "src": "Иммуноферментный анализ (ИФА) на гепатит С (определение антител – подтверждающий тест)",
     "text": "Enzyme immunoassay (ELISA) for hepatitis C (antibody detection – confirmatory test)",
@@ -6168,6 +6174,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "a5ca71ec83a7": {
+    "src": "Поздравление",
+    "text": "Congratulation",
+    "status": "machine",
+    "at": "2026-07-22"
+  },
   "a6054f20db55": {
     "src": "Дегидроэпиандростерон сульфат (ДНЕС)",
     "text": "Dehydroepiandrosterone Sulfate (DNES)",
@@ -7043,6 +7055,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "bb92633bf511": {
+    "src": "Событие",
+    "text": "Event",
+    "status": "machine",
+    "at": "2026-07-22"
+  },
   "bb9eb7fbce8e": {
     "src": "На базе Самаркандского государственного педагогического института в мае проходила II Международная летняя школа «Самарканд: гармония культур, просвещения и образования». Мероприятие объединило ученых, преподавателей и…",
     "text": "The second International Summer School \"Samarkand: Harmony of Cultures, Enlightenment and Education\" was held at the Samarkand State Pedagogical Institute in May. The event brought together scientists, teachers and…",
@@ -7705,6 +7723,12 @@
     "status": "machine",
     "at": "2026-07-22",
     "html": true
+  },
+  "ce237aed88f8": {
+    "src": "Подразделения",
+    "text": "Divisions",
+    "status": "machine",
+    "at": "2026-07-22"
   },
   "ce2e81f04d4a": {
     "src": "Для отправки материалов в электронном виде: 1) в теме письма указать «XIV Олимпиада исследовательских работ „Путь в медицину“»; 2) файлы назвать по фамилии участника, например: иванова_заявка, иванова_работа, иванова_презентация. Работы, присланные на олимпиаду, не возвращаются.",
