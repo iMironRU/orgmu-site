@@ -1,0 +1,58 @@
+name: Проверка ключа переводчика
+
+# Разовая проверка: работает ли API-ключ Yandex Translate и выданы ли роли.
+# Запускается только вручную. Ключ в лог не печатается — только результат перевода.
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Перевод пробных фраз (ru → en, kk)
+        env:
+          KEY: ${{ secrets.YANDEX_TRANSLATE_KEY }}
+          FOLDER: ${{ secrets.YANDEX_FOLDER_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${KEY:-}" ] || [ -z "${FOLDER:-}" ]; then
+            echo "::error::Секреты YANDEX_TRANSLATE_KEY / YANDEX_FOLDER_ID не переданы"
+            exit 1
+          fi
+
+          # Фразы взяты из реального контента сайта — чтобы оценить не факт
+          # работы, а качество на нашей лексике (медицинской и вузовской).
+          req() {
+            jq -n --arg f "$FOLDER" --arg lang "$1" '{
+              folderId: $f,
+              targetLanguageCode: $lang,
+              sourceLanguageCode: "ru",
+              format: "PLAIN_TEXT",
+              texts: [
+                "Оренбургский государственный медицинский университет",
+                "Приём документов до 25 июля",
+                "Целевое обучение — как поступить на места целевой квоты",
+                "Определение иммунного статуса (основные показатели)",
+                "Кровь сдавать строго в утренние часы"
+              ]
+            }'
+          }
+
+          for LANG in en kk; do
+            echo "═══ Перевод на «$LANG» ═══"
+            CODE=$(curl -s -o /tmp/out.json -w '%{http_code}' -m 30 \
+              -X POST "https://translate.api.cloud.yandex.net/translate/v2/translate" \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Api-Key $KEY" \
+              -d "$(req "$LANG")")
+            if [ "$CODE" != "200" ]; then
+              echo "::error::API вернул HTTP $CODE"
+              # message без ключа — в нём подсказка, что не так с доступом
+              jq -r '.message // .' /tmp/out.json || cat /tmp/out.json
+              exit 1
+            fi
+            jq -r '.translations[].text' /tmp/out.json | nl -w2 -s'. '
+            echo
+          done
+
+          echo "✓ Ключ рабочий, роль ai.translate.user выдана."
