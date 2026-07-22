@@ -11,7 +11,7 @@ const STEP = 12;
 // работает по клику; она же — цель для наблюдателя, который догружает
 // автоматически при подходе к низу. Если IntersectionObserver недоступен,
 // остаётся рабочая кнопка.
-export function NewsListView({ items }: { items: NewsCardItem[] }) {
+export function NewsListView({ items, langPrefix = "" }: { items: NewsCardItem[]; langPrefix?: string }) {
   const [shown, setShown] = useState(STEP);
   const sentinel = useRef<HTMLDivElement>(null);
 
@@ -36,7 +36,7 @@ export function NewsListView({ items }: { items: NewsCardItem[] }) {
     <>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
         {items.slice(0, shown).map((item) => (
-          <NewsCard key={item.id} item={item} />
+          <NewsCard langPrefix={langPrefix} key={item.id} item={item} />
         ))}
       </div>
 

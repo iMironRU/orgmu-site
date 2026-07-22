@@ -2,13 +2,15 @@ import Link from "next/link";
 import type { NewsCardItem } from "@/lib/content/news-types";
 import { formatDateRu, kindStyle, newsKind } from "@/lib/content/news-types";
 
-export function NewsCard({ item }: { item: NewsCardItem }) {
+// langPrefix — «/en», «/kk» или пусто. Без него карточка на переведённом
+// списке уводила бы на русскую статью.
+export function NewsCard({ item, langPrefix = "" }: { item: NewsCardItem; langPrefix?: string }) {
   const k = kindStyle(newsKind(item));
   const cover = item.cover?.remote;
 
   return (
     <Link
-      href={`/novosti/${item.slug}`}
+      href={`${langPrefix}/novosti/${item.slug}`}
       className="group flex flex-col gap-[14px] no-underline bg-white border border-line rounded-lg overflow-hidden shadow-[0_1px_2px_rgba(0,0,0,0.08)] transition-[box-shadow,transform] duration-[240ms] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5"
     >
       <div className="w-full aspect-[16/10] bg-line overflow-hidden">

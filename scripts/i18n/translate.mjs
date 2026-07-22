@@ -39,7 +39,13 @@ const SOURCES = [
   "content/announcements.yml",
   "content/mesta.yml",
   "content/pages/**/*.yml",
+  "content/i18n/ui.yml",
 ];
+
+// Новости лежат по-своему (JSON, тело — разметка), поэтому собираются отдельно.
+// Переводим заголовок, лид, тело и подпись автора; адреса, даты и слаги — нет.
+const NEWS_DIR = "content/news";
+const NEWS_TEXT = ["title", "excerpt", "author"];
 
 // Правила отбора — общие с сайтом (src/lib/i18n/rules.json). Держим в одном
 // месте: если разойдутся, скрипт переведёт одно, а страница спросит другое.
@@ -103,6 +109,21 @@ function expand(pattern) {
   return found;
 }
 
+function collectNews(map) {
+  const dir = path.join(ROOT, NEWS_DIR);
+  if (!fs.existsSync(dir)) return;
+  for (const f of fs.readdirSync(dir)) {
+    if (!f.endsWith(".json") || f.startsWith("_")) continue;
+    const n = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
+    for (const k of NEWS_TEXT) {
+      if (translatable(n[k])) map.set(normalize(n[k]), false);
+    }
+    // Тело — разметка. Отправляем с format:"HTML", иначе переводчик съест теги.
+    const body = (n.body_html || "").trim();
+    if (body && /[А-Яа-яЁё]/.test(body)) map.set(body, true);
+  }
+}
+
 function collect() {
   const strings = new Set();
   for (const pattern of SOURCES) {
@@ -118,10 +139,13 @@ function collect() {
       walk(data, null, strings);
     }
   }
-  return [...strings];
+  // map: строка → это разметка? Дедупликация заодно.
+  const map = new Map([...strings].map((s) => [s, false]));
+  collectNews(map);
+  return [...map.entries()].map(([src, html]) => ({ src, html }));
 }
 
-async function translateBatch(texts, locale, key, folder) {
+async function translateBatch(texts, locale, key, folder, format = "PLAIN_TEXT") {
   const res = await fetch(API, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Api-Key ${key}` },
@@ -130,7 +154,7 @@ async function translateBatch(texts, locale, key, folder) {
       texts,
       sourceLanguageCode: "ru",
       targetLanguageCode: locale,
-      format: "PLAIN_TEXT",
+      format,
     }),
   });
   if (!res.ok) {
@@ -145,7 +169,7 @@ async function run(locale, strings) {
   const file = path.join(OUT_DIR, `${locale}.json`);
   const mem = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : {};
 
-  const live = new Set(strings.map(keyOf));
+  const live = new Set(strings.map((e) => keyOf(e.src)));
   let pruned = 0;
   for (const [k, e] of Object.entries(mem)) {
     if (e.status !== "human" && !live.has(k)) {
@@ -154,9 +178,9 @@ async function run(locale, strings) {
     }
   }
 
-  const todo = strings.filter((s) => !mem[keyOf(s)]);
+  const todo = strings.filter((e) => !mem[keyOf(e.src)]);
   const human = Object.values(mem).filter((e) => e.status === "human").length;
-  const chars = todo.reduce((n, s) => n + s.length, 0);
+  const chars = todo.reduce((n, e) => n + e.src.length, 0);
 
   console.log(
     `\n[${locale}] всего строк: ${strings.length} | в памяти: ${Object.keys(mem).length}` +
@@ -178,17 +202,31 @@ async function run(locale, strings) {
   const LIMIT = 8000;
   const at = new Date().toISOString().slice(0, 10);
   let done = 0;
-  for (let i = 0; i < todo.length; ) {
+  const remember = (src, text, html) => {
+    mem[keyOf(src)] = { src, text, status: "machine", at, ...(html ? { html: true } : {}) };
+  };
+
+  // Разметку и обычный текст нельзя слать вместе: format задаётся на весь
+  // запрос. Тело новости уходит отдельным запросом с format:"HTML" — иначе
+  // переводчик выбросил бы теги и абзацы схлопнулись бы в сплошную простыню.
+  const htmlItems = todo.filter((e) => e.html);
+  const textItems = todo.filter((e) => !e.html);
+
+  for (const e of htmlItems) {
+    const [out] = await translateBatch([e.src], locale, key, folder, "HTML");
+    remember(e.src, out, true);
+    process.stdout.write(`\r  переведено ${++done}/${todo.length}`);
+  }
+
+  for (let i = 0; i < textItems.length; ) {
     const batch = [];
     let size = 0;
-    while (i < todo.length && batch.length < 100 && size + todo[i].length < LIMIT) {
-      size += todo[i].length;
-      batch.push(todo[i++]);
+    while (i < textItems.length && batch.length < 100 && size + textItems[i].src.length < LIMIT) {
+      size += textItems[i].src.length;
+      batch.push(textItems[i++].src);
     }
     const out = await translateBatch(batch, locale, key, folder);
-    batch.forEach((src, j) => {
-      mem[keyOf(src)] = { src, text: out[j], status: "machine", at };
-    });
+    batch.forEach((src, j) => remember(src, out[j], false));
     done += batch.length;
     process.stdout.write(`\r  переведено ${done}/${todo.length}`);
   }
@@ -205,7 +243,7 @@ async function run(locale, strings) {
 const strings = collect();
 console.log(`Источники: ${SOURCES.length} шаблонов → уникальных строк: ${strings.length}`);
 if (LIST) {
-  for (const s of strings) console.log("  ·", s.length > 100 ? s.slice(0, 100) + "…" : s);
+  for (const e of strings) console.log(e.html ? "  html·" : "  ·", e.src.length > 90 ? e.src.slice(0, 90) + "…" : e.src);
   process.exit(0);
 }
 for (const l of LOCALES) await run(l, strings);

@@ -66,11 +66,45 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-  # Пуш бота сам пересборку не запускает (GitHub не триггерит workflow на
-  # коммиты от GITHUB_TOKEN), поэтому деплой вызываем явно — и только когда
-  # новости действительно появились.
-  deploy:
+  # Свежие новости сразу переводим — иначе английская и казахская ленты
+  # отставали бы от русской до следующего ручного прогона.
+  translate:
     needs: scrape
+    if: needs.scrape.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main          # коммит бота сделан уже внутри этого прогона
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Перевод новых строк
+        env:
+          YANDEX_TRANSLATE_KEY: ${{ secrets.YANDEX_TRANSLATE_KEY }}
+          YANDEX_FOLDER_ID: ${{ secrets.YANDEX_FOLDER_ID }}
+        run: node scripts/i18n/translate.mjs
+      - name: Коммит переводов
+        run: |
+          git config user.name  "orgma-i18n-bot"
+          git config user.email "actions@github.com"
+          git add content/i18n
+          if git diff --cached --quiet; then
+            echo "Новых переводов нет."
+          else
+            git commit -m "i18n: перевод свежих новостей"
+            git push
+          fi
+
+  # Пуш бота сам пересборку не запускает (GitHub не триггерит workflow на
+  # коммиты от GITHUB_TOKEN), поэтому деплой вызываем явно. Ждём и перевод,
+  # чтобы собрать русскую и переведённые версии одной сборкой.
+  deploy:
+    needs: [scrape, translate]
     if: needs.scrape.outputs.changed == 'true'
     permissions:
       contents: read
