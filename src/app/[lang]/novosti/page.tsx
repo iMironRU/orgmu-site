@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllNews } from "@/lib/content/news";
-import { toCardItem } from "@/lib/content/news-types";
+import { toCardItem, kindStyle } from "@/lib/content/news-types";
 import { NewsListView } from "@/components/NewsListView";
 import { TranslationNotice } from "@/components/TranslationNotice";
 import { TARGET_LOCALES, isTargetLocale } from "@/lib/i18n/config";
@@ -35,6 +35,14 @@ export default async function TranslatedNewsList({
 
   // Срез для карточек — без тела статей и галерей, как в русской версии.
   const { data: news, machine } = translateData(getAllNews().map(toCardItem), lang);
+  // Подписи видов новостей переводим здесь: список — клиентский компонент,
+  // словарь (он читает файлы) внутрь него не затащить.
+  const kindLabels = Object.fromEntries(
+    (["event", "announce", "congrats", "science", "dept"] as const).map((k) => [
+      k,
+      t(kindStyle(k).label, lang),
+    ]),
+  );
 
   return (
     <main className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border max-[768px]:px-5 max-[768px]:pt-6">
@@ -57,7 +65,7 @@ export default async function TranslatedNewsList({
       {news.length === 0 ? (
         <p className="text-steel font-ui text-[18px]">{t("Новостей пока нет.", lang)}</p>
       ) : (
-        <NewsListView items={news} langPrefix={`/${lang}`} />
+        <NewsListView items={news} langPrefix={`/${lang}`} lang={lang} kindLabels={kindLabels} />
       )}
     </main>
   );

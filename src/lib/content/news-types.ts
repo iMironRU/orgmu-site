@@ -70,3 +70,14 @@ export function formatDateRu(iso: string | null): string {
   if (Number.isNaN(d.getTime())) return "";
   return `${d.getDate()} ${MONTHS_RU[d.getMonth()]} ${d.getFullYear()}`;
 }
+
+// Дата на языке страницы. Месяцы — не перевод текста, а форматирование: у Intl
+// оно уже правильное для каждого языка, гнать названия месяцев через словарь
+// машинного перевода было бы и лишним, и ненадёжным.
+export function formatDate(iso: string | null, locale: string): string {
+  if (locale === "ru") return formatDateRu(iso);
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  return new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" }).format(d);
+}

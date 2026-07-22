@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { NewsCardItem } from "@/lib/content/news-types";
+import { newsKind } from "@/lib/content/news-types";
 import { NewsCard } from "@/components/NewsCard";
 
 const STEP = 12;
@@ -11,7 +12,18 @@ const STEP = 12;
 // работает по клику; она же — цель для наблюдателя, который догружает
 // автоматически при подходе к низу. Если IntersectionObserver недоступен,
 // остаётся рабочая кнопка.
-export function NewsListView({ items, langPrefix = "" }: { items: NewsCardItem[]; langPrefix?: string }) {
+export function NewsListView({
+  items,
+  langPrefix = "",
+  lang = "ru",
+  kindLabels,
+}: {
+  items: NewsCardItem[];
+  langPrefix?: string;
+  lang?: string;
+  // Подписи видов новостей, переведённые на сервере: «Событие» → «Event».
+  kindLabels?: Record<string, string>;
+}) {
   const [shown, setShown] = useState(STEP);
   const sentinel = useRef<HTMLDivElement>(null);
 
@@ -36,7 +48,7 @@ export function NewsListView({ items, langPrefix = "" }: { items: NewsCardItem[]
     <>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
         {items.slice(0, shown).map((item) => (
-          <NewsCard langPrefix={langPrefix} key={item.id} item={item} />
+          <NewsCard langPrefix={langPrefix} lang={lang} kindLabel={kindLabels?.[newsKind(item)]} key={item.id} item={item} />
         ))}
       </div>
 

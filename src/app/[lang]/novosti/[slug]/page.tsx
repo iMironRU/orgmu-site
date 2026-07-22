@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getNewsBySlug, getNewsSlugs } from "@/lib/content/news";
-import { formatDateRu, newsKind, kindStyle } from "@/lib/content/news-types";
+import { formatDate, newsKind, kindStyle } from "@/lib/content/news-types";
 import { NewsGallery } from "@/components/NewsGallery";
 import { TranslationNotice } from "@/components/TranslationNotice";
 import { TARGET_LOCALES, isTargetLocale } from "@/lib/i18n/config";
@@ -57,11 +57,9 @@ export default async function TranslatedArticle({
           className="text-[11px] font-bold uppercase tracking-[0.04em] rounded-md px-2 py-[3px]"
           style={{ color: k.color, background: k.bg }}
         >
-          {k.label}
+          {t(k.label, lang)}
         </span>
-        {/* Дата остаётся в русском формате: перевод месяцев — отдельная задача,
-            выдумывать половинчатую локализацию дат здесь не буду. */}
-        <span className="text-[15px] text-ink-3">{formatDateRu(item.published_at)}</span>
+        <span className="text-[15px] text-ink-3">{formatDate(item.published_at, lang)}</span>
       </div>
 
       <h1 className="m-0 mb-5 font-display font-bold text-[38px] leading-[1.12] text-brand max-[768px]:text-[27px]">

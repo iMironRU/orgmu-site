@@ -1,11 +1,25 @@
 import Link from "next/link";
 import type { NewsCardItem } from "@/lib/content/news-types";
-import { formatDateRu, kindStyle, newsKind } from "@/lib/content/news-types";
+import { formatDate, kindStyle, newsKind } from "@/lib/content/news-types";
 
 // langPrefix — «/en», «/kk» или пусто. Без него карточка на переведённом
 // списке уводила бы на русскую статью.
-export function NewsCard({ item, langPrefix = "" }: { item: NewsCardItem; langPrefix?: string }) {
+// Карточка — клиентский компонент, поэтому словарь (он читает файлы) сюда
+// импортировать нельзя. Подпись вида и дату готовит сервер и передаёт готовыми
+// строками; без них карточка работает по-русски, как раньше.
+export function NewsCard({
+  item,
+  langPrefix = "",
+  kindLabel,
+  lang = "ru",
+}: {
+  item: NewsCardItem;
+  langPrefix?: string;
+  kindLabel?: string;
+  lang?: string;
+}) {
   const k = kindStyle(newsKind(item));
+  const label = kindLabel ?? k.label;
   const cover = item.cover?.remote;
 
   return (
@@ -30,10 +44,10 @@ export function NewsCard({ item, langPrefix = "" }: { item: NewsCardItem; langPr
             className="text-[11px] font-bold tracking-[0.04em] uppercase rounded-md px-[9px] py-[3px]"
             style={{ color: k.color, background: k.bg }}
           >
-            {k.label}
+            {label}
           </span>
           <span className="font-ui font-bold text-[14px] tracking-[0.04em] uppercase text-sky-soft">
-            {formatDateRu(item.published_at)}
+            {formatDate(item.published_at, lang)}
           </span>
         </div>
         <span className="font-ui font-bold text-[20px] leading-[1.15] text-brand text-pretty">
