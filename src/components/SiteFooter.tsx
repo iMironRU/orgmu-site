@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { FooterPicker } from "@/components/FooterPicker";
+import { isTargetLocale } from "@/lib/i18n/config";
+import { t } from "@/lib/i18n/t";
 import { BuildStamp } from "@/components/BuildStamp";
 import { Fragment } from "react";
 import type { Footer } from "@/lib/content/navigation";
@@ -17,7 +20,26 @@ function Lines({ lines }: { lines: string[] }) {
   );
 }
 
-export function SiteFooter({ footer }: { footer: Footer }) {
+export function SiteFooter({
+  footer,
+  footerByLocale,
+}: {
+  footer: Footer;
+  footerByLocale?: Record<string, Footer>;
+}) {
+  // Готовим разметку на всех языках сразу — выбрать нужную может только клиент
+  // (корневой layout локали не знает).
+  const variants: Record<string, React.ReactNode> = { ru: <FooterBody footer={footer} /> };
+  for (const [l, f] of Object.entries(footerByLocale ?? {})) {
+    variants[l] = <FooterBody footer={f} lang={l} />;
+  }
+  return <FooterPicker variants={variants} />;
+}
+
+function FooterBody({ footer, lang = "ru" }: { footer: Footer; lang?: string }) {
+  // Подпись зашита в разметке, поэтому переводим её здесь. Сам текст перечислен
+  // в content/i18n/ui.yml, чтобы попадать в машинный перевод.
+  const routeLabel = isTargetLocale(lang) ? t("Схема проезда", lang) : "Схема проезда";
   const { org, columns } = footer;
   return (
     <footer className="bg-brand text-white font-ui" data-a11y-surface="brand">
@@ -46,7 +68,7 @@ export function SiteFooter({ footer }: { footer: Footer }) {
               <path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            Схема проезда
+            {routeLabel}
           </a>
           <span className="font-normal text-[16px] leading-[1.5] text-white/85">
             <Lines lines={org.contacts} />

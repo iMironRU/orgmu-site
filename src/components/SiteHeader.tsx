@@ -1,13 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { TARGET_LOCALES } from "@/lib/i18n/config";
+import Link from "next/link";
 import { asset } from "@/lib/asset";
 import type { NavItem } from "@/lib/content/navigation";
 
 // Меню приходит пропсом из layout (грузится из content/navigation/main.yml).
-export function SiteHeader({ nav: NAV }: { nav: NavItem[] }) {
+export function SiteHeader({
+  nav,
+  navByLocale,
+}: {
+  nav: NavItem[];
+  // Меню на всех языках: корневой layout не знает локаль, выбираем по адресу.
+  navByLocale?: Record<string, NavItem[]>;
+}) {
+  const pathname = usePathname() || "/";
+  const locale = TARGET_LOCALES.find((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
+  const NAV = (locale && navByLocale?.[locale]) || nav;
   const [open, setOpen] = useState(-1); // индекс раскрытого desktop-пункта
   const [burger, setBurger] = useState(false);
   const [exp, setExp] = useState(-1);

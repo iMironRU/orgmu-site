@@ -28,6 +28,8 @@ concurrency:
 jobs:
   translate:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -65,6 +67,7 @@ jobs:
           done
 
       - name: Коммит памяти переводов
+        id: commit
         if: ${{ inputs.dry != true }}
         run: |
           git config user.name  "orgma-i18n-bot"
@@ -72,8 +75,22 @@ jobs:
           git add content/i18n
           if git diff --cached --quiet; then
             echo "Новых переводов нет."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             n=$(git diff --cached --numstat | awk '{s+=$1} END {print s+0}')
             git commit -m "i18n: машинный перевод (+${n} строк памяти)"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+  # Коммит бота сам пересборку не запускает (GitHub не триггерит workflow на
+  # пуш от GITHUB_TOKEN), поэтому зовём деплой явно — иначе свежий перевод
+  # лежал бы в репозитории, а на сайте оставался старый.
+  deploy:
+    needs: translate
+    if: needs.translate.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
