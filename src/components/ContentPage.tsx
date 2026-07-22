@@ -316,12 +316,17 @@ function ContactCards({
 export function ContentPage({
   page,
   sideNav,
+  notice,
 }: {
   page: ContentPageData;
   // Меню соседних страниц раздела (паттерн «Подразделы» из sveden). Ставится
   // над оглавлением этой страницы. Нужен разделам вроде НИЦ, где страниц
   // несколько; у одиночных типовых страниц его просто нет.
   sideNav?: React.ReactNode;
+  // Плашка над содержимым — например «переведено автоматически». Ставится
+  // первой в колонке контента: читатель должен узнать о качестве текста до
+  // того, как начнёт его читать.
+  notice?: React.ReactNode;
 }) {
   // Оглавление — заголовки h2 страницы.
   const nav = page.blocks
@@ -411,6 +416,7 @@ export function ContentPage({
 
         {/* Контент */}
         <article className="min-w-0 flex flex-col gap-[26px] text-[19px] leading-[1.65] text-ink">
+          {notice}
           {page.lead && (
             <p className="m-0 font-medium text-[22px] leading-[1.5] text-steel">{page.lead}</p>
           )}

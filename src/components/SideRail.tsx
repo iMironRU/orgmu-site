@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { LOCALE_NAMES, TARGET_LOCALES, SOURCE_LOCALE, localeHref, type Locale } from "@/lib/i18n/config";
 
 // Прячет нижнюю панель при прокрутке вниз, возвращает при прокрутке вверх —
 // как шапка в Safari и большинстве приложений, жест людям знаком. Так во время
@@ -93,17 +95,22 @@ const ICONS = {
 const RAIL_ICON =
   "relative flex items-center justify-center w-[46px] h-[46px] rounded-xl text-white no-underline transition-colors hover:bg-white/15";
 
-const LANGS = [
-  { label: "Русский", code: "РУС" },
-  { label: "English", code: "ENG" },
-  { label: "Қазақша", code: "ҚАЗ" },
-];
+const LANGS: { locale: Locale; label: string; code: string }[] = [
+  SOURCE_LOCALE,
+  ...TARGET_LOCALES,
+].map((l) => ({ locale: l as Locale, label: LOCALE_NAMES[l as Locale].native, code: LOCALE_NAMES[l as Locale].code }));
 
 export function SideRail() {
-  const [lang, setLang] = useState("РУС");
   const [langOpen, setLangOpen] = useState(false);
-
-  const cycleLang = () => setLang((l) => (l === "РУС" ? "ENG" : l === "ENG" ? "ҚАЗ" : "РУС"));
+  // Текущий язык определяем по адресу, а не храним в состоянии: иначе после
+  // перехода подпись рассинхронизировалась бы со страницей.
+  const pathname = usePathname() || "/";
+  const current: Locale =
+    (TARGET_LOCALES.find((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)) as Locale) ??
+    SOURCE_LOCALE;
+  const lang = LOCALE_NAMES[current].code;
+  // Переход на тот же адрес в другом языке.
+  const hrefFor = (l: Locale) => localeHref(pathname, l);
   const hidden = useHideOnScroll();
 
   return (
@@ -131,10 +138,12 @@ export function SideRail() {
         {ICONS.apps}
         <span>Сервисы</span>
       </Link>
-      <button type="button" onClick={cycleLang} className={MOBILE_ITEM}>
+      {/* По кругу: РУС → ENG → ҚАЗ. Это ссылка, а не кнопка, — переход между
+          языками должен работать и открываться в новой вкладке. */}
+      <Link href={hrefFor(LANGS[(LANGS.findIndex((l) => l.locale === current) + 1) % LANGS.length].locale)} className={MOBILE_ITEM}>
         <span className="font-bold text-[15px] leading-6">{lang}</span>
         <span>Язык</span>
-      </button>
+      </Link>
       <Link href="/dostupnost" className={MOBILE_ITEM}>
         {ICONS.access}
         <span>Доступность</span>
@@ -196,14 +205,11 @@ export function SideRail() {
                 {LANGS.map((l) => {
                   const activeLang = lang === l.code;
                   return (
-                    <button
+                    <Link
                       key={l.code}
-                      type="button"
-                      onClick={() => {
-                        setLang(l.code);
-                        setLangOpen(false);
-                      }}
-                      className="flex items-center justify-between gap-[10px] font-ui font-bold text-[16px] border-none rounded-lg px-[14px] py-[10px] cursor-pointer text-left whitespace-nowrap"
+                      href={hrefFor(l.locale)}
+                      onClick={() => setLangOpen(false)}
+                      className="flex items-center justify-between gap-[10px] font-ui font-bold text-[16px] border-none rounded-lg px-[14px] py-[10px] cursor-pointer text-left whitespace-nowrap no-underline"
                       style={{
                         color: activeLang ? "var(--c-brand)" : "var(--c-steel)",
                         background: activeLang ? "rgba(184,57,4,0.12)" : "transparent",
@@ -211,7 +217,7 @@ export function SideRail() {
                     >
                       {l.label}
                       <span className="text-[13px] text-ink-3">{l.code}</span>
-                    </button>
+                    </Link>
                   );
                 })}
               </div>

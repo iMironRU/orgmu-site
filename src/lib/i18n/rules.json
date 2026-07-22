@@ -1,0 +1,23 @@
+{
+  "_comment": "Общие правила отбора строк для перевода. Читаются И скриптом (scripts/i18n/translate.mjs), И сайтом (src/lib/i18n/translate-data.ts). Держать в одном месте обязательно: если правила разойдутся, скрипт переведёт одно, а страница попросит другое — и получится дыра.",
+
+  "skipKeys": [
+    "id", "slug", "href", "url", "link", "image", "icon", "accent", "soft", "tone",
+    "color", "code", "date", "until", "email", "phone", "tel", "site", "version",
+    "num", "parent", "type", "kind", "status", "platform", "auth", "audience",
+    "category", "fmt", "size", "value", "cta", "replacedBy", "host", "src"
+  ],
+
+  "_docComment": "Подпись рядом с href на документ — это название файла. Файл остаётся русским, поэтому и подпись не переводим.",
+  "docExt": "\\.(pdf|docx?|xlsx?|rtf|odt|pptx?|zip)(\\?|$)",
+  "docFields": ["name", "title", "text"],
+
+  "_skipComment": "Внутренние имена баз 1С: русские аббревиатуры, машина делает из них нечитаемый транслит («БГУ» → «BSU»).",
+  "skipStrings": ["БГУ", "ЗГУ", "ЗУП"],
+
+  "_techComment": "Значения, которые являются техническими, а не текстом.",
+  "technical": [
+    "^https?://", "^mailto:", "^tel:", "^/", "^#", "^rgb", "^\\d[\\d\\s.,:%-]*$",
+    "^[A-Za-z0-9._-]+@", "^\\d{4}-\\d{2}-\\d{2}$"
+  ]
+}

@@ -41,30 +41,14 @@ const SOURCES = [
   "content/pages/**/*.yml",
 ];
 
-// Ключи, значения которых переводить НЕЛЬЗЯ: адреса, идентификаторы, коды,
-// цвета, даты, контакты. Перевести href или email — сломать ссылку.
-const SKIP_KEYS = new Set([
-  "id", "slug", "href", "url", "link", "image", "icon", "accent", "soft", "tone",
-  "color", "code", "date", "until", "email", "phone", "tel", "site", "version",
-  "num", "parent", "type", "kind", "status", "platform", "auth", "audience",
-  "category", "fmt", "size", "value", "cta", "replacedBy", "host", "src",
-]);
-
-// Расширения документов: если рядом с текстом стоит href на файл, это НАЗВАНИЕ
-// ДОКУМЕНТА. Не переводим: сам файл остаётся русским, и переведённый заголовок
-// над русским PDF вводил бы в заблуждение.
-const DOC_EXT = /\.(pdf|docx?|xlsx?|rtf|odt|pptx?|zip)(\?|$)/i;
-
-// Строки, которые переводить бессмысленно: внутренние имена баз 1С — русские
-// аббревиатуры (БГУ — «бухгалтерия государственного учреждения»), машина делает
-// из них транслитерацию вроде «BSU», нечитаемую ни на одном языке.
-const SKIP_STRINGS = [/БГУ/, /ЗГУ/, /ЗУП/];
-
-// Значения, которые выглядят техническими, а не текстом.
-const TECHNICAL = [
-  /^https?:\/\//i, /^mailto:/i, /^tel:/i, /^\//, /^#/, /^rgb/i, /^\d[\d\s.,:%-]*$/,
-  /^[A-Za-z0-9._-]+@/, /^\d{4}-\d{2}-\d{2}$/,
-];
+// Правила отбора — общие с сайтом (src/lib/i18n/rules.json). Держим в одном
+// месте: если разойдутся, скрипт переведёт одно, а страница спросит другое.
+const RULES = JSON.parse(fs.readFileSync(path.join(ROOT, "src/lib/i18n/rules.json"), "utf8"));
+const SKIP_KEYS = new Set(RULES.skipKeys);
+const DOC_EXT = new RegExp(RULES.docExt, "i");
+const DOC_FIELDS = new Set(RULES.docFields);
+const SKIP_STRINGS = RULES.skipStrings.map((r) => new RegExp(r));
+const TECHNICAL = RULES.technical.map((r) => new RegExp(r, "i"));
 
 const args = process.argv.slice(2);
 const DRY = args.includes("--dry");
@@ -94,7 +78,7 @@ function walk(node, key, out) {
     const isDoc = typeof node.href === "string" && DOC_EXT.test(node.href);
     for (const [k, v] of Object.entries(node)) {
       if (SKIP_KEYS.has(k) || k.startsWith("_")) continue;
-      if (isDoc && (k === "name" || k === "title" || k === "text")) continue;
+      if (isDoc && DOC_FIELDS.has(k)) continue;
       walk(v, k, out);
     }
   } else if (translatable(node)) {
