@@ -1116,6 +1116,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "1b711493a0ab": {
+    "src": "политикой обработки данных",
+    "text": "деректерді өңдеу саясаты",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "1b919c3878aa": {
     "src": "Определение триацил глицеридов в сыворотке крови",
     "text": "Қан сарысуындағы триацил глицеридтерін анықтау",
@@ -1766,6 +1772,12 @@
     "text": "Қан сарысуындағы Ureaplasma urealyticum антигендеріне G класты иммуноглобулиндерді анықтау (топтық қойылымда кемінде 5 сынама)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "2a280e274344": {
+    "src": "Мы используем файлы cookie для корректной работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с",
+    "text": "Біз сайттың дұрыс жұмыс істеуі үшін cookie файлдарын қолданамыз. Сайтты пайдалануды жалғастыра отырып, сіз келісесіз",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "2a6018deca4b": {
     "src": "<p><span style=\"font-family: Arial;\">С 6 по 15 июля студентки 3-го курса лечебного факультета ОрГМУ Ульяна Васильева и Аделина Кабаева в рамках программы академической мобильности получали практические навыки по диагностическому профилю на базе Гродненской университетской клиники и новой областной клинической больницы (Республика Беларусь). </span></p>\r\n<p><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"><span style=\"font-family: Arial;\">Д</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"><span style=\"font-family: Arial;\">ля студентов Оренбургского государственного медицинского университета и&nbsp;</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"><span style=\"font-family: Arial;\">Санкт-Петербургск</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"><span style=\"font-family: Arial;\">ого</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"> <span style=\"font-family: Arial;\">государственн</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"><span style=\"font-family: Arial;\">ого</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"> <span style=\"font-family: Arial;\">педиатрическ</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"><span style=\"font-family: Arial;\">ого</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"> <span style=\"font-family: Arial;\">медицинск</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"><span style=\"font-family: Arial;\">ого</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"> <span style=\"font-family: Arial;\">университе</span></span><span style=\"font-family: Arial; color: #000000; background: #f8f9fa;\"><span style=\"font-family: Arial;\">та </span></span><span style=\"font-family: Arial;\">пр</span><span style=\"font-family: Arial;\">овели экскурсии по медицинским организациям, рассказали о направлениях деятельности, ознакомили с документацией отделений, функционалом, устройством и оснащением кабинетов. &nbsp;</span></p>\r\n<p><span style=\"font-family: Arial;\">Студентки отмечают внимательное отношение к себе со стороны медицинского персонала клиники и больницы:</span></p>\r\n<p><span style=\"font-family: Arial;\">- Нам все очень подробно объясняли, это было по-настоящему интересно. Мы даже сами проводили УЗИ-диагностику, такой опыт очень ценен, - рассказали практикантки. - Врачи показывали, как все устроено, брали нас с собой на обходы, объясняли диагнозы пациентов. Отдельно хочется отметить отзывчивость всех сотрудников: и врачей, и медсестер, и санитарок.</span></p>\r\n<p><span style=\"font-family: Arial;\">Помимо практической части, программа пребывания была насыщена культурно-познавательными мероприятиями. Студенты посетили исторические места Гродно, а также побывали в других городах Беларуси. </span></p>",
@@ -9336,6 +9348,12 @@
   "de52e382f2b7": {
     "src": "Федеральные государственные требования",
     "text": "Федералды мемлекеттік талаптар",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "de665302f0af": {
+    "src": "Хорошо",
+    "text": "Жарайды",
     "status": "machine",
     "at": "2026-07-23"
   },
