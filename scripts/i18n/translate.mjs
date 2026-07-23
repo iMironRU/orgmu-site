@@ -40,6 +40,9 @@ const SOURCES = [
   "content/mesta.yml",
   "content/pages/**/*.yml",
   "content/i18n/ui.yml",
+  // Подписи разделов и полей sveden — это СТРУКТУРА раздела, её переводим.
+  // Сами юридические значения лежат в sveden.json и в источники не входят.
+  "content/sveden/labels.json",
 ];
 
 // Новости лежат по-своему (JSON, тело — разметка), поэтому собираются отдельно.
@@ -102,7 +105,7 @@ function expand(pattern) {
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
       const p = path.join(d, e.name);
       if (e.isDirectory()) rec(p);
-      else if (e.name.endsWith(".yml")) found.push(path.relative(ROOT, p));
+      else if (/\.(yml|json)$/.test(e.name)) found.push(path.relative(ROOT, p));
     }
   };
   rec(dir);
@@ -131,7 +134,7 @@ function collect() {
       const raw = fs.readFileSync(path.join(ROOT, rel), "utf8");
       let data;
       try {
-        data = parseYaml(raw);
+        data = rel.endsWith(".json") ? JSON.parse(raw) : parseYaml(raw);
       } catch (e) {
         console.error(`  ! пропускаю ${rel}: ${e.message.split("\n")[0]}`);
         continue;

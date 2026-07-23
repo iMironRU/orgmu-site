@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import RuPage from "@/app/sveden/page";
+import { SvedenPage } from "@/components/sveden/SvedenPage";
 import { TARGET_LOCALES, isTargetLocale } from "@/lib/i18n/config";
 import { alternatesFor } from "@/lib/i18n/alternates";
 
-// Зеркало русской страницы под языковым адресом. Содержимое то же самое
-// (перевода у раздела нет), но адрес несёт язык — значит шапка, крошки и
-// переключатель остаются на языке, ссылку можно передать, и язык не теряется.
+// Зеркало sveden. Переводятся ТОЛЬКО подписи разделов и полей — структура.
+// Юридические значения (наименования, реквизиты, даты) и документы остаются
+// русскими: переводить официальные формулировки Рособрнадзора мы сознательно
+// не беремся, а переведённый заголовок над русским документом вводил бы в
+// заблуждение.
 export const dynamicParams = false;
 export function generateStaticParams() {
   return TARGET_LOCALES.map((lang) => ({ lang }));
@@ -27,5 +29,5 @@ export async function generateMetadata({
 export default async function Mirror({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isTargetLocale(lang)) notFound();
-  return <RuPage />;
+  return <SvedenPage sectionKey="common" locale={lang} />;
 }

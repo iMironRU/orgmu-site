@@ -35,11 +35,11 @@ function Value({ itemprop, value }: { itemprop: string; value: FieldValue }) {
 }
 
 // Строка «подпись + значение» — стиль макета Svedenia (подпись слева, значение справа).
-function Row({ f, value }: { f: FieldDef; value: FieldValue }) {
+function Row({ f, value, locale }: { f: FieldDef; value: FieldValue; locale?: string }) {
   return (
     <div className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
       <div className="flex-[0_0_240px] max-w-full text-[16px] text-ink-2 font-ui">
-        {fieldLabel(f.key)}
+        {fieldLabel(f.key, locale)}
       </div>
       <div className="flex-1 min-w-[180px] text-[17px] font-medium font-ui">
         <Value itemprop={f.itemprop} value={value} />
@@ -52,12 +52,12 @@ function Row({ f, value }: { f: FieldDef; value: FieldValue }) {
 // оглавления. Ключ группы стабилен (из вокабуляра), поэтому годится как id.
 export const groupAnchor = (key: string) => `grp-${key}`;
 
-function GroupBlock({ g, items }: { g: GroupDef; items: Record<string, FieldValue>[] }) {
+function GroupBlock({ g, items, locale }: { g: GroupDef; items: Record<string, FieldValue>[]; locale?: string }) {
   const asTable = items.length > 8;
   return (
     <section className="mt-8">
       <h2 id={groupAnchor(g.key)} className="m-0 mb-4 font-display font-bold text-[22px] text-brand scroll-mt-[100px]">
-        {groupLabel(g.key)}
+        {groupLabel(g.key, locale)}
         {items.length > 1 && (
           <span className="text-ink-3 font-normal text-[16px]"> · {items.length}</span>
         )}
@@ -71,7 +71,7 @@ function GroupBlock({ g, items }: { g: GroupDef; items: Record<string, FieldValu
               <tr className="bg-bg-muted text-left">
                 {g.fields.map((f) => (
                   <th key={f.key} className="px-3 py-2 border-b border-line font-bold text-ink-2 whitespace-nowrap">
-                    {fieldLabel(f.key)}
+                    {fieldLabel(f.key, locale)}
                   </th>
                 ))}
               </tr>
@@ -109,7 +109,7 @@ function GroupBlock({ g, items }: { g: GroupDef; items: Record<string, FieldValu
           {items.map((item, i) => (
             <div key={i} {...ip(g.itemprop)} className="bg-white border border-line rounded-xl px-0 py-0 overflow-hidden">
               {g.fields.map((f) => (
-                <Row key={f.key} f={f} value={item[f.key]} />
+                <Row key={f.key} f={f} value={item[f.key]} locale={locale} />
               ))}
             </div>
           ))}
@@ -145,7 +145,16 @@ function cleanItems(items: Record<string, FieldValue>[], fields: FieldDef[]) {
   return items.filter((it) => !isHeaderRow(it, fields));
 }
 
-export function SvedenSection({ sectionKey, section }: { sectionKey: string; section: SectionDef }) {
+export function SvedenSection({
+  sectionKey,
+  section,
+  locale,
+}: {
+  sectionKey: string;
+  section: SectionDef;
+  // Язык подписей полей и групп. Значения не переводятся.
+  locale?: string;
+}) {
   const fields: FieldDef[] = sectionFields(section);
   const groups: GroupDef[] = sectionGroups(section);
   const data = sectionData(sectionKey);
@@ -171,7 +180,7 @@ export function SvedenSection({ sectionKey, section }: { sectionKey: string; sec
       {plainFields.length > 0 && (
         <section className="bg-white border border-line rounded-xl overflow-hidden">
           {plainFields.map((f) => (
-            <Row key={f.key} f={f} value={data.fields?.[f.key]} />
+            <Row key={f.key} f={f} value={data.fields?.[f.key]} locale={locale} />
           ))}
         </section>
       )}
@@ -184,7 +193,7 @@ export function SvedenSection({ sectionKey, section }: { sectionKey: string; sec
       )}
 
       {groups.map((g) => (
-        <GroupBlock key={g.key} g={g} items={cleanItems(normalizeItems(data.groups?.[g.key]), g.fields)} />
+        <GroupBlock key={g.key} g={g} items={cleanItems(normalizeItems(data.groups?.[g.key]), g.fields)} locale={locale} />
       ))}
     </div>
   );

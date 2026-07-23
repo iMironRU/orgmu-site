@@ -1,6 +1,6 @@
 import { Link } from "@/components/Link";
 import { listSectionKeys, getSection } from "@/lib/sveden/vocab";
-import { SECTION_LABELS, SECTION_SHORT, SECTION_LEADS } from "@/lib/sveden/labels";
+import { sectionLabel, sectionShort, sectionLead } from "@/lib/sveden/labels";
 import { SvedenSection } from "@/components/sveden/SvedenSection";
 import { DocumentsView } from "@/components/sveden/DocumentsView";
 import { DocCards } from "@/components/sveden/DocCards";
@@ -103,11 +103,13 @@ const VITRINY: Record<string, { href: string; title: string; desc: string }> = {
 
 // Страница раздела «Сведения об ОО» по макету Svedenia: титульная плашка +
 // две колонки (слева навигация по 14 подразделам, справа контент подраздела).
-export function SvedenPage({ sectionKey }: { sectionKey: string }) {
+// locale — язык ПОДПИСЕЙ. Юридические значения остаются русскими всегда:
+// переводить официальные формулировки Рособрнадзора мы сознательно не беремся.
+export function SvedenPage({ sectionKey, locale }: { sectionKey: string; locale?: string }) {
   const keys = listSectionKeys();
   const section = getSection(sectionKey)!;
   const num = keys.indexOf(sectionKey) + 1;
-  const title = SECTION_LABELS[sectionKey] ?? sectionKey;
+  const title = sectionLabel(sectionKey, locale);
   // Служебные страницы — отдельным списком под 14 обязательными подразделами.
   const extra = getSvedenExtra();
 
@@ -146,7 +148,7 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
               <NavSelect
                 title="Подразделы"
                 current={`/sveden/${sectionKey}`}
-                items={keys.map((k) => ({ label: SECTION_SHORT[k] ?? k, href: `/sveden/${k}` }))}
+                items={keys.map((k) => ({ label: sectionShort(k, locale), href: `/sveden/${k}` }))}
               />
             </div>
             <nav className="max-[900px]:hidden bg-white border border-line rounded-xl overflow-hidden">
@@ -176,7 +178,7 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
                       >
                         {i + 1}
                       </span>
-                      <span className="flex-1">{SECTION_SHORT[k] ?? k}</span>
+                      <span className="flex-1">{sectionShort(k, locale)}</span>
                     </Link>
                   );
                 })}
@@ -236,9 +238,9 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
             </h2>
           </div>
 
-          {SECTION_LEADS[sectionKey] && (
+          {sectionLead(sectionKey, locale) && (
             <p className="m-0 font-ui font-medium text-[18px] leading-[1.5] text-steel">
-              {SECTION_LEADS[sectionKey]}
+              {sectionLead(sectionKey, locale)}
             </p>
           )}
 
@@ -289,7 +291,7 @@ export function SvedenPage({ sectionKey }: { sectionKey: string }) {
                   </section>
                 </>
               ) : (
-                <SvedenSection sectionKey={sectionKey} section={section} />
+                <SvedenSection sectionKey={sectionKey} section={section} locale={locale} />
               )}
 
               {/* Плашка про машиночитаемость */}

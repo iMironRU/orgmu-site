@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import RuPage, { generateStaticParams as ruParams } from "@/app/sveden/[section]/page";
+import { generateStaticParams as ruParams } from "@/app/sveden/[section]/page";
+import { SvedenPage } from "@/components/sveden/SvedenPage";
 import { TARGET_LOCALES, isTargetLocale } from "@/lib/i18n/config";
 import { alternatesFor } from "@/lib/i18n/alternates";
 
@@ -29,5 +30,5 @@ export default async function Mirror({
 }) {
   const { lang, section } = await params;
   if (!isTargetLocale(lang)) notFound();
-  return <RuPage params={Promise.resolve({ section })} />;
+  return <SvedenPage sectionKey={section} locale={lang} />;
 }
