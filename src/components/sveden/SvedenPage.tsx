@@ -1,6 +1,8 @@
 import { Link } from "@/components/Link";
 import { listSectionKeys, getSection } from "@/lib/sveden/vocab";
 import { sectionLabel, sectionShort, sectionLead } from "@/lib/sveden/labels";
+import { isTargetLocale } from "@/lib/i18n/config";
+import { t } from "@/lib/i18n/t";
 import { SvedenSection } from "@/components/sveden/SvedenSection";
 import { DocumentsView } from "@/components/sveden/DocumentsView";
 import { DocCards } from "@/components/sveden/DocCards";
@@ -110,6 +112,8 @@ export function SvedenPage({ sectionKey, locale }: { sectionKey: string; locale?
   const section = getSection(sectionKey)!;
   const num = keys.indexOf(sectionKey) + 1;
   const title = sectionLabel(sectionKey, locale);
+  // Подписи шапки раздела — тоже структура, переводим наравне с остальными.
+  const L = (ru: string) => (locale && isTargetLocale(locale) ? t(ru, locale) : ru);
   // Служебные страницы — отдельным списком под 14 обязательными подразделами.
   const extra = getSvedenExtra();
 
@@ -120,18 +124,18 @@ export function SvedenPage({ sectionKey, locale }: { sectionKey: string; locale?
         <div className="mx-auto max-w-[1200px] px-10 py-8 box-border max-[768px]:px-5">
           <div className="flex items-center gap-2 text-[15px] text-white/70 mb-[14px] font-ui flex-wrap">
             <Link href="/" className="text-white/90 no-underline">
-              Главная
+              {L("Главная")}
             </Link>
             <span>/</span>
-            <span>Сведения об образовательной организации</span>
+            <span>{L("Сведения об образовательной организации")}</span>
           </div>
           <h1 className="m-0 mb-2 font-display font-bold text-[38px] leading-[1.12] max-[768px]:text-[26px]">
-            Сведения об образовательной организации
+            {L("Сведения об образовательной организации")}
           </h1>
           <p className="m-0 max-w-[720px] font-ui text-[17px] text-white/85">
-            Специальный раздел по приказу Рособрнадзора № 1493 и ст. 29 ФЗ-273.
-            Структура и состав сведений фиксированы; данные продублированы в
-            машиночитаемом виде.
+            {L(
+              "Специальный раздел по приказу Рособрнадзора № 1493 и ст. 29 ФЗ-273. Структура и состав сведений фиксированы; данные продублированы в машиночитаемом виде.",
+            )}
           </p>
         </div>
       </div>
@@ -146,7 +150,7 @@ export function SvedenPage({ sectionKey, locale }: { sectionKey: string; locale?
                 скролл-спая тут быть не может, выбор = переход. */}
             <div className="min-[901px]:hidden sticky top-[60px] z-30 -mx-1 px-1 py-2 bg-bg">
               <NavSelect
-                title="Подразделы"
+                title={L("Подразделы")}
                 current={`/sveden/${sectionKey}`}
                 items={keys.map((k) => ({ label: sectionShort(k, locale), href: `/sveden/${k}` }))}
               />
