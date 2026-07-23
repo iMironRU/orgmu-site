@@ -3,6 +3,7 @@ import { Inter, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { UntranslatedNotice } from "@/components/UntranslatedNotice";
+import { LanguageSuggestion } from "@/components/LanguageSuggestion";
 import { LocaleProvider } from "@/lib/i18n/LocaleContext";
 import { t } from "@/lib/i18n/t";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -89,6 +90,9 @@ export default function RootLayout({
         {/* Отступ снизу на мобиле — под фиксированную панель SideRail,
             иначе подвал уезжает под неё. */}
         <div className="a11y-zoom flex-1 min-w-0 flex flex-col max-[768px]:pb-[56px]">
+          {/* Предложение сменить язык — над шапкой: если оно уместно, человек
+              должен увидеть его сразу, не прокручивая. */}
+          <LanguageSuggestion />
           <SiteHeader nav={nav} navByLocale={navByLocale} translatedPaths={translatedPaths} />
           <div className="flex-1">
             {/* Пояснение на русской странице, если человек читает сайт на
