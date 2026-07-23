@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { SOURCE_LOCALE, type Locale } from "./config";
 import { usePreferredLocale } from "./use-locale";
 
@@ -18,6 +18,15 @@ export function LocaleProvider({
   children: React.ReactNode;
 }) {
   const locale = usePreferredLocale();
+
+  // <html lang> проставляется после сборки, по адресу страницы. При переходе
+  // внутри сайта разметка не перезагружается, и атрибут остаётся от прежней
+  // страницы: скринридер продолжает читать английский текст по-русски. Держим
+  // его в соответствии с текущим адресом.
+  useEffect(() => {
+    if (document.documentElement.lang !== locale) document.documentElement.lang = locale;
+  }, [locale]);
+
   return <LocaleCtx.Provider value={{ locale, translatedPaths }}>{children}</LocaleCtx.Provider>;
 }
 

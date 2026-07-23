@@ -99,11 +99,13 @@ export function SideRail({
   // Переход на тот же адрес в другом языке. Если этой страницы на нужном языке
   // нет — ведём на языковую главную: попасть в 404, переключив язык, хуже, чем
   // оказаться на разделе с тем, что переведено.
+  // Возвращает адрес без языкового префикса; язык проставит сам Link по
+  // пропу locale — иначе он вернул бы текущий язык обратно.
   const hrefFor = (l: Locale) => {
-    if (l === SOURCE_LOCALE) return localeHref(pathname, l);
     const base = pathname.replace(/^\/(en|kk)(?=\/|$)/, "") || "/";
+    if (l === SOURCE_LOCALE) return base;
     const known = translatedPaths.some((p) => base === p || base.startsWith(`${p}/`));
-    return known ? localeHref(pathname, l) : `/${l}`;
+    return known ? base : "/";
   };
   const hidden = useHideOnScroll();
   const s_ = ui?.[current] ?? RAIL_UI;
@@ -135,10 +137,15 @@ export function SideRail({
       </Link>
       {/* По кругу: РУС → ENG → ҚАЗ. Это ссылка, а не кнопка, — переход между
           языками должен работать и открываться в новой вкладке. */}
-      <Link href={hrefFor(LANGS[(LANGS.findIndex((l) => l.locale === current) + 1) % LANGS.length].locale)} className={MOBILE_ITEM}>
+      {(() => {
+        const next = LANGS[(LANGS.findIndex((l) => l.locale === current) + 1) % LANGS.length].locale;
+        return (
+      <Link href={hrefFor(next)} locale={next} className={MOBILE_ITEM}>
         <span className="font-bold text-[15px] leading-6">{lang}</span>
         <span>{s_.language}</span>
       </Link>
+        );
+      })()}
       <Link href="/dostupnost" className={MOBILE_ITEM}>
         {ICONS.access}
         <span>{s_.accessibility}</span>
@@ -199,6 +206,7 @@ export function SideRail({
                     <Link
                       key={l.code}
                       href={hrefFor(l.locale)}
+                      locale={l.locale}
                       onClick={() => setLangOpen(false)}
                       className="flex items-center justify-between gap-[10px] font-ui font-bold text-[16px] border-none rounded-lg px-[14px] py-[10px] cursor-pointer text-left whitespace-nowrap no-underline"
                       style={{
