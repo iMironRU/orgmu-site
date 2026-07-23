@@ -11,7 +11,37 @@ const KIND_ORDER: NoticeKind[] = ["urgent", "important", "info"];
 
 // Витрина известий по образцу News.dc.html: чипы-фильтры (здесь — по виду
 // известия) + сетка карточек + пагинация.
-export function NoticesView({ items }: { items: NoticeItem[] }) {
+// Чип категории. Объявлен на верхнем уровне: компонент, созданный внутри
+// рендера, каждый раз новый — React сбрасывает его состояние.
+function Chip({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="text-[15px] font-medium rounded-full px-[17px] py-[7px] border cursor-pointer transition-colors"
+      style={{
+        color: active ? "#fff" : "var(--c-steel)",
+        background: active ? "var(--c-accent)" : "#fff",
+        borderColor: active ? "var(--c-accent)" : "var(--c-line-strong)",
+      }}
+    >
+      {label}
+    </button>
+  );
+}
+
+// Подписи интерфейса: русский текст — ключ перевода и запасной вариант,
+// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
+export const NOTICES_UI = {
+  all: "Все",
+  emptyTitle: "Известий нет",
+  emptyHint: "В этой категории сейчас нет действующих известий.",
+  prev: "Назад",
+  next: "Вперёд",
+};
+
+export function NoticesView({ items, ui }: { items: NoticeItem[]; ui?: Partial<typeof NOTICES_UI> }) {
+  const s_ = { ...NOTICES_UI, ...ui };
   const [kind, setKind] = useState<NoticeKind | null>(null);
   const [page, setPage] = useState(1);
 
@@ -46,26 +76,12 @@ export function NoticesView({ items }: { items: NoticeItem[] }) {
   const cell =
     "w-10 h-10 flex items-center justify-center rounded-lg border border-line-strong text-steel cursor-pointer font-ui";
 
-  const Chip = ({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) => (
-    <button
-      type="button"
-      onClick={onClick}
-      className="text-[15px] font-medium rounded-full px-[17px] py-[7px] border cursor-pointer transition-colors"
-      style={{
-        color: active ? "#fff" : "var(--c-steel)",
-        background: active ? "var(--c-accent)" : "#fff",
-        borderColor: active ? "var(--c-accent)" : "var(--c-line-strong)",
-      }}
-    >
-      {label}
-    </button>
-  );
 
   return (
     <div className="font-ui">
       {kinds.length > 1 && (
         <div className="flex flex-wrap gap-[10px] mb-8">
-          <Chip label="Все" active={kind === null} onClick={() => pick(null)} />
+          <Chip label={s_.all} active={kind === null} onClick={() => pick(null)} />
           {kinds.map((k) => (
             <Chip key={k} label={NOTICE_KIND[k].tag} active={kind === k} onClick={() => pick(k)} />
           ))}
@@ -74,8 +90,8 @@ export function NoticesView({ items }: { items: NoticeItem[] }) {
 
       {slice.length === 0 ? (
         <div className="py-12 px-6 text-center bg-white border border-dashed border-line-strong rounded-xl">
-          <div className="font-display font-bold text-[20px] text-brand mb-[6px]">Известий нет</div>
-          <div className="text-[16px] text-ink-2">В этой категории сейчас нет действующих известий.</div>
+          <div className="font-display font-bold text-[20px] text-brand mb-[6px]">{s_.emptyTitle}</div>
+          <div className="text-[16px] text-ink-2">{s_.emptyHint}</div>
         </div>
       ) : (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
@@ -87,7 +103,7 @@ export function NoticesView({ items }: { items: NoticeItem[] }) {
 
       {pageCount > 1 && (
         <div className="flex gap-[6px] items-center justify-center mt-10 flex-wrap">
-          <button type="button" aria-label="Назад" onClick={() => go(cur - 1)} className={`${cell} ${cur === 1 ? "opacity-40 cursor-default" : "hover:border-accent"}`}>
+          <button type="button" aria-label={s_.prev} onClick={() => go(cur - 1)} className={`${cell} ${cur === 1 ? "opacity-40 cursor-default" : "hover:border-accent"}`}>
             ‹
           </button>
           {nums.map((n, i) =>
@@ -110,7 +126,7 @@ export function NoticesView({ items }: { items: NoticeItem[] }) {
               </button>
             ),
           )}
-          <button type="button" aria-label="Вперёд" onClick={() => go(cur + 1)} className={`${cell} ${cur === pageCount ? "opacity-40 cursor-default" : "hover:border-accent"}`}>
+          <button type="button" aria-label={s_.next} onClick={() => go(cur + 1)} className={`${cell} ${cur === pageCount ? "opacity-40 cursor-default" : "hover:border-accent"}`}>
             ›
           </button>
         </div>

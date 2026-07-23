@@ -3,6 +3,17 @@
 import { useMemo, useState } from "react";
 import { Link } from "@/components/Link";
 import { IconPin, IconPhone, IconMail } from "@/components/contact-icons";
+
+// Подписи интерфейса: русский текст — ключ перевода и запасной вариант,
+// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
+export const STRUCTURE_UI = {
+  search: "Поиск по названию",
+  searchHint: "Факультет, кафедра, управление…",
+  count: "Подразделений",
+  reset: "Сбросить",
+  emptyTitle: "Ничего не найдено",
+  emptyHint: "Измените параметры фильтра.",
+};
 import { formatPhone } from "@/lib/phone";
 import type { Unit } from "@/lib/content/structure-types";
 import { typeMeta, initials, avatarColor, TYPE_META } from "@/lib/content/structure-types";
@@ -24,7 +35,17 @@ function docFmt(href: string): string {
   return e || "—";
 }
 
-export function StructureView({ units }: { units: Unit[] }) {
+export function StructureView({
+  units,
+  ui,
+  typeLabels,
+}: {
+  units: Unit[];
+  ui?: Partial<typeof STRUCTURE_UI>;
+  /** Переведённые подписи типов (kafedra → Department): TYPE_META знает только русские. */
+  typeLabels?: Record<string, string>;
+}) {
+  const s_ = { ...STRUCTURE_UI, ...ui };
   const [q, setQ] = useState("");
   const [types, setTypes] = useState<string[]>([]);
 
@@ -51,11 +72,11 @@ export function StructureView({ units }: { units: Unit[] }) {
       {/* Фильтры */}
       <div className="bg-white border border-line rounded-2xl p-[18px] shadow-[0_1px_2px_rgba(0,0,0,0.05)] mb-4">
         <label className="flex flex-col gap-[6px] mb-3">
-          <span className="font-bold text-[14px] text-ink-2">Поиск по названию</span>
+          <span className="font-bold text-[14px] text-ink-2">{s_.search}</span>
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Факультет, кафедра, управление…"
+            placeholder={s_.searchHint}
             className="text-[16px] text-ink px-[14px] py-[11px] border border-line-strong rounded-[9px] outline-none focus:border-accent max-w-[420px]"
           />
         </label>
@@ -75,7 +96,7 @@ export function StructureView({ units }: { units: Unit[] }) {
                   borderColor: active ? m.color : "var(--c-line-strong)",
                 }}
               >
-                {m.label}
+                {typeLabels?.[t] ?? m.label}
               </button>
             );
           })}
@@ -84,7 +105,7 @@ export function StructureView({ units }: { units: Unit[] }) {
 
       <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
         <div className="text-[16px] text-ink-2">
-          Подразделений: <b className="text-brand">{list.length}</b>
+          {s_.count}: <b className="text-brand">{list.length}</b>
         </div>
         {isFiltered && (
           <button
@@ -95,15 +116,15 @@ export function StructureView({ units }: { units: Unit[] }) {
             }}
             className="font-bold text-[15px] text-accent bg-none border-none cursor-pointer"
           >
-            Сбросить ✕
+            {s_.reset} ✕
           </button>
         )}
       </div>
 
       {list.length === 0 ? (
         <div className="py-12 px-6 text-center bg-white border border-dashed border-line-strong rounded-xl">
-          <div className="font-display font-bold text-[20px] text-brand mb-[6px]">Ничего не найдено</div>
-          <div className="text-[16px] text-ink-2">Измените параметры фильтра.</div>
+          <div className="font-display font-bold text-[20px] text-brand mb-[6px]">{s_.emptyTitle}</div>
+          <div className="text-[16px] text-ink-2">{s_.emptyHint}</div>
         </div>
       ) : (
         <div className="flex flex-col gap-[10px]">

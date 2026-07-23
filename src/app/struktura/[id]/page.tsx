@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Link } from "@/components/Link";
 import { formatPhone } from "@/lib/phone";
+import { isTargetLocale } from "@/lib/i18n/config";
+import { translateData } from "@/lib/i18n/translate-data";
+import { personName } from "@/lib/i18n/translit";
+import { t } from "@/lib/i18n/t";
+import { TranslationNotice } from "@/components/TranslationNotice";
 import { notFound } from "next/navigation";
 import {
   getUnits,
@@ -55,36 +60,54 @@ function Stat({ value, label }: { value: string; label: string }) {
 
 export default async function DepartmentPage({
   params,
+  lang,
 }: {
   params: Promise<{ id: string }>;
+  lang?: string;
 }) {
   const { id } = await params;
-  const u = getUnit(id);
-  if (!u) notFound();
+  const rawUnit = getUnit(id);
+  if (!rawUnit) notFound();
 
-  const m = typeMeta(u.type);
-  const extra = getUnitExtra(id);
+  const loc = lang && isTargetLocale(lang) ? lang : null;
+  const S = (ru: string) => (loc ? t(ru, loc) : ru);
+  // Данные переводим, ФИО транслитерируем (см. lib/i18n/translit.ts).
+  const u = loc
+    ? (() => {
+        const tr = translateData(rawUnit, loc).data;
+        return { ...tr, head: { ...tr.head, fio: personName(tr.head.fio, loc) } };
+      })()
+    : rawUnit;
+
+  const m = typeMeta(rawUnit.type);
+  const rawExtra = getUnitExtra(id);
+  const extra = loc ? translateData(rawExtra, loc).data : rawExtra;
   // Сотрудники — списком ФИО из units-extra.yml. Автоматически собрать нельзя:
   // в данных sveden (teachingStaff) у преподавателей нет подразделения, оно
   // пустое у всех 178 карточек. По ФИО подтягиваем ссылку на профиль.
-  const staff = (extra.employees ?? []).map((fio) => ({ fio, id: getPersonIdByFio(fio) }));
+  // Профили ищем по русскому ФИО из источника: транслитерация — только для
+  // показа, идентификатор персоны от неё не зависит.
+  const staff = (rawExtra.employees ?? []).map((fio) => ({
+    fio: loc ? personName(fio, loc) : fio,
+    id: getPersonIdByFio(fio),
+  }));
   const children = getChildren(id);
-  const hasHead = !!u.head.fio && u.head.fio !== "—";
-  const headPersonId = hasHead ? getPersonIdByFio(u.head.fio) : undefined;
-  const docItem = u.doc ? makeDocItem("divisionClauseDocLink", u.doc.text || "Положение о подразделении", u.doc.href) : null;
+  const hasHead = !!rawUnit.head.fio && rawUnit.head.fio !== "—";
+  const headPersonId = hasHead ? getPersonIdByFio(rawUnit.head.fio) : undefined;
+  const docItem = u.doc ? makeDocItem("divisionClauseDocLink", u.doc.text || S("Положение о подразделении"), u.doc.href) : null;
 
   // Порядок совпадает с порядком секций на странице. Разделы, которые
   // показываются всегда (даже пустыми), в списке тоже всегда.
   const sections = [
-    { id: "about", label: "О подразделении" },
-    { id: "directions", label: "Направления работы" },
-    { id: "staff", label: "Сотрудники" },
-    { id: "teaching", label: "Учебная работа" },
-    { id: "schedule", label: "Расписание" },
-    ...(hasHead ? [{ id: "head", label: "Руководитель" }] : []),
-    { id: "contacts", label: "Контакты" },
-    ...(docItem ? [{ id: "docs", label: "Документы" }] : []),
-    ...(children.length ? [{ id: "sostav", label: "В составе" }] : []),
+    { id: "about", label: S("О подразделении") },
+    { id: "directions", label: S("Направления работы") },
+    { id: "staff", label: S("Сотрудники") },
+    { id: "teaching", label: S("Учебная работа") },
+    { id: "schedule", label: S("Расписание") },
+    ...(hasHead ? [{ id: "head", label: S("Руководитель") }] : []),
+    { id: "contacts", label: S("Контакты") },
+    ...(docItem ? [{ id: "docs", label: S("Документы") }] : []),
+    ...(children.length ? [{ id: "sostav", label: S("В составе") }] : []),
   ];
 
   return (
@@ -92,9 +115,9 @@ export default async function DepartmentPage({
       <div className="bg-brand text-white" data-a11y-surface="brand">
         <div className="mx-auto max-w-[1146px] px-10 py-8 box-border max-[768px]:px-5">
           <div className="flex items-center gap-2 text-[15px] text-white/70 mb-[14px] font-ui flex-wrap">
-            <Link href="/" className="text-white/90 no-underline">Главная</Link>
+            <Link href="/" className="text-white/90 no-underline">{S("Главная")}</Link>
             <span>/</span>
-            <Link href="/struktura" className="text-white/90 no-underline">Структура</Link>
+            <Link href="/struktura" className="text-white/90 no-underline">{S("Структура")}</Link>
             <span>/</span>
             <span>{m.label}</span>
           </div>
@@ -110,12 +133,13 @@ export default async function DepartmentPage({
           {/* Общий SectionToc: подсветка текущего раздела при скролле и селект
               на мобиле — вместо самописного списка, который этого не умел. */}
           <div className="min-[769px]:sticky min-[769px]:top-6">
-            <SectionToc title="Разделы" items={sections} />
+            <SectionToc title={S("Разделы")} items={sections} />
           </div>
         </aside>
 
         {/* Контент */}
         <article className="min-w-0 flex flex-col gap-6 font-ui">
+          {loc && <TranslationNotice lang={loc} originalHref={`/struktura/${id}`} />}
           <div
             className="a11y-decorative w-full aspect-[21/9] rounded-xl bg-cover bg-center"
             style={{ backgroundImage: `url('${asset("/brand/corpus.jpg")}')` }}
@@ -156,7 +180,7 @@ export default async function DepartmentPage({
 
           {/* О подразделении */}
           <section id="about" className="scroll-mt-6">
-            <h2 className="m-0 mb-3 font-display font-bold text-[26px] text-brand">О подразделении</h2>
+            <h2 className="m-0 mb-3 font-display font-bold text-[26px] text-brand">{S("О подразделении")}</h2>
             {extra.description ? (
               <div className="text-[18px] leading-[1.6] text-ink whitespace-pre-line">{extra.description}</div>
             ) : (
@@ -170,7 +194,7 @@ export default async function DepartmentPage({
               читается как «этого у подразделения нет», пустой — как «не
               заполнено». Данные — content/structure/units-extra.yml. */}
           <section id="directions" className="scroll-mt-6">
-            <h2 className="m-0 mb-3 font-display font-bold text-[26px] text-brand">Направления работы</h2>
+            <h2 className="m-0 mb-3 font-display font-bold text-[26px] text-brand">{S("Направления работы")}</h2>
             {extra.directions && extra.directions.length > 0 ? (
               <ul className="list-disc pl-6 flex flex-col gap-2 text-[17px] text-ink">
                 {extra.directions.map((d, i) => (
@@ -178,7 +202,7 @@ export default async function DepartmentPage({
                 ))}
               </ul>
             ) : (
-              <Blank>Направления работы не заполнены.</Blank>
+              <Blank>{S("Направления работы не заполнены.")}</Blank>
             )}
           </section>
 
@@ -217,12 +241,12 @@ export default async function DepartmentPage({
                 })}
               </div>
             ) : (
-              <Blank>Список сотрудников не заполнен.</Blank>
+              <Blank>{S("Список сотрудников не заполнен.")}</Blank>
             )}
           </section>
 
           <section id="teaching" className="scroll-mt-6">
-            <h2 className="m-0 mb-3 font-display font-bold text-[26px] text-brand">Учебная работа</h2>
+            <h2 className="m-0 mb-3 font-display font-bold text-[26px] text-brand">{S("Учебная работа")}</h2>
             {extra.teaching && extra.teaching.length > 0 ? (
               <ul className="list-disc pl-6 flex flex-col gap-2 text-[17px] text-ink">
                 {extra.teaching.map((t, i) => (
@@ -230,12 +254,12 @@ export default async function DepartmentPage({
                 ))}
               </ul>
             ) : (
-              <Blank>Сведения об учебной работе не заполнены.</Blank>
+              <Blank>{S("Сведения об учебной работе не заполнены.")}</Blank>
             )}
           </section>
 
           <section id="schedule" className="scroll-mt-6">
-            <h2 className="m-0 mb-3 font-display font-bold text-[26px] text-brand">Расписание</h2>
+            <h2 className="m-0 mb-3 font-display font-bold text-[26px] text-brand">{S("Расписание")}</h2>
             {extra.schedule && extra.schedule.length > 0 ? (
               <div className="flex flex-col gap-2">
                 {extra.schedule.map((x, i) => (
@@ -250,13 +274,13 @@ export default async function DepartmentPage({
                 ))}
               </div>
             ) : (
-              <Blank>Расписание не заполнено.</Blank>
+              <Blank>{S("Расписание не заполнено.")}</Blank>
             )}
           </section>
 
           {hasHead && (
             <section id="head" className="scroll-mt-6">
-              <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Руководитель</h2>
+              <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">{S("Руководитель")}</h2>
               {(() => {
                 const inner = (
                   <>
@@ -288,12 +312,12 @@ export default async function DepartmentPage({
           )}
 
           <section id="contacts" className="scroll-mt-6">
-            <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Контакты</h2>
+            <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">{S("Контакты")}</h2>
             <div className="bg-white border border-line rounded-xl overflow-hidden">
               {[
-                ["Место нахождения", u.address],
-                ["Телефон", formatPhone(u.phone)],
-                ["Сайт", u.site],
+                [S("Место нахождения"), u.address],
+                [S("Телефон"), formatPhone(u.phone)],
+                [S("Сайт"), u.site],
               ].map(([label, value]) => (
                 <div key={label} className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
                   <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">{label}</div>
@@ -303,7 +327,7 @@ export default async function DepartmentPage({
                 </div>
               ))}
               <div className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
-                <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">Электронная почта</div>
+                <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">{S("Электронная почта")}</div>
                 <div className="flex-1 min-w-[180px] text-[16px]">
                   {u.email ? (
                     <a href={`mailto:${u.email}`} className="text-accent underline">{u.email}</a>
@@ -317,7 +341,7 @@ export default async function DepartmentPage({
 
           {docItem && (
             <section id="docs" className="scroll-mt-6">
-              <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">Документы</h2>
+              <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">{S("Документы")}</h2>
               <DocCards docs={[docItem]} />
             </section>
           )}
@@ -325,7 +349,7 @@ export default async function DepartmentPage({
           {children.length > 0 && (
             <section id="sostav" className="scroll-mt-6">
               <h2 className="m-0 mb-4 font-display font-bold text-[24px] text-brand">
-                В составе<span className="text-ink-3 font-normal text-[16px]"> · {children.length}</span>
+                {S("В составе")}<span className="text-ink-3 font-normal text-[16px]"> · {children.length}</span>
               </h2>
               <div className="flex flex-col gap-2">
                 {children.map((c) => {

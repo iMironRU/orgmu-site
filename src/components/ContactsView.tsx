@@ -6,6 +6,25 @@ import { FilterSelect } from "@/components/FilterSelect";
 import type { Phone } from "@/lib/phone";
 import { IconPhone, IconMail } from "@/components/contact-icons";
 
+// Подписи интерфейса. Русский текст — и ключ перевода, и запасной вариант;
+// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
+export const PHONEBOOK_UI = {
+  search: "Поиск",
+  searchHint: "Подразделение, телефон, почта…",
+  type: "Тип подразделения",
+  any: "Любой",
+  found: "Найдено",
+  reset: "Сбросить",
+  empty: "Ничего не найдено — измените запрос.",
+};
+
+export const MAP_UI = {
+  title: "Карта: как нас найти",
+  note: "Карту показывает Яндекс. Она загрузит свои скрипты и файлы cookie, поэтому мы не включаем её без вашего согласия.",
+  show: "Показать карту",
+  open: "Открыть в Яндекс.Картах",
+};
+
 export type ContactUnit = {
   id: string;
   name: string;
@@ -28,7 +47,8 @@ export type ContactUnit = {
 //
 // До этого здесь были строки с фиксированными min-width, и всё, что длиннее
 // (три номера у деканата лечебного факультета), вылезало за колонку.
-export function PhoneBook({ units }: { units: ContactUnit[] }) {
+export function PhoneBook({ units, ui }: { units: ContactUnit[]; ui?: Partial<typeof PHONEBOOK_UI> }) {
+  const s_ = { ...PHONEBOOK_UI, ...ui };
   const [q, setQ] = useState("");
   const [types, setTypes] = useState<string[]>([]);
 
@@ -58,25 +78,25 @@ export function PhoneBook({ units }: { units: ContactUnit[] }) {
     <div>
       <div className="bg-white border border-line rounded-2xl p-[18px] mb-4 flex flex-wrap gap-3 items-end">
         <label className="flex-[1_1_260px] min-w-[200px] flex flex-col gap-[6px]">
-          <span className="font-bold text-[14px] text-ink-2">Поиск</span>
+          <span className="font-bold text-[14px] text-ink-2">{s_.search}</span>
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Подразделение, телефон, почта…"
+            placeholder={s_.searchHint}
             className="text-[16px] text-ink px-[14px] py-[11px] border border-line-strong rounded-[9px] outline-none focus:border-accent"
           />
         </label>
         {allTypes.length > 1 && (
           <label className="flex-[1_1_200px] min-w-[170px] flex flex-col gap-[6px]">
-            <span className="font-bold text-[14px] text-ink-2">Тип подразделения</span>
-            <FilterSelect multi value={types} onChange={setTypes} placeholder="Любой" options={allTypes} />
+            <span className="font-bold text-[14px] text-ink-2">{s_.type}</span>
+            <FilterSelect multi value={types} onChange={setTypes} placeholder={s_.any} options={allTypes} />
           </label>
         )}
       </div>
 
       <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
         <div className="text-[16px] text-ink-2">
-          Найдено: <b className="text-brand">{list.length}</b>
+          {s_.found}: <b className="text-brand">{list.length}</b>
         </div>
         {(q.trim() || types.length > 0) && (
           <button
@@ -87,14 +107,14 @@ export function PhoneBook({ units }: { units: ContactUnit[] }) {
             }}
             className="font-bold text-[15px] text-accent bg-none border-none cursor-pointer"
           >
-            Сбросить ✕
+            {s_.reset} ✕
           </button>
         )}
       </div>
 
       {list.length === 0 ? (
         <div className="py-10 px-6 text-center bg-white border border-dashed border-line-strong rounded-xl text-ink-2">
-          Ничего не найдено — измените запрос.
+          {s_.empty}
         </div>
       ) : (
         <div className="flex flex-col gap-[10px]">
@@ -148,14 +168,15 @@ export function PhoneBook({ units }: { units: ContactUnit[] }) {
 // Карта грузится ТОЛЬКО по клику: виджет Яндекса тянет чужие скрипты и ставит
 // куки. Загружать его сразу — значит поставить трекер до того, как человек
 // ответил на наш баннер согласия. Для сайта с политикой ПДн это подлог.
-export function MapEmbed({ src, address }: { src: string; address: string }) {
+export function MapEmbed({ src, address, ui }: { src: string; address: string; ui?: Partial<typeof MAP_UI> }) {
+  const s_ = { ...MAP_UI, ...ui };
   const [show, setShow] = useState(false);
 
   if (show) {
     return (
       <iframe
         src={src}
-        title="Карта: как нас найти"
+        title={s_.title}
         loading="lazy"
         className="w-full h-[420px] max-[768px]:h-[300px] border border-line rounded-xl"
         allowFullScreen
@@ -173,15 +194,14 @@ export function MapEmbed({ src, address }: { src: string; address: string }) {
       </span>
       <div className="font-bold text-[18px] text-brand">{address}</div>
       <div className="text-[15px] text-steel max-w-[520px]">
-        Карту показывает Яндекс. Она загрузит свои скрипты и файлы cookie, поэтому
-        мы не включаем её без вашего согласия.
+        {s_.note}
       </div>
       <button
         type="button"
         onClick={() => setShow(true)}
         className="mt-1 font-ui font-bold text-[16px] text-white bg-accent rounded-[10px] px-6 py-3 border-none cursor-pointer hover:bg-[rgb(150,46,3)] transition-colors"
       >
-        Показать карту
+        {s_.show}
       </button>
       <a
         href={`https://yandex.ru/maps/?text=${encodeURIComponent(address)}`}
@@ -189,7 +209,7 @@ export function MapEmbed({ src, address }: { src: string; address: string }) {
         rel="noopener noreferrer"
         className="text-[15px] text-accent font-bold no-underline hover:underline"
       >
-        Открыть в Яндекс.Картах →
+        {s_.open} →
       </a>
     </div>
   );

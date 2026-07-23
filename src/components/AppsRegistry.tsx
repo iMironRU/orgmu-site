@@ -9,25 +9,40 @@ import { Icon } from "@/components/icons";
 // и так открыты без входа на app.orgma.ru и индексируются — прятать их здесь
 // было бы видимостью защиты, а не защитой. Задача фильтра — чтобы студент не
 // продирался через бухгалтерию к своей ЭИОС.
-const TABS: { key: Audience | "all"; label: string }[] = [
-  { key: "students", label: "Обучающимся" },
-  { key: "staff", label: "Сотрудникам" },
-  { key: "all", label: "Все" },
-];
 
-const STATUS: Record<string, { label: string; color: string; bg: string }> = {
-  active: { label: "Работает", color: "rgb(30,160,80)", bg: "rgba(52,199,89,0.12)" },
-  updating: { label: "Обновляется", color: "rgb(180,120,0)", bg: "rgba(255,149,0,0.14)" },
-  legacy: { label: "Выводится", color: "rgb(150,150,150)", bg: "rgba(0,0,0,0.06)" },
-};
-
-const AUTH: Record<string, string> = {
+// Подписи интерфейса: русский текст — ключ перевода и запасной вариант,
+// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
+export const APPS_UI = {
+  students: "Обучающимся",
+  staff: "Сотрудникам",
+  all: "Все",
+  active: "Работает",
+  updating: "Обновляется",
+  legacy: "Выводится",
   account: "Нужна учётная запись",
   vpn: "Только из сети вуза",
-  none: "",
+  searchHint: "Поиск приложения…",
 };
 
-export function AppsRegistry({ apps }: { apps: AppItem[] }) {
+const STATUS_COLOR: Record<string, { color: string; bg: string }> = {
+  active: { color: "rgb(30,160,80)", bg: "rgba(52,199,89,0.12)" },
+  updating: { color: "rgb(180,120,0)", bg: "rgba(255,149,0,0.14)" },
+  legacy: { color: "rgb(150,150,150)", bg: "rgba(0,0,0,0.06)" },
+};
+
+export function AppsRegistry({ apps, ui }: { apps: AppItem[]; ui?: Partial<typeof APPS_UI> }) {
+  const s_ = { ...APPS_UI, ...ui };
+  const TABS: { key: Audience | "all"; label: string }[] = [
+    { key: "students", label: s_.students },
+    { key: "staff", label: s_.staff },
+    { key: "all", label: s_.all },
+  ];
+  const STATUS: Record<string, { label: string; color: string; bg: string }> = {
+    active: { label: s_.active, ...STATUS_COLOR.active },
+    updating: { label: s_.updating, ...STATUS_COLOR.updating },
+    legacy: { label: s_.legacy, ...STATUS_COLOR.legacy },
+  };
+  const AUTH: Record<string, string> = { account: s_.account, vpn: s_.vpn, none: "" };
   const [tab, setTab] = useState<Audience | "all">("students");
   const [q, setQ] = useState("");
 
@@ -72,7 +87,7 @@ export function AppsRegistry({ apps }: { apps: AppItem[] }) {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Поиск приложения…"
+          placeholder={s_.searchHint}
           className="flex-1 min-w-[180px] text-[15px] text-ink px-[14px] py-[8px] border border-line-strong rounded-[9px] outline-none focus:border-accent"
         />
       </div>

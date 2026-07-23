@@ -8,7 +8,12 @@ import { SvedenSection, groupAnchor } from "@/components/sveden/SvedenSection";
 import { sectionGroups } from "@/lib/sveden/vocab";
 import { groupLabel } from "@/lib/sveden/labels";
 import { SectionToc } from "@/components/SectionToc";
-import { MestaView } from "@/components/MestaView";
+import { MestaView, MESTA_UI } from "@/components/MestaView";
+import { isTargetLocale } from "@/lib/i18n/config";
+import { translateData } from "@/lib/i18n/translate-data";
+import { uiStrings } from "@/lib/i18n/ui-strings";
+import { t } from "@/lib/i18n/t";
+import { TranslationNotice } from "@/components/TranslationNotice";
 
 export const metadata: Metadata = {
   title: "Места осуществления образовательной деятельности",
@@ -25,16 +30,19 @@ function loadMesta(): MestaObj[] {
   return d?.objects ?? [];
 }
 
-export default function LocationsPage() {
-  const objects = loadMesta();
+// lang приходит от языкового зеркала ([lang]/mesta); без него — русская версия.
+export default function LocationsPage({ lang }: { lang?: string } = {}) {
+  const loc = lang && isTargetLocale(lang) ? lang : null;
+  const S = (ru: string) => (loc ? t(ru, loc) : ru);
+  const objects = loc ? translateData(loadMesta(), loc).data : loadMesta();
   const section = getSection("objects");
   // Оглавление: свои разделы + группы из вокабуляра (их заголовки рисует
   // SvedenSection, якоря — groupAnchor).
   const toc = [
-    { id: "objekty", label: "Объекты" },
-    ...(section ? [{ id: "mto", label: "Материально-техническое обеспечение" }] : []),
+    { id: "objekty", label: S("Объекты") },
+    ...(section ? [{ id: "mto", label: S("Материально-техническое обеспечение") }] : []),
     ...(section
-      ? sectionGroups(section).map((g) => ({ id: groupAnchor(g.key), label: groupLabel(g.key) }))
+      ? sectionGroups(section).map((g) => ({ id: groupAnchor(g.key), label: groupLabel(g.key, loc ?? undefined) }))
       : []),
   ];
 
@@ -43,18 +51,17 @@ export default function LocationsPage() {
       <div className="bg-brand text-white" data-a11y-surface="brand">
         <div className="mx-auto max-w-[1146px] px-10 py-8 box-border max-[768px]:px-5">
           <div className="flex items-center gap-2 text-[15px] text-white/70 mb-[14px] font-ui flex-wrap">
-            <Link href="/" className="text-white/90 no-underline">Главная</Link>
+            <Link href="/" className="text-white/90 no-underline">{S("Главная")}</Link>
             <span>/</span>
-            <Link href="/sveden" className="text-white/90 no-underline">Сведения об организации</Link>
+            <Link href="/sveden" className="text-white/90 no-underline">{S("Сведения об организации")}</Link>
             <span>/</span>
-            <span>Места осуществления деятельности</span>
+            <span>{S("Места осуществления деятельности")}</span>
           </div>
           <h1 className="m-0 mb-2 font-display font-bold text-[38px] leading-[1.12] max-[768px]:text-[26px]">
-            Места осуществления образовательной деятельности
+            {S("Места осуществления образовательной деятельности")}
           </h1>
           <p className="m-0 max-w-[720px] font-ui text-[17px] text-white/85">
-            Учебные корпуса, клинические базы и иные объекты с адресами,
-            размещёнными подразделениями и сведениями о доступной среде.
+            {S("Учебные корпуса, клинические базы и иные объекты с адресами, размещёнными подразделениями и сведениями о доступной среде.")}
           </p>
         </div>
       </div>
@@ -65,24 +72,25 @@ export default function LocationsPage() {
             приходилось листать. Якоря групп даёт SvedenSection. */}
         <aside>
           <div className="min-[901px]:sticky min-[901px]:top-6">
-            <SectionToc title="Разделы" items={toc} />
+            <SectionToc title={S("Разделы")} items={toc} />
           </div>
         </aside>
 
         <main className="min-w-0 flex flex-col gap-9">
+          {loc && <TranslationNotice lang={loc} originalHref="/mesta" />}
           <section>
             <h2 id="objekty" className="m-0 mb-4 font-display font-bold text-[24px] text-brand scroll-mt-[100px]">
-              Объекты
+              {S("Объекты")}
             </h2>
-            <MestaView objects={objects} />
+            <MestaView objects={objects} ui={uiStrings(MESTA_UI, lang)} />
           </section>
 
           {section && (
             <section>
               <h2 id="mto" className="m-0 mb-4 font-display font-bold text-[24px] text-brand scroll-mt-[100px]">
-                Материально-техническое обеспечение и доступная среда
+                {S("Материально-техническое обеспечение и доступная среда")}
               </h2>
-              <SvedenSection sectionKey="objects" section={section} />
+              <SvedenSection sectionKey="objects" section={section} locale={loc ?? undefined} />
             </section>
           )}
         </main>

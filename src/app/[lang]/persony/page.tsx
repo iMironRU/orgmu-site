@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import RuPage from "@/app/persony/page";
 import { TARGET_LOCALES, isTargetLocale } from "@/lib/i18n/config";
 import { alternatesFor } from "@/lib/i18n/alternates";
+import { t } from "@/lib/i18n/t";
 
 // Зеркало русской страницы под языковым адресом: содержимое то же (перевода у
 // раздела пока нет), но адрес несёт язык — шапка, крошки и переключатель
@@ -19,12 +20,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   if (!isTargetLocale(lang)) return {};
-  // canonical на русскую версию: содержимое идентично, дублем считать не надо.
-  return { alternates: { ...alternatesFor("/persony", lang), canonical: "/persony" } };
+  return { title: t("Педагогический (научно-педагогический) состав", lang), alternates: alternatesFor("/persony", lang) };
 }
 
 export default async function Mirror({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isTargetLocale(lang)) notFound();
-  return <RuPage />;
+  return <RuPage lang={lang} />;
 }

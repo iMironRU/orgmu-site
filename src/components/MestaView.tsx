@@ -8,7 +8,21 @@ export type MestaObj = { name: string; type?: string; address?: string; area?: s
 // Объекты с фильтрами по макету Locations: поиск, тип объекта (кастомный
 // FilterSelect, мультивыбор — не нативный select) и переключатель «доступная
 // среда».
-export function MestaView({ objects }: { objects: MestaObj[] }) {
+// Подписи интерфейса: русский текст — ключ перевода и запасной вариант,
+// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
+export const MESTA_UI = {
+  search: "Поиск",
+  searchHint: "Адрес, корпус, подразделение…",
+  type: "Тип объекта",
+  any: "Любой",
+  a11y: "Доступно для МГН",
+  count: "Объектов",
+  reset: "Сбросить",
+  empty: "Объекты не найдены — измените параметры фильтра.",
+};
+
+export function MestaView({ objects, ui }: { objects: MestaObj[]; ui?: Partial<typeof MESTA_UI> }) {
+  const s_ = { ...MESTA_UI, ...ui };
   const [q, setQ] = useState("");
   const [types, setTypes] = useState<string[]>([]);
   const [a11yOnly, setA11yOnly] = useState(false);
@@ -37,17 +51,17 @@ export function MestaView({ objects }: { objects: MestaObj[] }) {
     <div className="font-ui">
       <div className="bg-white border border-line rounded-2xl p-[18px] mb-4 flex flex-wrap gap-3 items-end">
         <label className="flex-[1_1_260px] min-w-[220px] flex flex-col gap-[6px]">
-          <span className="font-bold text-[14px] text-ink-2">Поиск</span>
+          <span className="font-bold text-[14px] text-ink-2">{s_.search}</span>
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Адрес, корпус, подразделение…"
+            placeholder={s_.searchHint}
             className="text-[16px] text-ink px-[14px] py-[11px] border border-line-strong rounded-[9px] outline-none focus:border-accent"
           />
         </label>
         <label className="flex-[1_1_200px] min-w-[170px] flex flex-col gap-[6px]">
-          <span className="font-bold text-[14px] text-ink-2">Тип объекта</span>
-          <FilterSelect multi value={types} onChange={setTypes} placeholder="Любой" options={allTypes} />
+          <span className="font-bold text-[14px] text-ink-2">{s_.type}</span>
+          <FilterSelect multi value={types} onChange={setTypes} placeholder={s_.any} options={allTypes} />
         </label>
         <button
           type="button"
@@ -60,13 +74,13 @@ export function MestaView({ objects }: { objects: MestaObj[] }) {
             borderColor: a11yOnly ? "rgb(30,160,80)" : "var(--c-line-strong)",
           }}
         >
-          Доступно для МГН
+          {s_.a11y}
         </button>
       </div>
 
       <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
         <div className="text-[16px] text-ink-2">
-          Объектов: <b className="text-brand">{list.length}</b>
+          {s_.count}: <b className="text-brand">{list.length}</b>
         </div>
         {isFiltered && (
           <button
@@ -78,14 +92,14 @@ export function MestaView({ objects }: { objects: MestaObj[] }) {
             }}
             className="font-bold text-[15px] text-accent bg-none border-none cursor-pointer"
           >
-            Сбросить ✕
+            {s_.reset} ✕
           </button>
         )}
       </div>
 
       {list.length === 0 ? (
         <div className="py-10 px-6 text-center bg-white border border-dashed border-line-strong rounded-xl text-ink-2">
-          Объекты не найдены — измените параметры фильтра.
+          {s_.empty}
         </div>
       ) : (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-3">

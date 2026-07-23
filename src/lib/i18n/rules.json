@@ -5,8 +5,11 @@
     "id", "slug", "href", "url", "link", "image", "icon", "accent", "soft", "tone",
     "color", "code", "date", "until", "email", "phone", "tel", "site", "version",
     "num", "parent", "type", "kind", "status", "platform", "auth", "audience",
-    "category", "fmt", "size", "value", "cta", "replacedBy", "host", "src"
+    "category", "fmt", "size", "value", "cta", "replacedBy", "host", "src",
+    "fio"
   ],
+
+  "_fioComment": "ФИО не переводят, а транслитерируют (lib/i18n/translit.ts): машина превращает фамилии в слова — «Кузнецов» в Smith, «Соловьёв» в Nightingale.",
 
   "_docComment": "Подпись рядом с href на документ — это название файла. Файл остаётся русским, поэтому и подпись не переводим.",
   "docExt": "\\.(pdf|docx?|xlsx?|rtf|odt|pptx?|zip)(\\?|$)",

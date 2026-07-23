@@ -29,5 +29,5 @@ export default async function Mirror({
 }) {
   const { lang, id } = await params;
   if (!isTargetLocale(lang)) notFound();
-  return <RuPage params={Promise.resolve({ id })} />;
+  return <RuPage params={Promise.resolve({ id })} lang={lang} />;
 }

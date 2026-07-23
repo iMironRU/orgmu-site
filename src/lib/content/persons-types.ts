@@ -20,7 +20,15 @@ export type Person = {
 // Персона для ПЛИТКИ в каталоге — только то, что плитка показывает и по чему
 // фильтруют. Полный Person тащит education, qualifications, profDevelopment
 // и dept: в списке они не выводятся, а в разметку уезжали у всех 178 персон.
-export type PersonCardItem = Omit<Person, "education" | "qualifications" | "profDevelopment" | "dept">;
+export type PersonCardItem = Omit<Person, "education" | "qualifications" | "profDevelopment" | "dept"> & {
+  // Ключи для фильтров и сортировки. Считаются на сервере ДО перевода: на
+  // английской версии position и degree переведены, и сопоставление по русским
+  // подстрокам («доцент», «доктор») перестало бы работать — каталог показывал
+  // бы пустые фильтры. Русская версия их не передаёт: там ключи выводятся из
+  // самих полей.
+  posKey?: string | null;
+  degKey?: string | null;
+};
 
 export function toPersonCard(p: Person): PersonCardItem {
   const { education: _e, qualifications: _q, profDevelopment: _pd, dept: _d, ...rest } = p;

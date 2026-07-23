@@ -4,8 +4,13 @@ import { getUnits } from "@/lib/content/structure";
 import { typeMeta } from "@/lib/content/structure-types";
 import { getContactLines } from "@/lib/content/kontakty";
 import { SOCIALS } from "@/components/socials";
-import { PhoneBook, MapEmbed } from "@/components/ContactsView";
+import { PhoneBook, MapEmbed, PHONEBOOK_UI, MAP_UI } from "@/components/ContactsView";
 import { parsePhones } from "@/lib/phone";
+import { isTargetLocale } from "@/lib/i18n/config";
+import { translateData } from "@/lib/i18n/translate-data";
+import { uiStrings } from "@/lib/i18n/ui-strings";
+import { t } from "@/lib/i18n/t";
+import { TranslationNotice } from "@/components/TranslationNotice";
 
 // Страница по макету Contacts.dc.html: контактная карточка с левым кантом,
 // синяя карточка «Не знаете, куда обратиться?», справочник карточками в три
@@ -60,16 +65,22 @@ function hrefFor(icon: string, value: string): string | null {
 const OUTLINE_BTN =
   "inline-flex items-center gap-2 px-4 py-[10px] border border-line-strong rounded-[10px] no-underline font-bold text-[15px] text-brand hover:bg-[rgb(251,251,251)] transition-colors";
 
-export default function ContactsPage() {
-  const contacts = getContactLines();
+// lang приходит от языкового зеркала ([lang]/kontakty). Без него — русская
+// версия: та же страница, просто ничего не переводим.
+export default function ContactsPage({ lang }: { lang?: string } = {}) {
+  const loc = lang && isTargetLocale(lang) ? lang : null;
+  const T = <D,>(d: D): D => (loc ? translateData(d, loc).data : d);
+  const S = (ru: string) => (loc ? t(ru, loc) : ru);
+
+  const contacts = T(getContactLines());
   // Только подразделения с контактами — остальным в справочнике делать нечего.
   const units = getUnits()
     .filter((u) => u.phone || u.email)
     .map((u) => ({
       id: u.id,
-      name: u.name,
+      name: T(u.name),
       type: u.type,
-      typeLabel: typeMeta(u.type).label,
+      typeLabel: S(typeMeta(u.type).label),
       color: typeMeta(u.type).color,
       soft: typeMeta(u.type).soft,
       phones: parsePhones(u.phone),
@@ -81,21 +92,21 @@ export default function ContactsPage() {
       <div className="bg-brand text-white" data-a11y-surface="brand">
         <div className="mx-auto max-w-[1146px] px-10 py-8 box-border max-[768px]:px-5">
           <div className="flex items-center gap-2 text-[15px] text-white/70 mb-[14px] font-ui flex-wrap">
-            <Link href="/" className="text-white/90 no-underline">Главная</Link>
+            <Link href="/" className="text-white/90 no-underline">{S("Главная")}</Link>
             <span>/</span>
-            <span>Контакты</span>
+            <span>{S("Контакты")}</span>
           </div>
           <h1 className="m-0 mb-2 font-display font-bold text-[38px] leading-[1.12] max-[768px]:text-[28px]">
-            Контакты
+            {S("Контакты")}
           </h1>
           <p className="m-0 max-w-[720px] font-ui text-[17px] text-white/85">
-            Телефоны, почта и часы работы приёмной комиссии, деканатов и других
-            подразделений университета.
+            {S("Телефоны, почта и часы работы приёмной комиссии, деканатов и других подразделений университета.")}
           </p>
         </div>
       </div>
 
       <main className="mx-auto max-w-[1146px] w-full px-10 pt-7 pb-16 box-border flex flex-col gap-[30px] max-[768px]:px-5 font-ui">
+        {loc && <TranslationNotice lang={loc} originalHref="/kontakty" />}
         {/* Общие контакты + карточка обращения */}
         <div className="grid grid-cols-[1.55fr_1fr] gap-[18px] max-[900px]:grid-cols-1">
           <div className="bg-white border border-line border-l-4 border-l-brand rounded-[14px] px-7 py-[26px] flex flex-col gap-5">
@@ -127,7 +138,7 @@ export default function ContactsPage() {
                   <path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                Схема проезда
+                {S("Схема проезда")}
               </Link>
               <Link href="/struktura" className={OUTLINE_BTN}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -136,7 +147,7 @@ export default function ContactsPage() {
                   <circle cx="17.5" cy="8.5" r="2.6" />
                   <path d="M16 14.4c3 .2 5.5 1.8 5.5 5" />
                 </svg>
-                Все подразделения
+                {S("Все подразделения")}
               </Link>
             </div>
           </div>
@@ -146,18 +157,18 @@ export default function ContactsPage() {
             className="text-white rounded-[14px] px-7 py-[26px] flex flex-col gap-[14px]"
             style={{ background: "linear-gradient(160deg, rgb(0,101,155), rgb(0,80,130))" }}
           >
-            <div className="font-display font-bold text-[20px]">Не знаете, куда обратиться?</div>
+            <div className="font-display font-bold text-[20px]">{S("Не знаете, куда обратиться?")}</div>
             <div className="text-[15px] leading-[1.5] text-white/85">
-              Опишите вопрос — направим его в нужное подразделение.
+              {S("Опишите вопрос — направим его в нужное подразделение.")}
             </div>
             <Link
               href="/obratnaya-svyaz"
               className="inline-flex items-center justify-center gap-[9px] px-[18px] py-[13px] bg-white text-brand rounded-[11px] no-underline font-bold text-[16px] hover:bg-[rgb(230,240,248)] transition-colors"
             >
-              Написать нам
+              {S("Написать нам")}
             </Link>
             <div className="mt-auto border-t border-white/[0.18] pt-[14px] flex items-center gap-3">
-              <span className="text-[14px] font-bold text-white/85">Мы в соцсетях</span>
+              <span className="text-[14px] font-bold text-white/85">{S("Мы в соцсетях")}</span>
               {SOCIALS.map((s) => (
                 <a
                   key={s.key}
@@ -177,16 +188,16 @@ export default function ContactsPage() {
         {/* Справочник подразделений */}
         <div className="flex flex-col gap-[14px]">
           <h2 className="m-0 font-display font-bold text-[24px] text-brand">
-            Быстрые контакты
+            {S("Быстрые контакты")}
             <span className="ml-3 font-ui text-[14px] font-bold text-ink-3 bg-[rgb(240,243,246)] rounded-full px-[11px] py-[3px] align-middle">
               {units.length}
             </span>
           </h2>
-          <PhoneBook units={units} />
+          <PhoneBook units={units} ui={uiStrings(PHONEBOOK_UI, lang)} />
           <div className="text-[15px] text-ink-2">
-            Полный список кафедр, деканатов и управлений — в разделе{" "}
+            {S("Полный список кафедр, деканатов и управлений — в разделе")}{" "}
             <Link href="/struktura" className="text-accent font-bold no-underline hover:underline">
-              «Структура и органы управления»
+              {S("«Структура и органы управления»")}
             </Link>
             .
           </div>
@@ -194,8 +205,8 @@ export default function ContactsPage() {
 
         {/* Как нас найти */}
         <div className="flex flex-col gap-[14px]">
-          <h2 className="m-0 font-display font-bold text-[24px] text-brand">Как нас найти</h2>
-          <MapEmbed src={MAP_SRC} address={ADDRESS} />
+          <h2 className="m-0 font-display font-bold text-[24px] text-brand">{S("Как нас найти")}</h2>
+          <MapEmbed src={MAP_SRC} address={S(ADDRESS)} ui={uiStrings(MAP_UI, lang)} />
         </div>
 
         {/* Юридические сведения */}
@@ -207,10 +218,9 @@ export default function ContactsPage() {
             </svg>
           </span>
           <div className="text-[14px] leading-[1.5] text-ink-2">
-            Официальное наименование, дата создания, учредитель и юридически значимые
-            контакты организации — в разделе{" "}
+            {S("Официальное наименование, дата создания, учредитель и юридически значимые контакты организации — в разделе")}{" "}
             <Link href="/sveden" className="text-steel font-bold no-underline hover:underline">
-              «Сведения об образовательной организации»
+              {S("«Сведения об образовательной организации»")}
             </Link>
             .
           </div>

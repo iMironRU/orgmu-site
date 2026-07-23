@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Link } from "@/components/Link";
 import { parsePhones, formatPhone } from "@/lib/phone";
+import { isTargetLocale } from "@/lib/i18n/config";
+import { translateData } from "@/lib/i18n/translate-data";
+import { personName } from "@/lib/i18n/translit";
+import { t } from "@/lib/i18n/t";
+import { TranslationNotice } from "@/components/TranslationNotice";
 import { notFound } from "next/navigation";
 import { getAllPersonIds, getPerson } from "@/lib/content/persons";
 import { initials, avatarColor } from "@/lib/content/persons-types";
@@ -26,25 +31,40 @@ export async function generateMetadata({
 
 export default async function PersonPage({
   params,
+  lang,
 }: {
   params: Promise<{ id: string }>;
+  lang?: string;
 }) {
   const { id } = await params;
-  const p = getPerson(id);
-  if (!p) notFound();
+  const raw = getPerson(id);
+  if (!raw) notFound();
+
+  // На языковой версии переводим данные, а ФИО транслитерируем: машина
+  // переводит фамилии как слова (см. lib/i18n/translit.ts).
+  const loc = lang && isTargetLocale(lang) ? lang : null;
+  const S = (ru: string) => (loc ? t(ru, loc) : ru);
+  const p = loc
+    ? { ...translateData(raw, loc).data, fio: personName(raw.fio, loc) }
+    : raw;
 
   const degreeLine = [p.degree, p.academStat].filter(Boolean).join(", ");
   // Первый номер из строки — для ссылки «позвонить»: в источнике их бывает
   // несколько и записаны они по-разному (см. lib/phone).
   const lead = parsePhones(p.phone)[0];
   const backHref = p.isLead ? "/rukovodstvo" : "/persony";
-  const backLabel = p.isLead ? "Руководство" : "Педагогический состав";
+  const backLabel = S(p.isLead ? "Руководство" : "Педагогический состав");
 
   return (
     <main className="mx-auto max-w-[1000px] w-full px-10 pt-8 pb-16 box-border max-[760px]:px-5 font-ui">
+      {loc && (
+        <div className="mb-5">
+          <TranslationNotice lang={loc} originalHref={`/persony/${id}`} />
+        </div>
+      )}
       {/* Хлебные крошки */}
       <div className="flex items-center gap-2 text-[15px] text-ink-2 mb-5 flex-wrap">
-        <Link href="/sveden" className="text-steel no-underline">Сведения об организации</Link>
+        <Link href="/sveden" className="text-steel no-underline">{S("Сведения об организации")}</Link>
         <span>/</span>
         <Link href={backHref} className="text-steel no-underline">{backLabel}</Link>
         <span>/</span>
@@ -92,17 +112,17 @@ export default async function PersonPage({
             <span className="shrink-0 text-white flex">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2" /><path d="M3 9h18M8 2.5v4M16 2.5v4" /></svg>
             </span>
-            <span className="font-bold text-[18px] text-white">Записаться на приём</span>
+            <span className="font-bold text-[18px] text-white">{S("Записаться на приём")}</span>
           </a>
           {p.phone && (
             <div className="flex-1 min-w-[200px] bg-white border border-line rounded-xl px-5 py-[18px]">
-              <div className="text-[14px] text-ink-3 mb-1">Телефон</div>
+              <div className="text-[14px] text-ink-3 mb-1">{S("Телефон")}</div>
               <div className="font-bold text-[18px] text-brand">{formatPhone(p.phone)}</div>
             </div>
           )}
           {p.email && (
             <div className="flex-1 min-w-[200px] bg-white border border-line rounded-xl px-5 py-[18px]">
-              <div className="text-[14px] text-ink-3 mb-1">Эл. почта</div>
+              <div className="text-[14px] text-ink-3 mb-1">{S("Эл. почта")}</div>
               <a href={`mailto:${p.email}`} className="font-bold text-[18px] text-brand no-underline break-words">
                 {p.email}
               </a>
@@ -116,7 +136,7 @@ export default async function PersonPage({
         {/* Дисциплины + стаж */}
         <div className="bg-white border border-line rounded-xl p-[22px]">
           <h3 className="m-0 mb-[14px] font-display font-bold text-[18px] text-brand">
-            Преподаваемые дисциплины
+            {S("Преподаваемые дисциплины")}
           </h3>
           {p.disciplines.length > 0 ? (
             <div>
@@ -138,11 +158,11 @@ export default async function PersonPage({
               </div>
             </div>
           ) : (
-            <div className="text-[16px] text-ink-3">Учебные дисциплины не закреплены.</div>
+            <div className="text-[16px] text-ink-3">{S("Учебные дисциплины не закреплены.")}</div>
           )}
           <div className="flex gap-6 mt-5 pt-[18px] border-t border-line">
             <div className="text-center whitespace-nowrap">
-              <div className="text-[13px] text-ink-3 mb-[5px]">стаж по специальности</div>
+              <div className="text-[13px] text-ink-3 mb-[5px]">{S("стаж по специальности")}</div>
               <div {...ip("specExperience")}>
                 <span className="font-display font-bold text-[24px] text-brand">
                   {p.experience ? p.experience.split(" ")[0] : DASH}
@@ -158,7 +178,7 @@ export default async function PersonPage({
         {/* Образование + ПК */}
         <div className="bg-white border border-line rounded-xl p-[22px]">
           <h3 className="m-0 mb-3 font-display font-bold text-[18px] text-brand">
-            Образование и квалификация
+            {S("Образование и квалификация")}
           </h3>
           {p.education.length > 0 ? (
             <ul {...ip("teachingLevel")} className="m-0 pl-5 text-[16px] text-ink leading-[1.6] list-disc marker:text-brand/40 flex flex-col gap-1">
@@ -173,7 +193,7 @@ export default async function PersonPage({
           {p.qualifications.length > 0 && (
             <>
               <div className="text-[14px] text-ink-3 mt-4 mb-2 font-bold uppercase tracking-[0.03em]">
-                Повышение квалификации
+                {S("Повышение квалификации")}
               </div>
               <ul className="m-0 pl-5 text-[15px] text-steel leading-[1.7] list-disc">
                 {p.qualifications.map((q, i) => (
@@ -186,7 +206,7 @@ export default async function PersonPage({
           {p.profDevelopment.length > 0 && (
             <>
               <div className="text-[14px] text-ink-3 mt-4 mb-2 font-bold uppercase tracking-[0.03em]">
-                Профессиональная переподготовка
+                {S("Профессиональная переподготовка")}
               </div>
               <ul className="m-0 pl-5 text-[15px] text-steel leading-[1.7] list-disc">
                 {p.profDevelopment.map((d, i) => (
@@ -207,10 +227,7 @@ export default async function PersonPage({
             </svg>
           </span>
           <div className="text-[14px] leading-[1.5] text-ink-2">
-            Карточка размечена по спецификации Рособрнадзора (приказ № 1493):
-            должность, преподаваемые дисциплины, образование, повышение
-            квалификации и стаж — в атрибутах <code>itemprop</code> для
-            автоматического сбора мониторингом.
+            {S("Карточка размечена по спецификации Рособрнадзора (приказ № 1493): должность, преподаваемые дисциплины, образование, повышение квалификации и стаж — в атрибутах itemprop для автоматического сбора мониторингом.")}
           </div>
         </div>
       )}
