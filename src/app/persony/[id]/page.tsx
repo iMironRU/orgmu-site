@@ -8,7 +8,7 @@ import { t } from "@/lib/i18n/t";
 import { TranslationNotice } from "@/components/TranslationNotice";
 import { notFound } from "next/navigation";
 import { getAllPersonIds, getPerson } from "@/lib/content/persons";
-import { initials, avatarColor } from "@/lib/content/persons-types";
+import { initials, avatarColor, formatExperience } from "@/lib/content/persons-types";
 
 export const dynamicParams = false;
 
@@ -45,7 +45,11 @@ export default async function PersonPage({
   const loc = lang && isTargetLocale(lang) ? lang : null;
   const S = (ru: string) => (loc ? t(ru, loc) : ru);
   const p = loc
-    ? { ...translateData(raw, loc).data, fio: personName(raw.fio, loc) }
+    ? {
+        ...translateData(raw, loc).data,
+        fio: personName(raw.fio, loc),
+        experience: formatExperience(raw.experience, t("лет", loc)),
+      }
     : raw;
 
   const degreeLine = [p.degree, p.academStat].filter(Boolean).join(", ");

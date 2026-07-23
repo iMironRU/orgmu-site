@@ -37,6 +37,7 @@ export const STAFF_UI = {
   reset: "Сбросить",
   emptyTitle: "Ничего не найдено",
   emptyHint: "Измените параметры фильтра.",
+  experience: "стаж",
 };
 
 // Ранг степени для сортировки: доктор → кандидат → без степени.
@@ -247,7 +248,7 @@ export function StaffDirectory({
         ) : (
           <div className="flex flex-col gap-[10px]">
             {list.map((p) => (
-              <PersonTile key={p.id} person={p} />
+              <PersonTile key={p.id} person={p} experienceLabel={s_.experience} />
             ))}
           </div>
         )}

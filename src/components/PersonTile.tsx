@@ -4,7 +4,17 @@ import type { PersonCardItem } from "@/lib/content/persons-types";
 import { initials, avatarColor } from "@/lib/content/persons-types";
 
 // Плитка персоны по макету PersonTile.dc.html. mode: staff (педсостав) | lead (руководство).
-export function PersonTile({ person: p, mode = "staff" }: { person: PersonCardItem; mode?: "staff" | "lead" }) {
+export function PersonTile({
+  person: p,
+  mode = "staff",
+  // Подпись рядом с числом лет: «стаж, years». Приходит с языковой страницы —
+  // компонент клиентский и словарь прочитать не может.
+  experienceLabel = "стаж",
+}: {
+  person: PersonCardItem;
+  mode?: "staff" | "lead";
+  experienceLabel?: string;
+}) {
   const accent = p.isLead ? "rgb(175,82,222)" : "rgb(184,57,4)";
   const degreeLine = [p.degree, p.academStat].filter(Boolean).join(", ");
   const contacts = [p.phone, p.email].filter(Boolean);
@@ -72,7 +82,7 @@ export function PersonTile({ person: p, mode = "staff" }: { person: PersonCardIt
           <div className="font-display font-bold text-[22px] text-brand leading-none">
             {p.experience.split(" ")[0]}
           </div>
-          <div className="text-[13px] text-ink-3 mt-1">стаж, {p.experience.split(" ")[1]}</div>
+          <div className="text-[13px] text-ink-3 mt-1">{experienceLabel}, {p.experience.split(" ")[1]}</div>
         </div>
       )}
     </div>

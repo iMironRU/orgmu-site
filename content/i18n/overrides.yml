@@ -61,3 +61,35 @@
   kk: "Жарайды"
 "Подразделы":
   en: "Sections"                 # было Subsections — в sveden это просто разделы
+
+# ─── Академические должности и степени ───
+"Доцент":
+  en: "Associate Professor"      # было Docent — это транслит, не должность
+"Кафедра":
+  en: "Department"               # закрепляем: в структуре и в справочнике одинаково
+"Подразделение":
+  en: "Unit"                     # было Division — у нас это любое подразделение
+"Орган управления":
+  en: "Governing body"           # было The management body
+"Управление":
+  en: "Directorate"              # было Management — здесь это тип подразделения
+"В составе":
+  en: "Subordinate units"        # было As part of — это заголовок списка
+"Объекты":
+  en: "Facilities"               # было Objects — речь о корпусах и базах
+"Места осуществления деятельности":
+  en: "Locations"                # было Places of activity
+"Доступно для МГН":
+  en: "Step-free access"         # было Available for MGN — аббревиатура нечитаема
+  kk: "Кедергісіз қолжетімділік" # было MGN үшін қол жетімді
+"стаж по специальности":
+  en: "years in the field"       # рядом с числом: «21 years in the field»
+
+# ─── Стаж: слово рядом с числом («21 years»), не «years old» ───
+"лет":
+  en: "years"
+  kk: "жыл"
+
+# ─── Название университета: машина задваивала «University» ───
+"Оренбургский государственный медицинский университет":
+  en: "Orenburg State Medical University"   # было Orenburg State University Medical University

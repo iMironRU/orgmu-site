@@ -56,6 +56,14 @@ export const DEGREE_CATS: { key: string; label: string }[] = [
   { key: "кандидат", label: "Кандидат наук" },
 ];
 
+// Стаж на языковой версии: число берём из оригинала, слово — из словаря.
+// Машине эту строку отдавать нельзя: «10 лет» она понимает как возраст и
+// переводит «10 years old».
+export function formatExperience(ru: string, yearsWord: string): string {
+  const n = (ru ?? "").trim().split(/\s+/)[0];
+  return n ? `${n} ${yearsWord}` : "";
+}
+
 export function initials(fio: string): string {
   return fio
     .split(/\s+/)

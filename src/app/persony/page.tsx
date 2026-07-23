@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Link } from "@/components/Link";
 import { getTeachers } from "@/lib/content/persons";
-import { toPersonCard, POSITION_CATS, DEGREE_CATS, positionCat } from "@/lib/content/persons-types";
+import { toPersonCard, POSITION_CATS, DEGREE_CATS, positionCat, formatExperience } from "@/lib/content/persons-types";
 import { StaffDirectory, STAFF_UI } from "@/components/StaffDirectory";
 import { isTargetLocale } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
@@ -30,7 +30,7 @@ export default function StaffDirectoryPage({ lang }: { lang?: string } = {}) {
     const posKey = positionCat(p.position);
     const degKey = DEGREE_CATS.find((c) => p.degree.toLowerCase().includes(c.key))?.key ?? null;
     const tr = translateData(p, loc).data;
-    return { ...tr, fio: personName(p.fio, loc), posKey, degKey };
+    return { ...tr, fio: personName(p.fio, loc), experience: formatExperience(p.experience, S("лет")), posKey, degKey };
   });
 
   const catLabels = Object.fromEntries(

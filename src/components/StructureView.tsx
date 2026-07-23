@@ -143,7 +143,7 @@ export function StructureView({
                       className="text-[11px] font-bold tracking-[0.04em] uppercase rounded-[5px] px-[9px] py-[3px]"
                       style={{ color: m.color, background: m.soft }}
                     >
-                      {m.label}
+                      {typeLabels?.[u.type] ?? m.label}
                     </span>
                     <Link
                       href={`/struktura/${u.id}`}

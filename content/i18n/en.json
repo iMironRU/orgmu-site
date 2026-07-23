@@ -1380,8 +1380,8 @@
   },
   "12cd52efdf42": {
     "src": "стаж по специальности",
-    "text": "professional experience",
-    "status": "machine",
+    "text": "years in the field",
+    "status": "human",
     "at": "2026-07-23"
   },
   "12e2fbefb861": {
@@ -1555,7 +1555,7 @@
   "15032ceb423c": {
     "src": "Оренбургский государственный медицинский университет",
     "text": "Orenburg State Medical University",
-    "status": "machine",
+    "status": "human",
     "at": "2026-07-23"
   },
   "151471bc41ff": {
@@ -2837,8 +2837,8 @@
   },
   "25af46743c97": {
     "src": "В составе",
-    "text": "As part of",
-    "status": "machine",
+    "text": "Subordinate units",
+    "status": "human",
     "at": "2026-07-23"
   },
   "25cd8e3ae47d": {
@@ -3301,8 +3301,8 @@
   },
   "2ce9c67e40be": {
     "src": "Места осуществления деятельности",
-    "text": "Places of activity",
-    "status": "machine",
+    "text": "Locations",
+    "status": "human",
     "at": "2026-07-23"
   },
   "2d05568b2338": {
@@ -3737,7 +3737,7 @@
   "32be3f53cf33": {
     "src": "Кафедра",
     "text": "Department",
-    "status": "machine",
+    "status": "human",
     "at": "2026-07-23"
   },
   "32c09f7f7303": {
@@ -5807,6 +5807,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "5041b6f2d6b9": {
+    "src": "лет",
+    "text": "years",
+    "status": "human",
+    "at": "2026-07-23"
+  },
   "505f43d4abd3": {
     "src": "дофамин,",
     "text": "Dopamine,",
@@ -7487,8 +7493,8 @@
   },
   "678329a4cee2": {
     "src": "Орган управления",
-    "text": "The management body",
-    "status": "machine",
+    "text": "Governing body",
+    "status": "human",
     "at": "2026-07-23"
   },
   "678638b8491c": {
@@ -9209,8 +9215,8 @@
   },
   "81edf08c5b84": {
     "src": "Управление",
-    "text": "Management",
-    "status": "machine",
+    "text": "Directorate",
+    "status": "human",
     "at": "2026-07-23"
   },
   "82092678d22a": {
@@ -11124,8 +11130,8 @@
   },
   "99ec3879da02": {
     "src": "Объекты",
-    "text": "Objects",
-    "status": "machine",
+    "text": "Facilities",
+    "status": "human",
     "at": "2026-07-23"
   },
   "9a0f45966a57": {
@@ -13185,9 +13191,9 @@
   },
   "b48c2937c4b2": {
     "src": "Подразделение",
-    "text": "Division",
-    "status": "machine",
-    "at": "2026-07-22"
+    "text": "Unit",
+    "status": "human",
+    "at": "2026-07-23"
   },
   "b49621d34594": {
     "src": "Сроки проведения",
@@ -16290,8 +16296,8 @@
   },
   "df60463d9376": {
     "src": "Доступно для МГН",
-    "text": "Available for MGN",
-    "status": "machine",
+    "text": "Step-free access",
+    "status": "human",
     "at": "2026-07-23"
   },
   "df66f7f4fe34": {
@@ -16784,8 +16790,8 @@
   },
   "e6296cef9f30": {
     "src": "Доцент",
-    "text": "Docent",
-    "status": "machine",
+    "text": "Associate Professor",
+    "status": "human",
     "at": "2026-07-23"
   },
   "e63bfbbf0477": {

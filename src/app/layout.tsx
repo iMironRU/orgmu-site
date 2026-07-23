@@ -53,7 +53,16 @@ export default function RootLayout({
   // около 9 КБ, это дешевле, чем переносить все 29 маршрутов ради локали.
   // Какие разделы вообще переведены. Нужно переключателю: с непереведённой
   // страницы он должен вести на языковую главную, а не в 404.
-  const translatedPaths = ["/novosti", ...getPageSlugs("info").map((s) => `/${s}`)];
+  const translatedPaths = [
+    "/novosti",
+    "/struktura",
+    "/persony",
+    "/kontakty",
+    "/mesta",
+    "/prilozheniya",
+    "/izvestiya",
+    ...getPageSlugs("info").map((s) => `/${s}`),
+  ];
 
   // Куки-баннер: строки на всех языках, выбор — на клиенте.
   const COOKIE_RU = {
