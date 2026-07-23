@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { NoticeItem, NoticeKind } from "@/lib/content/notices-types";
 import { NOTICE_KIND } from "@/lib/content/notices-types";
 import { NoticeCard } from "@/components/NoticeCard";
+import { NOTICES_UI } from "@/lib/i18n/ui-defs";
 
 const PER_PAGE = 12;
 
@@ -30,15 +31,6 @@ function Chip({ label, active, onClick }: { label: string; active: boolean; onCl
   );
 }
 
-// Подписи интерфейса: русский текст — ключ перевода и запасной вариант,
-// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
-export const NOTICES_UI = {
-  all: "Все",
-  emptyTitle: "Известий нет",
-  emptyHint: "В этой категории сейчас нет действующих известий.",
-  prev: "Назад",
-  next: "Вперёд",
-};
 
 export function NoticesView({ items, ui }: { items: NoticeItem[]; ui?: Partial<typeof NOTICES_UI> }) {
   const s_ = { ...NOTICES_UI, ...ui };

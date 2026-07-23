@@ -7,9 +7,9 @@ import { initials, avatarColor } from "@/lib/content/persons-types";
 export function PersonTile({
   person: p,
   mode = "staff",
-  // Подпись рядом с числом лет: «стаж, years». Приходит с языковой страницы —
-  // компонент клиентский и словарь прочитать не может.
-  experienceLabel = "стаж",
+  // Подпись под числом лет целиком («стаж, лет» / «years of experience»).
+  // Приходит с языковой страницы: компонент клиентский и словарь не читает.
+  experienceLabel = "стаж, лет",
 }: {
   person: PersonCardItem;
   mode?: "staff" | "lead";
@@ -82,7 +82,7 @@ export function PersonTile({
           <div className="font-display font-bold text-[22px] text-brand leading-none">
             {p.experience.split(" ")[0]}
           </div>
-          <div className="text-[13px] text-ink-3 mt-1">{experienceLabel}, {p.experience.split(" ")[1]}</div>
+          <div className="text-[13px] text-ink-3 mt-1">{experienceLabel}</div>
         </div>
       )}
     </div>

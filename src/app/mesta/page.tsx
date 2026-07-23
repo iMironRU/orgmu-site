@@ -8,10 +8,11 @@ import { SvedenSection, groupAnchor } from "@/components/sveden/SvedenSection";
 import { sectionGroups } from "@/lib/sveden/vocab";
 import { groupLabel } from "@/lib/sveden/labels";
 import { SectionToc } from "@/components/SectionToc";
-import { MestaView, MESTA_UI } from "@/components/MestaView";
+import { MestaView } from "@/components/MestaView";
 import { isTargetLocale } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
 import { uiStrings } from "@/lib/i18n/ui-strings";
+import { MESTA_UI } from "@/lib/i18n/ui-defs";
 import { t } from "@/lib/i18n/t";
 import { TranslationNotice } from "@/components/TranslationNotice";
 

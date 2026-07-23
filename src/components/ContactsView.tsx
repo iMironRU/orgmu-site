@@ -5,25 +5,9 @@ import { Link } from "@/components/Link";
 import { FilterSelect } from "@/components/FilterSelect";
 import type { Phone } from "@/lib/phone";
 import { IconPhone, IconMail } from "@/components/contact-icons";
+import { PHONEBOOK_UI, MAP_UI } from "@/lib/i18n/ui-defs";
 
-// Подписи интерфейса. Русский текст — и ключ перевода, и запасной вариант;
-// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
-export const PHONEBOOK_UI = {
-  search: "Поиск",
-  searchHint: "Подразделение, телефон, почта…",
-  type: "Тип подразделения",
-  any: "Любой",
-  found: "Найдено",
-  reset: "Сбросить",
-  empty: "Ничего не найдено — измените запрос.",
-};
 
-export const MAP_UI = {
-  title: "Карта: как нас найти",
-  note: "Карту показывает Яндекс. Она загрузит свои скрипты и файлы cookie, поэтому мы не включаем её без вашего согласия.",
-  show: "Показать карту",
-  open: "Открыть в Яндекс.Картах",
-};
 
 export type ContactUnit = {
   id: string;

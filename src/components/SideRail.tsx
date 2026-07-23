@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { LOCALE_NAMES, TARGET_LOCALES, SOURCE_LOCALE, localeHref, type Locale } from "@/lib/i18n/config";
 import { usePreferredLocale } from "@/lib/i18n/use-locale";
 import { SOCIALS } from "@/components/socials";
+import { RAIL_UI } from "@/lib/i18n/ui-defs";
 
 // Прячет нижнюю панель при прокрутке вниз, возвращает при прокрутке вверх —
 // как шапка в Safari и большинстве приложений, жест людям знаком. Так во время
@@ -79,7 +80,14 @@ const LANGS: { locale: Locale; label: string; code: string }[] = [
   ...TARGET_LOCALES,
 ].map((l) => ({ locale: l as Locale, label: LOCALE_NAMES[l as Locale].native, code: LOCALE_NAMES[l as Locale].code }));
 
-export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] }) {
+export function SideRail({
+  translatedPaths = [],
+  ui,
+}: {
+  translatedPaths?: string[];
+  /** Подписи на всех языках: layout про язык страницы не знает. */
+  ui?: Record<string, typeof RAIL_UI>;
+}) {
   const [langOpen, setLangOpen] = useState(false);
   // Текущий язык определяем по адресу, а не храним в состоянии: иначе после
   // перехода подпись рассинхронизировалась бы со страницей.
@@ -98,6 +106,7 @@ export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] 
     return known ? localeHref(pathname, l) : `/${l}`;
   };
   const hidden = useHideOnScroll();
+  const s_ = ui?.[current] ?? RAIL_UI;
 
   return (
     <>
@@ -106,7 +115,7 @@ export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] 
         Прячется при прокрутке вниз (translate за край + safe-area). */}
     <nav
       data-a11y-surface="brand"
-      aria-label="Быстрые действия"
+      aria-label={s_.quickActions}
       aria-hidden={hidden}
       className="min-[769px]:hidden fixed bottom-0 left-0 right-0 z-40 bg-brand flex items-stretch justify-around border-t border-white/15 pb-[env(safe-area-inset-bottom)] transition-transform duration-300 will-change-transform"
       style={{
@@ -118,21 +127,21 @@ export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] 
     >
       <Link href="/poisk" className={MOBILE_ITEM}>
         {ICONS.search}
-        <span>Поиск</span>
+        <span>{s_.search}</span>
       </Link>
       <Link href="/prilozheniya" className={MOBILE_ITEM}>
         {ICONS.apps}
-        <span>Сервисы</span>
+        <span>{s_.services}</span>
       </Link>
       {/* По кругу: РУС → ENG → ҚАЗ. Это ссылка, а не кнопка, — переход между
           языками должен работать и открываться в новой вкладке. */}
       <Link href={hrefFor(LANGS[(LANGS.findIndex((l) => l.locale === current) + 1) % LANGS.length].locale)} className={MOBILE_ITEM}>
         <span className="font-bold text-[15px] leading-6">{lang}</span>
-        <span>Язык</span>
+        <span>{s_.language}</span>
       </Link>
       <Link href="/dostupnost" className={MOBILE_ITEM}>
         {ICONS.access}
-        <span>Доступность</span>
+        <span>{s_.accessibility}</span>
       </Link>
     </nav>
 
@@ -143,7 +152,7 @@ export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] 
       <div className="sticky top-0 flex flex-col items-center py-5 font-ui">
         {/* Поиск */}
         <div className="flex flex-col items-center gap-2">
-          <Link href="/poisk" title="Поиск по сайту" className={RAIL_ICON}>
+          <Link href="/poisk" title={s_.searchTitle} className={RAIL_ICON}>
             {ICONS.search}
           </Link>
         </div>
@@ -152,7 +161,7 @@ export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] 
 
         {/* Приложения вуза */}
         <div className="flex flex-col items-center gap-2">
-          <Link href="/prilozheniya" title="Приложения вуза" className={RAIL_ICON}>
+          <Link href="/prilozheniya" title={s_.apps} className={RAIL_ICON}>
             {ICONS.apps}
           </Link>
         </div>
@@ -205,7 +214,7 @@ export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] 
               </div>
             )}
           </div>
-          <Link href="/dostupnost" title="Настройки доступности" className={RAIL_ICON}>
+          <Link href="/dostupnost" title={s_.accessibilityTitle} className={RAIL_ICON}>
             {ICONS.access}
           </Link>
         </div>

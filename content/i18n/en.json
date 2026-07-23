@@ -11975,6 +11975,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "a4028b32fbe6": {
+    "src": "стаж, лет",
+    "text": "years of experience",
+    "status": "human",
+    "at": "2026-07-23"
+  },
   "a403fff8f565": {
     "src": "В случае отказа потребителя после заключения договора от получения медицинских услуг договор расторгается. Исполнитель информирует потребителя (заказчика) о расторжении договора по инициативе потребителя, при этом потребитель (заказчик) оплачивает исполнителю фактически понесенные исполнителем расходы, связанные с исполнением обязательств по договору",
     "text": "If the consumer refuses to receive medical services after the conclusion of the contract, the contract is terminated. The contractor informs the consumer (customer) about the termination of the contract on the initiative of the consumer, while the consumer (customer) pays the contractor the actual expenses incurred by the contractor related to the fulfillment of obligations under the contract.",

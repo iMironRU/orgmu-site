@@ -2,24 +2,10 @@
 
 import { useMemo, useState } from "react";
 import { FilterSelect } from "@/components/FilterSelect";
+import { MESTA_UI } from "@/lib/i18n/ui-defs";
 
 export type MestaObj = { name: string; type?: string; address?: string; area?: string; a11y?: boolean };
 
-// Объекты с фильтрами по макету Locations: поиск, тип объекта (кастомный
-// FilterSelect, мультивыбор — не нативный select) и переключатель «доступная
-// среда».
-// Подписи интерфейса: русский текст — ключ перевода и запасной вариант,
-// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
-export const MESTA_UI = {
-  search: "Поиск",
-  searchHint: "Адрес, корпус, подразделение…",
-  type: "Тип объекта",
-  any: "Любой",
-  a11y: "Доступно для МГН",
-  count: "Объектов",
-  reset: "Сбросить",
-  empty: "Объекты не найдены — измените параметры фильтра.",
-};
 
 export function MestaView({ objects, ui }: { objects: MestaObj[]; ui?: Partial<typeof MESTA_UI> }) {
   const s_ = { ...MESTA_UI, ...ui };

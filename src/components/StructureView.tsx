@@ -4,19 +4,10 @@ import { useMemo, useState } from "react";
 import { Link } from "@/components/Link";
 import { IconPin, IconPhone, IconMail } from "@/components/contact-icons";
 
-// Подписи интерфейса: русский текст — ключ перевода и запасной вариант,
-// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
-export const STRUCTURE_UI = {
-  search: "Поиск по названию",
-  searchHint: "Факультет, кафедра, управление…",
-  count: "Подразделений",
-  reset: "Сбросить",
-  emptyTitle: "Ничего не найдено",
-  emptyHint: "Измените параметры фильтра.",
-};
 import { formatPhone } from "@/lib/phone";
 import type { Unit } from "@/lib/content/structure-types";
 import { typeMeta, initials, avatarColor, TYPE_META } from "@/lib/content/structure-types";
+import { STRUCTURE_UI } from "@/lib/i18n/ui-defs";
 
 function Meta({ children, icon }: { children: React.ReactNode; icon: React.ReactNode }) {
   if (!children) return null;

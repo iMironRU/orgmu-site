@@ -5,6 +5,7 @@ import type { PersonCardItem } from "@/lib/content/persons-types";
 import { POSITION_CATS, DEGREE_CATS, positionCat } from "@/lib/content/persons-types";
 import { PersonTile } from "@/components/PersonTile";
 import { FilterSelect } from "@/components/FilterSelect";
+import { STAFF_UI } from "@/lib/i18n/ui-defs";
 
 // Каталог педсостава. Фильтры вынесены в левую боковую панель — тем же
 // паттерном, что «Разделы» страницы и «Подразделы» в sveden: белая карточка с
@@ -16,29 +17,6 @@ import { FilterSelect } from "@/components/FilterSelect";
 
 type Sort = "fio" | "degree";
 
-// Подписи интерфейса: русский текст — ключ перевода и запасной вариант,
-// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
-export const STAFF_UI = {
-  sortFio: "По алфавиту (А–Я)",
-  sortDegree: "По учёной степени",
-  search: "Поиск по ФИО или дисциплине",
-  searchHint: "Фамилия, дисциплина…",
-  position: "Должность",
-  anyPosition: "Все должности",
-  degree: "Учёная степень",
-  anyDegree: "Любая степень",
-  discipline: "Дисциплина",
-  anyDiscipline: "Все дисциплины",
-  sort: "Сортировка",
-  filters: "Фильтры",
-  collapse: "свернуть",
-  expand: "показать",
-  found: "Найдено",
-  reset: "Сбросить",
-  emptyTitle: "Ничего не найдено",
-  emptyHint: "Измените параметры фильтра.",
-  experience: "стаж",
-};
 
 // Ранг степени для сортировки: доктор → кандидат → без степени.
 // Ключи категорий: на переведённых данных их считает сервер (posKey/degKey),

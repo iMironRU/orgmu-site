@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Link } from "@/components/Link";
 import { getActiveNotices } from "@/lib/content/notices";
-import { NoticesView, NOTICES_UI } from "@/components/NoticesView";
+import { NoticesView } from "@/components/NoticesView";
 import { isTargetLocale } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
 import { uiStrings } from "@/lib/i18n/ui-strings";
+import { NOTICES_UI } from "@/lib/i18n/ui-defs";
 import { t } from "@/lib/i18n/t";
 import { TranslationNotice } from "@/components/TranslationNotice";
 

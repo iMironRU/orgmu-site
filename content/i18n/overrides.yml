@@ -93,3 +93,8 @@
 # ─── Название университета: машина задваивала «University» ───
 "Оренбургский государственный медицинский университет":
   en: "Orenburg State Medical University"   # было Orenburg State University Medical University
+
+# ─── Подпись под числом лет стажа в плитке педсостава ───
+"стаж, лет":
+  en: "years of experience"      # не «experience, years»: единица уже в подписи
+  kk: "жұмыс өтілі, жыл"

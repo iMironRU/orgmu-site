@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Link } from "@/components/Link";
 import { getApps } from "@/lib/content/navigation";
-import { AppsRegistry, APPS_UI } from "@/components/AppsRegistry";
+import { AppsRegistry } from "@/components/AppsRegistry";
 import { isTargetLocale } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
 import { uiStrings } from "@/lib/i18n/ui-strings";
+import { APPS_UI } from "@/lib/i18n/ui-defs";
 import { t } from "@/lib/i18n/t";
 import { TranslationNotice } from "@/components/TranslationNotice";
 import { PageNav } from "@/components/PageNav";

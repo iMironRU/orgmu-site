@@ -4,25 +4,13 @@ import { useMemo, useState } from "react";
 import type { AppItem, Audience } from "@/lib/content/navigation";
 import { Link } from "@/components/Link";
 import { Icon } from "@/components/icons";
+import { APPS_UI } from "@/lib/i18n/ui-defs";
 
 // Реестр приложений. Делим по АУДИТОРИИ, а не по секретности: служебные 1С
 // и так открыты без входа на app.orgma.ru и индексируются — прятать их здесь
 // было бы видимостью защиты, а не защитой. Задача фильтра — чтобы студент не
 // продирался через бухгалтерию к своей ЭИОС.
 
-// Подписи интерфейса: русский текст — ключ перевода и запасной вариант,
-// переведённый набор приходит пропсом ui (см. lib/i18n/ui-strings.ts).
-export const APPS_UI = {
-  students: "Обучающимся",
-  staff: "Сотрудникам",
-  all: "Все",
-  active: "Работает",
-  updating: "Обновляется",
-  legacy: "Выводится",
-  account: "Нужна учётная запись",
-  vpn: "Только из сети вуза",
-  searchHint: "Поиск приложения…",
-};
 
 const STATUS_COLOR: Record<string, { color: string; bg: string }> = {
   active: { color: "rgb(30,160,80)", bg: "rgba(52,199,89,0.12)" },

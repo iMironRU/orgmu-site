@@ -13,6 +13,8 @@ import { BackToTop } from "@/components/BackToTop";
 import { getMainMenu, getFooter } from "@/lib/content/navigation";
 import { TARGET_LOCALES } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
+import { uiStrings } from "@/lib/i18n/ui-strings";
+import { RAIL_UI } from "@/lib/i18n/ui-defs";
 import { getPageSlugs } from "@/lib/content/pages";
 import { A11Y_INLINE_SCRIPT } from "@/lib/a11y";
 
@@ -64,6 +66,12 @@ export default function RootLayout({
     ...getPageSlugs("info").map((s) => `/${s}`),
   ];
 
+  // Подписи боковой панели на всех языках — по той же причине, что и меню.
+  const railUi = {
+    ru: RAIL_UI,
+    ...Object.fromEntries(TARGET_LOCALES.map((l) => [l, uiStrings(RAIL_UI, l)])),
+  };
+
   // Куки-баннер: строки на всех языках, выбор — на клиенте.
   const COOKIE_RU = {
     text: "Мы используем файлы cookie для корректной работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с",
@@ -95,7 +103,7 @@ export default function RootLayout({
         {/* Раннее применение настроек доступности до гидрации — без мигания */}
         <script dangerouslySetInnerHTML={{ __html: A11Y_INLINE_SCRIPT }} />
         <LocaleProvider translatedPaths={translatedPaths}>
-        <SideRail translatedPaths={translatedPaths} />
+        <SideRail translatedPaths={translatedPaths} ui={railUi} />
         {/* Отступ снизу на мобиле — под фиксированную панель SideRail,
             иначе подвал уезжает под неё. */}
         <div className="a11y-zoom flex-1 min-w-0 flex flex-col max-[768px]:pb-[56px]">

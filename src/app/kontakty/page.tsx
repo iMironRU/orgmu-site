@@ -4,11 +4,12 @@ import { getUnits } from "@/lib/content/structure";
 import { typeMeta } from "@/lib/content/structure-types";
 import { getContactLines } from "@/lib/content/kontakty";
 import { SOCIALS } from "@/components/socials";
-import { PhoneBook, MapEmbed, PHONEBOOK_UI, MAP_UI } from "@/components/ContactsView";
+import { PhoneBook, MapEmbed } from "@/components/ContactsView";
 import { parsePhones } from "@/lib/phone";
 import { isTargetLocale } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
 import { uiStrings } from "@/lib/i18n/ui-strings";
+import { PHONEBOOK_UI, MAP_UI } from "@/lib/i18n/ui-defs";
 import { t } from "@/lib/i18n/t";
 import { TranslationNotice } from "@/components/TranslationNotice";
 
