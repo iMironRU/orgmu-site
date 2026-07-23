@@ -51,7 +51,8 @@ function FooterBody({ footer, lang = "ru" }: { footer: Footer; lang?: string }) 
           <span className="font-normal text-[16px] leading-[1.5] text-white/85">
             <Lines lines={org.address} />
           </span>
-          <a
+          {/* Через Link, а не <a>: иначе выбранный язык терялся бы на переходе. */}
+          <Link
             href={org.route_href}
             className="inline-flex items-center gap-[7px] self-start font-bold text-[15px] text-white no-underline px-[14px] py-2 border border-white/30 rounded-[9px] hover:bg-white/10"
           >
@@ -69,7 +70,7 @@ function FooterBody({ footer, lang = "ru" }: { footer: Footer; lang?: string }) 
               <circle cx="12" cy="10" r="3" />
             </svg>
             {routeLabel}
-          </a>
+          </Link>
           <span className="font-normal text-[16px] leading-[1.5] text-white/85">
             <Lines lines={org.contacts} />
           </span>
