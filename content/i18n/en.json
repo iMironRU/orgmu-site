@@ -5917,6 +5917,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "90cf87ed5737": {
+    "src": "Специальный раздел по приказу Рособрнадзора № 1493 и ст. 29 ФЗ-273. Структура и состав сведений фиксированы; данные продублированы в машиночитаемом виде.",
+    "text": "A special section by order of Rosobrnadzor No. 1493 and art. 29 FZ-273. The structure and composition of the information are fixed; the data is duplicated in machine-readable form.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "90f314d3bf46": {
     "src": "Пятница",
     "text": "Friday",
@@ -8393,6 +8399,12 @@
     "text": "Legal grounds",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "c7ba0c0e4010": {
+    "src": "Подразделы",
+    "text": "Subsections",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "c7d00f6a2398": {
     "src": "I возрастная группа — 1–4 классы",
