@@ -150,7 +150,7 @@ export function AppsRegistry({ apps, ui }: { apps: AppItem[]; ui?: Partial<typeo
                         не применяется и ссылка ведёт в 404. */}
                     {a.href === "#" ? (
                       <span className="font-ui font-bold text-[16px] text-ink-3 rounded-lg border border-dashed border-line-strong px-4 py-[9px]">
-                        Скоро
+                        {s_.soon}
                       </span>
                     ) : a.href.startsWith("http") ? (
                       <a

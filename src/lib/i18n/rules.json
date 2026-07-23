@@ -5,9 +5,11 @@
     "id", "slug", "href", "url", "link", "image", "icon", "accent", "soft", "tone",
     "color", "code", "date", "until", "email", "phone", "tel", "site", "version",
     "num", "parent", "type", "kind", "status", "platform", "auth", "audience",
-    "category", "fmt", "size", "value", "cta", "replacedBy", "host", "src",
+    "fmt", "size", "value", "replacedBy", "host", "src",
     "fio"
   ],
+
+  "_visibleComment": "cta и category раньше были в этом списке как «технические». Это ошибка: cta — надпись на кнопке («Открыть СДО»), category — бейдж на карточке. На английской версии они оставались русскими.",
 
   "_fioComment": "ФИО не переводят, а транслитерируют (lib/i18n/translit.ts): машина превращает фамилии в слова — «Кузнецов» в Smith, «Соловьёв» в Nightingale.",
 
