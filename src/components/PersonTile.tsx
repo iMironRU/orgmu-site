@@ -1,4 +1,5 @@
 import { Link } from "@/components/Link";
+import { formatPhone } from "@/lib/phone";
 import type { PersonCardItem } from "@/lib/content/persons-types";
 import { initials, avatarColor } from "@/lib/content/persons-types";
 
@@ -56,7 +57,7 @@ export function PersonTile({ person: p, mode = "staff" }: { person: PersonCardIt
 
         {mode === "lead" && contacts.length > 0 && (
           <div className="flex gap-4 mt-[10px] flex-wrap text-[14px] text-steel">
-            {p.phone && <span>{p.phone}</span>}
+            {p.phone && <span>{formatPhone(p.phone)}</span>}
             {p.email && (
               <a href={`mailto:${p.email}`} className="text-steel no-underline hover:text-accent">
                 {p.email}

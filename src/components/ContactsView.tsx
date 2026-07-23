@@ -3,41 +3,50 @@
 import { useMemo, useState } from "react";
 import { Link } from "@/components/Link";
 import { FilterSelect } from "@/components/FilterSelect";
+import type { Phone } from "@/lib/phone";
 
 export type ContactUnit = {
   id: string;
   name: string;
-  type?: string;
-  head?: { fio: string; post: string };
-  address?: string;
-  phone?: string;
+  type: string;
+  /** Русская подпись типа и его цвета — из TYPE_META, считаны на сервере. */
+  typeLabel: string;
+  color: string;
+  soft: string;
+  phones: Phone[];
   email?: string;
-  site?: string;
 };
-
-const DASH = "—";
 
 // Телефонный справочник: 125 подразделений с контактами. Раньше телефон
 // кафедры можно было найти, только зная, что она есть, и открыв её карточку.
+//
+// Карточки — из макета Contacts.dc.html (блок «Быстрые контакты»): цветной
+// бейдж типа, название, телефон и почта с иконками, «Подробнее». До этого
+// здесь были строки с фиксированными min-width, и всё, что длиннее (три
+// номера у деканата лечебного факультета), вылезало за колонку.
 export function PhoneBook({ units }: { units: ContactUnit[] }) {
   const [q, setQ] = useState("");
   const [types, setTypes] = useState<string[]>([]);
 
-  const allTypes = useMemo(
-    () => [...new Set(units.map((u) => u.type).filter(Boolean) as string[])].sort(),
-    [units],
-  );
+  // В фильтр идут русские подписи, а не машинные коды: раньше в списке стояли
+  // faculty, kafedra, podrazdelenie, upravlenie — как есть из units.json.
+  const allTypes = useMemo(() => {
+    const m = new Map<string, string>();
+    for (const u of units) if (u.type) m.set(u.type, u.typeLabel);
+    return [...m.entries()]
+      .map(([value, label]) => ({ value, label }))
+      .sort((a, b) => a.label.localeCompare(b.label, "ru"));
+  }, [units]);
 
   const list = useMemo(() => {
     const s = q.trim().toLowerCase();
     return units.filter(
       (u) =>
-        (types.length === 0 || (u.type ? types.includes(u.type) : false)) &&
+        (types.length === 0 || types.includes(u.type)) &&
         (!s ||
           u.name.toLowerCase().includes(s) ||
-          (u.phone ?? "").toLowerCase().includes(s) ||
-          (u.email ?? "").toLowerCase().includes(s) ||
-          (u.head?.fio ?? "").toLowerCase().includes(s)),
+          u.phones.some((p) => p.display.toLowerCase().includes(s)) ||
+          (u.email ?? "").toLowerCase().includes(s)),
     );
   }, [units, q, types]);
 
@@ -49,7 +58,7 @@ export function PhoneBook({ units }: { units: ContactUnit[] }) {
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Подразделение, телефон, почта, ФИО…"
+            placeholder="Подразделение, телефон, почта…"
             className="text-[16px] text-ink px-[14px] py-[11px] border border-line-strong rounded-[9px] outline-none focus:border-accent"
           />
         </label>
@@ -84,33 +93,67 @@ export function PhoneBook({ units }: { units: ContactUnit[] }) {
           Ничего не найдено — измените запрос.
         </div>
       ) : (
-        <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-3 gap-4 max-[1000px]:grid-cols-2 max-[680px]:grid-cols-1">
           {list.map((u) => (
-            <div key={u.id} className="bg-white border border-line rounded-[10px] px-[18px] py-[14px] flex gap-4 flex-wrap items-baseline">
+            <div
+              key={u.id}
+              className="bg-white border border-line border-l-4 rounded-xl px-5 py-[18px] flex flex-col gap-[10px]"
+              style={{ borderLeftColor: u.color }}
+            >
+              <span
+                className="self-start text-[11px] font-bold tracking-[0.04em] uppercase rounded-[5px] px-[9px] py-[3px]"
+                style={{ color: u.color, background: u.soft }}
+              >
+                {u.typeLabel}
+              </span>
               <Link
                 href={`/struktura/${u.id}`}
-                className="flex-1 min-w-[220px] font-bold text-[17px] text-brand no-underline hover:underline"
+                className="font-display font-bold text-[17px] leading-[1.25] text-brand no-underline hover:underline"
               >
                 {u.name}
               </Link>
-              <span className="shrink-0 text-[15px] text-steel tabular-nums min-w-[170px]">
-                {u.phone ? (
-                  <a href={`tel:${u.phone.replace(/[^+\d]/g, "")}`} className="text-steel no-underline hover:text-accent">
-                    {u.phone}
-                  </a>
-                ) : (
-                  DASH
-                )}
-              </span>
-              <span className="shrink-0 text-[15px] min-w-[180px]">
-                {u.email ? (
-                  <a href={`mailto:${u.email}`} className="text-accent no-underline hover:underline break-words">
-                    {u.email}
-                  </a>
-                ) : (
-                  <span className="text-ink-3">{DASH}</span>
-                )}
-              </span>
+
+              {/* Номеров может быть несколько и у части есть подпись
+                  («1-2 курс») — каждый отдельной строкой, карточка растёт
+                  вниз, а не разъезжается вширь. */}
+              {u.phones.map((p) => (
+                <a
+                  key={p.tel + (p.label ?? "")}
+                  href={`tel:${p.tel}`}
+                  className="flex items-start gap-2 text-[15px] font-bold text-steel no-underline hover:text-brand"
+                >
+                  <svg className="shrink-0 mt-[3px]" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z" />
+                  </svg>
+                  <span className="tabular-nums">
+                    {p.label && <span className="font-normal text-ink-3">{p.label}: </span>}
+                    {p.display}
+                  </span>
+                </a>
+              ))}
+
+              {u.email && (
+                <a
+                  href={`mailto:${u.email}`}
+                  className="flex items-start gap-2 text-[15px] text-steel no-underline hover:text-brand break-all"
+                >
+                  <svg className="shrink-0 mt-[3px]" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m3 6 9 7 9-7" />
+                  </svg>
+                  {u.email}
+                </a>
+              )}
+
+              <Link
+                href={`/struktura/${u.id}`}
+                className="mt-auto pt-[2px] inline-flex items-center gap-[6px] font-bold text-[14px] text-accent no-underline hover:text-brand"
+              >
+                Подробнее
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </Link>
             </div>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import { Link } from "@/components/Link";
 import { asset } from "@/lib/asset";
+import { parsePhones } from "@/lib/phone";
 import type { Block, ContentPageData } from "@/lib/content/pages-types";
 import { anchorId, encodeFileHref, fileExt } from "@/lib/content/pages-types";
 import { Faq } from "@/components/Faq";
@@ -262,13 +263,15 @@ function ContactCards({
                 </svg>
               }
             >
-              {/* Несколько номеров через запятую — каждый отдельной ссылкой,
-                  иначе на телефоне не позвонить ни по одному. */}
-              {c.phone.split(/\s*,\s*/).map((t, i) => (
+              {/* Несколько номеров — каждый отдельной ссылкой, иначе на
+                  телефоне не позвонить ни по одному. Разбирает parsePhones:
+                  разделителем может быть и запятая, и подпись («1-2 курс»). */}
+              {parsePhones(c.phone).map((p, i) => (
                 <span key={i}>
                   {i > 0 && ", "}
-                  <a href={`tel:${t.replace(/[^+\d]/g, "")}`} className="font-bold text-steel no-underline hover:text-accent">
-                    {t}
+                  {p.label && <span className="text-ink-3">{p.label}: </span>}
+                  <a href={`tel:${p.tel}`} className="font-bold text-steel no-underline hover:text-accent">
+                    {p.display}
                   </a>
                 </span>
               ))}

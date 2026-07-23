@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
 import { Link } from "@/components/Link";
 import { getUnits } from "@/lib/content/structure";
-import { getFooter } from "@/lib/content/navigation";
-import { SectionToc } from "@/components/SectionToc";
+import { typeMeta } from "@/lib/content/structure-types";
+import { getContactLines } from "@/lib/content/kontakty";
+import { SOCIALS } from "@/components/socials";
 import { PhoneBook, MapEmbed } from "@/components/ContactsView";
+import { parsePhones } from "@/lib/phone";
 
-// Контакты по макету Contacts: быстрые контакты + как нас найти.
-// Сверх макета — телефонный справочник: у 125 из 136 подразделений заполнены
-// телефон и почта, но найти их можно было только через карточку подразделения.
+// Страница по макету Contacts.dc.html: контактная карточка с левым кантом,
+// синяя карточка «Не знаете, куда обратиться?», справочник карточками в три
+// колонки, «Как нас найти», примечание про sveden.
+//
+// Единственное отступление от макета: там девять «быстрых контактов» вручную,
+// а за остальным макет отсылает в структуру. У нас телефон и почта заполнены
+// у 125 подразделений из 136, и прятать их за вторым переходом жалко —
+// поэтому карточки те же, но над ними поиск и фильтр по типу.
 
 export const metadata: Metadata = {
   title: "Контакты",
@@ -15,19 +22,46 @@ export const metadata: Metadata = {
     "Контакты Оренбургского государственного медицинского университета: адрес, телефоны, электронная почта, телефонный справочник подразделений.",
 };
 
-const SECTIONS = [
-  { id: "bystrye", label: "Быстрые контакты" },
-  { id: "spravochnik", label: "Телефонный справочник" },
-  { id: "kak-najti", label: "Как нас найти" },
-];
-
 const ADDRESS = "г. Оренбург, ул. Советская, д. 6";
 // Встраиваемая карта Яндекса по адресу — грузится только по клику (см. MapEmbed).
 const MAP_SRC =
   "https://yandex.ru/map-widget/v1/?text=" + encodeURIComponent("Оренбург, улица Советская, 6") + "&z=17";
 
+const ICON = {
+  pin: <path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z" />,
+  clock: <path d="M12 7v5l3 2" />,
+  phone: (
+    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z" />
+  ),
+  mail: <path d="m3 6 9 7 9-7" />,
+};
+
+function ContactIcon({ kind }: { kind: keyof typeof ICON }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {kind === "pin" && <circle cx="12" cy="10" r="2.5" />}
+      {kind === "clock" && <circle cx="12" cy="12" r="9" />}
+      {kind === "mail" && <rect x="2" y="4" width="20" height="16" rx="2" />}
+      {ICON[kind]}
+    </svg>
+  );
+}
+
+// Куда ведёт значение: телефон — на звонок, почта — на письмо, остальное текстом.
+function hrefFor(icon: string, value: string): string | null {
+  if (icon === "phone") {
+    const p = parsePhones(value)[0];
+    return p ? `tel:${p.tel}` : null;
+  }
+  if (icon === "mail") return `mailto:${value}`;
+  return null;
+}
+
+const OUTLINE_BTN =
+  "inline-flex items-center gap-2 px-4 py-[10px] border border-line-strong rounded-[10px] no-underline font-bold text-[15px] text-brand hover:bg-[rgb(251,251,251)] transition-colors";
+
 export default function ContactsPage() {
-  const footer = getFooter();
+  const contacts = getContactLines();
   // Только подразделения с контактами — остальным в справочнике делать нечего.
   const units = getUnits()
     .filter((u) => u.phone || u.email)
@@ -35,8 +69,10 @@ export default function ContactsPage() {
       id: u.id,
       name: u.name,
       type: u.type,
-      address: u.address,
-      phone: u.phone,
+      typeLabel: typeMeta(u.type).label,
+      color: typeMeta(u.type).color,
+      soft: typeMeta(u.type).soft,
+      phones: parsePhones(u.phone),
       email: u.email,
     }));
 
@@ -49,64 +85,137 @@ export default function ContactsPage() {
             <span>/</span>
             <span>Контакты</span>
           </div>
-          <h1 className="m-0 mb-2 font-display font-bold text-[40px] leading-[1.1] max-[768px]:text-[28px]">
+          <h1 className="m-0 mb-2 font-display font-bold text-[38px] leading-[1.12] max-[768px]:text-[28px]">
             Контакты
           </h1>
-          <p className="m-0 max-w-[640px] font-ui text-[18px] text-white/85">
-            Адрес, телефоны и электронная почта университета, справочник подразделений.
+          <p className="m-0 max-w-[720px] font-ui text-[17px] text-white/85">
+            Телефоны, почта и часы работы приёмной комиссии, деканатов и других
+            подразделений университета.
           </p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border grid grid-cols-[250px_1fr] gap-10 max-[900px]:grid-cols-1 max-[768px]:px-5 font-ui">
-        <aside>
-          <div className="min-[901px]:sticky min-[901px]:top-6">
-            <SectionToc title="Разделы" items={SECTIONS} />
-          </div>
-        </aside>
-
-        <article className="min-w-0 flex flex-col gap-7">
-          <section className="flex flex-col gap-4">
-            <h2 id="bystrye" className="m-0 font-display font-bold text-[26px] text-brand scroll-mt-[100px]">
-              Быстрые контакты
-            </h2>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3">
-              <div className="bg-white border border-line rounded-xl p-5">
-                <div className="text-[14px] text-ink-3 mb-1">Адрес</div>
-                <div className="font-bold text-[17px] text-brand">{footer.org.address.join(" ")}</div>
-              </div>
-              {footer.org.contacts.map((c, i) => {
-                const [k, ...rest] = c.split(":");
-                const v = rest.join(":").trim() || k;
-                const hasKey = rest.length > 0;
+      <main className="mx-auto max-w-[1146px] w-full px-10 pt-7 pb-16 box-border flex flex-col gap-[30px] max-[768px]:px-5 font-ui">
+        {/* Общие контакты + карточка обращения */}
+        <div className="grid grid-cols-[1.55fr_1fr] gap-[18px] max-[900px]:grid-cols-1">
+          <div className="bg-white border border-line border-l-4 border-l-brand rounded-[14px] px-7 py-[26px] flex flex-col gap-5">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-4 max-[600px]:grid-cols-1">
+              {contacts.map((c) => {
+                const href = hrefFor(c.icon, c.value);
                 return (
-                  <div key={i} className="bg-white border border-line rounded-xl p-5">
-                    <div className="text-[14px] text-ink-3 mb-1">{hasKey ? k : "Телефон"}</div>
-                    <div className="font-bold text-[17px] text-brand break-words">{v}</div>
+                  <div key={c.label} className="flex gap-3">
+                    <span className="text-cyan shrink-0 mt-px flex">
+                      <ContactIcon kind={c.icon} />
+                    </span>
+                    <div className="min-w-0">
+                      <div className="text-[13px] text-ink-3 mb-[2px]">{c.label}</div>
+                      {href ? (
+                        <a href={href} className="text-[16px] font-medium text-ink no-underline hover:text-brand break-words">
+                          {c.value}
+                        </a>
+                      ) : (
+                        <div className="text-[16px] font-medium text-ink break-words">{c.value}</div>
+                      )}
+                    </div>
                   </div>
                 );
               })}
             </div>
-          </section>
+            <div className="flex gap-[10px] flex-wrap pt-1">
+              <Link href="/mesta" className={OUTLINE_BTN}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Схема проезда
+              </Link>
+              <Link href="/struktura" className={OUTLINE_BTN}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="9" cy="8" r="3.2" />
+                  <path d="M2.5 20c0-3.4 2.9-5 6.5-5s6.5 1.6 6.5 5" />
+                  <circle cx="17.5" cy="8.5" r="2.6" />
+                  <path d="M16 14.4c3 .2 5.5 1.8 5.5 5" />
+                </svg>
+                Все подразделения
+              </Link>
+            </div>
+          </div>
 
-          <section className="flex flex-col gap-4">
-            <h2 id="spravochnik" className="m-0 font-display font-bold text-[26px] text-brand scroll-mt-[100px]">
-              Телефонный справочник
-              <span className="ml-3 font-ui text-[14px] font-bold text-ink-3 bg-[rgb(240,243,246)] rounded-full px-[11px] py-[3px] align-middle">
-                {units.length}
-              </span>
-            </h2>
-            <PhoneBook units={units} />
-          </section>
+          <div
+            data-a11y-surface="brand"
+            className="text-white rounded-[14px] px-7 py-[26px] flex flex-col gap-[14px]"
+            style={{ background: "linear-gradient(160deg, rgb(0,101,155), rgb(0,80,130))" }}
+          >
+            <div className="font-display font-bold text-[20px]">Не знаете, куда обратиться?</div>
+            <div className="text-[15px] leading-[1.5] text-white/85">
+              Опишите вопрос — направим его в нужное подразделение.
+            </div>
+            <Link
+              href="/obratnaya-svyaz"
+              className="inline-flex items-center justify-center gap-[9px] px-[18px] py-[13px] bg-white text-brand rounded-[11px] no-underline font-bold text-[16px] hover:bg-[rgb(230,240,248)] transition-colors"
+            >
+              Написать нам
+            </Link>
+            <div className="mt-auto border-t border-white/[0.18] pt-[14px] flex items-center gap-3">
+              <span className="text-[14px] font-bold text-white/85">Мы в соцсетях</span>
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.key}
+                  href={s.href}
+                  title={s.title}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-[38px] h-[38px] rounded-[10px] bg-white/[0.14] flex items-center justify-center text-white no-underline hover:bg-white/[0.24] transition-colors"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
 
-          <section className="flex flex-col gap-4">
-            <h2 id="kak-najti" className="m-0 font-display font-bold text-[26px] text-brand scroll-mt-[100px]">
-              Как нас найти
-            </h2>
-            <MapEmbed src={MAP_SRC} address={ADDRESS} />
-          </section>
-        </article>
-      </div>
+        {/* Справочник подразделений */}
+        <div className="flex flex-col gap-[14px]">
+          <h2 className="m-0 font-display font-bold text-[24px] text-brand">
+            Быстрые контакты
+            <span className="ml-3 font-ui text-[14px] font-bold text-ink-3 bg-[rgb(240,243,246)] rounded-full px-[11px] py-[3px] align-middle">
+              {units.length}
+            </span>
+          </h2>
+          <PhoneBook units={units} />
+          <div className="text-[15px] text-ink-2">
+            Полный список кафедр, деканатов и управлений — в разделе{" "}
+            <Link href="/struktura" className="text-accent font-bold no-underline hover:underline">
+              «Структура и органы управления»
+            </Link>
+            .
+          </div>
+        </div>
+
+        {/* Как нас найти */}
+        <div className="flex flex-col gap-[14px]">
+          <h2 className="m-0 font-display font-bold text-[24px] text-brand">Как нас найти</h2>
+          <MapEmbed src={MAP_SRC} address={ADDRESS} />
+        </div>
+
+        {/* Юридические сведения */}
+        <div className="flex gap-3 px-[18px] py-4 bg-[rgb(251,251,251)] border border-dashed border-line-strong rounded-[10px]">
+          <span className="shrink-0 text-cyan flex">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </span>
+          <div className="text-[14px] leading-[1.5] text-ink-2">
+            Официальное наименование, дата создания, учредитель и юридически значимые
+            контакты организации — в разделе{" "}
+            <Link href="/sveden" className="text-steel font-bold no-underline hover:underline">
+              «Сведения об образовательной организации»
+            </Link>
+            .
+          </div>
+        </div>
+      </main>
     </>
   );
 }

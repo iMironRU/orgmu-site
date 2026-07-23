@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Link } from "@/components/Link";
+import { parsePhones, formatPhone } from "@/lib/phone";
 import { notFound } from "next/navigation";
 import { getAllPersonIds, getPerson } from "@/lib/content/persons";
 import { initials, avatarColor } from "@/lib/content/persons-types";
@@ -33,6 +34,9 @@ export default async function PersonPage({
   if (!p) notFound();
 
   const degreeLine = [p.degree, p.academStat].filter(Boolean).join(", ");
+  // Первый номер из строки — для ссылки «позвонить»: в источнике их бывает
+  // несколько и записаны они по-разному (см. lib/phone).
+  const lead = parsePhones(p.phone)[0];
   const backHref = p.isLead ? "/rukovodstvo" : "/persony";
   const backLabel = p.isLead ? "Руководство" : "Педагогический состав";
 
@@ -77,11 +81,12 @@ export default async function PersonPage({
         </div>
       </div>
 
-      {/* Контакты руководства */}
+      {/* Контакты руководства. Телефон разбираем: в источнике он записан
+          как угодно — «8 (3532) 50-06-06 доб.630», «(3532)50-06-06 доб. 888». */}
       {p.isLead && (p.phone || p.email) && (
         <div className="flex gap-[14px] flex-wrap mt-4">
           <a
-            href={p.email ? `mailto:${p.email}` : p.phone ? `tel:${p.phone.replace(/[^+\d]/g, "")}` : "#"}
+            href={p.email ? `mailto:${p.email}` : lead ? `tel:${lead.tel}` : "#"}
             className="flex-1 min-w-[220px] flex items-center gap-3 bg-brand rounded-xl px-5 py-[18px] no-underline hover:bg-brand-strong transition-colors"
           >
             <span className="shrink-0 text-white flex">
@@ -92,7 +97,7 @@ export default async function PersonPage({
           {p.phone && (
             <div className="flex-1 min-w-[200px] bg-white border border-line rounded-xl px-5 py-[18px]">
               <div className="text-[14px] text-ink-3 mb-1">Телефон</div>
-              <div className="font-bold text-[18px] text-brand">{p.phone}</div>
+              <div className="font-bold text-[18px] text-brand">{formatPhone(p.phone)}</div>
             </div>
           )}
           {p.email && (

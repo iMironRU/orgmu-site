@@ -38,6 +38,7 @@ const SOURCES = [
   "content/banners.yml",
   "content/announcements.yml",
   "content/mesta.yml",
+  "content/kontakty.yml",
   "content/pages/**/*.yml",
   "content/i18n/ui.yml",
   // Подписи разделов и полей sveden — это СТРУКТУРА раздела, её переводим.

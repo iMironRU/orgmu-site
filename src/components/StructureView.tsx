@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Link } from "@/components/Link";
+import { formatPhone } from "@/lib/phone";
 import type { Unit } from "@/lib/content/structure-types";
 import { typeMeta, initials, avatarColor, TYPE_META } from "@/lib/content/structure-types";
 
@@ -139,7 +140,7 @@ export function StructureView({ units }: { units: Unit[] }) {
                     </Link>
                     <div className="flex flex-wrap gap-x-[18px] gap-y-2 mt-2 text-[15px] text-ink-2">
                       <Meta icon={IconPin}>{u.address}</Meta>
-                      <Meta icon={IconPhone}>{u.phone}</Meta>
+                      <Meta icon={IconPhone}>{formatPhone(u.phone)}</Meta>
                       <Meta icon={IconMail}>
                         {u.email && (
                           <a href={`mailto:${u.email}`} className="text-ink-2 no-underline hover:text-accent">

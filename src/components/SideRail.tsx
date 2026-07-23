@@ -5,6 +5,7 @@ import { Link } from "@/components/Link";
 import { usePathname } from "next/navigation";
 import { LOCALE_NAMES, TARGET_LOCALES, SOURCE_LOCALE, localeHref, type Locale } from "@/lib/i18n/config";
 import { usePreferredLocale } from "@/lib/i18n/use-locale";
+import { SOCIALS } from "@/components/socials";
 
 // Прячет нижнюю панель при прокрутке вниз, возвращает при прокрутке вверх —
 // как шапка в Safari и большинстве приложений, жест людям знаком. Так во время
@@ -44,7 +45,6 @@ const stroke = {
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
 };
-const solid = { fill: "currentColor", stroke: "none" };
 
 // Цель в нижней панели: не меньше 56px по высоте — палец, не курсор.
 const MOBILE_ITEM =
@@ -60,28 +60,6 @@ const ICONS = {
   apps: (
     <svg width="24" height="24" viewBox="0 0 24 24" {...stroke}>
       <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
-    </svg>
-  ),
-  // Логотип ВК — буквы, они занимают по высоте ~38% квадрата, тогда как
-  // Telegram ~57%, а MAX почти весь: при одинаковых 24px иконка выглядела
-  // мельче соседних. viewBox поджат по границам логотипа (4.6 4.6 14.8 14.8) —
-  // так он заполняет иконку и оптически сравнивается с остальными.
-  vk: (
-    <svg width="24" height="24" viewBox="4.6 4.6 14.8 14.8" {...solid}>
-      <path d="M12.9 16.6c-5 0-8.2-3.5-8.3-9.2h2.6c.1 4.2 2 6 3.5 6.4V7.4h2.4v3.6c1.5-.2 3-1.8 3.5-3.6h2.4c-.4 2.2-2 3.8-3.1 4.5 1.1.6 2.9 2 3.6 4.7h-2.6c-.5-1.7-1.9-3-3.8-3.2v3.2h-.2Z" />
-    </svg>
-  ),
-  tg: (
-    <svg width="24" height="24" viewBox="0 0 24 24" {...solid}>
-      <path d="M21.9 5.3 18.9 19c-.2 1-.8 1.2-1.6.8l-4.4-3.3-2.1 2c-.24.24-.43.43-.88.43l.31-4.5 8.2-7.4c.36-.32-.08-.5-.55-.18L7.5 13.3l-4.4-1.4c-.95-.3-.97-.95.2-1.4L20.6 3.9c.8-.3 1.5.18 1.3 1.4Z" />
-    </svg>
-  ),
-  // Логотип MAX — официальный, maxicons.ru/icons/Max_logo.svg (монохромный).
-  // fill заменён на currentColor: иконка должна менять цвет вместе с темами
-  // доступности, как остальные в панели.
-  max: (
-    <svg width="24" height="24" viewBox="0 0 720 720" {...solid}>
-      <path d="M350.4,9.6C141.8,20.5,4.1,184.1,12.8,390.4c3.8,90.3,40.1,168,48.7,253.7,2.2,22.2-4.2,49.6,21.4,59.3,31.5,11.9,79.8-8.1,106.2-26.4,9-6.1,17.6-13.2,24.2-22,27.3,18.1,53.2,35.6,85.7,43.4,143.1,34.3,299.9-44.2,369.6-170.3C799.6,291.2,622.5-4.6,350.4,9.6h0ZM269.4,504c-11.3,8.8-22.2,20.8-34.7,27.7-18.1,9.7-23.7-.4-30.5-16.4-21.4-50.9-24-137.6-11.5-190.9,16.8-72.5,72.9-136.3,150-143.1,78-6.9,150.4,32.7,183.1,104.2,72.4,159.1-112.9,316.2-256.4,218.6h0Z" />
     </svg>
   ),
   access: (
@@ -181,17 +159,13 @@ export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] 
 
         <div className="w-11 h-px bg-white/20 my-[14px]" />
 
-        {/* Соцсети */}
+        {/* Соцсети — общий список: он же на странице контактов */}
         <div className="flex flex-col items-center gap-2">
-          <a href="https://vk.com/orgma_ru" title="ВКонтакте" target="_blank" rel="noopener noreferrer" className={RAIL_ICON}>
-            {ICONS.vk}
-          </a>
-          <a href="https://t.me/orgma_ru" title="Telegram" target="_blank" rel="noopener noreferrer" className={RAIL_ICON}>
-            {ICONS.tg}
-          </a>
-          <a href="https://max.ru/id5610042554_gos" title="MAX" target="_blank" rel="noopener noreferrer" className={RAIL_ICON}>
-            {ICONS.max}
-          </a>
+          {SOCIALS.map((s) => (
+            <a key={s.key} href={s.href} title={s.title} target="_blank" rel="noopener noreferrer" className={RAIL_ICON}>
+              {s.icon}
+            </a>
+          ))}
         </div>
 
         <div className="w-11 h-px bg-white/20 my-[14px]" />

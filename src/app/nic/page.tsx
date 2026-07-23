@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Link } from "@/components/Link";
+import { formatPhone } from "@/lib/phone";
 import { getUnit, getUnitExtra, initials, avatarColor } from "@/lib/content/structure";
 import { getPersonIdByFio } from "@/lib/content/persons";
 import { SectionToc } from "@/components/SectionToc";
@@ -144,7 +145,7 @@ export default function NicIndexPage() {
             <div className="bg-white border border-line rounded-xl overflow-hidden">
               {[
                 ["Место нахождения", u?.address ?? ""],
-                ["Телефон", u?.phone ?? ""],
+                ["Телефон", formatPhone(u?.phone)],
               ].map(([label, value]) => (
                 <div key={label} className="flex gap-5 px-[22px] py-[15px] border-b border-line flex-wrap">
                   <div className="flex-[0_0_200px] max-w-full text-[15px] text-ink-2">{label}</div>

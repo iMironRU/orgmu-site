@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Link } from "@/components/Link";
+import { formatPhone } from "@/lib/phone";
 import { notFound } from "next/navigation";
 import {
   getUnits,
@@ -291,7 +292,7 @@ export default async function DepartmentPage({
             <div className="bg-white border border-line rounded-xl overflow-hidden">
               {[
                 ["Место нахождения", u.address],
-                ["Телефон", u.phone],
+                ["Телефон", formatPhone(u.phone)],
                 ["Сайт", u.site],
               ].map(([label, value]) => (
                 <div key={label} className="flex gap-5 px-[22px] py-[15px] border-b border-line last:border-0 flex-wrap">
