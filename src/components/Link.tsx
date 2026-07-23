@@ -12,9 +12,9 @@ import { useLocaleCtx, localizeHref } from "@/lib/i18n/LocaleContext";
 // Здесь один раз решается, нужен ли языковой префикс. Любая новая ссылка в
 // проекте получает это поведение даром, ничего не зная про языки.
 export function Link({ href, ...rest }: ComponentProps<typeof NextLink>) {
-  const { locale, translatedPaths } = useLocaleCtx();
+  const { locale } = useLocaleCtx();
   const raw = typeof href === "string" ? href : null;
-  return <NextLink href={raw ? localizeHref(raw, locale, translatedPaths) : href} {...rest} />;
+  return <NextLink href={raw ? localizeHref(raw, locale) : href} {...rest} />;
 }
 
 export default Link;

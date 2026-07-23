@@ -1,47 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { SOURCE_LOCALE, TARGET_LOCALES, type Locale } from "./config";
-
-const KEY = "orgmu-lang";
 
 export function localeFromPath(pathname: string): Locale | null {
   return (TARGET_LOCALES.find((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)) ??
     null) as Locale | null;
 }
 
-// Выбранный язык. Адрес главнее памяти: если человек открыл /en/…, это и есть
-// его язык. Но когда он уходит на страницу без перевода (у неё русский адрес),
-// выбор не должен пропадать — иначе меню молча возвращается к русскому и язык
-// приходится переключать заново. Поэтому запоминаем.
+// Язык страницы — ТОЛЬКО из адреса. Раньше он ещё запоминался в localStorage,
+// потому что у части разделов не было языкового адреса и при переходе туда
+// выбор терялся. Теперь у каждой русской страницы есть пара /en/… и /kk/…,
+// поэтому память не нужна: адрес — единственный источник правды.
 //
-// Первый рендер всегда отдаёт язык из адреса: он должен совпасть с тем, что
-// пришло с сервера, иначе React ругается на расхождение гидратации. Память
-// применяется уже после монтирования.
+// Это важнее, чем кажется: два источника правды рано или поздно расходятся, и
+// ссылкой с запомненным языком нельзя было поделиться — у получателя открывался
+// русский. Плюс исчезло мигание (первый кадр приходил русским и «переобувался»
+// после гидрации).
 export function usePreferredLocale(): Locale {
   const pathname = usePathname() || "/";
-  const fromUrl = localeFromPath(pathname);
-  const [stored, setStored] = useState<Locale | null>(null);
-
-  useEffect(() => {
-    if (fromUrl) {
-      // Пришли по языковому адресу — запоминаем выбор.
-      try {
-        window.localStorage.setItem(KEY, fromUrl);
-      } catch {
-        // приватный режим — переживём, просто не запомним
-      }
-      setStored(fromUrl);
-      return;
-    }
-    try {
-      const saved = window.localStorage.getItem(KEY);
-      setStored(saved && TARGET_LOCALES.includes(saved as never) ? (saved as Locale) : null);
-    } catch {
-      setStored(null);
-    }
-  }, [fromUrl, pathname]);
-
-  return fromUrl ?? stored ?? (SOURCE_LOCALE as Locale);
+  return localeFromPath(pathname) ?? (SOURCE_LOCALE as Locale);
 }

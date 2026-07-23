@@ -2,11 +2,13 @@
 
 import { Link } from "@/components/Link";
 import { usePathname } from "next/navigation";
-import { usePreferredLocale, localeFromPath } from "@/lib/i18n/use-locale";
+import { usePreferredLocale } from "@/lib/i18n/use-locale";
+import { useLocaleCtx } from "@/lib/i18n/LocaleContext";
 import { SOURCE_LOCALE } from "@/lib/i18n/config";
 
-// Полоса на русской странице, когда человек читает сайт на другом языке:
-// объясняет, почему тут вдруг русский, вместо того чтобы молча его подсунуть.
+// Полоса на языковом адресе, содержимое которого пока русское (/en/sveden и
+// подобные): объясняет, почему тут русский, вместо того чтобы молча подсунуть.
+// Показывается только там, где перевода действительно нет.
 // Оформление — как у плашки перевода (блок callout из PageTemplate.dc.html),
 // но цвет спокойнее: это не предупреждение о качестве, а пояснение.
 const S: Record<string, { text: string; link: string }> = {
@@ -23,9 +25,14 @@ const S: Record<string, { text: string; link: string }> = {
 export function UntranslatedNotice() {
   const pathname = usePathname() || "/";
   const locale = usePreferredLocale();
+  const { translatedPaths } = useLocaleCtx();
 
-  // Показываем только на РУССКОЙ странице и только если выбран другой язык.
-  if (localeFromPath(pathname) || locale === SOURCE_LOCALE) return null;
+  if (locale === SOURCE_LOCALE) return null;
+  // Путь без языкового префикса — по нему и смотрим, переведён ли раздел.
+  const base = pathname.replace(/^\/(en|kk)(?=\/|$)/, "") || "/";
+  const translated =
+    base === "/" || translatedPaths.some((p) => base === p || base.startsWith(`${p}/`));
+  if (translated) return null;
   const s = S[locale];
   if (!s) return null;
 

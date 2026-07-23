@@ -25,19 +25,16 @@ export function useLocaleCtx(): Ctx {
   return useContext(LocaleCtx);
 }
 
-// Приводит внутренний адрес к текущему языку. Правила:
+// Приводит внутренний адрес к текущему языку.
 //   • внешние адреса, якоря, mailto/tel — не трогаем;
 //   • адрес, уже начинающийся с языка (/en/…), не префиксуем повторно;
-//   • префикс ставим только если перевод РАЗДЕЛА существует — иначе повели бы
-//     в 404. Язык при этом не теряется: он запомнен, и на русской странице
-//     появится полоса-пояснение.
-export function localizeHref(href: string, locale: Locale, translatedPaths: string[]): string {
+//   • остальное префиксуем БЕЗУСЛОВНО: у каждой русской страницы есть языковая
+//     пара, поэтому в 404 упереться нельзя. Раньше здесь была проверка «есть ли
+//     перевод», из-за неё часть ссылок уводила на русский адрес и язык терялся.
+export function localizeHref(href: string, locale: Locale): string {
   if (locale === SOURCE_LOCALE) return href;
   if (!href.startsWith("/")) return href;
   if (/^\/(en|kk)(\/|$)/.test(href)) return href;
-
   const path = href.split(/[?#]/)[0].replace(/\/$/, "") || "/";
-  if (path === "/") return `/${locale}`;
-  const known = translatedPaths.some((p) => path === p || path.startsWith(`${p}/`));
-  return known ? `/${locale}${href}` : href;
+  return path === "/" ? `/${locale}` : `/${locale}${href}`;
 }
