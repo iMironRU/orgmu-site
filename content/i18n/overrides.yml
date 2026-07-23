@@ -54,3 +54,10 @@
   en: "Apps and services"        # было University Applications (читалось как заявления)
 "Спорт и творчество":
   en: "Sports and arts"          # было Sports and creativity
+
+# ─── Кнопки: машина переводит их как обычные слова ───
+"Хорошо":
+  en: "OK"                       # было Well — это кнопка согласия, не наречие
+  kk: "Жарайды"
+"Подразделы":
+  en: "Sections"                 # было Subsections — в sveden это просто разделы
