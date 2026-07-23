@@ -93,15 +93,19 @@ jobs:
           # ssl-allow no: сервер (vsFTPd) на AUTH TLS отвечает 530, шифрования
           # не предлагает. Пароль поэтому ходит открытым текстом — держать его
           # стоит отдельным, только для выкладки, и менять при подозрениях.
+          # Без --continue: он дописывает в конец существующего файла, если
+          # считает передачу прерванной. На первой заливке это склеило нашу
+          # главную с заглушкой хостинга — в index.html оказалось два <title>.
           lftp -c "
             set ftp:ssl-allow no;
+            set xfer:clobber on;
             set net:timeout 20;
             set net:max-retries 3;
             set net:reconnect-interval-base 5;
             set ftp:use-mdtm no;
             set mirror:parallel-transfer-count 4;
             open -u \"$FTP_USER\",\"$FTP_PASSWORD\" \"$FTP_HOST\";
-            mirror --reverse --delete --continue --verbose=1 out/ public_html/;
+            mirror --reverse --delete --verbose=1 out/ public_html/;
           "
           echo "Выложено на $FTP_HOST:/public_html"
 
