@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
-import { TARGET_LOCALES } from "@/lib/i18n/config";
+import { usePreferredLocale } from "@/lib/i18n/use-locale";
+import { SOURCE_LOCALE } from "@/lib/i18n/config";
 import Link from "next/link";
 import { asset } from "@/lib/asset";
 import type { NavItem } from "@/lib/content/navigation";
@@ -11,14 +12,37 @@ import type { NavItem } from "@/lib/content/navigation";
 export function SiteHeader({
   nav,
   navByLocale,
+  translatedPaths = [],
 }: {
   nav: NavItem[];
-  // Меню на всех языках: корневой layout не знает локаль, выбираем по адресу.
+  // Меню на всех языках: корневой layout не знает локаль, выбираем на клиенте.
   navByLocale?: Record<string, NavItem[]>;
+  // Какие разделы переведены — чтобы вести на /en/… только туда, где перевод
+  // есть, а не плодить 404.
+  translatedPaths?: string[];
 }) {
-  const pathname = usePathname() || "/";
-  const locale = TARGET_LOCALES.find((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
-  const NAV = (locale && navByLocale?.[locale]) || nav;
+  const locale = usePreferredLocale();
+  const NAV_RAW = (locale !== SOURCE_LOCALE && navByLocale?.[locale]) || nav;
+
+  // Ссылки меню на другом языке должны вести в переведённую версию. Иначе клик
+  // по английскому пункту уводил на русскую страницу, язык «сбрасывался», и
+  // переключать приходилось заново — на это и жаловались.
+  const NAV = useMemo(() => {
+    if (locale === SOURCE_LOCALE) return NAV_RAW;
+    const prefix = (href: string): string => {
+      if (!href.startsWith("/") || href.startsWith(`/${locale}`)) return href;
+      const known = translatedPaths.some((p) => href === p || href.startsWith(`${p}/`));
+      return known ? `/${locale}${href}` : href;
+    };
+    return NAV_RAW.map((i) => ({
+      ...i,
+      href: i.href ? prefix(i.href) : i.href,
+      columns: i.columns.map((c) => ({
+        ...c,
+        items: c.items.map((x) => ({ ...x, href: prefix(x.href) })),
+      })),
+    }));
+  }, [NAV_RAW, locale, translatedPaths]);
   const [open, setOpen] = useState(-1); // индекс раскрытого desktop-пункта
   const [burger, setBurger] = useState(false);
   const [exp, setExp] = useState(-1);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
+import { UntranslatedNotice } from "@/components/UntranslatedNotice";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SideRail } from "@/components/SideRail";
 import { CookieBanner } from "@/components/CookieBanner";
@@ -70,8 +71,13 @@ export default function RootLayout({
         {/* Отступ снизу на мобиле — под фиксированную панель SideRail,
             иначе подвал уезжает под неё. */}
         <div className="a11y-zoom flex-1 min-w-0 flex flex-col max-[768px]:pb-[56px]">
-          <SiteHeader nav={nav} navByLocale={navByLocale} />
-          <div className="flex-1">{children}</div>
+          <SiteHeader nav={nav} navByLocale={navByLocale} translatedPaths={translatedPaths} />
+          <div className="flex-1">
+            {/* Пояснение на русской странице, если человек читает сайт на
+                другом языке. Показывается сам, только когда уместно. */}
+            <UntranslatedNotice />
+            {children}
+          </div>
           <SiteFooter footer={footer} footerByLocale={footerByLocale} />
         </div>
         <BackToTop />

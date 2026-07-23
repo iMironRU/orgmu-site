@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LOCALE_NAMES, TARGET_LOCALES, SOURCE_LOCALE, localeHref, type Locale } from "@/lib/i18n/config";
+import { usePreferredLocale } from "@/lib/i18n/use-locale";
 
 // Прячет нижнюю панель при прокрутке вниз, возвращает при прокрутке вверх —
 // как шапка в Safari и большинстве приложений, жест людям знаком. Так во время
@@ -105,9 +106,9 @@ export function SideRail({ translatedPaths = [] }: { translatedPaths?: string[] 
   // Текущий язык определяем по адресу, а не храним в состоянии: иначе после
   // перехода подпись рассинхронизировалась бы со страницей.
   const pathname = usePathname() || "/";
-  const current: Locale =
-    (TARGET_LOCALES.find((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`)) as Locale) ??
-    SOURCE_LOCALE;
+  // Не только из адреса: на непереведённой странице выбор языка должен
+  // сохраняться, иначе подпись прыгает на РУС и переключать надо заново.
+  const current = usePreferredLocale();
   const lang = LOCALE_NAMES[current].code;
   // Переход на тот же адрес в другом языке. Если этой страницы на нужном языке
   // нет — ведём на языковую главную: попасть в 404, переключив язык, хуже, чем
