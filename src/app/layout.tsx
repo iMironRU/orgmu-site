@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { UntranslatedNotice } from "@/components/UntranslatedNotice";
 import { LocaleProvider } from "@/lib/i18n/LocaleContext";
+import { t } from "@/lib/i18n/t";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SideRail } from "@/components/SideRail";
 import { CookieBanner } from "@/components/CookieBanner";
@@ -53,6 +54,21 @@ export default function RootLayout({
   // страницы он должен вести на языковую главную, а не в 404.
   const translatedPaths = ["/novosti", ...getPageSlugs("info").map((s) => `/${s}`)];
 
+  // Куки-баннер: строки на всех языках, выбор — на клиенте.
+  const COOKIE_RU = {
+    text: "Мы используем файлы cookie для корректной работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с",
+    policy: "политикой обработки данных",
+    ok: "Хорошо",
+  };
+  const cookieTexts: Record<string, typeof COOKIE_RU> = { ru: COOKIE_RU };
+  for (const l of TARGET_LOCALES) {
+    cookieTexts[l] = {
+      text: t(COOKIE_RU.text, l),
+      policy: t(COOKIE_RU.policy, l),
+      ok: t(COOKIE_RU.ok, l),
+    };
+  }
+
   const navByLocale: Record<string, typeof nav> = { ru: nav };
   const footerByLocale: Record<string, typeof footer> = { ru: footer };
   for (const l of TARGET_LOCALES) {
@@ -83,7 +99,7 @@ export default function RootLayout({
           <SiteFooter footer={footer} footerByLocale={footerByLocale} />
         </div>
         <BackToTop />
-        <CookieBanner />
+        <CookieBanner texts={cookieTexts} />
         </LocaleProvider>
       </body>
     </html>

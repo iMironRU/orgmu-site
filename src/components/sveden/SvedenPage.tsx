@@ -157,7 +157,7 @@ export function SvedenPage({ sectionKey, locale }: { sectionKey: string; locale?
             </div>
             <nav className="max-[900px]:hidden bg-white border border-line rounded-xl overflow-hidden">
               <div className="px-[18px] py-[15px] bg-bg-muted border-b border-line font-ui font-bold text-[15px] uppercase tracking-[0.04em] text-ink-2">
-                Подразделы
+                {L("Подразделы")}
               </div>
               <div className="flex flex-col p-2">
                 {keys.map((k, i) => {

@@ -1,11 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocaleCtx } from "@/lib/i18n/LocaleContext";
 import { Link } from "@/components/Link";
 
 const CONSENT_KEY = "orgma-cookie-consent";
 
-export function CookieBanner() {
+export function CookieBanner({
+  texts,
+}: {
+  // Строки на всех языках готовит сервер: баннер клиентский, а словарь читает
+  // файлы — внутрь клиентского бандла его не затащить.
+  texts?: Record<string, { text: string; policy: string; ok: string }>;
+}) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -27,14 +34,17 @@ export function CookieBanner() {
     setVisible(false);
   };
 
+  const { locale } = useLocaleCtx();
+  const s = texts?.[locale] ?? texts?.ru;
+
   return (
     <div className="fixed left-4 right-4 bottom-4 z-[1000] flex justify-center pointer-events-none">
       <div className="pointer-events-auto flex items-center gap-4 flex-wrap max-w-[640px] w-full bg-white border border-line rounded-xl shadow-[0_4px_4px_rgba(0,0,0,0.10)] px-[18px] py-[14px] font-ui">
         <div className="flex-1 min-w-[260px] text-[14px] leading-[1.45] text-ink-2">
-          Мы используем файлы cookie для корректной работы сайта. Продолжая
-          пользоваться сайтом, вы соглашаетесь с{" "}
+          {s?.text ??
+            "Мы используем файлы cookie для корректной работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с"}{" "}
           <Link href="/politika" className="text-brand underline hover:text-brand-strong">
-            политикой обработки данных
+            {s?.policy ?? "политикой обработки данных"}
           </Link>
           .
         </div>
@@ -43,7 +53,7 @@ export function CookieBanner() {
           onClick={accept}
           className="shrink-0 cursor-pointer border-none bg-brand text-white font-ui font-bold text-[14px] px-[18px] py-[9px] rounded-lg transition-colors hover:bg-brand-strong"
         >
-          Хорошо
+          {s?.ok ?? "Хорошо"}
         </button>
       </div>
     </div>
