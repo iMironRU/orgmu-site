@@ -9760,6 +9760,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "88755f9715f9": {
+    "src": "Настройки доступности",
+    "text": "Accessibility Settings",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "88a932382d92": {
     "src": "Основы российской государственности",
     "text": "The foundations of Russian statehood",
@@ -11629,6 +11635,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "a0aa87d8bd25": {
+    "src": "Быстрые действия",
+    "text": "Quick actions",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "a0b855446a33": {
     "src": "Учебный корпус №3",
     "text": "Academic building No. 3",
@@ -11731,6 +11743,12 @@
     "status": "machine",
     "at": "2026-07-22",
     "html": true
+  },
+  "a1c56f5633c4": {
+    "src": "Доступность",
+    "text": "Availability",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "a1ca3f91a681": {
     "src": "Кафедра управления, менеджмента качества и цифровых технологий в здравоохранении",
@@ -17302,6 +17320,12 @@
   "ed3cfe3a33c2": {
     "src": ", «Методика преподавания основ российской государственности», 72 час., Российской академии народного хозяйства и государственной службы при Президенте Российской Федерации, Сертификат № C.21373632 от 21.12.2023",
     "text": ", \"Methods of teaching the fundamentals of Russian Statehood\", 72 hours, Russian Academy of National Economy and Public Administration under the President of the Russian Federation, Certificate No. C.21373632 dated 12/21/2023",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "ed3f0e507a5b": {
+    "src": "Язык",
+    "text": "Language",
     "status": "machine",
     "at": "2026-07-23"
   },
