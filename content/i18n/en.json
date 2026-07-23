@@ -772,6 +772,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "15032ceb423c": {
+    "src": "Оренбургский государственный медицинский университет",
+    "text": "Orenburg State Medical University",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "151471bc41ff": {
     "src": "номер лицензии на осуществление медицинской деятельности, дата ее регистрации с указанием перечня работ (услуг), составляющих медицинскую деятельность медицинской организации в соответствии с лицензией, наименование, адрес места нахождения и телефон выдавшего лицензию лицензирующего органа;",
     "text": "the license number for medical activity, the date of its registration, indicating the list of works (services) that constitute the medical activity of a medical organization in accordance with the license, the name, location address and telephone number of the licensing authority that issued the license.;",
@@ -1496,6 +1502,12 @@
     "text": "Total Triiodothyronine (T3)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "275f4209b9fe": {
+    "src": "Новости университета",
+    "text": "University News",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "27abfc28f85d": {
     "src": "Проректор по воспитательной, социальной работе и связям с общественностью",
@@ -2364,6 +2376,12 @@
     "text": "The results of the first stage of the intellectual game quest \"Eureka\" have been summed up",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "3f26718bee37": {
+    "src": "Более 80 лет готовим врачей и провизоров для здравоохранения России.",
+    "text": "We have been training doctors and pharmacists for Russian healthcare for more than 80 years.",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "3f2a3b9c544a": {
     "src": "Определение свободных жирных кислот",
@@ -3393,6 +3411,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "5c4c24f04df4": {
+    "src": "Карта сайтов",
+    "text": "Site map",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "5cd4659f98eb": {
     "src": "За 3 дня до теста отменить тиазидные диуретики, контрацептивы и глюкокортикоиды (по согласованию с врачом)",
     "text": "Discontinue thiazide diuretics, contraceptives, and glucocorticoids 3 days before the test (in consultation with your doctor)",
@@ -4228,6 +4252,12 @@
     "text": "Determination of urea in blood serum",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "751184d50c24": {
+    "src": "Все известия",
+    "text": "All news",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "75181b1fc3b0": {
     "src": "Определение иммуноглобулинов класса G к антигенам личинки свиного цепня (Taenia solium) в сыворотке крови (при единичной постановке)",
@@ -5618,6 +5648,12 @@
     "text": "Enzyme immunoassay (ELISA) for the determination of antibodies to SARS-CoV-2-IgM coronavirus by ELISA",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "99391987e02a": {
+    "src": "Сайты вуза",
+    "text": "University websites",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "996cce06b057": {
     "src": "креатинин,",
@@ -8951,6 +8987,12 @@
     "text": "Phone numbers for informing about the fact of registration",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "ef9bb43c7bb5": {
+    "src": "Минздрав России",
+    "text": "Ministry of Health of Russia",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "eff390dd5047": {
     "src": "Как подготовиться к сдаче биологического материала, чтобы результат был достоверным.",
