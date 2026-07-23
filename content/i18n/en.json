@@ -4552,6 +4552,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "6f7e1d655e18": {
+    "src": "Техническая поддержка",
+    "text": "Technical support",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "6f7e7dc84989": {
     "src": "Соревнования состоялись 28 мая на базе школы №89. За звание самых ловких, быстрых и сильных боролись 23 команды из школ города. На протяжении всего дня волонтеры-медики следили за состоянием здоровья участников и их…",
     "text": "The competition took place on May 28 at school No. 89. 23 teams from the city's schools competed for the title of the most agile, fastest and strongest. Throughout the day, medical volunteers monitored the health of the participants and their families.…",
@@ -4871,6 +4877,13 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "7821b728fdb0": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">28 выпускников школ смогли сдать вступительные экзамены, не выезжая из своей страны. Испытания прошли в международном образовательном центре «Gaudeamus» в Уральске&nbsp;-&nbsp;к ребятам приехала выездная приемная комиссия Оренбургского государственного медицинского университета.</span> <span style=\"font-family: Arial, sans-serif;\">Такая возможность появилась благодаря партнерству вуза с Республикой Казахстан: оно закреплено международным договором</span> <span style=\"font-family: Arial, sans-serif;\">о сотрудничестве в сфере образования и реализуется в рамках союзных соглашений.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Абитуриенты, предварительно подавшие документы через ruID (официальное мобильное приложение для иностранных граждан, которое позволяет им взаимодействовать с государственными сервисами России) и сервис «Поступление в вуз онлайн» на портале «Госуслуги», проверили свои знания по химии, биологии, русскому языку и математике. Те, кто успешно справился с заданиями, смогут претендовать на бюджетные места.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Экзамены принимали: декан фармацевтического факультета и факультета клинической психологии ОрГМУ Ирина Михайлова, специалист отдела Института довузовского образования Маргарита Вольфсон и старший преподаватель кафедры медицины катастроф Мария Панченко. </span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">28 school graduates were able to pass the entrance exams without leaving their country. The tests took place at the international educational center \"Gaudeamus\" in Uralsk - the visiting admissions committee of the Orenburg State Medical University came to the children.</span> <span style=\"font-family: Arial, sans-serif;\">This opportunity has appeared thanks to the university's partnership with the Republic of Kazakhstan.: It is enshrined in the international agreement</span> <span style=\"font-family: Arial, sans-serif;\">on cooperation in the field of education and is implemented within the framework of the Union agreements.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Applicants who previously submitted their documents through ruID (the official mobile application for foreign citizens that allows them to interact with Russian government services) and the Online University Admission service on the Gosuslugi portal tested their knowledge of chemistry, biology, Russian language and mathematics. Those who have successfully completed the tasks will be able to apply for budget places.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The exams were taken by: Irina Mikhailova, Dean of the Faculty of Pharmacy and the Faculty of Clinical Psychology of OrGMU, Margarita Wolfson, specialist of the Department of the Institute of Pre-University Education, and Maria Panchenko, Senior lecturer at the Department of Disaster Medicine.</span></p>",
+    "status": "machine",
+    "at": "2026-07-23",
+    "html": true
+  },
   "7835602e60d8": {
     "src": "Вчера состоялся второй в истории ОрГМУ выпуск по программе СПО+ по специальности «сестринское дело». Актовый зал был полон: собрались родные и близкие выпускников, преподаватели и администрация вуза, представители…",
     "text": "Yesterday, the second graduation in the history of OrGMU under the SPO+ program in the specialty \"nursing\" took place. The assembly hall was full: relatives and friends of graduates, teachers and university administration, representatives gathered.…",
@@ -4936,6 +4949,12 @@
     "text": "Creative work in the format of creative crafts in chemistry and/or biology with the general title \"Beloved manuals\"",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "793ae30684fc": {
+    "src": "28 выпускников школ смогли сдать вступительные экзамены, не выезжая из своей страны. Испытания прошли в международном образовательном центре «Gaudeamus» в Уральске - к ребятам приехала выездная приемная комиссия…",
+    "text": "28 school graduates were able to pass the entrance exams without leaving their country. The tests took place at the Gaudeamus International Educational Center in Uralsk, where an on-site admissions committee visited the students.…",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "798cae72a00c": {
     "src": "Федеральные государственные образовательные стандарты",
@@ -6154,6 +6173,12 @@
     "text": "No, the Olympiad is free of charge. Pre-registration is required according to the form.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "9695c051ae4b": {
+    "src": "Часы работы",
+    "text": "Opening hours",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "96a96961409f": {
     "src": "247 выпускников ординатуры ОрГМУ проходят первичную специализированную аккредитацию",
@@ -10224,6 +10249,12 @@
     "text": "Microbiological examination of wound discharge- transudates- bile exudates for aerobic and facultative anaerobic microorganisms (streptococcus enterococcus) (during isolation of microorganisms and determination of sensitivity to antimicrobial drugs) (additional study)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "f5633fc51f21": {
+    "src": "Вступительные испытания для абитуриентов ОрГМУ из Казахстана прошли в Уральске",
+    "text": "Entrance tests for OrGMU applicants from Kazakhstan were held in Uralsk",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "f582940c45f9": {
     "src": "Иммунологическая лаборатория",
