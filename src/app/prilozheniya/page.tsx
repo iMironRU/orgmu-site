@@ -53,7 +53,7 @@ export default function AppsPage({ lang }: { lang?: string } = {}) {
       <div className="mx-auto max-w-[1146px] w-full px-10 pt-9 pb-16 box-border grid grid-cols-[250px_1fr] gap-10 max-[900px]:grid-cols-1 max-[768px]:px-5 font-ui">
         <aside>
           <div className="min-[901px]:sticky min-[901px]:top-6">
-            <PageNav title={S("Приложения")} items={appNavItems()} current={registryHref()} />
+            <PageNav title={S("Приложения")} items={loc ? translateData(appNavItems(), loc).data : appNavItems()} current={registryHref()} />
           </div>
         </aside>
 
