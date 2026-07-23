@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPage } from "@/lib/content/pages";
+import { alternates } from "@/lib/i18n/alternates";
 import { ContentPage } from "@/components/ContentPage";
 
 const SLUG = "politika";
 
 export function generateMetadata(): Metadata {
   const p = getPage("info", SLUG);
-  return p ? { title: p.title, description: p.lead } : {};
+  return p ? { title: p.title, description: p.lead, alternates: alternates("/politika") } : {};
 }
 
 export default function PolitikaPage() {

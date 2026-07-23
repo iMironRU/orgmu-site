@@ -7,6 +7,7 @@ import { NewsGallery } from "@/components/NewsGallery";
 import { TranslationNotice } from "@/components/TranslationNotice";
 import { TARGET_LOCALES, isTargetLocale } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
+import { alternatesFor } from "@/lib/i18n/alternates";
 import { t } from "@/lib/i18n/t";
 
 export const dynamicParams = false;
@@ -24,7 +25,7 @@ export async function generateMetadata({
   const item = getNewsBySlug(slug);
   if (!item || !isTargetLocale(lang)) return {};
   const { data } = translateData(item, lang);
-  return { title: data.title, description: data.excerpt };
+  return { title: data.title, description: data.excerpt, alternates: alternatesFor(`/novosti/${slug}`, lang) };
 }
 
 export default async function TranslatedArticle({

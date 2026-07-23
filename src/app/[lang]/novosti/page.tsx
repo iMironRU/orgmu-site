@@ -6,6 +6,7 @@ import { NewsListView } from "@/components/NewsListView";
 import { TranslationNotice } from "@/components/TranslationNotice";
 import { TARGET_LOCALES, isTargetLocale } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
+import { alternatesFor } from "@/lib/i18n/alternates";
 import { t } from "@/lib/i18n/t";
 import { notFound } from "next/navigation";
 
@@ -22,7 +23,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   if (!isTargetLocale(lang)) return {};
-  return { title: t("Новости и события", lang) };
+  return { title: t("Новости и события", lang), alternates: alternatesFor("/novosti", lang) };
 }
 
 export default async function TranslatedNewsList({

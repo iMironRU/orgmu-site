@@ -5,6 +5,7 @@ import { ContentPage } from "@/components/ContentPage";
 import { TranslationNotice } from "@/components/TranslationNotice";
 import { TARGET_LOCALES, isTargetLocale } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
+import { alternatesFor } from "@/lib/i18n/alternates";
 
 // Переводы типовых страниц: /en/<slug>, /kk/<slug>. Русские адреса (/antiterror)
 // не меняются — переводы лежат отдельной веткой, поэтому действующие ссылки и
@@ -31,7 +32,7 @@ export async function generateMetadata({
   const p = getPage(GROUP, slug);
   if (!p || !isTargetLocale(lang)) return {};
   const { data } = translateData(p, lang);
-  return { title: data.title, description: data.lead };
+  return { title: data.title, description: data.lead, alternates: alternatesFor(`/${slug}`, lang) };
 }
 
 export default async function TranslatedPage({

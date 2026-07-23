@@ -27,6 +27,9 @@ const robotoCondensed = Roboto_Condensed({
 });
 
 export const metadata: Metadata = {
+  // Нужен для hreflang и canonical: без него Next не может собрать абсолютные
+  // адреса языковых версий.
+  metadataBase: new URL("https://new.orgma.ru"),
   title: {
     default: "ОрГМУ — Оренбургский государственный медицинский университет",
     template: "%s · ОрГМУ",

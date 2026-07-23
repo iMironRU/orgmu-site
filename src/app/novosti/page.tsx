@@ -4,7 +4,10 @@ import { getAllNews } from "@/lib/content/news";
 import { toCardItem } from "@/lib/content/news-types";
 import { NewsListView } from "@/components/NewsListView";
 
+import { alternates } from "@/lib/i18n/alternates";
+
 export const metadata: Metadata = {
+  alternates: alternates("/novosti"),
   title: "Новости и события",
   description: "Новости и события Оренбургского государственного медицинского университета.",
 };

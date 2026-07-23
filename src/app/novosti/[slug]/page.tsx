@@ -10,6 +10,7 @@ import {
   newsKind,
 } from "@/lib/content/news";
 import { NewsGallery } from "@/components/NewsGallery";
+import { alternates } from "@/lib/i18n/alternates";
 import { ShareButtons } from "@/components/ShareButtons";
 
 export const dynamicParams = false;
@@ -27,6 +28,7 @@ export async function generateMetadata({
   const item = getNewsBySlug(slug);
   if (!item) return {};
   return {
+    alternates: alternates(`/novosti/${slug}`),
     title: item.title,
     description: item.excerpt || undefined,
   };

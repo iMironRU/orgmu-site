@@ -5,6 +5,7 @@ import { getPage, getPageSlugs } from "@/lib/content/pages";
 import { TranslationNotice } from "@/components/TranslationNotice";
 import { TARGET_LOCALES, isTargetLocale, LOCALE_NAMES } from "@/lib/i18n/config";
 import { translateData } from "@/lib/i18n/translate-data";
+import { alternatesFor } from "@/lib/i18n/alternates";
 import { t } from "@/lib/i18n/t";
 
 // Языковая главная. Нужна не «для красоты»: переключатель с любой русской
@@ -23,7 +24,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   if (!isTargetLocale(lang)) return {};
-  return { title: `${LOCALE_NAMES[lang].native} · ОрГМУ` };
+  return { title: `${LOCALE_NAMES[lang].native} · ОрГМУ`, alternates: alternatesFor("/", lang) };
 }
 
 export default async function LocaleHome({ params }: { params: Promise<{ lang: string }> }) {
