@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Link } from "@/components/Link";
+import { IconPin, IconPhone, IconMail } from "@/components/contact-icons";
 import { formatPhone } from "@/lib/phone";
 import type { Unit } from "@/lib/content/structure-types";
 import { typeMeta, initials, avatarColor, TYPE_META } from "@/lib/content/structure-types";
@@ -16,15 +17,6 @@ function Meta({ children, icon }: { children: React.ReactNode; icon: React.React
   );
 }
 
-const IconPin = (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z" /><circle cx="12" cy="10" r="2.5" /></svg>
-);
-const IconPhone = (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" /></svg>
-);
-const IconMail = (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
-);
 
 // Формат файла из адреса — для компактного бейджа в плитке подразделения.
 function docFmt(href: string): string {

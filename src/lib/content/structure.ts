@@ -38,9 +38,20 @@ export function getUnitExtra(id: string): UnitExtra {
 const FILE = path.join(process.cwd(), "content", "structure", "units.json");
 let cache: Unit[] | null = null;
 
+// На orgma.ru названия набирали кто как: 49 кафедр записаны со строчной
+// («кафедра анатомии человека»), а четыре точно таких же — с прописной
+// («Кафедра госпитальной хирургии»). В списке это читается как небрежность,
+// поэтому первую букву поднимаем при чтении — один раз на весь сайт, а не в
+// каждом месте вывода. Само название не трогаем: регистр — это оформление,
+// а не данные.
+function capitalize(name: string): string {
+  return name ? name[0].toLocaleUpperCase("ru") + name.slice(1) : name;
+}
+
 export function getUnits(): Unit[] {
   if (!cache) {
-    cache = fs.existsSync(FILE) ? (JSON.parse(fs.readFileSync(FILE, "utf8")) as Unit[]) : [];
+    const raw = fs.existsSync(FILE) ? (JSON.parse(fs.readFileSync(FILE, "utf8")) as Unit[]) : [];
+    cache = raw.map((u) => ({ ...u, name: capitalize(u.name) }));
   }
   return cache;
 }

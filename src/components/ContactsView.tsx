@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { Link } from "@/components/Link";
 import { FilterSelect } from "@/components/FilterSelect";
 import type { Phone } from "@/lib/phone";
+import { IconPhone, IconMail } from "@/components/contact-icons";
 
 export type ContactUnit = {
   id: string;
@@ -20,10 +21,13 @@ export type ContactUnit = {
 // Телефонный справочник: 125 подразделений с контактами. Раньше телефон
 // кафедры можно было найти, только зная, что она есть, и открыв её карточку.
 //
-// Карточки — из макета Contacts.dc.html (блок «Быстрые контакты»): цветной
-// бейдж типа, название, телефон и почта с иконками, «Подробнее». До этого
-// здесь были строки с фиксированными min-width, и всё, что длиннее (три
-// номера у деканата лечебного факультета), вылезало за колонку.
+// Карточка — та же, что в структуре (StructureView): цветной кант по типу,
+// бейдж, название-ссылка, контакты строкой с иконками. Макет Contacts.dc.html
+// рисует здесь плитки в три колонки, но это один и тот же список
+// подразделений, и показывать его двумя разными способами незачем.
+//
+// До этого здесь были строки с фиксированными min-width, и всё, что длиннее
+// (три номера у деканата лечебного факультета), вылезало за колонку.
 export function PhoneBook({ units }: { units: ContactUnit[] }) {
   const [q, setQ] = useState("");
   const [types, setTypes] = useState<string[]>([]);
@@ -93,67 +97,46 @@ export function PhoneBook({ units }: { units: ContactUnit[] }) {
           Ничего не найдено — измените запрос.
         </div>
       ) : (
-        <div className="grid grid-cols-3 gap-4 max-[1000px]:grid-cols-2 max-[680px]:grid-cols-1">
+        <div className="flex flex-col gap-[10px]">
           {list.map((u) => (
             <div
               key={u.id}
-              className="bg-white border border-line border-l-4 rounded-xl px-5 py-[18px] flex flex-col gap-[10px]"
-              style={{ borderLeftColor: u.color }}
+              className="bg-white border border-line rounded-[10px] shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 py-4"
+              style={{ borderLeft: `4px solid ${u.color}` }}
             >
               <span
-                className="self-start text-[11px] font-bold tracking-[0.04em] uppercase rounded-[5px] px-[9px] py-[3px]"
+                className="text-[11px] font-bold tracking-[0.04em] uppercase rounded-[5px] px-[9px] py-[3px]"
                 style={{ color: u.color, background: u.soft }}
               >
                 {u.typeLabel}
               </span>
               <Link
                 href={`/struktura/${u.id}`}
-                className="font-display font-bold text-[17px] leading-[1.25] text-brand no-underline hover:underline"
+                className="block mt-[7px] font-bold text-[20px] leading-[1.15] text-brand no-underline hover:text-accent"
               >
                 {u.name}
               </Link>
-
-              {/* Номеров может быть несколько и у части есть подпись
-                  («1-2 курс») — каждый отдельной строкой, карточка растёт
-                  вниз, а не разъезжается вширь. */}
-              {u.phones.map((p) => (
-                <a
-                  key={p.tel + (p.label ?? "")}
-                  href={`tel:${p.tel}`}
-                  className="flex items-start gap-2 text-[15px] font-bold text-steel no-underline hover:text-brand"
-                >
-                  <svg className="shrink-0 mt-[3px]" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2Z" />
-                  </svg>
-                  <span className="tabular-nums">
-                    {p.label && <span className="font-normal text-ink-3">{p.label}: </span>}
-                    {p.display}
+              {/* Номеров бывает несколько, и у части есть подпись («1-2 курс»);
+                  строка переносится, а не распирает карточку. */}
+              <div className="flex flex-wrap gap-x-[18px] gap-y-2 mt-2 text-[15px] text-ink-2">
+                {u.phones.map((p) => (
+                  <span key={p.tel + (p.label ?? "")} className="inline-flex items-center gap-[6px]">
+                    <span className="shrink-0 text-ink-3">{IconPhone}</span>
+                    {p.label && <span className="text-ink-3">{p.label}:</span>}
+                    <a href={`tel:${p.tel}`} className="text-ink-2 no-underline hover:text-accent tabular-nums">
+                      {p.display}
+                    </a>
                   </span>
-                </a>
-              ))}
-
-              {u.email && (
-                <a
-                  href={`mailto:${u.email}`}
-                  className="flex items-start gap-2 text-[15px] text-steel no-underline hover:text-brand break-all"
-                >
-                  <svg className="shrink-0 mt-[3px]" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="m3 6 9 7 9-7" />
-                  </svg>
-                  {u.email}
-                </a>
-              )}
-
-              <Link
-                href={`/struktura/${u.id}`}
-                className="mt-auto pt-[2px] inline-flex items-center gap-[6px] font-bold text-[14px] text-accent no-underline hover:text-brand"
-              >
-                Подробнее
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
-              </Link>
+                ))}
+                {u.email && (
+                  <span className="inline-flex items-center gap-[6px]">
+                    <span className="shrink-0 text-ink-3">{IconMail}</span>
+                    <a href={`mailto:${u.email}`} className="text-ink-2 no-underline hover:text-accent break-all">
+                      {u.email}
+                    </a>
+                  </span>
+                )}
+              </div>
             </div>
           ))}
         </div>
