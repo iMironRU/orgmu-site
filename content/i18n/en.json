@@ -3569,6 +3569,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "60d15e376917": {
+    "src": "Срочно",
+    "text": "Urgently",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "6119acbb00bb": {
     "src": "Преподаватель-хирург принял участие в работе конгрессов в Казани",
     "text": "The surgical teacher took part in the congresses in Kazan",
@@ -6135,6 +6141,12 @@
     "text": "The educational event was organized for visitors of the regional youth center \"Youth of Orenburg region\" within the framework of the national project \"Youth and Children\". During the meeting, the participants took part in…",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "a3fbc3e470d8": {
+    "src": "Важно",
+    "text": "Important",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "a400e46cee02": {
     "src": "Определение иммуноглобулинов класса A к антигенам Ureaplasma urealyticum в сыворотке крови (при групповой постановке не менее 5 проб)",
