@@ -5,6 +5,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "0065fa20fe31": {
+    "src": "Нормативный срок обучения",
+    "text": "Standard term of study",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "0077ff4d63c6": {
     "src": "Конференции",
     "text": "Conferences",
@@ -84,6 +90,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "0195ae254975": {
+    "src": "Финансово-хозяйственная деятельность",
+    "text": "Financial and economic activities",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "01bcd6309672": {
     "src": "Приказы Министерства здравоохранения",
     "text": "Orders of the Ministry of Health",
@@ -150,6 +162,12 @@
     "text": "Summer session schedule published",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "03a94a31e7b2": {
+    "src": "Материально-техническое обеспечение",
+    "text": "Logistical support",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "03ab95a5275e": {
     "src": "Техподдержка: www@orgma.ru",
@@ -304,11 +322,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "06ba3324cf34": {
+    "src": "Языки, на которых осуществляется образование",
+    "text": "Languages used for education",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "06e081514eb7": {
     "src": "Определение иммуноглобулинов класса G к эхинококку однокамерному в сыворотке крови (при единичной постановке)",
     "text": "Determination of class G immunoglobulins to single-chamber echinococcus in blood serum (with a single diagnosis)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "06f41accb353": {
+    "src": "Образовательные стандарты и требования",
+    "text": "Educational standards and requirements",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "06f9de0e0f3d": {
     "src": "г. Оренбург, ул. Советская, зд. 6",
@@ -449,6 +479,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "0b1b7a3a43bc": {
+    "src": "Оснащение",
+    "text": "Equipment",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "0b2f7f5193bf": {
     "src": "ПЦР- исследование на ОРВИ (определение РНК РС вирусов- метапневмовируса- вирусов парагриппа 1-4 типов- «старых» коронавирусов- риновирусов- ДНК-аденовирусов B- C- E и бокавирусов)",
     "text": "PCR testing for acute respiratory viral infections (determination of the RNA of MS viruses- metapneumovirus- parainfluenza viruses of types 1-4- \"old\" coronaviruses- rhinoviruses- DNA adenoviruses B- C-E and bocaviruses)",
@@ -479,6 +515,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "0b922f2024ee": {
+    "src": "Учёная степень",
+    "text": "Academic degree",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "0b92d0637f7e": {
     "src": "Вопросы по участию",
     "text": "Questions about participation",
@@ -508,6 +550,12 @@
     "text": "conducting scientific research commissioned by government authorities, enterprises, organizations and the public, as well as teachers and students",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "0c170e415741": {
+    "src": "Доступ к информационным системам для инвалидов и лиц с ОВЗ",
+    "text": "Access to information systems for people with disabilities and persons with disabilities",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "0c3c7383ebc7": {
     "src": "Общие требования сбора мочи:",
@@ -626,6 +674,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "0f9d4311e285": {
+    "src": "Объём по договорам об оказании платных услуг",
+    "text": "The volume of contracts for the provision of paid services",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "0fd261036ee3": {
     "src": "Документ",
     "text": "Document",
@@ -656,6 +710,12 @@
     "text": "Urine test for acetone",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "1154f75c6389": {
+    "src": "Вакантных мест (местный бюджет)",
+    "text": "Vacancies (local budget)",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "116d790085c9": {
     "src": "ПЦР- исследование на определение РНК коронавируса SARS-CoV-2",
@@ -736,6 +796,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "1447f1289b4e": {
+    "src": "Форма обучения",
+    "text": "The form of education",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "144bd32711a7": {
     "src": "Команда ОрГМУ стала победителем международной олимпиады «От биохимии к молекулярной медицине»",
     "text": "OrGMU team became the winner of the international Olympiad \"From Biochemistry to Molecular Medicine\"",
@@ -754,11 +820,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "14a619580d02": {
+    "src": "Учебный план",
+    "text": "The curriculum",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "14f111d05a84": {
     "src": "Посев на микрофлору с чувствительностью к антибиотикам",
     "text": "Seeding for microflora with sensitivity to antibiotics",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "14f31f589f33": {
+    "src": "Описание образовательной программы",
+    "text": "Description of the educational program",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "14f781568788": {
     "src": "СНО",
@@ -855,6 +933,12 @@
     "text": "Blood group and Rh factor analysis",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "17608c3182e1": {
+    "src": "Библиотеки",
+    "text": "Libraries",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "1778a87ea142": {
     "src": "Перечень мероприятий по улучшению условий труда",
@@ -996,6 +1080,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "1acba449be7b": {
+    "src": "Текущий контроль и промежуточная аттестация",
+    "text": "Ongoing monitoring and interim assessment",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "1af2da59a3af": {
     "src": "Антитеррористическая защищённость объектов университета обеспечивается в соответствии с Федеральным законом от 06.03.2006 № 35-ФЗ «О противодействии терроризму» и постановлением Правительства Российской Федерации от 13.01.2017 № 8 «Об утверждении требований к антитеррористической защищённости объектов (территорий) Министерства здравоохранения Российской Федерации».",
     "text": "The anti-terrorist security of university facilities is ensured in accordance with Federal Law No. 35-FZ dated 06.03.2006 \"On Countering Terrorism\" and Decree of the Government of the Russian Federation No. 8 dated 13.01.2017 \"On Approval of Requirements for anti-terrorist security of Facilities (Territories) of the Ministry of Health of the Russian Federation\".",
@@ -1123,11 +1213,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "1d524e9ac28b": {
+    "src": "Электронная почта учредителя",
+    "text": "Founder's email address",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "1d695deffbbb": {
     "src": "Мазаев В. Т., Шлепнина Т. Г. Коммунальная гигиена: учебник / под ред. В. Т. Мазаева. — М.: ГЭОТАР-Медиа, 2014. — 704 с.",
     "text": "Mazaev V. T., Shlepnina T. G. Communal hygiene: textbook / edited by V. T. Mazaev. Moscow: GEOTAR-Media, 2014. 704 p.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "1d869fa063e4": {
+    "src": "Руководитель образовательной организации",
+    "text": "Head of an educational organization",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "1dd510a53a03": {
     "src": "Мероприятие состоялось в Спортивной школе олимпийского резерва № 6 – СКК «Оренбуржье». Тема олимпиады в 2026 году — «Заповедники»: участники создавали роботов и алгоритмы для охраны природы — учета животных, мониторинга…",
@@ -1243,11 +1345,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "203e1f3c13b7": {
+    "src": "Календарный учебный график",
+    "text": "Academic calendar schedule",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "20b63b413470": {
     "src": "кафедре микробиологии, вирусологии, иммунологии;",
     "text": "Department of Microbiology, Virology, and Immunology;",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "20ce53dd2572": {
+    "src": "Наименование представительства",
+    "text": "Name of the representative office",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "20e4f3381859": {
     "src": "с 9.00 по 13.00",
@@ -1285,17 +1399,41 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "21bddb77fd92": {
+    "src": "Заместители руководителя",
+    "text": "Deputy heads",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "21d0e5267afb": {
     "src": "результат анализа вы можете узнать в том пункте где сдавали биоматериал",
     "text": "you can find out the result of the analysis at the point where you took the biomaterial.",
     "status": "machine",
     "at": "2026-07-22"
   },
+  "21f8167387c4": {
+    "src": "Места проведения государственной итоговой аттестации",
+    "text": "Locations of the state final certification",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "221451f00f18": {
     "src": "Трийодтиронин свободный (Т3 св.)",
     "text": "Triiodothyronine free (T3 St.)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "222e38ce1327": {
+    "src": "Мест в общежитии для инвалидов и лиц с ОВЗ",
+    "text": "Places in the hostel for the disabled and people with disabilities",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "222f05848146": {
+    "src": "Вакантные места для приёма",
+    "text": "Vacant places for admission",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "228043296124": {
     "src": "Вчера в Соль-Илецке на территории курорта «Солёные озера» прошло масштабное мероприятие, приуроченное ко Всемирному дню донора крови и в рамках Года единства народов России. На озере Развал был установлен мировой и…",
@@ -1563,6 +1701,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "28ea053ef7ee": {
+    "src": "Средства обучения и воспитания для инвалидов и лиц с ОВЗ",
+    "text": "Means of education and upbringing for people with disabilities and persons with disabilities",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "29330d191446": {
     "src": "Женская сборная команда университета вернулась из Перми, где проходил суперфинал турнира Приволжского федерального округа по баскетболу 3х3 среди обучающихся вузов. Турнир проводится по инициативе полномочного…",
     "text": "The university's women's national team returned from Perm, where the superfinal of the Volga Federal District 3x3 basketball tournament among university students was held. The tournament is held on the initiative of the plenipotentiary…",
@@ -1642,6 +1786,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "2b56b55e1e6b": {
+    "src": "Учредители",
+    "text": "The founders",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "2bc53c883876": {
     "src": "Диссертационный совет принимает диссертацию к предварительному рассмотрению и последующей защите при наличии документов по перечню, устанавливаемому Минобрнауки России. Перечень и образцы — в разделе «Документы соискателя».",
     "text": "The Dissertation Council accepts the dissertation for preliminary consideration and subsequent defense if there are documents according to the list established by the Ministry of Education and Science of the Russian Federation. The list and samples can be found in the \"Applicant's documents\" section.",
@@ -1672,6 +1822,12 @@
     "status": "machine",
     "at": "2026-07-22",
     "html": true
+  },
+  "2c84dbc793d9": {
+    "src": "Педагогический состав",
+    "text": "Teaching staff",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "2cbb625d9a6f": {
     "src": "При сдаче крови на глюкозу (в дополнение к основным требованиям подготовки к анализам) нельзя чистить зубы и жевать резинку, пить чай/кофе (даже несладкий). Утренняя чашка кофе кардинально изменит показатели. Также влияние оказывают контрацептивы, мочегонные средства и другие лекарства",
@@ -1806,6 +1962,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "3095bc15f2c8": {
+    "src": "Обеспечение беспрепятственного доступа в здания",
+    "text": "Ensuring unhindered access to buildings",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "309820a46784": {
     "src": "Исследование бактериальной обсемененности воздушной среды (Staphylococcus aureus)",
     "text": "Investigation of bacterial contamination of the air (Staphylococcus aureus)",
@@ -1855,11 +2017,29 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "31b23143bc8b": {
+    "src": "Наименование",
+    "text": "Name",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "31eff1efdbe6": {
+    "src": "Локальный акт о плате за проживание в общежитии",
+    "text": "Local act of payment for accommodation in a hostel",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "321fb2c7d70c": {
     "src": "Определение билирубина прямого в сыворотке крови",
     "text": "Determination of direct bilirubin in blood serum",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "32203dd58e90": {
+    "src": "Число трудоустроенных выпускников",
+    "text": "Number of employed graduates",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "325f1909a59d": {
     "src": "<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: 'Times New Roman'; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">1 июня обучающиеся 8-х и 10-х классов&nbsp;</span><span style=\"font-family: 'Times New Roman'; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">естественно-научного профиля гимназии №1 города Оренбурга побывали с ознакомительной экскурсией в аккредитационно-симуляционном центре ОрГМУ. Заведующая кафедрой Юлия Юдаева честно рассказала ребятам о</span><span style=\"font-family: 'Times New Roman';\"> <span style=\"font-family: 'Times New Roman';\">сложностях медицинской профессии, а также обо всех плюсах, которые, несмотря ни на что, удерживают молодых специалистов в системе здравоохранения.</span></span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: 'Times New Roman';\">Перед тем как начать экскурсию, Юлия Александровна пояснила, что главная задача симуляционного центра - сформировать у будущего врача мануальную технику, то есть практические навыки. Школьникам показали оборудование различного уровня реалистичности, начиная с самого простого.</span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: 'Times New Roman';\">Ребят завели в процедурный кабинет, где первокурсники осваивают общие медицинские навыки - учатся делать инъекции. Также они побывали в кабинете, где занимаются ординаторы и врачи - анестезиологи-реаниматологи, «познакомили» их с пациентом - роботом-симулятором, показали, как он помогает врачам формировать важные навыки оказания медицинской помощи в экстренной ситуации.</span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: 'Times New Roman';\">Кроме того, гостям были продемонстрированы виртуальные симуляторы, в том числе косметологический, который вызвал наибольший интерес у девочек. На нем врачи-косметологи отрабатывают навыки введения ботулотоксина. Показали кабинет с реальным реанимационным неонатологическим оборудованием, в котором отрабатываются навыки спасения новорожденных. </span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: 'Times New Roman';\">После этого состоялся мастер-класс по первой помощи. Ребята подискутировали на тему, должны ли оказывать первую помощь люди, не имеющие медицинского образования. Школьники продемонстрировали свои знания и применили навыки на манекенах. По завершении экскурсии многие признались, что окончательно утвердились в своем выборе медицины как профессии.&nbsp;</span></p>",
@@ -1867,6 +2047,12 @@
     "status": "machine",
     "at": "2026-07-22",
     "html": true
+  },
+  "32aa9cf6597e": {
+    "src": "Уровень образования",
+    "text": "Education level",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "32b733f27236": {
     "src": "Сбор, хранение и уничтожение данных",
@@ -1903,6 +2089,12 @@
     "text": "Dissertation councils",
     "status": "human",
     "at": "2026-07-22"
+  },
+  "32f6fbc4bf38": {
+    "src": "Филиалы",
+    "text": "Branches",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "3310a0a37573": {
     "src": "мочевая кислота,",
@@ -1993,6 +2185,12 @@
     "text": "From July 3-7, employees of the Department of Educational, Social Work and Public Relations, the Department of Normal Physiology, the Department of Social Sciences and Youth Policy of the OrGMU took part in a field visit…",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "3552e7ba38d5": {
+    "src": "Режим занятий обучающихся",
+    "text": "Class schedule for students",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "355fc56565e9": {
     "src": "Договор содержит: - сведения об исполнителе:",
@@ -2133,6 +2331,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "385c56188fd7": {
+    "src": "Реквизиты договора (соглашения)",
+    "text": "Details of the contract (agreement)",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "385dd14b319b": {
     "src": "Стоматологическая клиника",
     "text": "Dental Clinic",
@@ -2162,6 +2366,12 @@
     "text": "Determination of the amount of antibodies to hepatitis B virus HBs antigen in blood serum (with a group of at least 5 samples)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "394894464ce4": {
+    "src": "Педагогический (научно-педагогический) состав",
+    "text": "Pedagogical (scientific and pedagogical) staff",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "396851b76462": {
     "src": "В СКК «Оренбуржье» прошло торжественное вручение дипломов 85-му выпуску лечебного факультета ОрГМУ",
@@ -2229,6 +2439,18 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "3b00a26738b8": {
+    "src": "Результаты научной деятельности",
+    "text": "The results of scientific activity",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "3b2bd3d5dbd4": {
+    "src": "Места проведения практики",
+    "text": "Practice locations",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "3b5e9f0ece44": {
     "src": "Молекулярно-биологическое исследование отделяемого из цервикального канала на вирус простого герпеса 1 и 2 типов (Herpes simplex virus types 1, 2)",
     "text": "Molecular biological examination of discharge from the cervical canal for herpes simplex virus types 1 and 2 (Herpes simplex virus types 1, 2)",
@@ -2254,6 +2476,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "3bb89415a19a": {
+    "src": "Объекты спорта",
+    "text": "Sports facilities",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "3bd26b7bae94": {
     "src": "Порядок оказания платных услуг",
     "text": "The procedure for providing paid services",
@@ -2271,6 +2499,12 @@
     "text": "microalbumin,",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "3c454814d195": {
+    "src": "Результаты приёма",
+    "text": "Admission results",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "3c47e8e0cb4c": {
     "src": "Определение иммуноглобулинов класса A к антигенам Mycoplasma hominis в сыворотке крови (при групповой постановке не менее 5 проб)",
@@ -2309,6 +2543,12 @@
     "text": "It is performed only if there are preliminary results of fasting glucose determination, without exercise. The glucose content in blood plasma is determined on an empty stomach and 2 hours after glucose loading",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "3da596f0621a": {
+    "src": "Платные образовательные услуги",
+    "text": "Paid educational services",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "3daaaaa2cebd": {
     "src": "CD20-лимфоциты - зрелые В-лимфоциты;",
@@ -2421,6 +2661,12 @@
     "at": "2026-07-22",
     "html": true
   },
+  "40762a64fd80": {
+    "src": "Наименование учредителя",
+    "text": "Name of the founder",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "4109d26c7c8a": {
     "src": "Микробиологический анализ на определение стерильности (инструментарий- перевязочный материал)",
     "text": "Microbiological analysis to determine sterility (instrumentation- dressing material)",
@@ -2493,6 +2739,18 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "4240d7407696": {
+    "src": "Профессия / специальность / направление / профиль",
+    "text": "Profession / specialty / direction / profile",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "4266c947b451": {
+    "src": "Перевод, отчисление и восстановление обучающихся",
+    "text": "Transfer, expulsion, and reinstatement of students",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "426a0c9b00ca": {
     "src": "8.ИФА инфекции",
     "text": "8.ELISA infections",
@@ -2510,6 +2768,12 @@
     "text": "Address: 460000, Orenburg, Sharlykskoe highway, 5, 1st floor, office 1",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "42ac3ad2651f": {
+    "src": "Представительства",
+    "text": "Representative offices",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "42f12784da5f": {
     "src": "30 дней со дня регистрации обращения (Федеральный закон № 59-ФЗ). Если для ответа нужен запрос в другие организации, срок может быть продлён не более чем на 30 дней — об этом заявителя уведомляют.",
@@ -2603,6 +2867,18 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "458fe144598b": {
+    "src": "Средства обучения и воспитания",
+    "text": "Means of education and upbringing",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "45cee288562a": {
+    "src": "Фамилия, имя, отчество",
+    "text": "Last name, first name, patronymic",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "45d7d3828d72": {
     "src": "ПЦР исследования",
     "text": "PCR studies",
@@ -2652,6 +2928,12 @@
     "text": "Responsible",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "46ce27b97d22": {
+    "src": "Перевод, восстановление и отчисление",
+    "text": "Transfer, recovery, and deduction",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "46d687b98fe3": {
     "src": "<p>&nbsp;</p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">22 мая стартовал III трудовой семестр студенческих отрядов Оренбургской области. На торжественной церемонии на Набережной Урала собрались студотрядовцы, представители молодежных организаций региона, руководители вузов. В торжественной обстановке за большой вклад в развитие студенческих медицинских отрядов Российской Федерации и создание условий для трудоустройства молодежи в сфере здравоохранения ректору Оренбургского государственного медицинского университета Игорю Мирошниченко была вручена благодарность Комитета по охране здоровья Государственной Думы Российской Федерации. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">В мероприятии также принял участие проректор по воспитательной и социальной работе и связям с общественностью ОрГМУ Андрей Пахомов, который подчеркнул, что студенческие отряды ОрГМУ ежегодно активно участвуют в проектах Молодежной общероссийской общественной организации «Российские студенческие отряды». Она формирует временные трудовые коллективы из студентов и школьников для работы в свободное от учебы время. Обучающиеся вуза работают в лечебных учреждениях Оренбургской области, помогая местным поликлиникам, больницам и медицинским центрам. </span></p>",
@@ -2715,6 +2997,12 @@
     "status": "machine",
     "at": "2026-07-22",
     "html": true
+  },
+  "48a49ee95dfc": {
+    "src": "Мест в интернате для инвалидов и лиц с ОВЗ",
+    "text": "Places in a boarding school for the disabled and people with disabilities",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "48b493a19d1f": {
     "src": "Организация",
@@ -2915,6 +3203,18 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "4e5459089653": {
+    "src": "Реализуемые уровни образования, направления подготовки, учебные планы, рабочие программы, календарные графики, практики, численность обучающихся и языки обучения.",
+    "text": "Implemented levels of education, areas of training, curricula, work programs, schedules, practices, number of students and languages of instruction.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "4e587c4b8637": {
+    "src": "Наименование кабинета",
+    "text": "Cabinet name",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "4eb2c6facdc6": {
     "src": "Оренбургский государственный",
     "text": "Orenburg State University",
@@ -3091,6 +3391,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "54149f152c0f": {
+    "src": "Материально-техническое обеспечение и оснащённость образовательного процесса",
+    "text": "Logistical support and equipment of the educational process",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "542728133469": {
     "src": "Иммуноферментный анализ (ИФА) на гепатит С (скрининговое определение антител)",
     "text": "Enzyme immunoassay (ELISA) for hepatitis C (antibody screening)",
@@ -3132,6 +3438,12 @@
     "text": "The order of treatment, documents and answers to frequently asked questions.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "55983768d1bb": {
+    "src": "Сокращённое наименование",
+    "text": "Abbreviated name",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "55995e8f4159": {
     "src": "Микробиологическое исследование мочи (при выделении микроорганизмов и определении чувствительности к антибиотикам) (неферментирующие бактерии) (дополнительное исследование)",
@@ -3261,6 +3573,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "58062c448577": {
+    "src": "Учебные предметы, курсы, дисциплины (модули)",
+    "text": "Academic subjects, courses, disciplines (modules)",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "5865fc526bfb": {
     "src": "Доцент ОрГМУ приняла участие в Национальном конгрессе эндокринологов",
     "text": "Associate Professor of OrGMU participated in the National Congress of Endocrinologists",
@@ -3297,6 +3615,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "590f68bf1430": {
+    "src": "Образовательные стандарты",
+    "text": "Educational standards",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "5952d23b4e6a": {
     "src": "В конце мая в Санкт-Петербурге состоялся XVIII Съезд психиатров России «Психиатрия в условиях смешанной реальности: новые вызовы — новые возможности». Крупнейший профессиональный форум объединил более 2000 специалистов…",
     "text": "At the end of May, the XVIII Congress of Psychiatrists of Russia \"Psychiatry in conditions of mixed reality: new challenges - new opportunities\" was held in St. Petersburg. The largest professional forum brought together more than 2,000 specialists…",
@@ -3326,6 +3650,12 @@
     "text": "The schedule of the summer examination session is posted in the students' personal offices and on the information stands of the departments.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "59da2c080119": {
+    "src": "Объём из бюджета субъекта РФ",
+    "text": "The amount from the budget of the subject of the Russian Federation",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "59f25883e62d": {
     "src": "Микробиологическое исследование кала на сальмонеллез (при отсутствии микроорганизмов) (основное исследование)",
@@ -3375,6 +3705,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "5a9ef7aaeb9e": {
+    "src": "Наличие общежития",
+    "text": "The presence of a hostel",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "5b75c7b4535e": {
     "src": "Биология — «Оренбургская фауна и флора на службе здоровья человека»",
     "text": "Biology — Orenburg Fauna and Flora at the Service of Human Health",
@@ -3417,6 +3753,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "5c61f0724d50": {
+    "src": "Вакантных мест (федеральный бюджет)",
+    "text": "Vacancies (federal budget)",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "5cd4659f98eb": {
     "src": "За 3 дня до теста отменить тиазидные диуретики, контрацептивы и глюкокортикоиды (по согласованию с врачом)",
     "text": "Discontinue thiazide diuretics, contraceptives, and glucocorticoids 3 days before the test (in consultation with your doctor)",
@@ -3454,6 +3796,12 @@
     "at": "2026-07-22",
     "html": true
   },
+  "5d72ff9b0176": {
+    "src": "Объём образовательной деятельности, финансовое обеспечение которой осуществляется за счёт бюджетов и по договорам об оказании платных услуг.",
+    "text": "The volume of educational activities, the financial support of which is carried out at the expense of budgets and under contracts for the provision of paid services.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "5d7bbc4f8e6a": {
     "src": "Место приёма",
     "text": "Reception location",
@@ -3466,6 +3814,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "5d84b49786b8": {
+    "src": "Положение (документ)",
+    "text": "Regulation (document)",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "5d95598f480c": {
     "src": "Приёмная кампания 2026 открыта",
     "text": "The 2026 admission campaign is open",
@@ -3477,6 +3831,12 @@
     "text": "Blood collection from a finger",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "5e14a6c54123": {
+    "src": "Сайт филиала",
+    "text": "The branch's website",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "5e5eee5cf4db": {
     "src": "Исследование мочи кальций",
@@ -3527,6 +3887,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "5f52d020c881": {
+    "src": "Коллективный договор",
+    "text": "Collective agreement",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "5f993450ce64": {
     "src": "Определение иммуноглобулинов класса G к антигенам описторхисов- трихинелл- токсокар и эхинококков в сыворотке крови (при единичной постановке)",
     "text": "Determination of class G immunoglobulins to opisthorchiasis-trichinella-toxocara and echinococcal antigens in blood serum (with a single diagnosis)",
@@ -3575,6 +3941,18 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "60f9a96f1f96": {
+    "src": "Порядок оказания платных образовательных услуг",
+    "text": "The procedure for providing paid educational services",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "610ec464f421": {
+    "src": "Электронная почта представительства",
+    "text": "E-mail of the representative office",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "6119acbb00bb": {
     "src": "Преподаватель-хирург принял участие в работе конгрессов в Казани",
     "text": "The surgical teacher took part in the congresses in Kazan",
@@ -3617,6 +3995,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "62245781f02f": {
+    "src": "Помещения для питания обучающихся, условия охраны здоровья, перечень организаций, оказывающих услуги питания.",
+    "text": "Catering facilities for students, health protection conditions, and a list of organizations providing catering services.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "6246540c4813": {
     "src": "Приказы и локальные акты",
     "text": "Orders and local acts",
@@ -3629,6 +4013,18 @@
     "status": "machine",
     "at": "2026-07-22",
     "html": true
+  },
+  "627abdd49677": {
+    "src": "Адрес объекта",
+    "text": "The address of the object",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "6287cc881911": {
+    "src": "Структура и органы управления",
+    "text": "Structure and management bodies",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "629cd66c057b": {
     "src": "За 2-3 дня исключить острую, соленую пищу, не употреблять алкоголь",
@@ -3654,6 +4050,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "62f0549a1700": {
+    "src": "Меры социальной поддержки обучающихся",
+    "text": "Social support measures for students",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "63076435b5dc": {
     "src": "Идентификация культуры микобактерий с использованием метода MALDI-ToF",
     "text": "Identification of Mycobacterium culture using the MALDI-ToF method",
@@ -3678,6 +4080,18 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "63ebfbc935ac": {
+    "src": "Объём из местного бюджета",
+    "text": "Amount from the local budget",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "63f3c1aeecae": {
+    "src": "Научно-исследовательская деятельность",
+    "text": "Scientific research activities",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "63ffda6e65fd": {
     "src": "Университет ПРОФ (тестовый контур). Для разработки и проверки обновлений, не для рабочих задач.",
     "text": "University PROF (test circuit). For developing and checking updates, not for work tasks.",
@@ -3689,6 +4103,12 @@
     "text": "Determination of allergen-specific IgE in blood serum (mixture)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "643fa6efb8a1": {
+    "src": "Полное наименование",
+    "text": "Full name",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "64753c3c269e": {
     "src": "<p><span style=\"font-family: Arial, sans-serif;\">Совещание по вопросам наставничества прошло вчера в министерстве здравоохранения Оренбургской области. В нем принял участие проректор по непрерывному медицинскому образованию и региональному развитию здравоохранения ОрГМУ Сергей Перепелкин.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Ключевым вопросом повестки стало внедрение наставничества как обязательного условия допуска к аккредитации выпускников медицинских вузов и колледжей&nbsp;—&nbsp;с 1&nbsp;марта 2026&nbsp;года. Такая мера призвана помочь молодым специалистам быстрее адаптироваться к работе, избежать типичных ошибок и освоить профессиональные ценности.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Министр здравоохранения Оренбургской области Андрей Шатилов отметил, что в настоящее время активно прорабатывается механизм финансового стимулирования наставников и их специализированного обучения в рамках дополнительных профессиональных программ повышения квалификации на базе ОрГМУ. Главная задача системы&nbsp;—&nbsp;создать для каждого начинающего медика в Оренбургской области условия, в которых он будет чувствовать поддержку профессионального сообщества и уверенно делать первые шаги в профессии.</span></p>",
@@ -3734,11 +4154,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "65929befae38": {
+    "src": "Число выпускников прошедшего учебного года",
+    "text": "The number of graduates of the last academic year",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "659a973a0cc7": {
     "src": "В мае на базе Федерального исследовательского центра питания и биотехнологии (г. Москва) состоялся Пленум правления НМО АГЭ России. В его работе приняли участие члены правления общества, руководители региональных…",
     "text": "In May, the Federal Research Center for Nutrition and Biotechnology (Moscow) hosted a Plenum of the Board of the NMO ASGE of Russia. The members of the Board of the company, heads of regional departments took part in its work.…",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "65aad4cb3151": {
+    "src": "Структура и органы управления образовательной организацией",
+    "text": "The structure and management bodies of an educational organization",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "65ba3a44fbca": {
     "src": "Тиреотропный гормон (ТТГ)",
@@ -3782,6 +4214,12 @@
     "text": "Microbiological examination of wound discharge- transudates- bile exudates for aerobic and facultative anaerobic microorganisms (in the absence of microorganisms) (main study)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "6708837459ab": {
+    "src": "Код",
+    "text": "Code",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "671def425d1a": {
     "src": "Последний день подачи документов для поступления на специалитет и бакалавриат — 25 июля. Заявления принимаются лично, по почте и через суперсервис «Поступление в вуз онлайн».",
@@ -3851,6 +4289,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "692813c72a97": {
+    "src": "Наличие интерната",
+    "text": "Availability of a boarding school",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "692b15116156": {
     "src": "Приняли участие в Международной конференции по офтальмологии «Восток-Запад - 2026»",
     "text": "Participated in the International Conference on Ophthalmology \"East-West - 2026\"",
@@ -3911,6 +4355,12 @@
     "text": "Determination of class G immunoglobulins to Mycoplasma hominis antigens in blood serum (with a group of at least 5 samples)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "6b47ff762e16": {
+    "src": "Места осуществления образовательной деятельности",
+    "text": "Places of educational activity",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "6b84a2af3841": {
     "src": "<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">К 120-летию возникновения российского парламентаризма сотрудниками кафедры общественных наук и молодежной политики была организована и проведена предметная межвузовская олимпиада по истории России: </span><span style=\"font-family: Arial; color: #000000;\">первая Государственная Дума&nbsp;</span><span style=\"font-family: Arial; color: #000000;\">начала свою работу&nbsp;</span><span style=\"font-family: Arial; color: #000000;\">27 апреля 1906 года. &nbsp;</span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">В олимпиаде приняли участие студенты первых курсов ОрГМУ, ОГУ им. В.А. Бондаренко и Оренбургского филиала РАНХиГС. Команды представили свои проекты и приняли участие в дебатах, посвященных актуальным вопросам развития отечественных законотворческих институтов. </span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">В составе жюри были сотрудники вузов. Они отметили важность выбранной темы, высокий уровень подготовки всех студентов и желание сотрудничать в дальнейшем. По итогам олимпиады места распределились следующим образом: первое - команда Оренбургского филиала РАНХиГС, второе – у представителей ОрГМУ, третье – у команды ОГУ.</span></p>",
@@ -4041,6 +4491,12 @@
     "text": "Trofimova Olga Vladimirovna",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "6e27c048b511": {
+    "src": "Должность руководителя филиала",
+    "text": "Position of the branch head",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "6e76b5dd4bb3": {
     "src": "Похожие новости",
@@ -4235,6 +4691,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "737d23127df4": {
+    "src": "Полное и сокращённое наименование, дата создания, учредитель, место нахождения, режим работы и контакты организации.",
+    "text": "Full and abbreviated name, date of establishment, founder, location, working hours and contacts of the organization.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "73a42488f097": {
     "src": "медицинский университет",
     "text": "Medical University",
@@ -4258,6 +4720,12 @@
     "text": "Determination of urea in blood serum",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "74f21927d6a0": {
+    "src": "Наименование филиала",
+    "text": "Name of the branch",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "751184d50c24": {
     "src": "Все известия",
@@ -4324,6 +4792,12 @@
     "text": "Igor Miroshnichenko, Rector of OrGMU, took part in the first meeting of the Public Headquarters for Election Observation in Orenburg region",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "767b54f93f09": {
+    "src": "Количество вакантных мест для приёма (перевода) обучающихся по каждой образовательной программе, за счёт бюджета и по договорам.",
+    "text": "The number of vacant places for admission (transfer) of students for each educational program, at the expense of the budget and under contracts.",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "76b5f26d6d9b": {
     "src": "Анализ мочи",
@@ -4403,6 +4877,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "786771034706": {
+    "src": "Персональный состав педагогических (научно-педагогических) работников с данными о квалификации, стаже и преподаваемых дисциплинах.",
+    "text": "The staff of teaching (scientific and pedagogical) staff with data on qualifications, seniority and subjects taught.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "7870dae892be": {
     "src": "Студентки ОрГМУ прошли летнюю практику в Гродненском медицинском университете",
     "text": "OrGMU students completed a summer internship at Grodno Medical University",
@@ -4444,6 +4924,18 @@
     "text": "Creative work in the format of creative crafts in chemistry and/or biology with the general title \"Beloved manuals\"",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "798cae72a00c": {
+    "src": "Федеральные государственные образовательные стандарты",
+    "text": "Federal State Educational Standards",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "79e0f30cb714": {
+    "src": "Трудоустройство выпускников",
+    "text": "Employment of graduates",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "79e2eccd778d": {
     "src": "Срок действия и изменение Политики",
@@ -4548,11 +5040,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "7d97339f0de5": {
+    "src": "Количество жилых помещений в общежитии",
+    "text": "Number of living rooms in the hostel",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "7dc79e7bee53": {
     "src": "III возрастная группа — 8–9 классы",
     "text": "Age group III — grades 8-9",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "7ddffb06fd59": {
+    "src": "Доступ к информационным системам и сетям",
+    "text": "Access to information systems and networks",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "7e0738dd900d": {
     "src": "продвижение инновационной наукоемкой продукции и услуг в сфере охраны здоровья человека;",
@@ -4583,6 +5087,18 @@
     "text": "OrGMU scientists have created a program to study the prognosis after coronary intervention",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "7f2018619b6d": {
+    "src": "Места проведения практической подготовки",
+    "text": "Places of practical training",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "7f2a42a2f3be": {
+    "src": "Устав",
+    "text": "Regulation",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "7f70c0f11d31": {
     "src": "форма на сайте ОрГМУ →",
@@ -4766,11 +5282,35 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "83a293f0e470": {
+    "src": "Сайт представительства",
+    "text": "Representative office website",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "83b595b532ff": {
+    "src": "Количество жилых помещений в интернате",
+    "text": "Number of residential premises in the boarding school",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "846c91c61213": {
     "src": "Гормоны щитовидной железы",
     "text": "Thyroid hormones",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "847153954361": {
+    "src": "Порядок оказания платных образовательных услуг, образец договора и документы об утверждении стоимости обучения.",
+    "text": "The procedure for the provision of paid educational services, a sample contract and documents on the approval of tuition fees.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "84b7e9f58e05": {
+    "src": "Руководитель филиала",
+    "text": "Head of the branch",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "84e2d42a6c53": {
     "src": "26-27 июня кафедра неврологии, медицинской генетики ОрГМУ провела круглый стол «УЗИ периферических нервов и ЭНМГ (электронейромиография) в неврологии: сложные случаи и дифференциальная диагностика». В центре…",
@@ -4819,6 +5359,12 @@
     "text": "Rheumatoid factor (latex method)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "8549dff06a32": {
+    "src": "Образование",
+    "text": "Education",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "854a80dec9d8": {
     "src": "10 июля в научно-образовательном центре ОрГМУ состоялась межрегиональная научно-практическая конференция «Неврология: инновации и практика». Ее организаторами выступили кафедра неврологии, медицинской генетики…",
@@ -4983,11 +5529,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "88b697eb6f08": {
+    "src": "Места при сетевой форме реализации",
+    "text": "Places in the network form of implementation",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "88be64f16d8c": {
     "src": "Баллы к ЕГЭ",
     "text": "USE scores",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "88c064a970cc": {
+    "src": "Образец договора об оказании платных услуг",
+    "text": "Sample contract for the provision of paid services",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "88c569433a11": {
     "src": "Определение иммуноглобулинов класса M к Chlamydia trachomatis в сыворотке крови (при единичной постановке)",
@@ -5076,6 +5634,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "8a74ddaea625": {
+    "src": "Сайт учредителя",
+    "text": "Founder's website",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "8a95de402a6c": {
     "src": "Иммуноферментный анализ (ИФА) на ВИЧ (скрининговое определение антител) (групповое)",
     "text": "Enzyme immunoassay (ELISA) for HIV (antibody screening) (group)",
@@ -5099,6 +5663,12 @@
     "text": "Determination of glycosylated hemoglobin in capillary blood",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "8b083cd100ef": {
+    "src": "Электронные образовательные ресурсы для инвалидов и лиц с ОВЗ",
+    "text": "Electronic educational resources for the disabled and people with disabilities",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "8b3ba1f4ed86": {
     "src": "Университет официально проводил во взрослую жизнь сотни молодых врачей. Церемонии вручения дипломов проходили в актовом зале второго корпуса вуза, в культурно ‑ спортивном центре «Марсово поле» и СКК «Оренбуржье»…",
@@ -5160,6 +5730,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "8d1f26a97c5e": {
+    "src": "Учёное звание",
+    "text": "Academic title",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "8d3fb348bbbc": {
     "src": "Определение уровня гормона Трийодтиронин свободный (Тз своб.) в сыворотке крови",
     "text": "Determination of the level of the hormone Triiodothyronine free (Tk free) in the blood serum",
@@ -5201,6 +5777,12 @@
     "text": "Before the study, it is necessary to exclude the use of the following drugs: dapsone, methyldopa, sulfasalazine, estrogens, oral contraceptives, tamoxifen, androgens",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "8db31a34643b": {
+    "src": "Международное сотрудничество",
+    "text": "International cooperation",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "8db46ea789a5": {
     "src": "Адрес",
@@ -5469,6 +6051,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "94fb2531db8e": {
+    "src": "Методические и иные документы",
+    "text": "Methodological and other documents",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "95060a5081d5": {
     "src": "<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115;\">С 21 по 23 мая в Геленджике проходила XXIII Всероссийская научно-образовательная конференция «Рекомендации и индивидуальные подходы в анестезиологии и реаниматологии», организованная Федерацией анестезиологов и реаниматологов России (ФАР). Мероприятие является ключевой площадкой для обсуждения новейших клинических рекомендаций и методов лечения критических состояний, объединившей ведущих специалистов в области интенсивной терапии со всей страны. Оренбургский государственный медицинский университет на форуме представила делегация кафедры анестезиологии и реаниматологии. </span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115;\">Заведующий кафедрой, доктор медицинских наук Вадим Ершов, являющийся членом программного комитета конференции, выступил с пятью докладами, посвященными респираторной поддержке пациентов с церебральным инсультом, хроническим нарушениям сознания, нутритивной поддержке, организационно-правовым аспектам деятельности сосудистых центров, а также периоперационным событиям в ортопедии и травматологии.</span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115;\">Преподаватель кафедры анестезиологии и реаниматологии, аспирант 2-го года обучения по специальности «анестезиология-реаниматология» Алексей Добрынин на конкурсе молодых исследователей, проходившем в рамках конференции, занял второе место с научной работой «Значение саркопении в прогнозировании исходов острой церебральной недостаточности у пациентов с ПИТ-синдромом».</span></p>",
     "text": "<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115;\">On May 21-23, Gelendzhik hosted the XXIII All-Russian Scientific and Educational Conference \"Recommendations and Individual approaches in Anesthesiology and Intensive Care\", organized by the Federation of Anesthesiologists and Intensive Care Specialists of Russia (FAR). The event is a key platform for discussing the latest clinical recommendations and treatment methods for critical conditions, bringing together leading specialists in the field of intensive care from all over the country. Orenburg State Medical University was represented at the forum by a delegation from the Department of Anesthesiology and Intensive Care.</span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115;\">The head of the Department, Doctor of Medical Sciences Vadim Ershov, who is a member of the conference program committee, made five presentations on respiratory support for patients with cerebral stroke, chronic disorders of consciousness, nutritional support, organizational and legal aspects of vascular centers, as well as perioperative events in orthopedics and traumatology.</span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115;\">Alexey Dobrynin, a lecturer at the Department of Anesthesiology and Intensive Care Medicine, a 2nd-year graduate student specializing in Anesthesiology and Intensive Care Medicine, took second place at the young researchers' competition held within the framework of the conference with a scientific paper \"The importance of sarcopenia in predicting the outcomes of acute cerebral insufficiency in patients with PIT syndrome.\"</span></p>",
@@ -5600,6 +6188,18 @@
     "at": "2026-07-22",
     "html": true
   },
+  "976400c7e3fe": {
+    "src": "Стипендии и меры поддержки",
+    "text": "Scholarships and support measures",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "977300d9872b": {
+    "src": "Расходы",
+    "text": "Expenses",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "9790f434a135": {
     "src": "Определение иммунного статуса",
     "text": "Determination of immune status",
@@ -5643,6 +6243,12 @@
     "status": "human",
     "at": "2026-07-22"
   },
+  "98d2d70d4dbb": {
+    "src": "Приспособленность для инвалидов и лиц с ОВЗ",
+    "text": "Fitness for the disabled and people with disabilities",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "98e32e30b9bb": {
     "src": "Санитарная охрана водных объектов: учебное пособие для студентов / Л. А. Бархатова, В. М. Боев, Е. Л. Борщук [и др.]; под ред. В. М. Боева. — Оренбург: Изд-во ОрГМА, 2013. — 120 с.",
     "text": "Sanitary protection of water bodies: a textbook for students / L. A. Barkhatova, V. M. Boev, E. L. Borshchuk [et al.]; edited by V. M. Boev.  Orenburg: ORGMA Publishing House, 2013. 120 p.",
@@ -5654,6 +6260,12 @@
     "text": "Enzyme immunoassay (ELISA) for the determination of antibodies to SARS-CoV-2-IgM coronavirus by ELISA",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "9923c74a9327": {
+    "src": "Правила приёма обучающихся",
+    "text": "Admission rules for students",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "99391987e02a": {
     "src": "Сайты вуза",
@@ -5757,6 +6369,18 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "9b59f3d9093b": {
+    "src": "Реализуемые образовательные программы",
+    "text": "Ongoing educational programs",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "9b64953901f0": {
+    "src": "Дата создания",
+    "text": "Date of creation",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "9b7deab6e5e4": {
     "src": "Олимпиада выявляет и развивает интерес к медицине, формирует у школьников стимулы к приобретению знаний по фундаментальным дисциплинам и помогает выявить одарённых и талантливых ребят. Участие бесплатное.",
     "text": "The Olympiad reveals and develops interest in medicine, forms incentives for schoolchildren to acquire knowledge in fundamental disciplines and helps identify gifted and talented children. Participation is free.",
@@ -5836,6 +6460,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "9d6519e1491f": {
+    "src": "Приспособленность общежития/интерната для инвалидов и лиц с ОВЗ",
+    "text": "Fitness of a dormitory/boarding school for the disabled and persons with disabilities",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "9d76795d56a5": {
     "src": "Заседание в рамках новой избирательной кампании провел руководитель штаба, член Общественной палаты области Ян Борисов . Он отметил, что 17 июня дан официальный старт избирательной кампании: на заседании…",
     "text": "The meeting within the framework of the new election campaign was held by the head of the headquarters, member of the Civic Chamber of the region Yan Borisov. He noted that the official start of the election campaign was given on June 17: at a meeting…",
@@ -5871,6 +6501,12 @@
     "text": "Dates of approval of reports on the special assessment of working conditions",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "9dde9b642acb": {
+    "src": "Режим и график работы",
+    "text": "Mode and schedule of work",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "9e2b4db9e3af": {
     "src": "Необходимо в течение трех дней до исследования соблюдать обычный режим питания (с содержанием углеводов более 125-150 г в сутки) и придерживаться привычных физических нагрузок",
@@ -6013,6 +6649,12 @@
     "at": "2026-07-22",
     "html": true
   },
+  "a1e59bffe2c9": {
+    "src": "Повышение квалификации",
+    "text": "Professional development",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "a1fbf3e788d2": {
     "src": "Моча собирается пациентом самостоятельно и доставляется в медицинский центр",
     "text": "Urine is collected by the patient independently and delivered to the medical center.",
@@ -6043,6 +6685,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "a23d8d8fdf71": {
+    "src": "Предписания органов государственного контроля (надзора)",
+    "text": "Regulations of the state control (supervision) bodies",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "a23ff2d50463": {
     "src": "Антитела к тиреоглобулину (АТ к ТГ)",
     "text": "Antibodies to thyroglobulin (AT to TG)",
@@ -6062,11 +6710,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "a248023fd62a": {
+    "src": "Заключённые и планируемые к заключению договоры с иностранными и международными организациями по вопросам образования и науки.",
+    "text": "Agreements concluded and planned to be concluded with foreign and international organizations on education and science.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "a248df60d480": {
     "src": "Вставить вакуумную пробирку для мочи во встроенный держатель контейнера",
     "text": "Insert a vacuum urine tube into the built-in container holder",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "a25b819b101b": {
+    "src": "Электронные образовательные ресурсы",
+    "text": "Electronic educational resources",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "a28900f4f1c1": {
     "src": "Он состоялся в конце мая в Нью-Дели. В этом году мероприятие собрало более 50 делегаций от российских и индийских вузов, а также медицинских организаций двух стран. Саммит стал масштабным международным мероприятием…",
@@ -6160,6 +6820,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "a42b0a03e33b": {
+    "src": "Помещения для питания",
+    "text": "Catering facilities",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "a45a43bff37a": {
     "src": "Команда ОрГМУ стала призером «УниверЛиги Оренбуржья»",
     "text": "OrGMU team became the winner of the Orenburg Region Universal League",
@@ -6209,6 +6875,12 @@
     "status": "machine",
     "at": "2026-07-22",
     "html": true
+  },
+  "a593fc2a3007": {
+    "src": "Правила внутреннего распорядка обучающихся",
+    "text": "Internal regulations of students",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "a5a0dddd47c9": {
     "src": "Поступающим",
@@ -6312,6 +6984,12 @@
     "text": "Diana Akhtyamova, a pediatric neurologist who studied at the professional retraining course \"Healthcare Organization and Public Health\" at OrGMU, won the full‑time round of the XXI All-Russian Competition…",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "a7d4acc02da8": {
+    "src": "Устав, лицензия, свидетельство о госаккредитации, локальные нормативные акты, правила внутреннего распорядка, отчёт о самообследовании и предписания надзорных органов.",
+    "text": "The Charter, license, certificate of state accreditation, local regulations, internal regulations, self-examination report and regulations of the supervisory authorities.",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "a7ec0a608892": {
     "src": "У истоков создания иммунологической лаборатории, которая была создана в 1976 году, стояли будущие академики РАН – О.В. Бухарин и Г.Т. Сухих, Заслуженный работник Высшей школы, профессор Б.А. Фролов, Заслуженный работник Высшей школы, профессор А.И. Смолягин. В настоящее время лаборатория входит в состав научно-исследовательского центра ОрГМУ",
@@ -6476,6 +7154,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "ab30a96a73a4": {
+    "src": "Базы для научно-исследовательской работы",
+    "text": "Bases for scientific research work",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "ab39266a87a1": {
     "src": "На этот адрес будет направлен ответ",
     "text": "A reply will be sent to this address.",
@@ -6604,6 +7288,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "affe8af26a56": {
+    "src": "Должность руководителя представительства",
+    "text": "Position of the head of the representative office",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "b0563dac0caa": {
     "src": "Кудусова Луиза Халимовна, старший преподаватель кафедры общей гигиены",
     "text": "Kudusova Louise Halimovna, Senior Lecturer at the Department of General Hygiene",
@@ -6621,6 +7311,12 @@
     "text": "Clinical and diagnostic laboratory",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "b0bba7fdcf0c": {
+    "src": "Структурные подразделения и органы управления",
+    "text": "Structural divisions and management bodies",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "b0c66e4bd7f2": {
     "src": "Лаборатория участвует в ФСВОК по следующим разделам:",
@@ -6646,6 +7342,12 @@
     "status": "machine",
     "at": "2026-07-22",
     "html": true
+  },
+  "b135eb648b76": {
+    "src": "Преподаваемые учебные предметы, курсы, дисциплины",
+    "text": "Academic subjects, courses, and disciplines taught",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "b13ff49fdc11": {
     "src": "Молекулярно-биологическое исследование отделяемого из цервикального канала на цитомегаловирус (Cytomegalovirus)",
@@ -6708,6 +7410,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "b230be09af82": {
+    "src": "Педагогические работники",
+    "text": "Teaching staff",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "b26c34c8eb6f": {
     "src": "Сведения об образовательной организации",
     "text": "Information about the educational organization",
@@ -6719,6 +7427,12 @@
     "text": "A personal appointment is made during the university's business hours. When recording, the citizen's full name and contact details are specified, as well as the essence of the issue of the appeal.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "b27066cc0b31": {
+    "src": "Правила внутреннего трудового распорядка",
+    "text": "Internal labor regulations",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "b28ef201b209": {
     "src": "Мельниченко П. И., Архангельский В. И., Козлова Т. А. Гигиена. — 2-е изд., испр. и доп. — М.: ГЭОТАР-Медиа, 2022. — 656 с. ISBN 978-5-9704-6597-4. ЭБС «Консультант студента» (по подписке)",
@@ -6749,6 +7463,12 @@
     "text": "Services",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "b2fc26c15e99": {
+    "src": "Наименование реализуемых образовательных программ",
+    "text": "The name of the educational programs being implemented",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "b2fce4b7e615": {
     "src": "Нуклеарный фактор (антиядерные антитела)",
@@ -6803,6 +7523,12 @@
     "text": "Dates of the event",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "b4b06e564896": {
+    "src": "Организация питания обучающихся",
+    "text": "Catering for students",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "b4bba5a14062": {
     "src": "д.м.н., профессор Попова Лариса Юрьевна",
@@ -6871,6 +7597,12 @@
     "text": "Determination of the amount of class G immunoglobulins to rubella virus in blood serum (with a group of at least 5 samples)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "b6d9d082f6a4": {
+    "src": "Наличие и условия предоставления стипендий, общежития, трудоустройства выпускников и иных мер социальной поддержки.",
+    "text": "Availability and conditions of scholarships, dormitories, graduate employment, and other social support measures.",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "b6ef08401fe6": {
     "src": "День",
@@ -7012,6 +7744,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "b9308c065718": {
+    "src": "Оборудованные учебные кабинеты",
+    "text": "Equipped classrooms",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "b93d30eb1ca7": {
     "src": "Лютеинизирующий гормон (ЛГ)",
     "text": "Luteinizing Hormone (LH)",
@@ -7023,6 +7761,12 @@
     "text": "General rules",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "b987fa03a1a5": {
+    "src": "Объекты для практических занятий",
+    "text": "Objects for practical exercises",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "b988c999cc97": {
     "src": "по эл.почте: если при оформлении заказа вы оставили свой эл.адрес почты то результат Вам будет на направлен на почту в формате PDF",
@@ -7041,6 +7785,12 @@
     "text": "Orenburg, Spartak 73",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "ba10f221dae2": {
+    "src": "Объём финансирования по годам",
+    "text": "Amount of funding by year",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "ba3b5a631605": {
     "src": "Определение иммуноглобулинов класса M к возбудителю описторхоза (Opisthorchis felineus) в сыворотке крови (при единичной постановке)",
@@ -7066,6 +7816,12 @@
     "text": "The basis and composition of the publication",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "baabc4f8f0c7": {
+    "src": "Вакантных мест (бюджет субъекта РФ)",
+    "text": "Vacancies (budget of the subject of the Russian Federation)",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "bab457151987": {
     "src": "фамилия, имя и отчество (если имеется) индивидуального предпринимателя, адрес места жительства и адрес места осуществления медицинской деятельности, данные документа, подтверждающего факт внесения сведений об индивидуальном предпринимателе в Единый государственный реестр индивидуальных предпринимателей, с указанием органа, осуществившего государственную регистрацию;",
@@ -7145,6 +7901,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "bc55c15c6d69": {
+    "src": "План финансово-хозяйственной деятельности",
+    "text": "Financial and economic activity plan",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "bc8855b03cf9": {
     "src": "XIV олимпиада (2025–2026) завершена. Списки победителей и призёров опубликованы — файл ниже. Сертификаты участникам 2 этапа направлены на электронную почту, указанную в заявке.",
     "text": "The XIV Olympiad (2025-2026) has been completed. The lists of winners and prize—winners are published in the file below. Certificates for the participants of the 2nd stage will be sent to the email address specified in the application.",
@@ -7213,6 +7975,12 @@
     "at": "2026-07-22",
     "html": true
   },
+  "bd77647c06fe": {
+    "src": "Стаж работы по специальности",
+    "text": "Work experience in the specialty",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "bd98c302d3b3": {
     "src": "Литература для подготовки",
     "text": "Literature for preparation",
@@ -7230,6 +7998,12 @@
     "text": "Microbiological examination of mucus and films from tonsils on diphtheria bacillus (Corynebacterium diphteriae) (during isolation of microorganisms and determination of toxigenicity) (additional study)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "bdea73bf9fa6": {
+    "src": "Электронная почта филиала",
+    "text": "Branch's email address",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "be0ca1769459": {
     "src": "Олимпиада по истории России объединила студентов трех вузов",
@@ -7272,6 +8046,12 @@
     "text": "Microbiological examination of urine (in the absence of microorganisms) (basic study)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "bf0c880c3c35": {
+    "src": "Отчёт о результатах самообследования",
+    "text": "Report on the results of the self-examination",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "bf22ae5dae39": {
     "src": "Памятки и инструкции для работников и обучающихся",
@@ -7335,6 +8115,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "c134c0dc0e0f": {
+    "src": "Практика, предусмотренная программой",
+    "text": "The practice provided by the program",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "c154f2aa5cea": {
     "src": "Перед сбором суточной мочи для определения концентрации гормонов (стероидный профиль), в течение 3-х дней до сбора мочи нельзя применять препараты, содержащие раувольфию, теофиллин, нитроглицерин, кофеин, этанол, хлорпромазин, контрастные красители, гидроксиметоксифенилгликоль, имипрамин, фенацетин, пропранолол. Также запрещается употреблять продукты, содержащие серотонин (шоколад, сыры, бананы), не употреблять алкоголь. Избегать физической нагрузки, исключить стресс, не курить",
     "text": "Before collecting daily urine to determine the concentration of hormones (steroid profile), for 3 days before collecting urine, drugs containing rauwolfia, theophylline, nitroglycerin, caffeine, ethanol, chlorpromazine, contrast dyes, hydroxymethoxyphenylglycol, imipramine, phenacetin, propranolol should not be used. It is also forbidden to consume products containing serotonin (chocolate, cheeses, bananas), and not to drink alcohol. Avoid physical activity, eliminate stress, and do not smoke",
@@ -7346,6 +8132,12 @@
     "text": "Microbiological examination of feces for the causative agent of dysentery (in the absence of microorganisms) (main study)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "c19a7069d4f4": {
+    "src": "Основные сведения",
+    "text": "Basic information",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "c1c9eb446126": {
     "src": "<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial;\">В Москве </span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">на площадке Российской академии образования </span><span style=\"font-family: Arial;\">состоялась VIII Всероссийская конференция по вопросам реализации Десятилетия детства на тему «Научные исследования в сфере детства. Новые решения для благополучия детей и семей с детьми». В ней приняла участие </span><span style=\"font-family: Arial;\">проректор по науке, инновационной и международной деятельности ОрГМУ Елена Луцай</span><span style=\"font-family: Arial;\">. </span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">Приветствия участникам направили заместитель председателя Правительства России Дмитрий Чернышенко и министр просвещения РФ Сергей Кравцов. На пленарном заседании выступил первый заместитель </span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">министра </span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">просвещения РФ Александр Бугаев.</span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">Главный внештатный детский специалист по профилактической медицине Минздрава России, президент Союза педиатров России Лейла Намазова-Баранова привела новые научные данные о формировании когнитивного здоровья российских школьников.</span></p>\r\n<p><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">О</span><span style=\"font-family: Arial;\">бсуждение вопросов продолжилось в рамках </span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">малого пленума «Здоровьесбережение с детства» под председательством Лейлы Намазовой-Барановой и Рафаэля </span><span style=\"font-family: Arial;\">Шавалиева, директора Департамента медицинской помощи детям, службы родовспоможения и общественного здоровья Министерства здравоохранения РФ</span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">. </span><span style=\"font-family: Arial;\">Елена Луцай поделилась опытом работы Оренбургского государственного медицинского университета по подготовке кадров для детского здравоохранения региона.</span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">Также на пленуме шла речь о научных достижениях в педиатрии, оказании медицинской помощи детям, </span><span style=\"font-family: Arial;\">системе оценки и управления рисками здоровью детей, эффективных технологиях здоровьесбережения учащихся, раннем выявлении детей с расстройствами аутистического спектра.</span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial;\">&nbsp;</span></p>",
@@ -7403,11 +8195,29 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "c3cf9d1c297c": {
+    "src": "Международные договоры и соглашения",
+    "text": "International treaties and agreements",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "c3d15eb2ddf3": {
+    "src": "Рабочие программы практик",
+    "text": "Practice work programs",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "c424c7860dd0": {
     "src": "Микробиологическое исследование мочи (средняя цена исследования при предварительной оплате)",
     "text": "Microbiological examination of urine (average price of the study with advance payment)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "c426128dc915": {
+    "src": "Вакантные места для приёма (перевода) обучающихся",
+    "text": "Vacant places for admission (transfer) of students",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "c44092b61a6a": {
     "src": "Порядок предоставления и условия получения платных медицинских услуг в соответствии с территориальной программой",
@@ -7438,6 +8248,18 @@
     "text": "Molecular biological examination of the secreted mucous membranes of the female genital organs for Trichomonas vaginalis",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "c4eac8763dba": {
+    "src": "Место нахождения",
+    "text": "Location",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "c4ed9ad0689f": {
+    "src": "Плата за присмотр и уход",
+    "text": "Fees for supervision and care",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "c505d7285433": {
     "src": "Перед проведением теста необходимо исключить лечебные процедуры и прием лекарств (адреналина, глюкокортикоидов, контрацептивов, кофеина, мочегонных тиазидного ряда, психотропных средств и антидепрессантов)",
@@ -7500,6 +8322,18 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "c64160221e28": {
+    "src": "Руководитель представительства",
+    "text": "Head of the Representative Office",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "c64f015815ed": {
+    "src": "Профессиональная переподготовка",
+    "text": "Professional retraining",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "c691fbb87a7c": {
     "src": "Проба по Нечипоренко",
     "text": "The Nechiporenko Trial",
@@ -7530,11 +8364,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "c6d4de61c8dc": {
+    "src": "Наименование объекта",
+    "text": "Name of the object",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "c6d93fc51fca": {
     "src": "7.Диагностика функций надпочечников",
     "text": "7.Diagnosis of adrenal gland functions",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "c704bcd2ec4c": {
+    "src": "Курс",
+    "text": "Course",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "c70f07ccf7dc": {
     "src": "За 2-3 дня до исследования не переедать, особенно жирную пищу. Исключить алкоголь, интенсивные физические нагрузки, не посещать сауну, баню",
@@ -7559,6 +8405,12 @@
     "text": "Pakhomov Andrey Viktorovich",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "c7eacb7f99a1": {
+    "src": "Документы образовательных программ",
+    "text": "Educational program documents",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "c80d7e81724d": {
     "src": "Время",
@@ -7663,6 +8515,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "cb96fc8c0267": {
+    "src": "Место нахождения филиала",
+    "text": "Location of the branch",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "cba4bfe2eb1c": {
     "src": "Подвели итоги работы, наметили перспективы на заседании ученого совета",
     "text": "We summed up the results of the work and outlined the prospects at the meeting of the Academic Council",
@@ -7674,6 +8532,18 @@
     "text": "Hygienic requirements for organizations engaged in medical activities: a textbook / L. A. Barkhatova [et al.]; edited by V. M. Boev.  Orenburg: Publishing House of OrGMU, 2015. 156 p.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "cbeec5986fc2": {
+    "src": "Руководители филиалов",
+    "text": "Heads of branches",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "cbff3d9391a8": {
+    "src": "Образовательные стандарты (при наличии)",
+    "text": "Educational standards (if any)",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "cc02623de449": {
     "src": "д.м.н., профессор Бугрова Ольга Викторовна",
@@ -7740,6 +8610,12 @@
     "text": "The labor season of the student medical group \"Jasper\" has started in Orenburg region. The project, which originated in 2023 in Orsk, has received the status of an All-Russian project this season. The grand opening took place in the regional…",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "cd3cb557a666": {
+    "src": "Самостоятельно устанавливаемые требования (при наличии)",
+    "text": "Self-defined requirements (if any)",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "cda9f20d673d": {
     "src": "Хламидии (IgG)",
@@ -7820,6 +8696,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "cefc0cdd6e63": {
+    "src": "Контактный телефон",
+    "text": "Contact phone number",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "cf1561cb50f2": {
     "src": "глюкоза,",
     "text": "glucose,",
@@ -7831,6 +8713,12 @@
     "text": "With the consent of the citizen, the answer can be given verbally during the reception — this is recorded in the personal reception card.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "cf5516ce959c": {
+    "src": "Федеральные государственные образовательные стандарты и самостоятельно устанавливаемые требования по каждой реализуемой программе.",
+    "text": "Federal state educational standards and independently established requirements for each implemented program.",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "cfdb26d65617": {
     "src": "Исследование бактериальной обсемененности воздушной среды (общее микробное число- в том числе плесени)",
@@ -7904,6 +8792,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "d29d7f7b066d": {
+    "src": "Вакантных мест (по договорам)",
+    "text": "Vacancies (under contracts)",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "d2a629b8f162": {
     "src": "Сегодня проректор по воспитательной и социальной работе и связям с общественностью ОрГМУ Андрей Пахомов принял участие в ежегодной стратегической сессии «РОССТУДСПОРТ: Белые ночи». Программа мероприятия была весьма…",
     "text": "Andrey Pakhomov, Vice Rector for Educational and Social Work and Public Relations at OrGMU, took part in the annual strategic session of ROSSTUDSPORT today.: White nights.\" The program of the event was very…",
@@ -7939,6 +8833,12 @@
     "text": "The section is maintained in accordance with Federal Law No. 273-FZ dated December 25, 2008 \"On Combating Corruption\". It publishes regulations, local university documents, forms to fill out, income information, and a channel for reporting corruption.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "d3eb0c33516a": {
+    "src": "Рабочие программы дисциплин",
+    "text": "Work programs of disciplines",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "d444fb811f50": {
     "src": "Предмет закупки",
@@ -7976,6 +8876,12 @@
     "text": "Alpha-2-macroglobulin",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "d4e42748c20f": {
+    "src": "Уровень образования, квалификация",
+    "text": "Education level, qualifications",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "d504206aeffa": {
     "src": "Более 60 студентов Оренбургского государственного медицинского университета вместе с проректором по воспитательной и социальной работе и связям с общественностью Андреем Пахомовым побывали в областной филармонии на…",
@@ -8060,6 +8966,12 @@
     "text": "Local acts and useful links",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "d6aad31b34d5": {
+    "src": "Место нахождения представительства",
+    "text": "Location of the representative office",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "d6b327440ca4": {
     "src": "Экспертиза творческих работ",
@@ -8201,6 +9113,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "d9283eb8fd22": {
+    "src": "Руководитель, заместители и руководители филиалов образовательной организации — с должностями и контактами.",
+    "text": "The head, deputies and heads of branches of the educational organization — with positions and contacts.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "d92abe4ef9e3": {
     "src": "<p><span style=\"font-family: Arial, sans-serif;\">Торжественный выпуск молодых специалистов прошел сегодня в актовом зале второго учебного корпуса ОрГМУ. Особенностью этого года стало завершение обучения первой группы по специальности «профпатология».</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">С напутственным словом к собравшимся обратился проректор по непрерывному медицинскому образованию и региональному развитию здравоохранения Сергей Перепелкин. Он подчеркнул, что диплом - это не финал, а лишь прочный фундамент, на котором будет строиться вся дальнейшая карьера: </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- Медицина стремительно развивается, и вам предстоит совершенствоваться всю жизнь. Университет остается вашим надежным партнером на этом пути: мы всегда готовы поддержать вас в рамках непрерывного медицинского образования. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Разделить торжественный момент с молодыми коллегами пришли почетные гости, среди которых - министр здравоохранения Оренбургской области Андрей Шатилов. Глава ведомства подчеркнул, что многие выпускники уже успели проявить себя на практике: 185 человек совмещали учебу с работой в качестве врачей-стажеров, терапевтов и педиатров.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- Это доказывает ваш искренний интерес к профессии и желание помогать людям - именно такие специалисты нужны нашей медицине, - подчеркнул Андрей Петрович. - Впереди вас ждут непростые задачи: сложные случаи, эмоциональная нагрузка, трудные разговоры. Но вы не останетесь с трудностями один на один: вас поддержат опытные коллеги, наставники и руководители. Мы создаем условия, чтобы каждый молодой специалист чувствовал себя нужным и защищенным.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Важность человеческого фактора в профессии еще раз подчеркнули старшие коллеги. Главный врач Оренбургского областного клинического наркологического диспансера, заведующий кафедрой психиатрии и наркологии ОрГМУ Игорь Чехонадский подчеркнул, как важно уметь сдерживать эмоции и сохранять человечность: </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- Пациенты бывают разные, но медики обязаны оставаться профессионалами. Главное правило — относиться к людям так, как хотелось бы, чтобы относились к тебе. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Заведующий кафедрой травматологии и ортопедии ОрГМУ Андрей Гурьянов, в свою очередь, напомнил выпускникам, что основу профессии составляют непрерывное развитие, милосердие и человечность в работе с пациентами, а также защита от профессионального выгорания. Он пожелал молодым специалистам сохранить внутренний огонь и чуткость, а также обрести простое человеческое счастье.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Декан факультета подготовки кадров высшей квалификации Инна Ткаченко, поздравляя выпускников, отметила их высокий уровень подготовки, продемонстрированный на государственной аттестации.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- Пациенты доверяют вам самое ценное - свою жизнь и здоровье. Пусть ваша работа будет наполнена ответственностью, деликатностью и искренним желанием помогать людям, - подытожила Инна Вячеславовна.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Улыбки, цветы, фото на память – и 252 ординатора готовы к самостоятельной жизни в большой медицинской семье региона.</span></p>",
     "text": "<p><span style=\"font-family: Arial, sans-serif;\">The graduation ceremony of young specialists took place today in the assembly hall of the second academic building of OrGMU. A special feature of this year was the completion of the training of the first group in the specialty \"occupational pathology\".</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Sergey Perepelkin, Vice Rector for Continuing Medical Education and Regional Health Development, addressed the audience with a parting word. He stressed that a diploma is not the end, but only a solid foundation on which to build his entire future career:</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- Medicine is developing rapidly, and you will have to improve all your life. The University remains your reliable partner on this path: we are always ready to support you in the framework of continuing medical education.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Distinguished guests, including Andrey Shatilov, Minister of Health of the Orenburg Region, came to share the solemn moment with their young colleagues. The head of the department stressed that many graduates had already proved themselves in practice: 185 people combined their studies with work as interns, internists and pediatricians.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- This proves your sincere interest in the profession and your desire to help people - these are the specialists our medicine needs, - said Andrey Petrovich. - There are difficult tasks ahead of you: difficult cases, emotional stress, difficult conversations. But you will not be left alone with difficulties: you will be supported by experienced colleagues, mentors and supervisors. We create conditions for every young specialist to feel needed and protected.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The importance of the human factor in the profession was once again emphasized by senior colleagues. Igor Chekhonadsky, Chief Physician of the Orenburg Regional Clinical Narcological Dispensary, Head of the Department of Psychiatry and Narcology at OrGMU, emphasized how important it is to be able to restrain emotions and preserve humanity:</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- There are different types of patients, but doctors must remain professional. The main rule is to treat people the way you would like to be treated.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Andrey Guryanov, Head of the Department of Traumatology and Orthopedics at OrGMU, in turn, reminded graduates that the basis of the profession is continuous development, mercy and humanity in working with patients, as well as protection from professional burnout. He wished the young specialists to preserve their inner fire and sensitivity, as well as to find simple human happiness.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Inna Tkachenko, Dean of the Faculty of Higher Education, congratulating the graduates, noted their high level of training demonstrated at the state certification.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- Patients trust you with the most valuable thing - their lives and health. May your work be filled with responsibility, delicacy and a sincere desire to help people,\" Inna Vyacheslavovna summed up.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Smiles, flowers, keepsake photos – and 252 residents are ready to live independently in a large medical family in the region.</span></p>",
@@ -8239,6 +9157,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "da216df73c3e": {
+    "src": "Специальные технические средства обучения",
+    "text": "Special technical training tools",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "da263ade6c8d": {
     "src": "4 балла — за 2 и 3 места",
     "text": "4 points for 2nd and 3rd places",
@@ -8250,6 +9174,18 @@
     "text": "After that, take a sample into a vacuum tube.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "da8d1441bc4d": {
+    "src": "Телефон учредителя",
+    "text": "Founder's phone number",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "daaa3a5c9d54": {
+    "src": "Научные школы и направления",
+    "text": "Scientific schools and directions",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "dafb853aa1d5": {
     "src": "гистамин",
@@ -8336,6 +9272,12 @@
     "at": "2026-07-22",
     "html": true
   },
+  "dc9558497949": {
+    "src": "Место нахождения учредителя",
+    "text": "Location of the founder",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "dc9cf2f0a6b5": {
     "src": "Архангельский В. И., Кириллов В. Ф. Гигиена и экология человека: учебник. — М.: ГЭОТАР-Медиа, 2023. — 176 с. ISBN 978-5-9704-7698-7. ЭБС «Консультант студента» (по подписке)",
     "text": "Arkhangelsky V. I., Kirillov V. F. Hygiene and human ecology: textbook. Moscow: GEOTAR-Media, 2023. 176 p. ISBN 978-5-9704-7698-7. EBS \"Student Consultant\" (by subscription)",
@@ -8379,11 +9321,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "de52e382f2b7": {
+    "src": "Федеральные государственные требования",
+    "text": "Federal government requirements",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "de7bf8df3c06": {
     "src": "Тиреотропный гормон (ТТГ), Тироксин свободный (Т4 св.), Антитела к тиреопероксидазе (АТ к ТПО)",
     "text": "Thyroid-stimulating hormone (TSH), Thyroxine free (T4 sv.), Antibodies to thyroperoxidase (AT to TPO)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "de853b042a2b": {
+    "src": "Условия охраны здоровья обучающихся",
+    "text": "Health protection conditions for students",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "de918cf85540": {
     "src": "Микоплазма(IgG)",
@@ -8476,6 +9430,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "e096c951cfd4": {
+    "src": "Возникновение и прекращение образовательных отношений",
+    "text": "The emergence and termination of educational relations",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "e0abc5941858": {
     "src": "проведение передовых научных исследований, направленных на выявление и профилактику инфекционных и неинфекционных заболеваний населения;",
     "text": "conducting advanced scientific research aimed at the detection and prevention of infectious and non-communicable diseases of the population;",
@@ -8530,11 +9490,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "e22162de8b4a": {
+    "src": "Руководство образовательной организации",
+    "text": "Management of an educational organization",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "e254e0553c4f": {
     "src": "ФИО (необязательно)",
     "text": "Full NAME (optional)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "e25edb98ee55": {
+    "src": "Структурные подразделения, органы управления, положения о них и контактные данные руководителей.",
+    "text": "Structural divisions, management bodies, regulations on them and contact details of managers.",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "e267d5edba56": {
     "src": "Запись по телефону",
@@ -8633,6 +9605,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "e5cc0c2a839a": {
+    "src": "Государство",
+    "text": "State",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "e60c1163cd4c": {
     "src": "Преподаватель ОрГМУ приняла участие в Съезде психиатров России",
     "text": "OrGMU teacher took part in the Congress of Psychiatrists of Russia",
@@ -8687,6 +9665,12 @@
     "text": "Improved their skills in the field of intellectual property",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "e71d5910e347": {
+    "src": "Организация питания",
+    "text": "Catering services",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "e72a8349a44c": {
     "src": "Оренбургский медицинский университет собрал на своей площадке неврологов страны",
@@ -8796,6 +9780,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "ea935e23f58b": {
+    "src": "Направления научно-исследовательской деятельности",
+    "text": "Areas of scientific research activity",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "eac4c791d39d": {
     "src": "Определение иммуноглобулинов класса M к Chlamydophila pneumoniae в сыворотке крови (при единичной постановке)",
     "text": "Determination of class M immunoglobulins against Chlamydophila pneumoniae in blood serum (with a single diagnosis)",
@@ -8856,6 +9846,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "ec1d3b597da6": {
+    "src": "Стипендии и меры поддержки обучающихся",
+    "text": "Scholarships and student support measures",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "ec1fb316d0ca": {
     "src": "В какой срок ответят на обращение?",
     "text": "How long will the request be answered?",
@@ -8879,6 +9875,12 @@
     "text": "Paid medical services are provided with the voluntary informed consent of the consumer.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "ecfb52f66a72": {
+    "src": "Объём из федерального бюджета",
+    "text": "Volume from the federal budget",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "ecfbd23783fa": {
     "src": "ответственность сторон за невыполнение условий договора;",
@@ -9054,6 +10056,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "f19792383f92": {
+    "src": "Оборудованные учебные кабинеты, объекты для практических занятий, библиотеки, объекты спорта, средства обучения, условия питания и охраны здоровья, доступ к информационным системам.",
+    "text": "Equipped classrooms, facilities for practical training, libraries, sports facilities, educational facilities, nutrition and health conditions, access to information systems.",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "f1ca83fa1c17": {
     "src": "Новости и события",
     "text": "News and events",
@@ -9077,6 +10085,12 @@
     "text": "Authenticity of the diploma",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "f238cdb8423f": {
+    "src": "Наличие и условия предоставления стипендий",
+    "text": "Availability and conditions of scholarships",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "f23fe5c74960": {
     "src": "Режим работы",
@@ -9169,6 +10183,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "f4eaf33a697b": {
+    "src": "Организация-партнёр",
+    "text": "Partner organization",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "f54b35b44f04": {
     "src": "Микробиологическое исследование раневого отделяемого- транссудатов- экссудатов желчи на аэробные и факультативно-анаэробные микроорганизмы (стрептококк- энтерококк) (при выделении микроорганизмов и определении чувствительности к антимикробным препаратам) (дополнительное исследование)",
     "text": "Microbiological examination of wound discharge- transudates- bile exudates for aerobic and facultative anaerobic microorganisms (streptococcus enterococcus) (during isolation of microorganisms and determination of sensitivity to antimicrobial drugs) (additional study)",
@@ -9228,6 +10248,12 @@
     "text": "Examination of the level of bilirubin in urine",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "f68083edd008": {
+    "src": "Лицензия на осуществление образовательной деятельности",
+    "text": "Educational activity license",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "f6f73049031d": {
     "src": "В конкурсе принимают участие индивидуальные творческие работы по следующим направлениям:",
@@ -9380,6 +10406,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "fbafa6519181": {
+    "src": "Документ об установлении стоимости обучения",
+    "text": "The document on the establishment of tuition fees",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "fbd79bb9a6d5": {
     "src": "24 июня состоялась торжественная церемония вручения муниципальных наград медицинским работникам, ежегодной премии имени заслуженного врача РСФСР Веры Чугреевой и награждения победителей муниципального конкурса «Спасибо…",
     "text": "On June 24, a solemn ceremony was held to present municipal awards to medical workers, the annual award named after the Honored Doctor of the RSFSR Vera Chugreeva and award the winners of the municipal competition \"Thank You…",
@@ -9391,6 +10423,12 @@
     "text": "Determination of class A immunoglobulins against Trichomonas vaginalis in blood serum (with a group of at least 5 samples)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "fc14202a55db": {
+    "src": "Вакантные места для приёма (перевода)",
+    "text": "Vacant places for reception (transfer)",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "fc2fd7da4d2f": {
     "src": "Женщины: небольшую первую порцию утренней мочи спустите в унитаз, наполните мочой контейнер",
@@ -9458,11 +10496,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "fcc676b10183": {
+    "src": "Места реализации программ профессионального обучения",
+    "text": "Places where professional training programs are implemented",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "fcdc678d1801": {
     "src": "26 мая впервые на кафедре детских болезней ОрГМУ состоялась Межрегиональная научно-практическая конференция «Школа астмы», которая проходила в онлайн-формате. Организатором школы выступила главный внештатный детский…",
     "text": "On May 26, for the first time, the Interregional Scientific and Practical conference \"School of Asthma\" was held at the Department of Pediatric Diseases of OrGMU, which was held in an online format. The school was organized by the main freelance kindergarten…",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "fcee0792bea5": {
+    "src": "Численность обучающихся",
+    "text": "Number of students",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "fd031f184d1f": {
     "src": "Фолликулостимулирующий гормон (ФСГ)",
@@ -9542,11 +10592,23 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "ff895e422a26": {
+    "src": "Поступления",
+    "text": "Receipts",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "ff9aff14986f": {
     "src": "Научно-исследовательский центр создан решением ученого совета ФГБОУ ВО «Оренбургский государственный медицинский университет» Минздрава России",
     "text": "The Research Center was established by the decision of the Scientific Council of the Orenburg State Medical University of the Ministry of Health of the Russian Federation",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "ffac95eef1a1": {
+    "src": "Свидетельство о государственной аккредитации",
+    "text": "Certificate of state accreditation",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "ffbe776abde8": {
     "src": "Квота для приёма на работу инвалидов",
