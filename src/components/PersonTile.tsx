@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import type { PersonCardItem } from "@/lib/content/persons-types";
 import { initials, avatarColor } from "@/lib/content/persons-types";
 

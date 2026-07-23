@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link";
 
 // Плашка «переведено машиной». Своей вёрстки тут нет: это блок callout из
 // макета PageTemplate.dc.html (иконка акцентным цветом + подложка

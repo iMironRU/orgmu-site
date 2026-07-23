@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getAllNews } from "@/lib/content/news";
 import { toCardItem, kindStyle } from "@/lib/content/news-types";
 import { NewsListView } from "@/components/NewsListView";

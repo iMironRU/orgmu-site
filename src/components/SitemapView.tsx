@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import type { Subsite, SitemapGroup } from "@/lib/content/navigation";
 import { SubsiteTile } from "@/components/SubsiteTile";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import type { Unit } from "@/lib/content/structure-types";
 import { typeMeta, initials, avatarColor, TYPE_META } from "@/lib/content/structure-types";
 

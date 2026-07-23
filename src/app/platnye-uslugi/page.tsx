@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getPrograms } from "@/lib/content/programs";
 import { getProgramPage } from "@/lib/content/program-page";
 import { getPaidServices } from "@/lib/content/paid-services";

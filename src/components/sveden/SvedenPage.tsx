@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { listSectionKeys, getSection } from "@/lib/sveden/vocab";
 import { SECTION_LABELS, SECTION_SHORT, SECTION_LEADS } from "@/lib/sveden/labels";
 import { SvedenSection } from "@/components/sveden/SvedenSection";

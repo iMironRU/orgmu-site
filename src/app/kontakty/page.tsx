@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getUnits } from "@/lib/content/structure";
 import { getFooter } from "@/lib/content/navigation";
 import { SectionToc } from "@/components/SectionToc";

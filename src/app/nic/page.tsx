@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getUnit, getUnitExtra, initials, avatarColor } from "@/lib/content/structure";
 import { getPersonIdByFio } from "@/lib/content/persons";
 import { SectionToc } from "@/components/SectionToc";

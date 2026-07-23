@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getTeachers } from "@/lib/content/persons";
 import { toPersonCard } from "@/lib/content/persons-types";
 import { StaffDirectory } from "@/components/StaffDirectory";

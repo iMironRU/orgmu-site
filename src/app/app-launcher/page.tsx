@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getApps } from "@/lib/content/navigation";
 import { Icon } from "@/components/icons";
 import { PageNav } from "@/components/PageNav";

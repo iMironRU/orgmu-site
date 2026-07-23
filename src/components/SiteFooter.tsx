@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { FooterPicker } from "@/components/FooterPicker";
 import { isTargetLocale } from "@/lib/i18n/config";
 import { t } from "@/lib/i18n/t";

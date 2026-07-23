@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getAllNews } from "@/lib/content/news";
 import { toCardItem } from "@/lib/content/news-types";
 import { getSubsites } from "@/lib/content/navigation";

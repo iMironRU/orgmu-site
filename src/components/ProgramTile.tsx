@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import type { Program } from "@/lib/content/programs-types";
 import { levelColor, levelLabel } from "@/lib/content/programs-types";
 

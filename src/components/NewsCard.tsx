@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import type { NewsCardItem } from "@/lib/content/news-types";
 import { formatDate, kindStyle, newsKind } from "@/lib/content/news-types";
 

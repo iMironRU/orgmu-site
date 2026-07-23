@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { asset } from "@/lib/asset";
 import type { Block, ContentPageData } from "@/lib/content/pages-types";
 import { anchorId, encodeFileHref, fileExt } from "@/lib/content/pages-types";

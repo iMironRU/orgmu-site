@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { asset } from "@/lib/asset";
 import type { EventItem } from "@/lib/content/events-types";
 import { categoryColor, eventDay, eventMonth } from "@/lib/content/events-types";

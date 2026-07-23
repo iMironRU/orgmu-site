@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { notFound } from "next/navigation";
 import { getAllNoticeIds, getNotice } from "@/lib/content/notices";
 import { noticeKindMeta, noticeUntilLong } from "@/lib/content/notices-types";

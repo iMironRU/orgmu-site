@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { load as parseYaml } from "js-yaml";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getPrograms } from "@/lib/content/programs";
 import { getSectionFileDocs } from "@/lib/sveden/documents";
 import { DocCards } from "@/components/sveden/DocCards";

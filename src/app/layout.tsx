@@ -3,6 +3,7 @@ import { Inter, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { UntranslatedNotice } from "@/components/UntranslatedNotice";
+import { LocaleProvider } from "@/lib/i18n/LocaleContext";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SideRail } from "@/components/SideRail";
 import { CookieBanner } from "@/components/CookieBanner";
@@ -67,6 +68,7 @@ export default function RootLayout({
       <body className="min-h-full flex items-stretch">
         {/* Раннее применение настроек доступности до гидрации — без мигания */}
         <script dangerouslySetInnerHTML={{ __html: A11Y_INLINE_SCRIPT }} />
+        <LocaleProvider translatedPaths={translatedPaths}>
         <SideRail translatedPaths={translatedPaths} />
         {/* Отступ снизу на мобиле — под фиксированную панель SideRail,
             иначе подвал уезжает под неё. */}
@@ -82,6 +84,7 @@ export default function RootLayout({
         </div>
         <BackToTop />
         <CookieBanner />
+        </LocaleProvider>
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getSubsites, getSitemapGroups } from "@/lib/content/navigation";
 import { SitemapView } from "@/components/SitemapView";
 

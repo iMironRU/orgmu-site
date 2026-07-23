@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { splitEvents } from "@/lib/content/events";
 import { EventsView } from "@/components/EventsView";
 

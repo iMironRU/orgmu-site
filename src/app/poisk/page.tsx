@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 
 // Поиск по сайту. Макета нет — страница-заглушка в языке дизайн-системы.
 // Поле ввода намеренно НЕ рисуем: работающего поиска нет, а поле, которое

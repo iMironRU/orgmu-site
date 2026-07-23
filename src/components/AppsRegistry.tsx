@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { AppItem, Audience } from "@/lib/content/navigation";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { Icon } from "@/components/icons";
 
 // Реестр приложений. Делим по АУДИТОРИИ, а не по секретности: служебные 1С

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/components/Link";
 import { getActiveNotices } from "@/lib/content/notices";
 import { NoticesView } from "@/components/NoticesView";
 
