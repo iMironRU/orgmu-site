@@ -27,7 +27,15 @@ function fmtUntil(iso?: string): string {
 
 const KEY = "orgma-ann-dismissed";
 
-export function AnnouncementBar({ items }: { items: Announcement[] }) {
+// kindTags — подписи видов, переведённые на сервере: полоса клиентская, а
+// словарь читает файлы, внутрь клиентского бандла его не затащить.
+export function AnnouncementBar({
+  items,
+  kindTags,
+}: {
+  items: Announcement[];
+  kindTags?: Record<string, string>;
+}) {
   const [dismissed, setDismissed] = useState<string[]>([]);
 
   useEffect(() => {
@@ -62,7 +70,7 @@ export function AnnouncementBar({ items }: { items: Announcement[] }) {
             style={{ background: k.bg, borderLeft: `5px solid ${k.accent}` }}
           >
             <span className="shrink-0 font-bold text-[13px] tracking-[0.05em] uppercase" style={{ color: k.accent }}>
-              {k.tag}
+              {kindTags?.[a.kind] ?? k.tag}
             </span>
             <div className="flex-1 min-w-0 flex flex-wrap items-baseline gap-x-3 gap-y-1">
               {a.href ? (

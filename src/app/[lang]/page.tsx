@@ -51,6 +51,11 @@ export default async function TranslatedHome({ params }: { params: Promise<{ lan
 
   // Подписи видов новостей переводим здесь: карточки — клиентский компонент,
   // словарь (он читает файлы) внутрь клиентского бандла не затащить.
+  const kindTags = Object.fromEntries(
+    ([["urgent", "Срочно"], ["important", "Важно"], ["info", "Объявление"]] as const).map(
+      ([k, ru]) => [k, t(ru, lang)],
+    ),
+  );
   const kindLabels = Object.fromEntries(
     (["event", "announce", "congrats", "science", "dept"] as const).map((k) => [
       k,
@@ -104,7 +109,7 @@ export default async function TranslatedHome({ params }: { params: Promise<{ lan
           <div className="flex items-end justify-between gap-4 mb-8 flex-wrap">
             <h2 className="m-0 font-display font-bold text-[33px] text-brand">{t("Известия", lang)}</h2>
           </div>
-          <AnnouncementBar items={announcements.data} />
+          <AnnouncementBar items={announcements.data} kindTags={kindTags} />
         </section>
       )}
 
