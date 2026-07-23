@@ -45,6 +45,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Строки из данных, которые собираются кодом (структура, персоны).
+      # Перегенерируем каждый раз: иначе после правки units.json или sveden
+      # перевод пошёл бы по устаревшему списку.
+      - name: Выгрузка строк из данных
+        run: npx tsx scripts/i18n/export-strings.ts
+
       - name: Перевод
         env:
           YANDEX_TRANSLATE_KEY: ${{ secrets.YANDEX_TRANSLATE_KEY }}
