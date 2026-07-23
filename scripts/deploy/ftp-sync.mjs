@@ -26,7 +26,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
-import { execFileSync } from "node:child_process";
+import { execFileSync, execFile } from "node:child_process";
+
+// Одновременных FTP-сессий. Заливка по одному файлу за раз тянула первую
+// (полную) выкладку 5 часов — половину рабочего дня, за которую любой пуш или
+// парсинг новостей отменил бы прогон. Несколько параллельных сессий кратно
+// быстрее; 6 — с запасом под лимит соединений vsFTPd на один адрес.
+const PARALLEL = 6;
 
 const ROOT = process.cwd();
 const LOCAL_DIR = path.join(ROOT, "out");
@@ -51,6 +57,10 @@ if (!fs.existsSync(LOCAL_DIR)) {
 
 const md5 = (file) => createHash("md5").update(fs.readFileSync(file)).digest("hex");
 
+// Кавычки для аргумента lftp: пути бывают с пробелами (артефакты распаковки в
+// public/ уже попадались). lftp понимает кавычки в стиле оболочки.
+const q = (s) => `"${s.replace(/(["\\])/g, "\\$1")}"`;
+
 function walk(dir, base = "") {
   const out = {};
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -62,21 +72,22 @@ function walk(dir, base = "") {
   return out;
 }
 
+const HEAD = [
+  "set ftp:ssl-allow no", // vsFTPd на AUTH TLS отвечает 530, шифрования нет
+  "set xfer:clobber on", // перезаписывать, а не дописывать в конец
+  "set net:timeout 20",
+  "set net:max-retries 3",
+  "set net:reconnect-interval-base 5",
+  "set cmd:fail-exit yes", // любая упавшая команда — ненулевой код процесса
+  `open -u ${JSON.stringify(USER)},${JSON.stringify(PASS)} ${JSON.stringify(HOST)}`,
+];
+
 // Пароль передаём файлом команд, а не аргументом: аргументы видны в списке
-// процессов, а лог GitHub маскирует только известные ему секреты.
-function lftp(commands) {
-  const script =
-    [
-      "set ftp:ssl-allow no", // vsFTPd на AUTH TLS отвечает 530, шифрования нет
-      "set xfer:clobber on", // перезаписывать, а не дописывать в конец
-      "set net:timeout 20",
-      "set net:max-retries 3",
-      "set net:reconnect-interval-base 5",
-      "set cmd:fail-exit yes",
-      `open -u ${JSON.stringify(USER)},${JSON.stringify(PASS)} ${JSON.stringify(HOST)}`,
-      ...commands,
-    ].join("\n") + "\n";
-  const tmp = path.join(ROOT, ".lftp-script");
+// процессов, а лог GitHub маскирует только известные ему секреты. tag — чтобы
+// параллельные вызовы не делили один файл скрипта.
+function runLftp(commands, tag = "main") {
+  const script = [...HEAD, ...commands].join("\n") + "\n";
+  const tmp = path.join(ROOT, `.lftp-${tag}`);
   fs.writeFileSync(tmp, script, { mode: 0o600 });
   try {
     return execFileSync("lftp", ["-f", tmp], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
@@ -85,11 +96,46 @@ function lftp(commands) {
   }
 }
 
+function runLftpAsync(commands, tag) {
+  const script = [...HEAD, ...commands].join("\n") + "\n";
+  const tmp = path.join(ROOT, `.lftp-${tag}`);
+  fs.writeFileSync(tmp, script, { mode: 0o600 });
+  return new Promise((resolve, reject) => {
+    execFile("lftp", ["-f", tmp], { maxBuffer: 64 * 1024 * 1024 }, (err) => {
+      fs.unlinkSync(tmp);
+      // Код процесса надёжен именно потому, что заливаем последовательными
+      // put в отдельных процессах, а не фоновыми джобами внутри одного lftp:
+      // ошибку фоновой джобы fail-exit может не заметить.
+      err ? reject(err) : resolve();
+    });
+  });
+}
+
+// Раскладывает список по PARALLEL сессиям и ждёт все; падение любой — падение
+// всей выкладки (манифест тогда не пишется).
+async function parallelPut(files) {
+  const groups = Array.from({ length: PARALLEL }, () => []);
+  files.forEach((f, i) => groups[i % PARALLEL].push(f));
+  let done = 0;
+  await Promise.all(
+    groups.map((group, gi) => {
+      const cmds = group.map(
+        (f) =>
+          `put -O ${q(`${REMOTE_DIR}/${path.posix.dirname(f)}`)} ${q(path.join(LOCAL_DIR, f))}`,
+      );
+      return runLftpAsync(cmds, `put${gi}`).then(() => {
+        done += group.length;
+        console.log(`  залито ${done}/${files.length}`);
+      });
+    }),
+  );
+}
+
 function remoteManifest() {
   if (FULL) return {};
   const tmp = path.join(ROOT, ".remote-manifest.json");
   try {
-    lftp([`get ${REMOTE_DIR}/${MANIFEST} -o ${tmp}`]);
+    runLftp([`get ${q(`${REMOTE_DIR}/${MANIFEST}`)} -o ${q(tmp)}`], "manifest-get");
     const data = JSON.parse(fs.readFileSync(tmp, "utf8"));
     fs.unlinkSync(tmp);
     return data;
@@ -122,27 +168,25 @@ if (changed.length === 0 && removed.length === 0) {
   process.exit(0);
 }
 
-// Каталоги создаём заранее: put сам их не создаёт.
+// 1. Каталоги — заранее и в одной сессии: put их сам не создаёт, а mkdir
+//    лёгкий, параллелить незачем. -f гасит ошибку «уже существует».
 const dirs = [...new Set(changed.map((f) => path.posix.dirname(f)).filter((d) => d !== "."))].sort();
+runLftp([`mkdir -p -f ${q(REMOTE_DIR)}`, ...dirs.map((d) => `mkdir -p -f ${q(`${REMOTE_DIR}/${d}`)}`)], "mkdir");
 
-const cmds = [
-  `mkdir -p -f ${REMOTE_DIR}`,
-  ...dirs.map((d) => `mkdir -p -f ${REMOTE_DIR}/${d}`),
-  ...changed.map((f) => `put -O ${REMOTE_DIR}/${path.posix.dirname(f)} ${JSON.stringify(path.join(LOCAL_DIR, f))}`),
-  ...removed.map((f) => `rm -f ${REMOTE_DIR}/${JSON.stringify(f).slice(1, -1)}`),
-];
+// 2. Файлы — параллельными сессиями.
+await parallelPut(changed);
 
-// Манифест пишем последним и только после успешной заливки: оборванная
-// выкладка не должна выглядеть завершённой.
+// 3. Удаления — одной сессией, их обычно единицы.
+if (removed.length) {
+  runLftp(removed.map((f) => `rm -f ${q(`${REMOTE_DIR}/${f}`)}`), "rm");
+}
+
+// 4. Манифест — последним и только сюда дойдя: любой сбой выше бросает
+//    исключение (fail-exit → ненулевой код → throw), и до манифеста не доходим.
+//    Оборванная выкладка не должна выглядеть завершённой.
 const manifestPath = path.join(ROOT, ".manifest-out.json");
 fs.writeFileSync(manifestPath, JSON.stringify(local));
-
-const CHUNK = 400; // длинные скрипты lftp читает медленно, режем на части
-for (let i = 0; i < cmds.length; i += CHUNK) {
-  lftp(cmds.slice(i, i + CHUNK));
-  console.log(`  выполнено ${Math.min(i + CHUNK, cmds.length)}/${cmds.length}`);
-}
-lftp([`put -O ${REMOTE_DIR} ${JSON.stringify(manifestPath)} -o ${MANIFEST}`]);
+runLftp([`put -O ${q(REMOTE_DIR)} ${q(manifestPath)} -o ${q(MANIFEST)}`], "manifest-put");
 fs.unlinkSync(manifestPath);
 
 console.log(`Готово: залито ${changed.length}, удалено ${removed.length}.`);
