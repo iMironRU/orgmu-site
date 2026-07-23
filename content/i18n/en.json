@@ -1359,6 +1359,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "1259571a156b": {
+    "src": "Открыть",
+    "text": "Open",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "126a663573e5": {
     "src": "Производственная (клиническая) практика: Изготовление применение и использование аппаратов для лечения заболеваний височно-челюстных суставов",
     "text": "Industrial (clinical) practice: Manufacture, application and use of devices for the treatment of diseases of the temporomandibular joints",
@@ -2701,6 +2707,12 @@
     "text": "Take the tube with the stopper down, press the stopper against the needle in the hole of the holder until it stops. Make sure that the needle has pierced the rubber part of the tube cap. Urine will begin to flow into the tube, compensating for the vacuum created in it. To ensure proper filling, hold the tube in the holder by pressing on its bottom with your thumb until the urine stops flowing into the tube. If urine does not enter the tube or the flow runs out before the tube is filled to the mark, it is necessary:",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "24055427f4ae": {
+    "src": "Открыть СДО",
+    "text": "Open a personal account",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "241814584eea": {
     "src": "Профессиональное общение в деятельности врача-стоматолога",
@@ -4728,6 +4740,12 @@
   "403d14081744": {
     "src": "ФГБОУ ВО ОГПУ, \"Совершенствование профессиональной деятельности преподавателя медицинского ВУЗа в современных условиях\" (72ч.), удостоверение о ПК №56193234916 от 24.05.2024г",
     "text": "OGPU, \"Improving the professional activity of a medical university teacher in modern conditions\" (72 hours), certificate of PC No. 56193234916 dated 05/24/2024",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
+  "40517f01fb54": {
+    "src": "Открыть МФЦ",
+    "text": "Open an MFC",
     "status": "machine",
     "at": "2026-07-23"
   },
@@ -8273,6 +8291,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "738724359f3e": {
+    "src": "Разработка",
+    "text": "Development",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "73a42488f097": {
     "src": "медицинский университет",
     "text": "Medical University",
@@ -9814,6 +9838,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "89009febe5c6": {
+    "src": "Платформа",
+    "text": "Platform",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "891c967a4143": {
     "src": "Волонтеры-медики рассказали оренбуржцам о меланоме и «красных флагах» перерождения родинок",
     "text": "Medical volunteers told Orenburg residents about melanoma and the \"red flags\" of birthmark degeneration.",
@@ -10285,6 +10315,12 @@
     "text": "Police",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "8e9e556af6e2": {
+    "src": "Медицина",
+    "text": "Medicine",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "8ecbed4faed5": {
     "src": "2.Гематологические исследования",
@@ -14737,6 +14773,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "c914c0224249": {
+    "src": "Скоро",
+    "text": "Soon",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "c922b3d36f66": {
     "src": "Определение иммуноглобулинов класса G к возбудителю описторхоза (Opisthorchis felineus) в сыворотке крови (при единичной постановке)",
     "text": "Determination of class G immunoglobulins to the causative agent of opisthorchiasis (Opisthorchis felineus) in blood serum (with a single diagnosis)",
@@ -15833,6 +15875,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "d838aa075e31": {
+    "src": "Администрирование",
+    "text": "Administration",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "d83a92ed2f76": {
     "src": "Победителям и призёрам олимпиады (выпускникам 11-х классов общеобразовательных организаций) начисляются дополнительные баллы за индивидуальные достижения при поступлении.",
     "text": "The winners and prize-winners of the Olympiad (graduates of 11th grades of general education institutions) are awarded additional points for individual achievements upon admission.",
@@ -15997,6 +16045,12 @@
     "text": "After that, take a sample into a vacuum tube.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "da645daa54e2": {
+    "src": "Настроить ID",
+    "text": "Configure ID",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "da8d1441bc4d": {
     "src": "Телефон учредителя",
@@ -16644,6 +16698,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "e3f8fee00ae5": {
+    "src": "Открыть страницу",
+    "text": "Open a page",
+    "status": "machine",
+    "at": "2026-07-23"
+  },
   "e3fa7ced3efa": {
     "src": "Тестостерон",
     "text": "Testosterone",
@@ -17118,6 +17178,12 @@
     "text": "Pregnant women are recommended to have a glucose tolerance test at 24-28 weeks, which allows them to identify up to 98% of women with gestational diabetes with accuracy.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "ea4db79cd4ed": {
+    "src": "Открыть платформу",
+    "text": "Open the platform",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "ea7224bf38cd": {
     "src": "Определение уровня гормона Тироксин свободный (Т4 своб.) в сыворотке крови",
@@ -18506,6 +18572,12 @@
     "text": "At the end of the award ceremony for the university staff, the Academic Council, chaired by Rector Igor Miroshnichenko, turned to the consideration of the issue \"Results and prospects of the Faculty of Foreign Languages…",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "fd5a30047167": {
+    "src": "Войти в ЭИОС",
+    "text": "Log in to EIOS",
+    "status": "machine",
+    "at": "2026-07-23"
   },
   "fd5f275de3a6": {
     "src": "РАНХиГС, «Методика преподавания основ российской государственности» (72 ч.), удостоверение о ПК 0000129990, дата выдачи 23.08.2023",
