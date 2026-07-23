@@ -63,21 +63,19 @@ jobs:
 
       # Вторая площадка: свой сервер вуза. GitHub Pages из внутренней сети
       # доступен не всегда, а сайт нужен именно там — это его основная
-      # аудитория. Копия полная, обе площадки собираются из одного и того же
-      # out, так что расхождений между ними быть не может.
+      # аудитория. Обе площадки получают один и тот же out, разойтись не могут.
       #
       # continue-on-error: недоступность внутреннего сервера не должна
       # отменять публикацию на Pages. Уже обжигался на диагностическом шаге,
       # который ронял весь прогон.
-      #
-      # mirror сравнивает размер и время, поэтому после первой полной заливки
-      # (~165 МБ, 17 тыс. файлов) уходит только изменённое — обычно единицы
-      # мегабайт. --delete убирает со сервера то, чего больше нет в сборке.
       - name: Установить lftp
         if: ${{ vars.FTP_ENABLED != 'false' }}
         continue-on-error: true
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
+      # Сверка по контрольным суммам, а не по размеру и времени: в сборке есть
+      # файлы, которые меняются, не меняя размера, и lftp mirror их пропускал —
+      # на сервере оставалась прошлая версия сайта. Подробности в самом скрипте.
       - name: Выложить на сервер вуза (FTP)
         if: ${{ vars.FTP_ENABLED != 'false' }}
         continue-on-error: true
@@ -85,29 +83,7 @@ jobs:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          if [ -z "$FTP_HOST" ]; then
-            echo "FTP не настроен (нет секрета FTP_HOST) — пропускаю."
-            exit 0
-          fi
-          # ssl-allow no: сервер (vsFTPd) на AUTH TLS отвечает 530, шифрования
-          # не предлагает. Пароль поэтому ходит открытым текстом — держать его
-          # стоит отдельным, только для выкладки, и менять при подозрениях.
-          # Без --continue: он дописывает в конец существующего файла, если
-          # считает передачу прерванной. На первой заливке это склеило нашу
-          # главную с заглушкой хостинга — в index.html оказалось два <title>.
-          lftp -c "
-            set ftp:ssl-allow no;
-            set xfer:clobber on;
-            set net:timeout 20;
-            set net:max-retries 3;
-            set net:reconnect-interval-base 5;
-            set ftp:use-mdtm no;
-            set mirror:parallel-transfer-count 4;
-            open -u \"$FTP_USER\",\"$FTP_PASSWORD\" \"$FTP_HOST\";
-            mirror --reverse --delete --verbose=1 out/ public_html/;
-          "
-          echo "Выложено на $FTP_HOST:/public_html"
+        run: node scripts/deploy/ftp-sync.mjs
 
   deploy:
     needs: build

@@ -1,22 +1,23 @@
 import type { NextConfig } from "next";
 import { execSync } from "node:child_process";
 
-// Метка сборки для подвала: короткий хеш коммита + момент сборки в UTC. Нужна
-// на время тестирования, чтобы по странице было видно, ту ли сборку смотрим
-// (Pages кеширует, и «поправил, а не видно» — обычно старая копия у клиента).
-// В человеческий вид и пояс браузера её приводит BuildStamp.tsx: здесь только
-// ISO, пересчитывать на сервере нечего — пояс знает лишь клиент.
-function buildSha(): string {
-  // Сначала git, потом GITHUB_SHA: в Actions мы выкачиваем вершину ветки, а
-  // GITHUB_SHA остаётся равен коммиту, которым запущен workflow, — метка врала
-  // бы о том, что именно собрано.
-  return (gitSha() || process.env.GITHUB_SHA || "").slice(0, 7);
-}
-function gitSha(): string {
+// Идентификатор сборки. По умолчанию Next генерирует его случайным, и он
+// зашит в пути к статике на каждой странице — то есть при любой пересборке
+// меняются все файлы сайта. Считаем его от последнего коммита, менявшего КОД:
+// правка контента (новости, yml) идентификатор не трогает, поэтому на сервер
+// вуза уходят только реально изменившиеся страницы.
+//
+// Метка версии для подвала живёт отдельно, в public/build.json
+// (scripts/build-stamp.mjs) — по той же причине.
+function codeBuildId(): string | null {
   try {
-    return execSync("git rev-parse HEAD", { encoding: "utf8" }).trim();
+    const sha = execSync(
+      "git log -1 --format=%H -- src public next.config.ts package.json package-lock.json",
+      { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
+    ).trim();
+    return sha ? sha.slice(0, 12) : null;
   } catch {
-    return ""; // не git-каталог — обойдёмся датой
+    return null; // не git-каталог — пусть Next решает сам
   }
 }
 
@@ -29,7 +30,8 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath,
   assetPrefix: basePath || undefined,
-  env: { NEXT_PUBLIC_BUILD_SHA: buildSha(), NEXT_PUBLIC_BUILD_ISO: new Date().toISOString() },
+  // Стабильный id: см. codeBuildId(). null → поведение Next по умолчанию.
+  generateBuildId: async () => codeBuildId(),
   // На Pages нет сервера оптимизации картинок.
   images: { unoptimized: true },
   // Каждый маршрут выгружается как каталог с index.html.

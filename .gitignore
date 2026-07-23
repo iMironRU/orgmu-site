@@ -57,3 +57,4 @@ next-env.d.ts
 # Артефакт генератора лаунчера app.orgma.ru — собирается из apps.yml,
 # выкладывается вручную. В репозитории не хранится.
 dist-app/
+public/build.json
