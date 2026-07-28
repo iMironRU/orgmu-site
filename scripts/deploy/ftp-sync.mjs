@@ -29,10 +29,9 @@ import { createHash } from "node:crypto";
 import { execFileSync, execFile } from "node:child_process";
 
 // Одновременных FTP-сессий. Заливка по одному файлу за раз тянула первую
-// (полную) выкладку 5 часов — половину рабочего дня, за которую любой пуш или
-// парсинг новостей отменил бы прогон. Несколько параллельных сессий кратно
-// быстрее; 6 — с запасом под лимит соединений vsFTPd на один адрес.
-const PARALLEL = 6;
+// (полную) выкладку 5 часов — половину рабочего дня. Несколько параллельных
+// сессий кратно быстрее; сервер (vsFTPd) держит — проверено.
+const PARALLEL = 10;
 
 const ROOT = process.cwd();
 const LOCAL_DIR = path.join(ROOT, "out");
@@ -114,8 +113,13 @@ function runLftpAsync(commands, tag) {
 // Раскладывает список по PARALLEL сессиям и ждёт все; падение любой — падение
 // всей выкладки (манифест тогда не пишется).
 async function parallelPut(files) {
+  // index.html каждого каталога — первыми. Каталоги создаются пачкой в начале
+  // (mkdir), и пока их index не долит, Apache отдаёт на них 403. Заливая
+  // индексы раньше прочего, схлопываем это окно до долей секунды.
+  const rank = (f) => (f.endsWith("/index.html") || f === "index.html" ? 0 : f.endsWith(".html") ? 1 : 2);
+  const ordered = [...files].sort((a, b) => rank(a) - rank(b));
   const groups = Array.from({ length: PARALLEL }, () => []);
-  files.forEach((f, i) => groups[i % PARALLEL].push(f));
+  ordered.forEach((f, i) => groups[i % PARALLEL].push(f));
   let done = 0;
   await Promise.all(
     groups.map((group, gi) => {
