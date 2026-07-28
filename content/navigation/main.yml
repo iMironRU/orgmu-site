@@ -36,6 +36,7 @@
         - { label: Довузовская подготовка, href: "https://www.orgma.ru/dovuzovskoe-obrazovanie" }
     - title: Приём
       items:
+        - { label: Рейтинговые списки, href: "/reytingovye-spiski" }
         - { label: Олимпиады и конкурсы, href: "/olimpiady" }
         - { label: Приёмная комиссия, href: "https://abitur.orgma.ru" }
         - { label: Правила приёма, href: "https://abitur.orgma.ru" }
