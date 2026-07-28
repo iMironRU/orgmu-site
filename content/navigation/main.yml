@@ -39,7 +39,7 @@
       items:
         - { label: Рейтинговые списки, href: "/reytingovye-spiski" }
         - { label: Олимпиады и конкурсы, href: "/olimpiady" }
-        - { label: Приёмная комиссия, href: "https://abitur.orgma.ru" }
+        - { label: Приёмная комиссия, href: "/priemnaya-komissiya" }
         - { label: Правила приёма, href: "https://abitur.orgma.ru" }
         - { label: Стоимость обучения, href: "/platnye-uslugi" }
         - { label: Целевое обучение, href: "https://abitur.orgma.ru" }

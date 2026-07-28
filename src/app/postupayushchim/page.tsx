@@ -58,10 +58,10 @@ export default function AdmissionsPage() {
           <div className="grid grid-cols-[1.4fr_1fr] gap-4 max-[860px]:grid-cols-1">
             <div className={`${CARD} p-[26px] flex flex-col gap-4`}>
               <div className="grid grid-cols-2 gap-x-6 gap-y-4 max-[520px]:grid-cols-1">
-                {c.secretary && <Field label="Ответственный секретарь" value={c.secretary} />}
+                <Field label="Ответственный секретарь" value={c.secretary} />
                 <Field label="Часы работы" value={c.hours} />
                 <Field label="Адрес" value={c.address} />
-                <Field label="Электронная почта" value={c.email} href={`mailto:${c.email}`} />
+                <Field label="Электронная почта" value={c.email} href={c.email ? `mailto:${c.email}` : undefined} />
               </div>
               <div className="border-t border-line pt-4">
                 <div className="text-[13px] text-ink-3 mb-2">Телефоны по уровням</div>
@@ -141,18 +141,19 @@ export default function AdmissionsPage() {
           </div>
         </section>
 
-        {/* Иностранным абитуриентам — показываем, только когда заполнены данные */}
-        {p.international.contact && (
-          <section className={`${CARD} p-[26px] flex flex-col gap-3`}>
-            <div className="text-[13px] font-bold uppercase tracking-[0.04em] text-ink-3">International · EN · 中文</div>
-            <h2 className="m-0 font-display font-bold text-[24px] text-brand">Иностранным абитуриентам</h2>
-            <p className="m-0 text-[16px] text-ink-2 leading-[1.5] max-w-[720px]">
-              Приём иностранных граждан по квоте Правительства РФ и на договорной основе.
-              Признание документов, визовая поддержка и сопровождение на всех этапах.
-            </p>
-            <div className="text-[15px] text-steel">Международный отдел: {p.international.contact}</div>
-          </section>
-        )}
+        {/* Иностранным абитуриентам. Заготовка с прочерком контакта: блок виден,
+            чтобы было понятно, что раздел есть и что нужно заполнить. */}
+        <section className={`${CARD} p-[26px] flex flex-col gap-3`}>
+          <div className="text-[13px] font-bold uppercase tracking-[0.04em] text-ink-3">International · EN · 中文</div>
+          <h2 className="m-0 font-display font-bold text-[24px] text-brand">Иностранным абитуриентам</h2>
+          <p className="m-0 text-[16px] text-ink-2 leading-[1.5] max-w-[720px]">
+            Приём иностранных граждан по квоте Правительства РФ и на договорной основе.
+            Признание документов, визовая поддержка и сопровождение на всех этапах.
+          </p>
+          <div className="text-[15px] text-steel">
+            Международный отдел: <Dash value={p.international.contact} />
+          </div>
+        </section>
 
         {/* Примечание про Порядок приёма */}
         <div className="flex gap-3 px-[18px] py-4 bg-[rgb(251,251,251)] border border-dashed border-line-strong rounded-[10px]">
@@ -177,13 +178,20 @@ function Field({ label, value, href }: { label: string; value: string; href?: st
   return (
     <div>
       <div className="text-[13px] text-ink-3 mb-[2px]">{label}</div>
-      {href ? (
+      {href && value ? (
         <a href={href} className="text-[16px] font-medium text-ink no-underline hover:text-brand break-words">
           {value}
         </a>
       ) : (
-        <div className="text-[16px] font-medium text-ink break-words">{value}</div>
+        <div className="text-[16px] font-medium break-words">
+          <Dash value={value} />
+        </div>
       )}
     </div>
   );
+}
+
+// Прочерк для незаполненного значения — видно, что данные ещё готовятся.
+function Dash({ value }: { value: string }) {
+  return value ? <span className="text-ink">{value}</span> : <span className="text-ink-3">—</span>;
 }

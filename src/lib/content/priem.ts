@@ -9,6 +9,9 @@ export type Stage = { icon: string; label: string; date: string };
 export type Track = { key: string; label: string; sub: string; stages: Stage[] };
 export type SectionCard = { title: string; desc: string; href: string; badge: string; cta: string };
 
+export type Way = { title: string; desc: string };
+export type Member = { role: string; fio: string; position: string };
+
 export type Priem = {
   year: number;
   committee: {
@@ -22,6 +25,8 @@ export type Priem = {
   tracks: Track[];
   sections: SectionCard[];
   international: { contact: string; students: string; countries: string };
+  ways: Way[];
+  members: Member[];
 };
 
 let cache: Priem | null = null;
