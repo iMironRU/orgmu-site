@@ -75,6 +75,19 @@ export function parseSpiski(raw: Raw[], updated: string): Spiski {
       pref: bool(r["ПреимущественноеПраво"]),
       bvi: bool(r["БВИ"]),
     };
+
+    // Поля состава по Порядку приёма — только если 1С их прислала.
+    const opt = (k: string) => (r[k] === undefined ? undefined : num(r[k]));
+    const optB = (k: string) => (r[k] === undefined ? undefined : bool(r[k]));
+    const optS = (k: string) => (r[k] === undefined ? undefined : str(r[k]));
+    row.idCommon = opt("БаллыЗаОбщиеИД");
+    row.idTarget = opt("БаллыЗаЦелевыеИД");
+    row.pref9 = optB("ПреимПравоЧ9");
+    row.pref10 = optB("ПреимПравоЧ10");
+    row.bviBasis = optS("ОснованиеБВИ") || undefined;
+    row.avgScore = opt("СреднийБалл");
+    row.contract = optB("Договор");
+
     comp.rows.push(row);
   }
 

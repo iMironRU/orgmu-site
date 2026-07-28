@@ -265,7 +265,7 @@ function Table({ comp }: { comp: Competition }) {
               <th className="px-[14px] py-3 font-bold">Уникальный код</th>
               <th className="px-[14px] py-3 font-bold text-center">Сумма<br />баллов</th>
               <th className="px-[14px] py-3 font-bold text-center max-[860px]:hidden">ВИ по предметам</th>
-              <th className="px-[14px] py-3 font-bold text-center max-[860px]:hidden">Инд.<br />дост.</th>
+              <th className="px-[14px] py-3 font-bold text-center max-[860px]:hidden">ИД<br />общ·цел</th>
               <th className="px-[14px] py-3 font-bold text-center">Приор.</th>
               <th className="px-[14px] py-3 font-bold">Преим.<br />право</th>
               <th className="px-[14px] py-3 font-bold">Согласие</th>
@@ -290,6 +290,14 @@ function Table({ comp }: { comp: Competition }) {
                     <span className="inline-flex items-center gap-[7px]">
                       {r.n}
                       {r.cons && <span style={{ color: GREEN }}>✓</span>}
+                      {r.bvi && (
+                        <span
+                          className="text-[10px] font-bold text-white bg-[rgb(120,80,180)] rounded px-[5px] py-[1px]"
+                          title={r.bviBasis || "Без вступительных испытаний"}
+                        >
+                          БВИ
+                        </span>
+                      )}
                     </span>
                   </td>
                   <td className="px-[14px] py-3 font-display text-ink-2 tracking-[0.3px]">{r.code}</td>
@@ -297,10 +305,28 @@ function Table({ comp }: { comp: Competition }) {
                   <td className="px-[14px] py-3 text-center text-ink-2 max-[860px]:hidden tabular-nums">
                     {r.subj.join(" · ")}
                   </td>
-                  <td className="px-[14px] py-3 text-center text-ink-2 max-[860px]:hidden">{r.id}</td>
+                  {/* ИД: раздельно общие и целевые, если 1С их прислала. */}
+                  <td className="px-[14px] py-3 text-center text-ink-2 max-[860px]:hidden tabular-nums">
+                    {r.idCommon !== undefined || r.idTarget !== undefined ? (
+                      <span title="общие · целевые">
+                        {r.idCommon ?? 0}
+                        <span className="text-ink-3"> · {r.idTarget ?? 0}</span>
+                      </span>
+                    ) : (
+                      r.id
+                    )}
+                  </td>
                   <td className="px-[14px] py-3 text-center text-ink-2">{r.pr}</td>
-                  <td className="px-[14px] py-3 text-[14px]" style={{ color: r.pref ? "rgb(180,60,20)" : "rgb(190,190,190)" }}>
-                    {r.pref ? "есть" : "—"}
+                  {/* Преим. право: по частям ст. 71, если детализация есть. */}
+                  <td className="px-[14px] py-3 text-[13px]">
+                    {r.pref9 || r.pref10 ? (
+                      <span className="inline-flex gap-1">
+                        {r.pref9 && <span className="font-bold text-[rgb(180,60,20)] bg-[rgba(184,57,4,0.10)] rounded px-[6px] py-[1px]">ч.9</span>}
+                        {r.pref10 && <span className="font-bold text-[rgb(180,60,20)] bg-[rgba(184,57,4,0.10)] rounded px-[6px] py-[1px]">ч.10</span>}
+                      </span>
+                    ) : (
+                      <span style={{ color: r.pref ? "rgb(180,60,20)" : "rgb(190,190,190)" }}>{r.pref ? "есть" : "—"}</span>
+                    )}
                   </td>
                   <td className="px-[14px] py-3">
                     <span
@@ -404,7 +430,21 @@ function PersonalView({
                   <Chip>{a.comp.quota}</Chip>
                   <Chip>{a.comp.form}</Chip>
                   <Chip>{a.comp.basis}</Chip>
+                  {a.bvi && <Chip>БВИ</Chip>}
+                  {(a.pref9 || a.pref10) && <Chip>{`преим. право ${a.pref9 ? "ч.9" : ""}${a.pref9 && a.pref10 ? "/" : ""}${a.pref10 ? "ч.10" : ""}`}</Chip>}
+                  {a.contract && <Chip>договор ✓</Chip>}
                 </div>
+                {/* Дополнительно по Порядку приёма: критерии при равенстве баллов. */}
+                {(a.idCommon !== undefined || (a.avgScore ?? 0) > 0) && (
+                  <div className="text-[12px] text-ink-3 mt-2">
+                    {a.idCommon !== undefined && <>ИД: общие {a.idCommon}, целевые {a.idTarget ?? 0}. </>}
+                    {(a.avgScore ?? 0) > 0 && <>Средний балл документа: {a.avgScore}.</>}
+                  </div>
+                )}
+                {/* Основание приёма без ВИ — полное наименование, отдельной строкой. */}
+                {a.bvi && a.bviBasis && (
+                  <div className="text-[12px] text-ink-3 mt-1">Основание БВИ: {a.bviBasis}</div>
+                )}
               </div>
               <div className="shrink-0 px-5 py-[14px] flex flex-col justify-center items-center border-l border-line min-w-[110px] max-[640px]:border-l-0 max-[640px]:border-t">
                 <div className="text-[12px] text-ink-3">Ваша позиция</div>
