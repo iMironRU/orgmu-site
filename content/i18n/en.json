@@ -3747,6 +3747,13 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "329f3fb37632": {
+    "src": "<p>Сегодня состоялось тринадцатое (внеочередное) заседание Оренбургского городского совета. Повестка дня включала четыре основных вопроса. Прежде чем приступить к их обсуждению, провели вручение муниципальных наград.</p>\r\n<p>Ректор Оренбургского государственного медицинского университета Игорь Мирошниченко за многолетний и добросовестный труд, профессиональное мастерство и инициативность, а также личный вклад в охрану здоровья оренбуржцев и подготовку профессиональных квалифицированных кадров в сфере медицины удостоился почетного звания «Заслуженный работник здравоохранения г. Оренбурга».</p>",
+    "text": "<p>The thirteenth (extraordinary) meeting of the Orenburg City Council took place today. The agenda included four main issues. Before discussing them, the municipal awards were presented.</p>\r\n<p>Igor Miroshnichenko, Rector of Orenburg State Medical University, was awarded the honorary title \"Honored Healthcare Worker of Orenburg\" for his long-term and conscientious work, professional skills and initiative, as well as his personal contribution to the health of Orenburg residents and the training of qualified professional personnel in the field of medicine.</p>",
+    "status": "machine",
+    "at": "2026-07-28",
+    "html": true
+  },
   "32aa9cf6597e": {
     "src": "Уровень образования",
     "text": "Education level",
@@ -9417,6 +9424,12 @@
     "text": "certificate of PC 130831, date of issue 05/23/2025 OGPU, Orenburg, \"Current issues of additional education. Inclusive education and information and communication technologies in the implementation of educational programs\" (72 hours)",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "83ab1119a7e0": {
+    "src": "Рейтинговые списки",
+    "text": "Rating lists",
+    "status": "machine",
+    "at": "2026-07-28"
   },
   "83b595b532ff": {
     "src": "Количество жилых помещений в интернате",
@@ -17225,6 +17238,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "e987b4c60c34": {
+    "src": "Сегодня состоялось тринадцатое (внеочередное) заседание Оренбургского городского совета. Повестка дня включала четыре основных вопроса. Прежде чем приступить к их обсуждению, провели вручение муниципальных наград…",
+    "text": "The thirteenth (extraordinary) meeting of the Orenburg City Council took place today. The agenda included four main issues. Before discussing them, the municipal awards were presented.…",
+    "status": "machine",
+    "at": "2026-07-28"
+  },
   "e9979df223a2": {
     "src": "ФГБОУ ВО ОрГМУ Минздрава России, Анатомия человека. Интеграция современных и традиционных методов преподавания (18 ч.), удостоверение о ПК 1899/2025, дата выдачи 29.05.2025",
     "text": "Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation, Human Anatomy. Integration of modern and traditional teaching methods (18 hours), certificate of PC 1899/2025, date of issue 05/29/2025",
@@ -17890,6 +17909,12 @@
     "text": "\"Current issues of additional education. Inclusive education and information and communication technologies in the implementation of educational programs\"",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "f2db108361ec": {
+    "src": "Ректор ОрГМУ удостоился почетного звания «Заслуженный работник здравоохранения г. Оренбурга»",
+    "text": "Rector of OrGMU was awarded the honorary title of \"Honored Healthcare Worker of Orenburg\"",
+    "status": "machine",
+    "at": "2026-07-28"
   },
   "f2fa5ca12731": {
     "src": "Химия — «Химия в домашней аптечке»",
