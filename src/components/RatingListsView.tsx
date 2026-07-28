@@ -274,18 +274,9 @@ function Table({ comp }: { comp: Competition }) {
           <tbody>
             {comp.rows.map((r, i) => {
               // Линия отсечения — после последнего проходного места.
-              // Линия отсечения — оранжевая граница на первой непроходной строке.
-              const cutline = seats > 0 && i === seats;
               const passing = seats > 0 && r.n <= seats;
               return (
-                <tr
-                  key={`${r.code}-${i}`}
-                  className="hover:bg-[rgb(247,250,252)]"
-                  style={{
-                    borderTop: cutline ? "2px dashed rgb(255,159,10)" : "1px solid var(--c-line)",
-                  }}
-                  title={cutline ? "Проходной балл" : undefined}
-                >
+                <tr key={`${r.code}-${i}`} className="border-t border-line hover:bg-[rgb(247,250,252)]">
                   <td className="px-[14px] py-3 font-bold" style={{ color: passing ? BRAND : "rgb(120,120,120)" }}>
                     <span className="inline-flex items-center gap-[7px]">
                       {r.n}
