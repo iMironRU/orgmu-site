@@ -115,3 +115,7 @@ jobs:
       pages: write
       id-token: write
     uses: ./.github/workflows/deploy.yml
+    # secrets НЕ наследуются в reusable workflow автоматически — без
+    # inherit deploy.yml получал пустой FTP_HOST и молча пропускал выкладку на
+    # сервер вуза (Pages обновлялся, FTP отставал).
+    secrets: inherit
