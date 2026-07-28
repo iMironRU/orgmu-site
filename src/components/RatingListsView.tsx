@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { asset } from "@/lib/asset";
 import { FilterSelect } from "@/components/FilterSelect";
 import type { Spiski, Competition, Application } from "@/lib/spiski/types";
+import { SPISKI_URL, parseSpiski } from "@/lib/spiski/parse";
 
 // Рейтинговые списки по макету RatingLists.dc.html. Данные грузятся fetch-ем
 // отдельным файлом (не через сборку): страница статическая, а списки в 1С
@@ -35,15 +35,25 @@ export function RatingListsView() {
 
   useEffect(() => {
     let alive = true;
+    // Данные — с отдельного хоста вуза (см. SPISKI_URL). 1С отдаёт плоский
+    // массив строк, разбираем его на клиенте (parseSpiski). Дату обновления
+    // берём из Last-Modified файла — отдельного поля даты в выгрузке нет.
     // no-store: список меняется чаще, чем кешируется; свежесть важнее.
-    fetch(asset("/spiski/spiski.json"), { cache: "no-store" })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d: Spiski | null) => {
+    fetch(SPISKI_URL, { cache: "no-store" })
+      .then(async (r) => {
+        if (!r.ok) return null;
+        const updated = r.headers.get("Last-Modified") ?? "";
+        const raw = await r.json();
+        return Array.isArray(raw) ? parseSpiski(raw, updated) : (raw as Spiski);
+      })
+      .then((d) => {
         if (!alive) return;
         if (!d || !d.competitions?.length) return setLoad({ state: "empty" });
         setLoad({ state: "ready", data: d });
         setProgram(d.competitions[0].program);
       })
+      // Сюда попадаем и при блокировке CORS — тогда на хосте данных нет нужного
+      // заголовка Access-Control-Allow-Origin.
       .catch(() => alive && setLoad({ state: "empty" }));
     return () => {
       alive = false;
