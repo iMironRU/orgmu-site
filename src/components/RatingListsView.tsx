@@ -13,8 +13,13 @@ import { SPISKI_URL, parseSpiski } from "@/lib/spiski/parse";
 const BRAND = "rgb(0,101,155)";
 const GREEN = "rgb(30,160,80)";
 
-function fmtUpdated(iso: string): string {
-  const t = Date.parse(iso);
+function fmtUpdated(raw: string): string {
+  let t = Date.parse(raw);
+  // 1С может отдать дату как «28.07.2026 12:48:10» — Date.parse такое не берёт.
+  if (Number.isNaN(t)) {
+    const m = raw.match(/^(\d{2})\.(\d{2})\.(\d{4})[ T](\d{2}):(\d{2})/);
+    if (m) t = new Date(+m[3], +m[2] - 1, +m[1], +m[4], +m[5]).getTime();
+  }
   if (Number.isNaN(t)) return "";
   // Пояс браузера: смотрят из Оренбурга и не только.
   return new Intl.DateTimeFormat("ru-RU", {

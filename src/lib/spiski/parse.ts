@@ -30,6 +30,14 @@ function quotaOf(title: string, program: string): string {
 export function parseSpiski(raw: Raw[], updated: string): Spiski {
   const byComp = new Map<number, Competition>();
 
+  // Дата обновления — предпочтительно из самих данных (поле «Период»/«Дата» =
+  // момент выгрузки, 1С проставляет его в каждую строку). Так дата не зависит
+  // от CORS-заголовка Last-Modified, который браузер скрывает при загрузке с
+  // другого хоста. Заголовок остаётся запасным вариантом.
+  const first = raw[0] ?? {};
+  const fromData = str(first["Период"]) || str(first["Дата"]);
+  if (fromData && fromData !== "0001-01-01T00:00:00") updated = fromData;
+
   for (const r of raw) {
     const id = num(r["КодКонкурса"]);
     if (!id) continue;
