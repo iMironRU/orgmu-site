@@ -27,6 +27,7 @@
         - { label: Ассоциация выпускников, href: "#" }
 
 - label: Поступающим
+  href: "/postupayushchim"
   columns:
     - title: Программы
       items:
