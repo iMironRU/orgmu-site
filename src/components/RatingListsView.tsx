@@ -283,9 +283,14 @@ function Table({ comp }: { comp: Competition }) {
               return (
                 <tr key={`${r.code}-${i}`} className="border-t border-line hover:bg-[rgb(247,250,252)]">
                   <td className="px-[14px] py-3 font-bold" style={{ color: passing ? BRAND : "rgb(120,120,120)" }}>
-                    <span className="inline-flex items-center gap-[7px]">
-                      {r.n}
-                      {r.cons && <span style={{ color: GREEN }}>✓</span>}
+                    {/* Фиксированные слоты, чтобы бейдж «БВИ» стоял на одной
+                        вертикали: номер выровнен по правому краю, галочка —
+                        всегда своей ширины (пустая, если согласия нет). */}
+                    <span className="inline-flex items-center gap-[6px]">
+                      <span className="tabular-nums text-right min-w-[28px]">{r.n}</span>
+                      <span className="w-[14px] shrink-0 flex justify-center" style={{ color: GREEN }}>
+                        {r.cons ? "✓" : ""}
+                      </span>
                       {r.bvi && (
                         <span
                           className="text-[10px] font-bold text-white bg-[rgb(120,80,180)] rounded px-[5px] py-[1px]"
