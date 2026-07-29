@@ -102,22 +102,33 @@ export function SiteHeader({
           </span>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav. Пункт с href — ссылка на страницу раздела (клик ведёт
+            туда), панель раскрывается по наведению. Без href — кнопка, только
+            раскрывающая мега-панель. */}
         <nav className="hidden min-[1051px]:flex ml-auto items-center gap-1">
-          {NAV.map((item, i) => (
-            <button
-              key={item.label}
-              onMouseEnter={() => setOpen(i)}
-              onClick={() => setOpen(i)}
-              className="font-ui font-bold text-[18px] whitespace-nowrap bg-none border-none px-[14px] py-[10px] cursor-pointer transition-colors"
-              style={{
-                color: open === i ? "var(--c-accent)" : "var(--c-brand)",
-                borderBottom: `3px solid ${open === i ? "var(--c-accent)" : "transparent"}`,
-              }}
-            >
-              {item.label}
-            </button>
-          ))}
+          {NAV.map((item, i) => {
+            const cls =
+              "font-ui font-bold text-[18px] whitespace-nowrap bg-none border-none px-[14px] py-[10px] cursor-pointer transition-colors no-underline";
+            const style = {
+              color: open === i ? "var(--c-accent)" : "var(--c-brand)",
+              borderBottom: `3px solid ${open === i ? "var(--c-accent)" : "transparent"}`,
+            };
+            return item.href ? (
+              <Link key={item.label} href={item.href} onMouseEnter={() => setOpen(i)} className={cls} style={style}>
+                {item.label}
+              </Link>
+            ) : (
+              <button
+                key={item.label}
+                onMouseEnter={() => setOpen(i)}
+                onClick={() => setOpen(i)}
+                className={cls}
+                style={style}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </nav>
 
         {/* Burger (mobile) */}
@@ -174,6 +185,15 @@ export function SiteHeader({
               </button>
               {exp === i && (
                 <div className="px-1 pt-[6px] pb-[14px] pl-3 flex flex-col gap-[14px]">
+                  {item.href && (
+                    <Link
+                      href={item.href}
+                      onClick={closeBurger}
+                      className="font-bold text-[16px] text-accent no-underline py-0.5"
+                    >
+                      Все о разделе «{item.label}» →
+                    </Link>
+                  )}
                   {item.columns.map((col) => (
                     <div key={col.title} className="flex flex-col gap-2">
                       <span className="font-bold text-[15px] text-steel">{col.title}</span>
