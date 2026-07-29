@@ -10,6 +10,7 @@ import {
   newsKind,
 } from "@/lib/content/news";
 import { NewsGallery } from "@/components/NewsGallery";
+import { VideoEmbed } from "@/components/VideoEmbed";
 import { alternates } from "@/lib/i18n/alternates";
 import { ShareButtons } from "@/components/ShareButtons";
 
@@ -89,6 +90,11 @@ export default async function ArticlePage({
             images={galleryImages}
             caption={`Фото: ${item.author || "пресс-служба ОрГМУ"}`}
           />
+
+          {/* Видео к новости — единым плеером (по клику), не сырым iframe. */}
+          {item.video?.map((v, i) => (
+            <VideoEmbed key={i} video={v} className="mb-6" />
+          ))}
 
           <div
             className="prose-news"

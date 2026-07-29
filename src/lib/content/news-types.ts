@@ -1,4 +1,6 @@
 // Чистые типы/хелперы новостей (без node:fs) — для клиентских компонентов.
+import type { Video } from "@/lib/video";
+
 export type MediaRef = { remote: string; file?: string; sha256?: string };
 
 export type NewsItem = {
@@ -12,6 +14,10 @@ export type NewsItem = {
   body_html: string;
   cover: MediaRef | null;
   gallery: MediaRef[];
+  // Видео к новости: ссылки (vk/rutube/mp4) или объекты Video. Скрапер выносит
+  // сюда видео из тела orgma.ru; можно и дописать вручную в json новости.
+  // Показываются единым плеером VideoEmbed, а не сырым iframe в теле.
+  video?: (string | Video)[];
   tags: string[];
   language: string;
 };
