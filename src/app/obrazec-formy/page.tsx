@@ -20,8 +20,10 @@ const DEMO: FormConfig = {
   success: "Форма принята, заявка {ticket}.",
   fields: [
     { name: "text", label: "Текстовое поле", kind: "text", required: true, placeholder: "Обычная строка", hint: "kind: text — обязательное" },
+    { name: "fio", label: "ФИО с подсказками", kind: "text", suggest: "fio", placeholder: "Начните вводить фамилию", hint: "suggest: fio — автодополнение Dadata (нужен токен)" },
+    { name: "address", label: "Адрес с подсказками", kind: "text", suggest: "address", placeholder: "Город, улица, дом", hint: "suggest: address — адрес из ФИАС (нужен токен)" },
     { name: "email", label: "Почта", kind: "email", required: true, placeholder: "you@example.ru", hint: "kind: email — проверяется формат" },
-    { name: "tel", label: "Телефон", kind: "tel", placeholder: "+7 ___ ___-__-__", hint: "kind: tel — проверяется длина" },
+    { name: "tel", label: "Телефон", kind: "tel", hint: "kind: tel — маска и проверка полноты номера" },
     { name: "number", label: "Число", kind: "number", placeholder: "18", hint: "kind: number — числовая клавиатура на телефоне" },
     { name: "date", label: "Дата", kind: "date", hint: "kind: date — нативный выбор даты" },
     { name: "select", label: "Выпадающий список", kind: "select", options: ["Специалитет", "Ординатура", "Аспирантура"], hint: "kind: select — один из вариантов" },

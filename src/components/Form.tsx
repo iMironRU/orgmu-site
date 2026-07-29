@@ -1,9 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { IMaskInput } from "react-imask";
 import { Link } from "@/components/Link";
+import { DadataInput } from "@/components/DadataInput";
+import { DADATA_TOKEN } from "@/lib/forms/dadata";
 import type { FormConfig, FormFieldDef } from "@/lib/forms/types";
 import { submitForm, type SubmitResult } from "@/lib/forms/rpc";
+
+// Российский телефон: маска и нормализация для отправки.
+const PHONE_MASK = "+{7} (000) 000-00-00";
+const phoneDigits = (s: string) => s.replace(/\D/g, "");
+function normalizePhone(s: string): string {
+  let d = phoneDigits(s);
+  if (d.length === 11 && d[0] === "8") d = "7" + d.slice(1);
+  if (d.length === 10) d = "7" + d;
+  return d ? "+" + d : "";
+}
 
 // Единый движок форм сайта: регистрация на мероприятие, опрос, обратная связь.
 // Собирается по конфигу (FormConfig), шлёт данные в 1С по JSON-RPC (см. rpc.ts).
@@ -63,7 +76,7 @@ export function Form({ config, compact = false }: { config: FormConfig; compact?
         continue;
       }
       if (s && f.kind === "email" && !isEmail(s)) e[f.name] = "Проверьте адрес почты";
-      if (s && f.kind === "tel" && s.replace(/\D/g, "").length < 6) e[f.name] = "Проверьте телефон";
+      if (s && f.kind === "tel" && phoneDigits(s).length !== 11) e[f.name] = "Введите номер полностью";
     }
     return e;
   }
@@ -87,7 +100,11 @@ export function Form({ config, compact = false }: { config: FormConfig; compact?
 
     setStatus("sending");
     const fields: Record<string, unknown> = {};
-    for (const f of config.fields) fields[f.name] = values[f.name];
+    for (const f of config.fields) {
+      const v = values[f.name];
+      // Телефон уезжает нормализованным (+7XXXXXXXXXX), а не как в маске.
+      fields[f.name] = f.kind === "tel" && typeof v === "string" ? normalizePhone(v) : v;
+    }
 
     const r = await submitForm(config.method, {
       formId: config.id,
@@ -299,13 +316,36 @@ function Field({
             </label>
           ))}
         </div>
+      ) : f.kind === "tel" ? (
+        // Маска РФ: ввод форматируется на лету, на сервер уедет нормализованный.
+        <IMaskInput
+          mask={PHONE_MASK}
+          value={String(value)}
+          placeholder={f.placeholder || "+7 (___) ___-__-__"}
+          disabled={disabled}
+          inputMode="tel"
+          type="tel"
+          onAccept={(val: string) => onChange(val)}
+          className={`${FIELD} ${border} font-normal`}
+        />
+      ) : f.suggest && DADATA_TOKEN ? (
+        // Подсказки Dadata (ФИО/адрес) — только когда задан токен.
+        <DadataInput
+          kind={f.suggest}
+          value={String(value)}
+          placeholder={f.placeholder}
+          disabled={disabled}
+          invalid={!!error}
+          onChange={onChange}
+          className={`${FIELD} ${border} font-normal`}
+        />
       ) : (
         <input
           type={f.kind}
           value={String(value)}
           placeholder={f.placeholder}
           disabled={disabled}
-          inputMode={f.kind === "tel" ? "tel" : f.kind === "number" ? "numeric" : undefined}
+          inputMode={f.kind === "number" ? "numeric" : undefined}
           onChange={(e) => onChange(e.target.value)}
           className={`${FIELD} ${border} font-normal`}
         />

@@ -26,6 +26,12 @@ export type FormFieldDef = {
   options?: string[];
   /** Для textarea. */
   rows?: number;
+  /**
+   * Подсказки Dadata: "fio" — дополняет ФИО, "address" — адрес (ФИАС).
+   * Работает только если задан токен (NEXT_PUBLIC_DADATA_TOKEN). Без токена
+   * поле обычное. Это передача введённого текста в Dadata — включать осознанно.
+   */
+  suggest?: "fio" | "address";
 };
 
 export type FormConfig = {

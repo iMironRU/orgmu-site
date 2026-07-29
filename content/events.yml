@@ -38,6 +38,7 @@
         kind: text
         required: true
         placeholder: Как в дипломе
+        suggest: fio          # подсказки Dadata — включатся, когда задан токен
       - name: phone
         label: Телефон
         kind: tel
