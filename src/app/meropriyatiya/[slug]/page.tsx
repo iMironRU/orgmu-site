@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { asset } from "@/lib/asset";
 import { getAllEventSlugs, getEvent } from "@/lib/content/events";
 import { categoryColor, eventDateLong, eventWeekday } from "@/lib/content/events-types";
-import { Form } from "@/components/Form";
 
 export const dynamicParams = false;
 
@@ -149,14 +148,15 @@ export default async function EventDetailPage({
                   />
                 )}
               </div>
-              {/* Регистрация: встроенная форма приоритетнее внешней ссылки. */}
+              {/* Регистрация: своя страница (форма не висит открытой здесь).
+                  Встроенная форма приоритетнее внешней ссылки. */}
               {e.register ? (
-                <div className="mt-5 pt-5 border-t border-line">
-                  <div className="font-display font-bold text-[19px] text-brand mb-3">
-                    Регистрация
-                  </div>
-                  <Form config={e.register} compact />
-                </div>
+                <Link
+                  href={`/meropriyatiya/${e.slug}/registraciya`}
+                  className="block text-center mt-5 font-ui font-bold text-[18px] text-white bg-accent rounded-[10px] py-[14px] no-underline hover:bg-[rgb(150,46,3)] transition-colors"
+                >
+                  Зарегистрироваться
+                </Link>
               ) : (
                 e.registerHref && (
                   <a
