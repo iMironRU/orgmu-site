@@ -13,6 +13,8 @@ type BaseProps = {
   searchable?: boolean;
   placeholder?: string;
   className?: string;
+  disabled?: boolean;
+  invalid?: boolean; // красная рамка для формы (ошибка валидации)
 };
 
 type SingleProps = BaseProps & {
@@ -34,7 +36,7 @@ function norm(opts: Option[]): { value: string; label: string }[] {
 }
 
 export function FilterSelect(props: Props) {
-  const { options, searchable = true, placeholder = "Выберите", className } = props;
+  const { options, searchable = true, placeholder = "Выберите", className, disabled = false, invalid = false } = props;
   const multi = props.multi === true;
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
@@ -89,12 +91,15 @@ export function FilterSelect(props: Props) {
     <div ref={rootRef} className={`relative w-full font-ui ${className ?? ""}`}>
       <button
         type="button"
+        disabled={disabled}
         onClick={() => {
           setOpen((o) => !o);
           setQ("");
         }}
-        className={`flex items-center justify-between gap-[10px] w-full box-border text-[16px] text-left px-[14px] py-[11px] border rounded-[9px] bg-white cursor-pointer transition-colors ${
-          open ? "border-accent" : "border-line-strong"
+        className={`flex items-center justify-between gap-[10px] w-full box-border text-[16px] text-left px-[14px] py-[11px] border rounded-[9px] bg-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${
+          disabled ? "" : "cursor-pointer"
+        } ${
+          open ? "border-accent" : invalid ? "border-accent" : "border-line-strong"
         } ${hasValue ? "text-ink" : "text-ink-3"}`}
       >
         <span className="overflow-hidden text-ellipsis whitespace-nowrap">{display}</span>

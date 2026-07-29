@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { IMaskInput } from "react-imask";
 import { Link } from "@/components/Link";
+import { FilterSelect } from "@/components/FilterSelect";
+import { DatePicker } from "@/components/DatePicker";
 import { DadataInput } from "@/components/DadataInput";
 import { DADATA_TOKEN } from "@/lib/forms/dadata";
 import type { FormConfig, FormFieldDef } from "@/lib/forms/types";
@@ -288,17 +290,25 @@ function Field({
           className={`${FIELD} ${border} resize-y font-normal`}
         />
       ) : f.kind === "select" ? (
-        <select
+        // Наша выпадашка вместо нативного <select>. Поиск — для длинных списков.
+        <FilterSelect
+          options={f.options ?? []}
           value={String(value)}
+          onChange={onChange}
           disabled={disabled}
-          onChange={(e) => onChange(e.target.value)}
-          className={`${FIELD} ${border} font-normal cursor-pointer ${value ? "" : "text-ink-3"}`}
-        >
-          <option value="">{f.placeholder || "— выберите —"}</option>
-          {(f.options ?? []).map((o) => (
-            <option key={o} value={o} className="text-ink">{o}</option>
-          ))}
-        </select>
+          invalid={!!error}
+          searchable={(f.options?.length ?? 0) > 8}
+          placeholder={f.placeholder || "— выберите —"}
+        />
+      ) : f.kind === "date" ? (
+        // Наш календарь вместо нативного datepicker.
+        <DatePicker
+          value={String(value)}
+          onChange={onChange}
+          disabled={disabled}
+          invalid={!!error}
+          placeholder={f.placeholder || "Выберите дату"}
+        />
       ) : f.kind === "radio" ? (
         <div className="flex flex-col gap-2 font-normal">
           {(f.options ?? []).map((o) => (
