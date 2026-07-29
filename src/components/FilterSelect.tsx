@@ -116,7 +116,7 @@ export function FilterSelect(props: Props) {
       </button>
 
       {open && (
-        <div className="absolute z-50 top-[calc(100%+6px)] left-0 right-0 bg-white border border-line rounded-xl shadow-[0_12px_32px_rgba(15,40,70,0.16)] overflow-hidden">
+        <div className="absolute z-50 top-[calc(100%+6px)] left-0 min-w-[220px] w-full max-w-[calc(100vw-24px)] bg-white border border-line rounded-xl shadow-[0_12px_32px_rgba(15,40,70,0.16)] overflow-hidden">
           {searchable && (
             <div className="p-[10px] border-b border-[rgb(240,240,240)]">
               <div className="flex items-center gap-2 bg-bg-muted border border-line rounded-lg px-[10px] py-2">
@@ -138,7 +138,7 @@ export function FilterSelect(props: Props) {
             </div>
           )}
 
-          <div className="max-h-[260px] overflow-y-auto p-[6px]">
+          <div className="max-h-[min(400px,60vh)] overflow-y-auto p-[6px]">
             {shown.map((o) => {
               const isSel = sel.includes(o.value);
               return (
@@ -171,7 +171,7 @@ export function FilterSelect(props: Props) {
                       )}
                     </span>
                   )}
-                  <span className="flex-1">{o.label}</span>
+                  <span className="flex-1 whitespace-nowrap">{o.label}</span>
                 </button>
               );
             })}
