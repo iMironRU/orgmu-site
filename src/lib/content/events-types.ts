@@ -1,6 +1,8 @@
 // Чистые типы/хелперы мероприятий (без node:fs) — можно импортировать в клиентские
 // компоненты (EventsView, EventCard).
 
+import type { FormConfig } from "@/lib/forms/types";
+
 export type EventProgramItem = { time: string; title: string; place?: string };
 
 export type EventItem = {
@@ -13,7 +15,8 @@ export type EventItem = {
   address?: string;
   image?: string; // URL или локальный путь из public
   entry?: string; // «Вход свободный», «По регистрации» и т.п.
-  registerHref?: string; // ссылка на регистрацию
+  registerHref?: string; // ссылка на внешнюю регистрацию (если форма не задана)
+  register?: FormConfig; // встроенная форма регистрации (приоритетнее ссылки)
   lead?: string; // вводный абзац (крупный)
   body: string[]; // абзацы описания
   program: EventProgramItem[]; // пункты программы

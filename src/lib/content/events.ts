@@ -40,6 +40,7 @@ function load(): EventItem[] {
       image: e.image,
       entry: e.entry,
       registerHref: e.registerHref,
+      register: e.register,
       lead: e.lead,
       body: (Array.isArray(e.body) ? e.body : e.body ? [e.body] : []).map(toText).filter(Boolean),
       program: Array.isArray(e.program) ? e.program : [],
