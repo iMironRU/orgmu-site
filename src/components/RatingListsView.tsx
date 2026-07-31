@@ -48,7 +48,11 @@ export function RatingListsView() {
       .then(async (r) => {
         if (!r.ok) return null;
         const updated = r.headers.get("Last-Modified") ?? "";
-        const raw = await r.json();
+        // Читаем как текст и снимаем возможный BOM: 1С пишет UTF-8 с BOM, а
+        // JSON.parse на нём падает («Unexpected token»). r.json() BOM обычно
+        // снимает сам, но полагаться на это нельзя.
+        const text = (await r.text()).replace(/^﻿/, "");
+        const raw = JSON.parse(text);
         return Array.isArray(raw) ? parseSpiski(raw, updated) : (raw as Spiski);
       })
       .then((d) => {

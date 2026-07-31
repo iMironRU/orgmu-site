@@ -28,7 +28,11 @@ function quotaOf(title: string, program: string): string {
 }
 
 export function parseSpiski(raw: Raw[], updated: string): Spiski {
-  const byComp = new Map<number, Competition>();
+  // Группируем по КодКонкурса. Если 1С прислала его нулевым/пустым (бывало —
+  // регресс выгрузки), группируем по названию конкурса: оно уникально на
+  // конкурс, а id назначаем синтетический по порядку появления.
+  const byKey = new Map<string, Competition>();
+  let autoId = 0;
 
   // Дата обновления — предпочтительно из самих данных (поле «Период»/«Дата» =
   // момент выгрузки, 1С проставляет его в каждую строку). Так дата не зависит
@@ -39,15 +43,17 @@ export function parseSpiski(raw: Raw[], updated: string): Spiski {
   if (fromData && fromData !== "0001-01-01T00:00:00") updated = fromData;
 
   for (const r of raw) {
-    const id = num(r["КодКонкурса"]);
-    if (!id) continue;
+    const code = num(r["КодКонкурса"]);
+    const title = str(r["Конкурс"]);
+    // Ключ группировки: код, а при нулевом коде — название конкурса.
+    const key = code ? `c${code}` : title ? `t${title}` : "";
+    if (!key) continue; // ни кода, ни названия — строку не к чему отнести
 
-    let comp = byComp.get(id);
+    let comp = byKey.get(key);
     if (!comp) {
       const program = str(r["Специальность"]);
-      const title = str(r["Конкурс"]);
       comp = {
-        id,
+        id: code || ++autoId,
         program,
         title,
         quota: quotaOf(title, program),
@@ -59,7 +65,7 @@ export function parseSpiski(raw: Raw[], updated: string): Spiski {
         consents: num(r["ПоданоСогласий"]),
         rows: [],
       };
-      byComp.set(id, comp);
+      byKey.set(key, comp);
     }
 
     // Баллы по предметам: только заполненные (пустой балл — пустая строка).
@@ -100,7 +106,7 @@ export function parseSpiski(raw: Raw[], updated: string): Spiski {
   }
 
   // На всякий случай упорядочиваем строки конкурса по позиции.
-  for (const c of byComp.values()) c.rows.sort((a, b) => a.n - b.n);
+  for (const c of byKey.values()) c.rows.sort((a, b) => a.n - b.n);
 
-  return { updated, competitions: [...byComp.values()] };
+  return { updated, competitions: [...byKey.values()] };
 }
