@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { DocItem } from "@/lib/sveden/documents";
+import { FileViewer, previewKind } from "@/components/sveden/FileViewer";
 
 const FMT_STYLE: Record<string, { bg: string; fg: string }> = {
   PDF: { bg: "rgba(255,59,48,0.10)", fg: "rgb(214,54,44)" },
@@ -35,10 +36,23 @@ function DownloadIcon() {
   );
 }
 
+// «Глаз» — файл можно посмотреть на сайте (PDF/картинка), не скачивая.
+function EyeIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
 export function DocCard({ d }: { d: DocItem }) {
   const [open, setOpen] = useState(false);
+  const [viewing, setViewing] = useState(false);
   const fmt = FMT_STYLE[d.fmt] ?? FMT_STYLE.DOC;
   const hasFile = !!d.href && !d.missing;
+  // PDF и картинки открываем во встроенном просмотрщике; офис — только скачать.
+  const preview = hasFile ? previewKind(d.fmt, d.href) : null;
   const { head, body } = splitDocTitle(d.title);
   const foldable = body.length > 0;
 
@@ -63,7 +77,11 @@ export function DocCard({ d }: { d: DocItem }) {
     <span className="shrink-0 flex items-center gap-4 justify-end">
       {d.date && <span className="text-[14px] text-ink-3 whitespace-nowrap">{d.date}</span>}
       <span className="text-[14px] text-ink-3 whitespace-nowrap min-w-[64px] text-right">{d.size || "—"}</span>
-      {hasFile && <span className="shrink-0 text-accent"><DownloadIcon /></span>}
+      {hasFile && (
+        <span className="shrink-0 text-accent" title={preview ? "Посмотреть на сайте" : "Скачать"}>
+          {preview ? <EyeIcon /> : <DownloadIcon />}
+        </span>
+      )}
     </span>
   );
 
@@ -82,7 +100,18 @@ export function DocCard({ d }: { d: DocItem }) {
   return (
     <div className={`${CARD} ${hasFile ? "transition-shadow hover:shadow-[0_6px_16px_rgba(0,0,0,0.09)]" : ""}`}>
       {hasFile ? (
-        <a href={d.href} className="flex items-center gap-4 flex-1 min-w-0 no-underline">
+        <a
+          href={d.href}
+          // Превью открываем модалкой по обычному клику; ctrl/cmd/сред. кнопка,
+          // а также офисные файлы (preview=null) — обычная ссылка (скачивание).
+          onClick={(e) => {
+            if (!preview) return;
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+            e.preventDefault();
+            setViewing(true);
+          }}
+          className="flex items-center gap-4 flex-1 min-w-0 no-underline"
+        >
           {badge}
           {title}
           {meta}
@@ -110,6 +139,10 @@ export function DocCard({ d }: { d: DocItem }) {
             <path d="M6 9l6 6 6-6" />
           </svg>
         </button>
+      )}
+
+      {viewing && preview && d.href && (
+        <FileViewer href={d.href} name={d.title} kind={preview} onClose={() => setViewing(false)} />
       )}
     </div>
   );
