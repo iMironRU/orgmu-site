@@ -5,11 +5,10 @@ import { getPrograms, getProgram } from "@/lib/content/programs";
 import { getProgramPage } from "@/lib/content/program-page";
 import { getPriem } from "@/lib/content/priem";
 import { buildDocSkeleton } from "@/lib/content/program-page-types";
+import type { DocYear } from "@/lib/content/program-page-types";
 import { levelColor } from "@/lib/content/programs-types";
 import { SectionToc } from "@/components/SectionToc";
 import { CostTabs, DocTabs } from "@/components/ProgramTabs";
-import { DocCards } from "@/components/sveden/DocCards";
-import type { DocItem } from "@/lib/sveden/documents";
 import type { ProgramDoc } from "@/lib/content/programs-types";
 
 // Страница программы по макету ProgramPage.dc.html: шапка с плашками-фактами,
@@ -30,15 +29,6 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return p ? { title: `${p.name} (${p.code})` } : {};
 }
 
-const toDocItem = (d: ProgramDoc): DocItem => ({
-  itemprop: "",
-  title: d.label,
-  href: d.href,
-  fmt: d.fmt,
-  date: d.date,
-  size: d.size,
-  missing: false,
-});
 
 // Разделы макета. Показываем все, даже пустые: перечень обязательный,
 // исчезнувший раздел читается как «у вуза этого нет».
@@ -106,18 +96,25 @@ export default async function ProgramPage({ params }: { params: Promise<{ id: st
           { value: p.score || DASH, label: "Проходной балл" },
         ];
 
-  // Документы из парсинга sveden — реальные опубликованные документы программы
-  // (без разбивки по годам набора).
-  const docs: DocItem[] = [p.disciplinesDoc, p.practicesDoc, ...(p.opDocs ?? [])]
+  // Реальные опубликованные документы программы из sveden — без разбивки по
+  // годам набора. Разложить их по годам автоматически нельзя: год есть в имени
+  // лишь у части файлов, у остальных признака нет, а дата файла — это дата
+  // загрузки, не год набора. Поэтому собираем их во вкладку «Архив».
+  const archiveFiles = [p.disciplinesDoc, p.practicesDoc, ...(p.opDocs ?? [])]
     .filter((x): x is ProgramDoc => !!x)
-    .map(toDocItem);
+    .map((x) => ({ name: x.label, href: x.href, size: x.size, date: x.date }));
 
   // Документы по годам набора: заполненные вручную (<код>.yml) — как есть;
-  // иначе строим заготовку из срока обучения (term) и года приёма — вкладка на
-  // каждую учащуюся когорту с прочерками. Годы считаем от года приёмной
-  // кампании (priem.yml) назад по сроку; заготовку не строим, если срок без
-  // числа. Реальные opDocs при этом не прячем — показываем отдельной строкой.
-  const yearDocs = d.docs.length > 0 ? d.docs : buildDocSkeleton(p.term, getPriem().year);
+  // иначе строим заготовку из срока обучения (term) и года приёмной кампании
+  // (priem.yml) — вкладка на каждую учащуюся когорту с прочерками, а нынешние
+  // документы уходят вкладкой «Архив» в конце (их предстоит разложить вручную).
+  const yearDocs: DocYear[] =
+    d.docs.length > 0
+      ? d.docs
+      : [
+          ...buildDocSkeleton(p.term, getPriem().year),
+          ...(archiveFiles.length ? [{ year: "Архив", files: archiveFiles }] : []),
+        ];
 
   return (
     <>
@@ -231,21 +228,7 @@ export default async function ProgramPage({ params }: { params: Promise<{ id: st
           <section className="flex flex-col gap-4">
             <H2 id="dokumenty">Учебные планы и документы</H2>
             {yearDocs.length > 0 ? (
-              <>
-                {/* Заготовка по годам (d.docs пуст) — покажем реальные документы
-                    sveden отдельно: их ещё предстоит разложить по годам. */}
-                {d.docs.length === 0 && docs.length > 0 && (
-                  <div className="flex flex-col gap-3">
-                    <p className="m-0 text-[15px] text-ink-3">
-                      Опубликованные документы программы (пока без разбивки по годам набора — их нужно разложить по годам ниже):
-                    </p>
-                    <DocCards docs={docs} />
-                  </div>
-                )}
-                <DocTabs docs={yearDocs} />
-              </>
-            ) : docs.length > 0 ? (
-              <DocCards docs={docs} />
+              <DocTabs docs={yearDocs} />
             ) : (
               <p className="m-0 text-[17px] text-ink-3">Учебные планы и документы не заполнены.</p>
             )}
