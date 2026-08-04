@@ -18,7 +18,9 @@ function TabBar({
   onPick: (t: string) => void;
 }) {
   return (
-    <div className="flex flex-wrap gap-y-1 gap-x-[2px] border-b-2 border-line">
+    // Одна строка: не переносим, при нехватке ширины — горизонтальная прокрутка
+    // (в т.ч. на мобильном). Так 6 годов набора + «Архив» всегда в одну линию.
+    <div className="flex flex-nowrap gap-x-[2px] overflow-x-auto border-b-2 border-line">
       {tabs.map((t) => {
         const on = t === active;
         return (
@@ -26,7 +28,7 @@ function TabBar({
             key={t}
             type="button"
             onClick={() => onPick(t)}
-            className="shrink-0 font-ui font-bold text-[16px] px-4 py-[10px] bg-none border-none cursor-pointer -mb-[2px] transition-colors"
+            className="shrink-0 whitespace-nowrap font-ui font-bold text-[16px] px-4 py-[10px] bg-none border-none cursor-pointer -mb-[2px] transition-colors"
             style={{
               color: on ? "var(--c-brand)" : "var(--c-steel)",
               borderBottom: `2px solid ${on ? "var(--c-accent)" : "transparent"}`,

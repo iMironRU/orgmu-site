@@ -64,8 +64,10 @@ export function buildDocSkeleton(term: string, intakeYear: number): DocYear[] {
   const out: DocYear[] = [];
   for (let i = 0; i < n; i++) {
     const y = intakeYear - i;
+    // Короткая подпись «2026/2027» — чтобы 6 годов + «Архив» умещались в одну
+    // строку. Что это год набора, понятно из заголовка раздела.
     out.push({
-      year: `Набор ${y}/${y + 1}`,
+      year: `${y}/${y + 1}`,
       files: OP_DOC_SET.map((name) => ({ name, href: "" })),
     });
   }
