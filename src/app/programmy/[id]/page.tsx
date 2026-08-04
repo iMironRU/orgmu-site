@@ -3,6 +3,8 @@ import { Link } from "@/components/Link";
 import { notFound } from "next/navigation";
 import { getPrograms, getProgram } from "@/lib/content/programs";
 import { getProgramPage } from "@/lib/content/program-page";
+import { getPriem } from "@/lib/content/priem";
+import { buildDocSkeleton } from "@/lib/content/program-page-types";
 import { levelColor } from "@/lib/content/programs-types";
 import { SectionToc } from "@/components/SectionToc";
 import { CostTabs, DocTabs } from "@/components/ProgramTabs";
@@ -104,11 +106,18 @@ export default async function ProgramPage({ params }: { params: Promise<{ id: st
           { value: p.score || DASH, label: "Проходной балл" },
         ];
 
-  // Документы из парсинга sveden — запасной вариант, пока не заполнены
-  // вкладки по годам набора в <код>.yml.
+  // Документы из парсинга sveden — реальные опубликованные документы программы
+  // (без разбивки по годам набора).
   const docs: DocItem[] = [p.disciplinesDoc, p.practicesDoc, ...(p.opDocs ?? [])]
     .filter((x): x is ProgramDoc => !!x)
     .map(toDocItem);
+
+  // Документы по годам набора: заполненные вручную (<код>.yml) — как есть;
+  // иначе строим заготовку из срока обучения (term) и года приёма — вкладка на
+  // каждую учащуюся когорту с прочерками. Годы считаем от года приёмной
+  // кампании (priem.yml) назад по сроку; заготовку не строим, если срок без
+  // числа. Реальные opDocs при этом не прячем — показываем отдельной строкой.
+  const yearDocs = d.docs.length > 0 ? d.docs : buildDocSkeleton(p.term, getPriem().year);
 
   return (
     <>
@@ -221,7 +230,23 @@ export default async function ProgramPage({ params }: { params: Promise<{ id: st
 
           <section className="flex flex-col gap-4">
             <H2 id="dokumenty">Учебные планы и документы</H2>
-            {d.docs.length > 0 ? <DocTabs docs={d.docs} /> : docs.length > 0 ? <DocCards docs={docs} /> : (
+            {yearDocs.length > 0 ? (
+              <>
+                {/* Заготовка по годам (d.docs пуст) — покажем реальные документы
+                    sveden отдельно: их ещё предстоит разложить по годам. */}
+                {d.docs.length === 0 && docs.length > 0 && (
+                  <div className="flex flex-col gap-3">
+                    <p className="m-0 text-[15px] text-ink-3">
+                      Опубликованные документы программы (пока без разбивки по годам набора — их нужно разложить по годам ниже):
+                    </p>
+                    <DocCards docs={docs} />
+                  </div>
+                )}
+                <DocTabs docs={yearDocs} />
+              </>
+            ) : docs.length > 0 ? (
+              <DocCards docs={docs} />
+            ) : (
               <p className="m-0 text-[17px] text-ink-3">Учебные планы и документы не заполнены.</p>
             )}
             {(d.sign?.signer || d.sign?.valid) && (
