@@ -11571,6 +11571,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "9be91d2a3f5b": {
+    "src": "Приняли участие в профилактической акции «Узнай больше о своем здоровье»",
+    "text": "Took part in the preventive action \"Learn more about your health\"",
+    "status": "machine",
+    "at": "2026-08-17"
+  },
   "9bef9fdf5768": {
     "src": "Сотрудники ОрГМУ провели «Школу иммунодефицитов»",
     "text": "OrGMU staff conducted a \"School of immunodeficiency\"",
@@ -15349,6 +15355,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "cc98b1ddabc9": {
+    "src": "В субботу в торгово-развлекательном комплексе «Армада-2» волонтеры-медики ОрГМУ помогали представителям городских медицинских организаций провести профилактическую акцию для населения. На протяжении всего дня будущие…",
+    "text": "On Saturday, in the Armada-2 shopping and entertainment complex, OrGMU medical volunteers helped representatives of city medical organizations to conduct a preventive action for the population. Throughout the day, the future…",
+    "status": "machine",
+    "at": "2026-08-17"
+  },
   "cc99bbf7e1c2": {
     "src": "За две недели до исследования необходимо отменить препараты, понижающие уровень липидов в крови, если не ставится цель определить гиполипидемический эффект терапии этими препаратами",
     "text": "Two weeks before the study, drugs that lower blood lipids should be discontinued if the goal is not to determine the lipid-lowering effect of therapy with these drugs.",
@@ -18320,6 +18332,13 @@
     "text": "Bioethics",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "f55febf868df": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">В субботу в торгово-развлекательном комплексе «Армада-2» волонтеры-медики ОрГМУ помогали представителям городских медицинских организаций провести профилактическую акцию для населения. На протяжении всего дня будущие врачи встречали гостей комплекса, сопровождали их на нужные площадки, помогали заполнять анкеты и следили за тем, чтобы поток посетителей двигался спокойно и без задержек.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Все желающие могли бесплатно пройти анонимное экспресс</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">тестирование на ВИЧ, получить консультацию по отказу от табака и преодолению алкогольной зависимости, узнать, как контролировать уровень сахара и холестерина, а также получить рекомендации по наблюдению за родинками и оценке возможных рисков.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">On Saturday, in the Armada-2 shopping and entertainment complex, OrGMU medical volunteers helped representatives of city medical organizations to conduct a preventive action for the population. Throughout the day, the future doctors met the guests of the complex, accompanied them to the right sites, helped fill out questionnaires and ensured that the flow of visitors moved calmly and without delay.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Everyone could undergo anonymous rapid HIV testing for free</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\">, receive advice on quitting tobacco and overcoming alcohol dependence, learn how to control sugar and cholesterol levels, and receive recommendations on monitoring moles and assessing possible risks.</span></p>",
+    "status": "machine",
+    "at": "2026-08-17",
+    "html": true
   },
   "f5633fc51f21": {
     "src": "Вступительные испытания для абитуриентов ОрГМУ из Казахстана прошли в Уральске",
