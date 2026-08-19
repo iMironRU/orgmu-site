@@ -5282,6 +5282,12 @@
     "at": "2026-07-22",
     "html": true
   },
+  "4702c4a8c311": {
+    "src": "Мероприятие, которое прошло в рамках национального проекта «Молодежь и дети», было направлено на повышение доступности профилактических осмотров для жителей Оренбургской области. Каждый гражданин старше 15 лет при…",
+    "text": "The event, which was held within the framework of the national project \"Youth and Children\", was aimed at increasing the availability of preventive examinations for residents of the Orenburg region. Every citizen is over 15 years old at…",
+    "status": "machine",
+    "at": "2026-08-19"
+  },
   "471942004f8d": {
     "src": "высшее образование - специалитет, Педиатрия: врач-педиатр.высшее образование: подготовка кадров высшей квалификации - общественное здоровье и здавоохранение",
     "text": "higher education - specialty, Pediatrics: pediatrician.Higher education: training of highly qualified personnel - public health and health protection",
@@ -6385,6 +6391,13 @@
     "text": "Higher education - residency, Infectious diseases, infectious disease specialist",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "56c432afab15": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">Мероприятие, которое прошло в рамках национального проекта «Молодежь и дети», было направлено на повышение доступности профилактических осмотров для жителей Оренбургской области. Каждый гражданин старше 15 лет при предъявлении документов мог бесплатно пройти базовую диагностику и получить рекомендации от профильных специалистов по ведению здорового образа жизни.</span></p>\r\n<p><span style=\"font-size: 8pt; line-height: 107%; font-family: Arial, sans-serif;\">Для посетителей торгово-развлекательного комплекса «Гулливер» была организована работа нескольких тематических зон экспресс-диагностики. Офтальмологи проверяли остроту зрения, психологи консультировали по вопросам управления стрессом и развития памяти, а на площадке рентгенологических исследований проводилось обследование органов грудной клетки. Особое внимание уделили конфиденциальному экспресс-тестированию на ВИЧ</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">The event, which was held within the framework of the national project \"Youth and Children\", was aimed at increasing the availability of preventive examinations for residents of the Orenburg region. Upon presentation of documents, every citizen over the age of 15 could undergo a basic diagnosis for free and receive recommendations from specialized specialists on healthy lifestyle.</span></p>\r\n<p><span style=\"font-size: 8pt; line-height: 107%; font-family: Arial, sans-serif;\">Several thematic express diagnostic zones were organized for visitors to the Gulliver shopping and entertainment complex. Ophthalmologists checked visual acuity, psychologists advised on stress management and memory development, and chest examinations were performed at the X-ray site. Special attention was paid to confidential rapid HIV testing</span></p>",
+    "status": "machine",
+    "at": "2026-08-19",
+    "html": true
   },
   "56f15f74049c": {
     "src": "Институт",
@@ -12086,6 +12099,12 @@
     "text": "The procedure for providing paid medical services",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "a1ff1a48553b": {
+    "src": "Волонтеры-медики ОрГМУ приняли участие в организации профилактической акции",
+    "text": "OrGMU medical volunteers took part in the organization of a preventive action",
+    "status": "machine",
+    "at": "2026-08-19"
   },
   "a1ff374bb617": {
     "src": "высшее образование - бакалавриат, Философия, магистратура - История.",
