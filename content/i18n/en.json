@@ -12929,6 +12929,13 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "abce77a7862e": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">Приемная кампания в вузе продолжается. Уже изданы приказы о зачислении абитуриентов на программы ординатуры на бюджетной основе. В соответствии с ними на обучение поступило 195 человек - все места, предусмотренные планом приема, заняты. Информация о зачислении в ординатуру на коммерческой основе будет опубликована 24 августа.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- С 1 марта этого года все бюджетные места в ординатуре фактически стали целевыми. Теперь учиться за счет средств бюджета возможно, только заключив договор с государственным медучреждением или региональным органом управления здравоохранением. По завершении обучения выпускник обязан отработать в организации в течение срока, предусмотренного договором, - отмечает ответственный секретарь приемной комиссии ОрГМУ Евгений Зинченко. - Поступающие в рамках целевой квоты обязаны найти заказчика целевого обучения во время подачи заявки на поступление, а поступающие в рамках общего конкурса - до завершения обучения и прохождения итоговой аттестации по соответствующей программе ординатуры. Кроме того, для выпускников медвуза предусмотрено наставничество: молодой врач после ординатуры работает во взаимодействии с квалифицированным и опытным специалистом, постепенно осваивая сложные клинические случаи и оттачивая практические навыки. Таким образом, переход выпускника ординатуры к самостоятельной работе становится более плавным и уверенным, а качество медицинской помощи населению&nbsp;- более высоким.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">The university's admission campaign continues. Orders have already been issued to enroll applicants in residency programs on a budgetary basis. According to them, 195 people have enrolled for training - all the places provided for in the admission plan are occupied. Information about admission to the residency program on a commercial basis will be published on August 24.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- Since March 1 of this year, all budget places in the residency program have actually become targeted. Now it is possible to study at the expense of the budget only by signing an agreement with a state medical institution or a regional health management body. Upon completion of their studies, the graduate is required to work in the organization for the period stipulated by the contract,\" said Evgeny Zinchenko, Executive secretary of the admission committee of the OrGMU. - Applicants within the target quota are required to find a customer for targeted training at the time of applying for admission, and applicants within the general competition - before completing their studies and passing the final certification for the relevant residency program. In addition, mentoring is provided for graduates of the medical university: after the internship, the young doctor works in collaboration with a qualified and experienced specialist, gradually mastering complex clinical cases and honing practical skills. Thus, the transition of a graduate to independent work becomes smoother and more confident, and the quality of medical care for the population is higher.</span></p>",
+    "status": "machine",
+    "at": "2026-08-19",
+    "html": true
+  },
   "abed0f3c700d": {
     "src": "Научно-исследовательская работа (учебная практика)",
     "text": "Research work (educational practice)",
@@ -16212,6 +16219,12 @@
     "at": "2026-07-22",
     "html": true
   },
+  "d80b27d98c5a": {
+    "src": "Приемная кампания в вузе продолжается. Уже изданы приказы о зачислении абитуриентов на программы ординатуры на бюджетной основе. В соответствии с ними на обучение поступило 195 человек - все места, предусмотренные…",
+    "text": "The university's admission campaign continues. Orders have already been issued to enroll applicants in residency programs on a budgetary basis. In accordance with them, 195 people enrolled in training - all the places provided for…",
+    "status": "machine",
+    "at": "2026-08-19"
+  },
   "d80ef0b3c8b1": {
     "src": ", ФГБОУ ВО ОрГМУ Минздрава России, «Ревматология» (576 ч.), диплом о ПП 563100100799, дата выдачи 24.12.2018",
     "text": ", Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation, \"Rheumatology\" (576 hours), diploma on PP 563100100799, date of issue 12/24/2018",
@@ -18086,6 +18099,12 @@
     "text": "Innopolis University, \"Practical master class \"Digital teacher's tools\" (16 hours), certificate of PC 160300054270, date of issue 05/19/2023",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "f19255f6c329": {
+    "src": "В Оренбургском государственном медицинском университете подвели итоги приема в ординатуру на бюджетной основе",
+    "text": "Orenburg State Medical University summed up the results of admission to the residency program on a budgetary basis",
+    "status": "machine",
+    "at": "2026-08-19"
   },
   "f19792383f92": {
     "src": "Оборудованные учебные кабинеты, объекты для практических занятий, библиотеки, объекты спорта, средства обучения, условия питания и охраны здоровья, доступ к информационным системам.",
