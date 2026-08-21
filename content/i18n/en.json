@@ -2451,6 +2451,13 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "1f993a511cb6": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">Будущие врачи продолжают регулярно навещать пациентов Оренбургского областного клинического психоневрологического госпиталя ветеранов войн. Мероприятия проходят в рамках акции «Школа активного долголетия»&nbsp;—&nbsp;цикла обучающих групповых занятий, для лиц старше трудоспособного возраста. Акция реализуется при поддержке национального проекта «Молодежь и дети».</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Главная цель проекта&nbsp;—&nbsp;сохранить ясность ума и бодрость духа у старшего поколения, способствовать продлению активного долголетия и улучшению качества жизни.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">На занятиях участники выполняют комплекс разнонаправленных заданий: разгадывают головоломки&nbsp;- для тренировки памяти, внимания и логического мышления; проходят тестирование по Монреальской шкале оценки когнитивных функций -&nbsp;короткому скрининговому тесту, позволяющему быстро оценить состояние разных сторон мышления: памяти, внимания, речи, ориентации, способности планировать и мыслить логически.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">Future doctors continue to regularly visit patients of the Orenburg Regional Clinical Neuropsychiatric Hospital of War Veterans. The events are held as part of the \"School of Active Longevity\" campaign, a series of educational group classes for people over the working age. The campaign is being implemented with the support of the national project \"Youth and Children\".</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The main goal of the project is to preserve the clarity of mind and cheerfulness of the older generation, to promote the prolongation of active longevity and improve the quality of life.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">During the classes, participants perform a set of multidirectional tasks: they solve puzzles to train memory, attention, and logical thinking; they are tested on the Montreal Cognitive Function Assessment Scale, a short screening test that allows them to quickly assess the state of different aspects of thinking: memory, attention, speech, orientation, and the ability to plan and think logically.</span></p>",
+    "status": "machine",
+    "at": "2026-08-21",
+    "html": true
+  },
   "1fa7f22d0005": {
     "src": "Гормоны",
     "text": "Hormones",
@@ -10749,6 +10756,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "911c6156c2f5": {
+    "src": "Будущие врачи продолжают регулярно навещать пациентов Оренбургского областного клинического психоневрологического госпиталя ветеранов войн. Мероприятия проходят в рамках акции «Школа активного долголетия» — цикла…",
+    "text": "Future doctors continue to regularly visit patients of the Orenburg Regional Clinical Neuropsychiatric Hospital of War Veterans. The events are held as part of the \"School of Active Longevity\" cycle campaign.…",
+    "status": "machine",
+    "at": "2026-08-21"
+  },
   "9132c202718e": {
     "src": "ПК \"Неотложная помощь на догоспитальном этапе\", 36ч., удостоверение 563103256696, выдано 20 мая 2023г, ФГБОУ ВО ОрГМУ Минздрава России",
     "text": "PC \"Emergency care at the prehospital stage\", 36h., certificate 563103256696, issued on May 20, 2023, Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation",
@@ -14482,6 +14495,12 @@
     "text": "Management of nursing activities, 144h, certificate of PC 563102790848, date of issue 02.11.2024",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "c06c8e95b74b": {
+    "src": "Волонтеры‑медики ОрГМУ провели занятия в рамках акции «Школа активного долголетия»",
+    "text": "OrGMU medical volunteers conducted classes as part of the \"School of Active Longevity\" campaign",
+    "status": "machine",
+    "at": "2026-08-21"
   },
   "c07ebaa1f6b6": {
     "src": "ФГБОУ ВО ОрГМУ Минздрава России, \"Актуальные вопросы антикоррупционной политики в сфере здравоохранения и образования\" (2ч), сертификат от 09.12.2024",
