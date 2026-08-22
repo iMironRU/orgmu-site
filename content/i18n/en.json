@@ -489,6 +489,13 @@
     "at": "2026-07-22",
     "html": true
   },
+  "062b015ec037": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">Сегодня в России празднуют День Государственного флага&nbsp;Российской Федерации -&nbsp;один из важнейших национальных символов. В научно</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">образовательном центре ОрГМУ состоялась тематическая акция «Флаг державы&nbsp;—&nbsp;символ славы». Ее участники&nbsp;—&nbsp;сотрудники и студенты вуза&nbsp;—&nbsp;отметили праздник необычным способом: они поучаствовали в мастер</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">классе по арт</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">терапии.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Кроме того, в университете поддержали флешмоб «Флаг в окне». Студенты и другие желающие украшали окна своих домов в цветах российского триколора, а затем делились фотографиями в социальных сетях.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">Russia is celebrating National Flag Day today. The Russian Federation is one of the most important national symbols. A thematic event \"The flag of a state ‑ a symbol of glory\" was held at the OrGMU Scientific</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\"> and educational center. Its participants, university staff and students, celebrated the holiday in an unusual way: they participated in a master</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\"> class on art</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\"> therapy.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">In addition, the university supported the \"Flag in the Window\" flash mob. Students and others decorated the windows of their houses in the colors of the Russian tricolor, and then shared photos on social networks.</span></p>",
+    "status": "machine",
+    "at": "2026-08-22",
+    "html": true
+  },
   "0637fc864aea": {
     "src": "<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">7 июля Оренбургская область чествовала своих самых перспективных молодых людей. В торжественной обстановке состоялась церемония награждения победителей ежегодного конкурса, где губернатор Евгений Солнцев лично вручил заслуженные награды. За почетное звание боролись студенты вузов, молодые ученые, спортсмены, военнослужащие и ветераны СВО, волонтеры, победители престижных конкурсов.</span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">Конкуренция была серьезной: из более чем 363 поданных заявок экспертам предстояло выбрать сотню лучших для присвоения почетного знака. От Оренбургского государственного медицинского университета было подано семь заявок. В итоге звания «Золотая молодежь Оренбуржья» удостоились студентка 6-го курса педиатрического факультета Карина Дурткаринова</span><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"> <span style=\"font-family: Arial;\">и </span></span><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">студентка 5-го курса лечебного факультета Наталья Федосова.&nbsp;</span></p>",
     "text": "<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">On July 7, the Orenburg Region honored its most promising young people. The ceremony of awarding the winners of the annual competition was held in a solemn atmosphere, where Governor Evgeny Solntsev personally presented the well-deserved awards. University students, young scientists, athletes, military personnel and veterans of their military forces, volunteers, and winners of prestigious competitions competed for the honorary title.</span></p>\r\n<p class=\"p\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">The competition was serious: out of more than 363 submitted applications, the experts had to choose the hundred best for awarding the badge of honor. Seven applications were submitted from Orenburg State Medical University. As a result, Karina Durtkarinova, a 6th-year student of the Pediatric Faculty, and </span><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"><span style=\"font-family: Arial;\">Natalia Fedosova, a 5th-year student of the Faculty of Medicine, were awarded the title of \"Golden Youth of Orenburg Region.\"</span></span><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"> </span></p>",
@@ -18150,6 +18157,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "f1aa9dabddb1": {
+    "src": "Приняли участие в празднике",
+    "text": "Took part in the celebration",
+    "status": "machine",
+    "at": "2026-08-22"
+  },
   "f1ca83fa1c17": {
     "src": "Новости и события",
     "text": "News and events",
@@ -18481,6 +18494,12 @@
     "text": "Specialized simulation course",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "f5e420a932e6": {
+    "src": "Сегодня в России празднуют День Государственного флага Российской Федерации - один из важнейших национальных символов. В научно ‑ образовательном центре ОрГМУ состоялась тематическая акция «Флаг державы — символ славы»…",
+    "text": "Today, Russia celebrates the Day of the National Flag of the Russian Federation, one of the most important national symbols. A thematic campaign \"The flag of the state ‑ a symbol of glory\" was held at the OrGMU Scientific and Educational center…",
+    "status": "machine",
+    "at": "2026-08-22"
   },
   "f609f830cdc8": {
     "src": "Определение золотистого стафилококка (S.aureus) методом смывов",
