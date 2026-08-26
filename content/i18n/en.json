@@ -1645,6 +1645,13 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "1584dd658913": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">В течение учебного года обучающиеся будут получать дополнительную финансовую поддержку — за успехи в учебе и исследовательской работе. Среди оснований для назначения — высокий уровень успеваемости, победы на олимпиадах, а также участие в научных проектах и авторство в научных публикациях. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">В списках победителей конкурса на назначение стипендии Правительства Российской Федерации: <b>Елизавета Ваганова, Анастасия Власова, Никита Даньшин, Мария Дудкова, Карина Иркенова, Никита Ковзалов, Софья Кремлёва, Евгения Кухлевская, Валерия Малевинская, Анна Манаева, Вадим Мирошников, Михаил Поздняков, Яна Синеговец, Лада Тихонова, Сезим Узенова. </b></span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">В списках победителей конкурса на назначение стипендии президента Российской Федерации: <b>Иван Васильев, Виктория Гопоненко, Мария Михайлова, Екатерина Пашенец, Александр Фатеев, Наталья Федосова. </b></span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">During the academic year, students will receive additional financial support for their academic and research achievements. Among the reasons for the appointment are a high level of academic performance, winning Olympiads, as well as participation in scientific projects and authorship in scientific publications.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The list of winners of the Russian Federation Government scholarship award includes: <b>Elizaveta Vaganova, Anastasia Vlasova, Nikita Danshin, Maria Dudkova, Karina Irkenova, Nikita Kovzalov, Sofia Kremleva, Evgenia Kukhlevskaya, Valeria Malevinskaya, Anna Manaeva, Vadim Miroshnikov, Mikhail Pozdnyakov, Yana Sinegovets, Lada Tikhonova, Sezim Uzenova.</b></span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The list of winners of the presidential scholarship award includes <b>Ivan Vasiliev, Victoria Goponenko, Maria Mikhailova, Ekaterina Pashenets, Alexander Fateev, Natalia Fedosova.</b></span></p>",
+    "status": "machine",
+    "at": "2026-08-26",
+    "html": true
+  },
   "1586417c0588": {
     "src": "А-Фетопротеин",
     "text": "A-Fetoprotein",
@@ -7841,6 +7848,12 @@
     "text": "Office of Digital Development",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "68ff5191d476": {
+    "src": "Стипендии президента и Правительства РФ в этом году присуждены 21 студенту Оренбургского государственного медицинского университета",
+    "text": "Scholarships of the President and Government of the Russian Federation were awarded this year to 21 students of Orenburg State Medical University.",
+    "status": "machine",
+    "at": "2026-08-26"
   },
   "6915d44f45c2": {
     "src": "«Школа астмы» собрала ведущих специалистов Оренбуржья и Башкортостана",
@@ -16829,6 +16842,12 @@
     "text": "Determination of the metabolic activity of phagocytes in the HCT test in the blood",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "df0447359936": {
+    "src": "В течение учебного года обучающиеся будут получать дополнительную финансовую поддержку — за успехи в учебе и исследовательской работе. Среди оснований для назначения — высокий уровень успеваемости, победы на олимпиадах…",
+    "text": "During the academic year, students will receive additional financial support for their academic and research achievements. Among the reasons for the appointment are the high level of academic performance and Olympic victories.…",
+    "status": "machine",
+    "at": "2026-08-26"
   },
   "df3155e07589": {
     "src": "По алфавиту (А–Я)",
