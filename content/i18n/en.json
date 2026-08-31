@@ -6394,6 +6394,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "556255fe955e": {
+    "src": "Суббота в центре Оренбурга получилась для горожан не только праздничной, но и по-настоящему полезной. У памятного знака «Спасибо, донор!» возле четвертого корпуса ОрГМУ волонтеры университета развернули информационные…",
+    "text": "Saturday in the center of Orenburg turned out to be not only festive for the townspeople, but also really useful. At the memorial sign \"Thank you, donor!\" near the fourth building of OrGMU, university volunteers deployed information…",
+    "status": "machine",
+    "at": "2026-08-31"
+  },
   "556b98946329": {
     "src": "Порядок обращения, документы и ответы на частые вопросы.",
     "text": "The order of treatment, documents and answers to frequently asked questions.",
@@ -10315,6 +10321,12 @@
     "text": "Candidate of Medical Sciences, 14.00.07. Hygiene",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "8a0409dd1a2d": {
+    "src": "Университет принял участие в организации празднования Дня города",
+    "text": "The University took part in the organization of the celebration of the City Day",
+    "status": "machine",
+    "at": "2026-08-31"
   },
   "8a12215498c9": {
     "src": "высшее образование - ординатура \"Клиническая фармакология\", врач-клинический фармаколог",
@@ -16549,6 +16561,13 @@
     "text": "1 week before the study, refrain from taking medications that affect gastric secretion: Pepcedin, Zantac, Nizax, Ranimex, Esofex, Losec, Somac, Ranixal, Ranil",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "d8f9a447ba9b": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">Суббота в центре Оренбурга получилась для горожан не только праздничной, но и по-настоящему полезной. У памятного знака «Спасибо, донор!» возле четвертого корпуса ОрГМУ волонтеры университета развернули информационные пункты, где провели консультирование взрослых жителей по вопросам профилактики сердечно</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">сосудистых заболеваний. Для оценки индивидуальных факторов риска специалисты выполнили анкетирование посетителей.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Для юных гостей праздника студенты провели обучающий мастер</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">класс: ребята освоили правильную технику гигиенической чистки зубов с использованием демонстрационных материалов.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Большой интерес участников праздника вызвал обучающий интерактивный пункт по обучению приемам неотложной помощи. Все желающие пробовали выполнять сердечно</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">легочную реанимацию на тренажере, учились накладывать кровоостанавливающий жгут и разбирали, как правильно сообщить о происшествии диспетчеру. Все упражнения проходили под контролем студентов</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">инструкторов старших курсов.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">Saturday in the center of Orenburg turned out to be not only festive for the townspeople, but also really useful. University volunteers set up information points near the memorial sign \"Thank you, donor!\" near the fourth building of OrGMU, where they conducted consultations for adult residents on the prevention of cardiovascular</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\"> diseases. To assess individual risk factors, experts conducted a survey of visitors.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The students conducted a training master class for the young guests of the holiday</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\">: the children mastered the correct technique of hygienic teeth cleaning using demonstration materials.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The interactive training center for emergency care techniques aroused great interest among the participants of the holiday. Everyone tried to perform cardiopulmonary</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\"> resuscitation on the simulator, learned how to apply a hemostatic tourniquet and figured out how to properly report an incident to the dispatcher. All exercises were supervised by senior students</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\">.</span></p>",
+    "status": "machine",
+    "at": "2026-08-31",
+    "html": true
   },
   "d927beee57ab": {
     "src": "Внимание. В течение всего периода сбора мочу хранить в холодильнике",
