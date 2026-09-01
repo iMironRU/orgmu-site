@@ -1942,6 +1942,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "191ca48c2af5": {
+    "src": "С начала учебного года для поступивших в ОрГМУ традиционно проходят специальные мероприятия «Дни знакомства с университетом». Сегодня на нескольких площадках студенческого городка (в учебных корпусах №2 и №4) со своими…",
+    "text": "Since the beginning of the academic year, special events \"University Acquaintance Days\" have traditionally been held for applicants to OrGMU. Today, several campus sites (in academic buildings No. 2 and No. 4) with their own…",
+    "status": "machine",
+    "at": "2026-09-01"
+  },
   "1934df1e650b": {
     "src": "высшее образование - специалитет, Фармация",
     "text": "higher education - specialty, Pharmacy",
@@ -6346,6 +6352,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "54b45ae9ca53": {
+    "src": "Для первокурсников начались «Дни знакомства с университетом»",
+    "text": "The \"University Acquaintance Days\" have begun for first-year students",
+    "status": "machine",
+    "at": "2026-09-01"
+  },
   "54e535c35c12": {
     "src": "Практическая подготовка: \"Деятельность медицинской сестры по организации школ здоровья\"",
     "text": "Practical training: \"Activities of a nurse in organizing health schools\"",
@@ -10031,6 +10043,13 @@
     "text": "Subject Olympiads for students of OrGMU",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "86e0c9946efe": {
+    "src": "<div style=\"font-family: 'Segoe UI'; font-size: 12px; color: #000000;\">\r\n<p style=\"font-family: Arial; font-size: 14.6667px; margin: 0px 0px 1px;\">С начала учебного года для поступивших в ОрГМУ традиционно проходят специальные мероприятия «Дни знакомства с университетом». Сегодня на нескольких площадках студенческого городка (в учебных корпусах №2 и №4) со своими деканами и тьюторами встречаются студенты лечебного, стоматологического, фармацевтического, медико-профилактического факультетов и факультета клинической психологии.</p>\r\n<p style=\"font-family: Arial; font-size: 14.6667px; margin: 0px 0px 1px;\">Вопросов для обсуждения много: что собой представляет вуз, где расположены корпуса, как добираться до места обучения, каковы особенности обучения, как одеваться и к кому обращаться с вопросами, как организовано питание и досуг и так далее. Конечно, завтра и послезавтра последуют новые вопросы, но главное – студенческая жизнь началась.</p>\r\n<p style=\"font-family: Arial; font-size: 14.6667px; margin: 0px 0px 1px;\">Официальный старт новому учебному году будет дан сегодня в 17 часов на торжественной линейке около областной больницы им. В.И. Войнова.</p>\r\n</div>",
+    "text": "<div style=\"font-family: 'Segoe UI'; font-size: 12px; color: #000000;\">\r\n<p style=\"font-family: Arial; font-size: 14.6667px; margin: 0px 0px 1px;\">Since the beginning of the academic year, special events \"University Acquaintance Days\" have traditionally been held for applicants to OrGMU. Today, students of the medical, dental, pharmaceutical, medical and Preventive Faculties and the Faculty of Clinical Psychology meet with their deans and tutors at several sites on the campus (in academic buildings No. 2 and No. 4).</p>\r\n<p style=\"font-family: Arial; font-size: 14.6667px; margin: 0px 0px 1px;\">There are many questions to discuss: what is a university, where the buildings are located, how to get to the place of study, what are the features of training, how to dress and whom to contact with questions, how meals and leisure are organized, and so on. Of course, new questions will follow tomorrow and the day after, but the main thing is that student life has begun.</p>\r\n<p style=\"font-family: Arial; font-size: 14.6667px; margin: 0px 0px 1px;\">The official start of the new academic year will be given today at 5 p.m. on a solemn line near the regional hospital named after V.I. Voynov.</p>\r\n</div>",
+    "status": "machine",
+    "at": "2026-09-01",
+    "html": true
   },
   "87045aee1848": {
     "src": "На протяжении двух дней, 28 и 29 мая, в Санкт-Петербургском государственном педиатрическом медицинском университете проходил Национальный конгресс с международным участием «Здоровые дети — будущее страны». Во второй…",
