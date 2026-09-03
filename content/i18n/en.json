@@ -4335,6 +4335,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "379eb790bee7": {
+    "src": "Старт неделе знакомства дали встречи с деканами факультетов первого сентября. Они подробно рассказали ребятам о структуре вуза, особенностях учебного процесса, системе оценивания и перспективах профессионального…",
+    "text": "The start of the acquaintance week was given by meetings with the deans of the faculties on the first of September. They told the students in detail about the structure of the university, the specifics of the educational process, the assessment system and the prospects for professional development.…",
+    "status": "machine",
+    "at": "2026-09-03"
+  },
   "37ad46cb0e55": {
     "src": "На прошлой неделе ректор ОрГМУ Игорь Мирошниченко принял участие в выездной конференции для руководителей вузов, организованной Сбером. Участники обсудили актуальные темы в сфере образования, новые форматы…",
     "text": "Last week, Igor Miroshnichenko, Rector of OrGMU, took part in a visiting conference for university leaders organized by the BEAC. The participants discussed current topics in the field of education, new formats…",
@@ -9224,6 +9230,13 @@
     "text": "higher education - full-time postgraduate study in specialty 03/14/2011 Human Anatomy, research physician.",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "7bf46c62e600": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">Сотрудники кафедры общественных наук и молодежной политики ОрГМУ вместе со студентами сегодня приняли участие во Всероссийской минуте молчания, приуроченной ко Дню солидарности в борьбе с терроризмом.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Этот день учрежден в память о жертвах терактов и о тех, кто погиб при исполнении служебного долга. Особое место в этой памяти занимает трагедия в Беслане: 1 сентября 2004 года террористы захватили школу № 1, где в момент нападения находились более тысячи человек. Удерживая заложников в невыносимых условиях, преступники унесли жизни более 300 человек; среди погибших — много детей, а также сотрудники спецслужб, правоохранительных органов и спасатели, проявившие мужество.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">Employees of the Department of Social Sciences and Youth Policy of the OrGMU together with students today took part in the All-Russian minute of silence dedicated to the Day of Solidarity in the Fight against Terrorism.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">This day was established in memory of the victims of terrorist attacks and those who died in the line of duty. A special place in this memory is occupied by the tragedy in Beslan: on September 1, 2004, terrorists seized school No. 1, where more than a thousand people were at the time of the attack. While holding hostages in unbearable conditions, the criminals claimed the lives of more than 300 people; among the dead were many children, as well as employees of special services, law enforcement agencies and rescuers who showed courage.</span></p>",
+    "status": "machine",
+    "at": "2026-09-03",
+    "html": true
   },
   "7bf735673cdf": {
     "src": "На церемонии награждения победителей конкурса профессионального мастерства «Медицинский Олимп Оренбуржья» старший преподаватель кафедры стоматологии и челюстно-лицевой хирургии, заведующий отделением областного…",
@@ -14765,6 +14778,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "c14a1cfba543": {
+    "src": "В Оренбургском государственном медицинском университете продолжаются «Дни знакомства с университетом»",
+    "text": "Orenburg State Medical University continues its \"University Acquaintance Days\"",
+    "status": "machine",
+    "at": "2026-09-03"
+  },
   "c14d46b447b8": {
     "src": "Заведующий лабораторией",
     "text": "Head of the laboratory",
@@ -15254,6 +15273,12 @@
     "status": "human",
     "at": "2026-07-23"
   },
+  "c7cf047be89d": {
+    "src": "Почтили минутой молчания День солидарности в борьбе с терроризмом",
+    "text": "We observed a minute of silence on the Day of Solidarity in the Fight against Terrorism",
+    "status": "machine",
+    "at": "2026-09-03"
+  },
   "c7d00f6a2398": {
     "src": "I возрастная группа — 1–4 классы",
     "text": "Age group I — grades 1-4",
@@ -15543,6 +15568,12 @@
     "text": "PC \"General hygiene\" takes place (144 hours) from 01/20/2026",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "cb7e16905f95": {
+    "src": "Сотрудники кафедры общественных наук и молодежной политики ОрГМУ вместе со студентами сегодня приняли участие во Всероссийской минуте молчания, приуроченной ко Дню солидарности в борьбе с терроризмом. Этот день учрежден…",
+    "text": "Employees of the Department of Social Sciences and Youth Policy of the OrGMU together with students today took part in the All-Russian minute of silence dedicated to the Day of Solidarity in the Fight against Terrorism. This day has been established…",
+    "status": "machine",
+    "at": "2026-09-03"
   },
   "cb96c8adde38": {
     "src": "Определение иммуноглобулинов класса M к трихинеллам (Trichinella spiralis) в сыворотке крови (при групповой постановке не менее 5 проб)",
@@ -17906,6 +17937,13 @@
     "text": "Industrial (clinical) practice: Management of a medical organization.",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "ea84b7fbca54": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">Старт неделе знакомства дали встречи с деканами факультетов первого сентября. Они подробно рассказали ребятам о структуре вуза, особенностях учебного процесса, системе оценивания и перспективах профессионального развития. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Важной частью программы знакомства с вузом стали экскурсии по университету: первокурсники посещают корпуса и кафедры, знакомятся с учебно</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">научной базой, которой располагает университет. Это помогает им лучше представить, как будет строиться их обучение и научная работа.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Особым и запоминающимся событием для новичков стал веревочный курс, прошедший вчера на спортивной базе университета в Зауральной роще. Активисты студенческих объединений подготовили для первокурсников серию игр на сплочение и командообразование. Их задача была не в спортивных достижениях, а в том, чтобы сплотить новые учебные группы, помочь будущим медикам научиться работать в команде и доверять друг другу. В организации активно участвовали тьюторы и представители Ассоциации общественных объединений студентов — они поддерживали ребят и помогали вовлекаться в процесс</span> <span style=\"font-family: Arial, sans-serif;\">адаптации к новым условиям и снятия эмоционального напряжения.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Ректор ОрГМУ Игорь Мирошниченко лично пообщался с первокурсниками и с представителями общественных объединений, напутствовал будущих врачей, мотивируя их на успешное обучение и активное участие во внеучебной деятельности вуза.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">В конце недели будущих медиков ждет еще одно значимое событие&nbsp;—&nbsp;ярмарка общественных объединений университета. Новичкам расскажут о широких возможностях для самореализации: от научных кружков до творческих и волонтерских инициатив. </span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">The start of the acquaintance week was given by meetings with the deans of the faculties on the first of September. They told the students in detail about the structure of the university, the specifics of the educational process, the assessment system and the prospects for professional development.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">University tours have become an important part of the university's acquaintance program: first‑year students visit buildings and departments, get acquainted with the educational</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\"> and scientific base at the university. This helps them to better imagine how their education and scientific work will be structured.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">A special and memorable event for beginners was the rope course that took place yesterday at the university's sports base in the Trans-Ural Grove. Activists of student associations have prepared a series of rallying and team building games for first-year students. Their task was not to achieve athletic achievements, but to rally new study groups, help future doctors learn how to work in a team and trust each other. Tutors and representatives of the Association of Public Associations of Students actively participated in the organization — they supported the children and helped them get involved in the process</span> of <span style=\"font-family: Arial, sans-serif;\">adapting to new conditions and relieving emotional stress.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Igor Miroshnichenko, Rector of OrGMU, personally talked with first-year students and representatives of public associations, advised future doctors, motivating them to successfully study and actively participate in extracurricular activities of the university.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">At the end of the week, future doctors will have another significant event — the fair of public associations of the university. Beginners will learn about the wide range of opportunities for self-realization: from academic circles to creative and volunteer initiatives.</span></p>",
+    "status": "machine",
+    "at": "2026-09-03",
+    "html": true
   },
   "ea8afcd3df1b": {
     "src": "Безопасность жизнедеятельности",
