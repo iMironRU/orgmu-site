@@ -17,6 +17,7 @@ import { uiStrings } from "@/lib/i18n/ui-strings";
 import { RAIL_UI } from "@/lib/i18n/ui-defs";
 import { getPageSlugs } from "@/lib/content/pages";
 import { A11Y_INLINE_SCRIPT } from "@/lib/a11y";
+import { METRIKA_COUNTER_ID, METRIKA_INLINE_SCRIPT } from "@/lib/metrika";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -102,6 +103,17 @@ export default function RootLayout({
       <body className="min-h-full flex items-stretch">
         {/* Раннее применение настроек доступности до гидрации — без мигания */}
         <script dangerouslySetInnerHTML={{ __html: A11Y_INLINE_SCRIPT }} />
+        {/* Яндекс.Метрика */}
+        <script dangerouslySetInnerHTML={{ __html: METRIKA_INLINE_SCRIPT }} />
+        <noscript>
+          <div>
+            <img
+              src={`https://mc.yandex.ru/watch/${METRIKA_COUNTER_ID}`}
+              style={{ position: "absolute", left: "-9999px" }}
+              alt=""
+            />
+          </div>
+        </noscript>
         <LocaleProvider translatedPaths={translatedPaths}>
         <SideRail translatedPaths={translatedPaths} ui={railUi} />
         {/* Отступ снизу на мобиле — под фиксированную панель SideRail,
