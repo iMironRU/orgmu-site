@@ -762,6 +762,13 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "088177cc7e1f": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">Соревнования состоялись 15&nbsp;сентября на площадке Нефтегазоразведочного техникума. В состав команды ОрГМУ вошли Степан Альбертон, Владислав Антошко и Максим Хромушин. На протяжении турнира спортсмены демонстрировали слаженность действий, уверенную технику и крепкий командный дух.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Соперниками сборной ОрГМУ стали сильные и подготовленные коллективы: сборные Оренбургского учетно</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">финансового техникума, Академии сервиса и Университетского колледжа ОГУ. Команда ОрГМУ уверенно прошла турнирный путь до стадии 1/4&nbsp;финала, где уступила в упорном противостоянии. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- Матчи отличались высокой напряженностью и равной борьбой&nbsp;—&nbsp;в таком формате решающее значение имел каждый игровой эпизод, - отметила старший преподаватель кафедры физической культуры ОрГМУ Екатерина Чузова. - До полуфинала ребята не дошли совсем чуть</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">чуть. Но они показали характер, набрались опыта&nbsp;—&nbsp;и это точно пригодится команде в будущем.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">The competition took place on September 15 at the site of the Oil and Gas Exploration College. The OrGMU team includes Stepan Alberton, Vladislav Antoshko and Maxim Khromushin. Throughout the tournament, the athletes demonstrated teamwork, confident technique and strong team spirit.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The rivals of the OrGMU national team were strong and well-trained teams: national teams of the Orenburg Accounting</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\"> and Financial College, the Academy of Service and the OSU University College. The OrGMU team confidently went through the tournament path to the 1/4 finals stage, where they lost in a stubborn confrontation.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">- The matches were characterized by high tension and equal struggle — in this format, every game episode was crucial, - said Ekaterina Chuzova, senior lecturer at the Department of Physical Culture of OrGMU. - The guys didn't get to the semifinals just a little</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\"> bit. But they showed character and gained experience, and this will definitely be useful to the team in the future.</span></p>",
+    "status": "machine",
+    "at": "2026-09-18",
+    "html": true
+  },
   "089602550bc3": {
     "src": "Часто задаваемые вопросы",
     "text": "Frequently Asked Questions",
@@ -2764,6 +2771,12 @@
     "text": "Vacant places for admission",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "224c1b68dad6": {
+    "src": "Спортсмены ОрГМУ выступили во втором этапе Открытой лиги студенческого баскетбола 3×3",
+    "text": "OrGMU athletes competed in the second stage of the 3×3 Open Student Basketball League",
+    "status": "machine",
+    "at": "2026-09-18"
   },
   "2266d629f8d3": {
     "src": "Человек и культура",
@@ -14880,6 +14893,12 @@
     "text": "Branch's email address",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "be0156815823": {
+    "src": "Соревнования состоялись 15 сентября на площадке Нефтегазоразведочного техникума. В состав команды ОрГМУ вошли Степан Альбертон, Владислав Антошко и Максим Хромушин. На протяжении турнира спортсмены демонстрировали…",
+    "text": "The competition took place on September 15 at the site of the Oil and Gas Exploration College. The OrGMU team includes Stepan Alberton, Vladislav Antoshko and Maxim Khromushin. During the tournament, the athletes demonstrated…",
+    "status": "machine",
+    "at": "2026-09-18"
   },
   "be0ca1769459": {
     "src": "Олимпиада по истории России объединила студентов трех вузов",
