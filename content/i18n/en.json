@@ -3197,6 +3197,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "2759590fc5ee": {
+    "src": "Мероприятие состоялось 18 сентября в ДК «Россия». Ряды медицинского сообщества пополнили 127 молодых специалистов, двое получили документ о высшем образовании с отличием. Поздравить выпускников и разделить с ними…",
+    "text": "The event took place on September 18 at the Recreation center \"Russia\". 127 young specialists joined the ranks of the medical community, two received a certificate of higher education with honors. To congratulate the graduates and share with them…",
+    "status": "machine",
+    "at": "2026-09-21"
+  },
   "275f4209b9fe": {
     "src": "Новости университета",
     "text": "University News",
@@ -10997,6 +11003,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "8deb07f3a7a1": {
+    "src": "Студент ОрГМУ занял призовое место на чемпионате города Оренбурга по кроссу",
+    "text": "OrGMU student won a prize at the Orenburg City Cross Country Championship",
+    "status": "machine",
+    "at": "2026-09-21"
+  },
   "8df2fa1af142": {
     "src": "Иммуноферментный анализ (ИФА) на вирус краснухи (определение антител класса M) (групповое)",
     "text": "Enzyme immunoassay (ELISA) for rubella virus (determination of class M antibodies) (group)",
@@ -11057,6 +11069,12 @@
     "text": "Police",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "8e9950b9cf03": {
+    "src": "Выпускникам факультета иностранных студентов в торжественной обстановке вручили дипломы",
+    "text": "Graduates of the Faculty of international Students were awarded diplomas in a solemn atmosphere",
+    "status": "machine",
+    "at": "2026-09-21"
   },
   "8e9e556af6e2": {
     "src": "Медицина",
@@ -14015,6 +14033,13 @@
     "text": "Melnichenko P. I., Arkhangelsky V. I., Kozlova T. A. Hygiene. — 2nd ed., ispr. and add. — M.: GEOTAR-Media, 2022. — 656 p. ISBN 978-5-9704-6597-4. EBS \"Student consultant\" (by subscription)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "b290e38273e0": {
+    "src": "<p><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">Забег состоялся на Большой поляне Зауральной рощи. Дистанции были серьезные: девушки бежали 3 км, а мужчины - 5 км. На дорожках развернулась упорная борьба за медали. </span></p>\r\n<p><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">В итоге у сборной Оренбургского государственного медицинского университета по легкой атлетике одна медаль. Первокурсник Лев Сукач (группа 26Л-11) занял </span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">III</span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"> <span style=\"font-family: Arial;\">место на дистанции 5 км среди мужчин.</span></span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">В церемонии награждения принял участие мастер спорта России по л</span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">е</span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">гкой атлетике Олег Иванов.</span></p>",
+    "text": "<p><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">The race took place in a large clearing of the Zauralnaya grove. The distances were serious: the girls ran 3 km, and the men - 5 km. A hard-fought battle for medals unfolded on the tracks.</span></p>\r\n<p><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">As a result, the Orenburg State Medical University athletics team won one medal. Freshman Lev Sukach (group 26L-11) took</span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"> the third</span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"> <span style=\"font-family: Arial;\">place in the men's 5 km race.</span></span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">Oleg Ivanov, Master of Sports of Russia in Athletics, took part in the award ceremony</span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"></span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">.</span></p>",
+    "status": "machine",
+    "at": "2026-09-21",
+    "html": true
   },
   "b2c28ddea41e": {
     "src": "Антитела к тиреопероксидазе (Ат к ТПО) - показатель аутоиммунного поражения щитовидной железы",
@@ -18735,6 +18760,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "ef4bf47b0e13": {
+    "src": "Забег состоялся на Большой поляне Зауральной рощи. Дистанции были серьезные: девушки бежали 3 км, а мужчины - 5 км. На дорожках развернулась упорная борьба за медали. В итоге у сборной Оренбургского государственного…",
+    "text": "The race took place in a large clearing of the Zauralnaya grove. The distances were serious: the girls ran 3 km, and the men - 5 km. A hard-fought battle for medals unfolded on the tracks. As a result, the Orenburg State University team…",
+    "status": "machine",
+    "at": "2026-09-21"
+  },
   "ef572ebd0843": {
     "src": "\"Обучающая деятельность в сестринском деле\"",
     "text": "\"Educational activities in nursing\"",
@@ -19162,6 +19193,13 @@
     "text": "Optical coherence tomography",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "f580a24c53b6": {
+    "src": "<p>Мероприятие состоялось 18 сентября в ДК «Россия». Ряды медицинского сообщества пополнили 127 молодых специалистов, двое получили документ о высшем образовании с отличием. Поздравить выпускников и разделить с ними радость этого дня собрались их родные и близкие - те, кто был далеко, но всегда поддерживал и переживал.</p>\r\n<p>С напутственным словом ко вчерашним студентам обратились ректор ОрГМУ Игорь Мирошниченко и декан факультета Антон Мирончев.</p>\r\n<p>- Перед вами открывается дорога в будущее, - сказал Игорь Васильевич. - Хочу вам пожелать профессиональных успехов, чтобы вы стали настоящими, хорошими врачами. И с гордостью нести славное звание «Выпускник Оренбургского государственного медицинского университета».</p>\r\n<p>Как всегда, на празднике факультета иностранных студентов царила особая атмосфера: красная дорожка, национальный колорит, эмоциональные выступления танцевальных коллективов под зажигательную музыку.</p>",
+    "text": "<p>The event took place on September 18 at the Recreation center \"Russia\". 127 young specialists joined the ranks of the medical community, two received a certificate of higher education with honors. Their relatives and friends gathered to congratulate the graduates and share the joy of this day with them - those who were far away, but always supported and worried.</p>\r\n<p>Igor Miroshnichenko, Rector of OrGMU, and Anton Mironchev, Dean of the faculty, addressed yesterday's students with a parting word.</p>\r\n<p>- The road to the future opens before you, - said Igor Vasilyevich. - I want to wish you professional success so that you become real, good doctors. And he is proud to bear the glorious title of \"Graduate of Orenburg State Medical University.\"</p>\r\n<p>As always, a special atmosphere prevailed at the celebration of the Faculty of Foreign Students: a red carpet, national flavor, emotional performances of dance groups to incendiary music.</p>",
+    "status": "machine",
+    "at": "2026-09-21",
+    "html": true
   },
   "f582940c45f9": {
     "src": "Иммунологическая лаборатория",
