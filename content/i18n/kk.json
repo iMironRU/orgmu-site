@@ -8157,6 +8157,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "68108af11dc5": {
+    "src": "Приняли участие в акции ко Дню донора костного мозга",
+    "text": "Сүйек кемігі доноры күніне арналған акцияға қатысты",
+    "status": "machine",
+    "at": "2026-09-22"
+  },
   "681ef195dfbb": {
     "src": "Уход за больными терапевтического профиля",
     "text": "Терапевтік бейіндегі науқастарға күтім жасау",
@@ -8180,6 +8186,12 @@
     "text": "Гормоналды статус көрсеткіштерін анықтау",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "688e3581cc30": {
+    "src": "Он приходится на третью субботу сентября. В рамках акции волонтеры -медики посетили Оренбургскую областную клиническую станцию переливания крови. Студенты сдали кровь, вступили в Федеральный регистр доноров костного…",
+    "text": "Ол қыркүйектің үшінші сенбісінде келеді. Акция аясында медицина еріктілері Орынбор облыстық қан құю клиникалық станциясына барды. Студенттер қан тапсырды, сүйек донорларының Федералды тізіліміне қосылды…",
+    "status": "machine",
+    "at": "2026-09-22"
   },
   "6894f0baf0be": {
     "src": "<p class=\"15\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">В конце мая в Санкт-Петербурге состоялся XVIII Съезд психиатров России «Психиатрия в условиях смешанной реальности: новые вызовы — новые возможности». Крупнейший профессиональный форум объединил более 2000 специалистов&nbsp; из различных регионов России и зарубежных стран, а также более 11 тысяч участников онлайн-трансляций. </span><span style=\"font-family: Arial; color: #0f1115; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"></span></p>\r\n<p class=\"15\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">В рамках научной программы обсуждались актуальные вопросы организации психиатрической помощи, современные подходы к диагностике и терапии психических расстройств, проблемы детской и подростковой психиатрии, суицидологии, военной психиатрии, психотерапии, наркологии, персонализированной медицины и междисциплинарного взаимодействия.</span><span style=\"font-family: Arial; color: #0f1115; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"></span></p>\r\n<p class=\"15\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">Оренбургский государственный медицинский университет на съезде представила председатель студенческого научного общества им. Ф.М. Лазаренко, старший преподаватель кафедры психиатрии, клинической психологии Екатерина Немцева. В рамках научной программы она продемонстрировала результаты своих исследований по факторам риска формирования суицидальных идей у несовершеннолетних в формате постерного доклада.</span><span style=\"font-family: Arial; color: #0f1115; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"></span></p>\r\n<p class=\"15\" style=\"background: #ffffff;\"><span style=\"font-family: Arial; color: #0f1115; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">Участие в XVIII Съезде психиатров России позволило преподавателю ОрГМУ обсудить со специалистами современные направления развития психиатрии и клинической психологии, а также установить новые профессиональные контакты с коллегами из других регионов.</span><span style=\"font-family: Arial; color: #0f1115; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"></span></p>",
@@ -15149,6 +15161,13 @@
     "text": "32 жыл",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "bf9b694e63bb": {
+    "src": "<p><span style=\"font-family: Arial; color: #000000;\">Он приходится на </span><span style=\"font-family: Arial;\">третью субботу сентября. В </span><span style=\"font-family: Arial; color: #000000;\">рамках акции волонтеры</span><span style=\"font-family: Arial; color: #000000;\">-медики</span><span style=\"font-family: Arial; color: #000000;\"> <span style=\"font-family: Arial;\">посетили Оренбургскую областную клиническую станцию переливания крови.&nbsp;</span></span><span style=\"font-family: Arial; color: #000000;\">Студенты сдали кровь, вступили в Федеральный регистр доноров костного мозга, получили дополнительную информацию о донорстве.</span></p>",
+    "text": "<p><span style=\"font-family: Arial; color: #000000;\">Ол қыркүйектің үшінші сенбісінде келеді</span><span style=\"font-family: Arial;\">. Акция</span><span style=\"font-family: Arial; color: #000000;\"> </span><span style=\"font-family: Arial; color: #000000;\">аясында медицина еріктілері</span><span style=\"font-family: Arial; color: #000000;\"><span style=\"font-family: Arial;\"> Орынбор облыстық қан құю клиникалық станциясына барды. </span></span><span style=\"font-family: Arial; color: #000000;\">Студенттер қан тапсырды, сүйек кемігі донорларының Федералды тізіліміне кірді, донорлық туралы қосымша ақпарат алды.</span></p>",
+    "status": "machine",
+    "at": "2026-09-22",
+    "html": true
   },
   "bfb40e396018": {
     "src": "диплом о Профессиональной переподготовке ПП 922 295 от 28.10.2006г",
