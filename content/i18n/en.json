@@ -2515,6 +2515,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "1eb6c7a141fc": {
+    "src": "Провели лекцию «Профилактика деменции: стресс и сон»",
+    "text": "We gave a lecture on \"Dementia prevention: stress and sleep\"",
+    "status": "machine",
+    "at": "2026-09-30"
+  },
   "1eb94b679455": {
     "src": "Определение HBe-антигена вируса гепатита B в сыворотке крови (при единичной постановке)",
     "text": "Determination of hepatitis B virus HBe antigen in blood serum (with a single diagnosis)",
@@ -8718,6 +8724,12 @@
     "status": "machine",
     "at": "2026-07-22",
     "html": true
+  },
+  "6dcc28fb2beb": {
+    "src": "Мероприятие волонтеры-медики ОрГМУ организовали в рамках федерального социального проекта Деменция.пet в санатории «Марсово поле». Они рассказали участникам о факторах, которые влияют на когнитивное здоровье в разном…",
+    "text": "OrGMU medical volunteers organized the event as part of the federal social project Dementia.he sang in the sanatorium \"Field of Mars\". They told the participants about the factors that affect cognitive health in different ways.…",
+    "status": "machine",
+    "at": "2026-09-30"
   },
   "6ddea54fb399": {
     "src": "Проходил он с 5 по 10 августа н а территории инициативной молодежи «Бирюса» в Красноярском крае. В этом году форум объединил более 500 участников со всей России, а также из Республики Узбекистан. Оренбургский…",
@@ -15024,6 +15036,13 @@
     "text": "Vacancies (budget of the subject of the Russian Federation)",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "baae5e7e92f6": {
+    "src": "<p><span style=\"font-family: Calibri;\">Мероприятие волонтеры-медики ОрГМУ </span><span style=\"font-family: Calibri;\">организовали</span><span style=\"font-family: Calibri;\"> <span style=\"font-family: Calibri;\">в рамках федерального социального проекта Деменция.пet в санатории «Марсово поле». Они рассказали участникам о факторах, которые влияют на когнитивное здоровье в разном возрасте. </span></span></p>\r\n<p><span style=\"font-family: Calibri;\">Особое внимание в рамках лекции уделили хроническому стрессу и многозадачности. Слушатели узнали, как длительное перенапряжение может отражаться на внимании, памяти и общем самочувствии, а также ознакомились с доступными способами снижения стресса: это физическая активность, дыхательные практики, творчество, общение и прогулки на природе. Отдельный блок лекции посвятили сну: поговорили о его значении для работы мозга, правилах гигиены сна и важности полноценного отдыха.</span></p>\r\n<p><span style=\"font-family: Calibri;\">Собравшиеся обсудили, почему деменция не является неизбежным следствием старения и выяснили, какие повседневные привычки помогают снизить риск когнитивных нарушений.</span></p>",
+    "text": "<p><span style=\"font-family: Calibri;\">OrGMU medical volunteers organized </span><span style=\"font-family: Calibri;\">the event</span><span style=\"font-family: Calibri;\"><span style=\"font-family: Calibri;\"> as part of the federal social project Dementia.he sang in the sanatorium \"Field of Mars\". They told the participants about the factors that affect cognitive health at different ages.</span></span></p>\r\n<p><span style=\"font-family: Calibri;\">The lecture focused on chronic stress and multitasking. The students learned how prolonged overexertion can affect attention, memory and general well-being, and also got acquainted with the available ways to reduce stress.: These include physical activity, breathing practices, creativity, socializing, and nature walks. A separate section of the lecture was devoted to sleep: we talked about its importance for brain function, sleep hygiene rules and the importance of proper rest.</span></p>\r\n<p><span style=\"font-family: Calibri;\">The participants discussed why dementia is not an inevitable consequence of aging and found out which daily habits help reduce the risk of cognitive impairment.</span></p>",
+    "status": "machine",
+    "at": "2026-09-30",
+    "html": true
   },
   "baae6054dec5": {
     "src": "26 лет",
