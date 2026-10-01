@@ -1984,6 +1984,13 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "1876ce14a4bd": {
+    "src": "<p><span style=\"font-family: Arial;\">Бойцы студенческого медицинского отряда (СМО) «36,6» провели для своего коллектива мероприятие, </span><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">направленное на профессиональное ориентирование обучающихся и развитие их творческого потенциала. </span><span style=\"font-family: Arial;\">Они рассказали об основных направлениях своей деятельности.</span></p>\r\n<p><span style=\"font-family: Arial;\">Затем ребята были разделены на команды, каждая из которых получила своего наставника из числа бойцов СМО и отправились по станциям. На каждой остановке команда получала фрагменты анамнеза пациента. Нужно было поставить правильный диагноз, собрав все подсказки воедино. </span></p>\r\n<p><span style=\"font-family: Arial;\">Подобный формат стал настоящим вызовом для будущих специалистов и позволил им применить знания на практике. Мероприятие способствовало развитию клинического мышления, коммуникативных навыков и умения работать в команде.</span></p>",
+    "text": "<p><span style=\"font-family: Arial;\">The soldiers of the student medical detachment \"36.6\" held an event for their team</span><span style=\"font-family: Arial; color: #2c2d2e; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"> aimed at professional orientation of students and the development of their creative potential. </span><span style=\"font-family: Arial;\">They talked about the main directions of their activities.</span></p>\r\n<p><span style=\"font-family: Arial;\">Then the guys were divided into teams, each of which received its mentor from among the CFR fighters and went to the stations. At each stop, the team received fragments of the patient's medical history. It was necessary to make a correct diagnosis by putting all the clues together.</span></p>\r\n<p><span style=\"font-family: Arial;\">This format has become a real challenge for future specialists and has allowed them to put their knowledge into practice. The event promoted the development of clinical thinking, communication skills, and teamwork.</span></p>",
+    "status": "machine",
+    "at": "2026-10-01",
+    "html": true
+  },
   "189bf226e103": {
     "src": "Отправить сообщение",
     "text": "Send a message",
@@ -8918,6 +8925,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "70a81bb7de3b": {
+    "src": "Накануне Дня пожилого человека состоялось традиционное чествование ветеранов ОрГМУ",
+    "text": "On the eve of the Day of the Elderly, the traditional celebration of veterans of OrGMU took place",
+    "status": "machine",
+    "at": "2026-10-01"
+  },
   "70b13bb9b5dc": {
     "src": "Мужчины: отведите крайнюю плоть и выпустите небольшое количество мочи в унитаз. Не прекращая мочеиспускание, удерживая крайнюю плоть в отведенном состоянии, наполните мочой контейнер",
     "text": "Men: Pull back the foreskin and release a small amount of urine into the toilet. Without stopping urination, keeping the foreskin in the retracted state, fill the container with urine",
@@ -9183,6 +9196,13 @@
     "text": "Orenburg, sh. Sharlykskoe, 5, Department of General Hygiene",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "749b9b1f98df": {
+    "src": "<p><span style=\"font-family: Arial;\">Мероприятие прошло в салоне-гостиной образовательного центра истории университета. Гостей приветствовали проректор по воспитательной и социальной работе и связям с общественностью Андрей Пахомов и основатель и идейный вдохновитель музея истории</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">п</span></span><span style=\"font-family: Arial;\">рофессор&nbsp;</span><span style=\"font-family: Arial;\">кафедры топографической анатомии и оперативной хирургии им. С.С. Михайлова</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">Илья Каган. </span></span></p>\r\n<p><span style=\"font-family: Arial;\">Собравшиеся ознакомились с новыми экспонатами и провели время в дружеской обстановке за чашечкой чая.&nbsp;</span></p>",
+    "text": "<p><span style=\"font-family: Arial;\">The event was held in the salon-lounge of the University's History Education Center. The guests were welcomed by Andrey Pakhomov, Vice-rector for Educational and Social Work and Public Relations, and </span><span style=\"font-family: Arial;\">Ilya Kagan, Professor of the Department of Topographic Anatomy and Operative Surgery named after S.S. Mikhailov, founder and inspirer of the Museum of History<span style=\"font-family: Arial;\"></span></span><span style=\"font-family: Arial;\">.</span><span style=\"font-family: Arial;\"></span><span style=\"font-family: Arial;\"><span style=\"font-family: Arial;\"></span></span></p>\r\n<p><span style=\"font-family: Arial;\">The participants got acquainted with the new exhibits and spent time in a friendly atmosphere over a cup of tea.</span></p>",
+    "status": "machine",
+    "at": "2026-10-01",
+    "html": true
   },
   "74a4209ab710": {
     "src": "460024, Оренбургская область, г. Оренбург, ул. Аксакова/ ул. Ст. Разина, 23/92",
@@ -10687,6 +10707,12 @@
     "text": "OrGMU launched a new tradition: the first Lebedkov Readings were held",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "87b26d1a8976": {
+    "src": "Бойцы студенческого медицинского отряда (СМО) «36,6» провели для своего коллектива мероприятие, направленное на профессиональное ориентирование обучающихся и развитие их творческого потенциала. Они рассказали об…",
+    "text": "The soldiers of the student medical detachment \"36.6\" held an event for their team aimed at professional orientation of students and the development of their creative potential. They told about…",
+    "status": "machine",
+    "at": "2026-10-01"
   },
   "87b4c3eb4432": {
     "src": "Только из сети вуза",
@@ -12235,6 +12261,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "99309b69e783": {
+    "src": "Обсудили с российскими и зарубежными коллегами развитие травматологии и ортопедии",
+    "text": "We discussed the development of traumatology and orthopedics with Russian and foreign colleagues.",
+    "status": "machine",
+    "at": "2026-10-01"
+  },
   "99391987e02a": {
     "src": "Сайты вуза",
     "text": "University websites",
@@ -13295,11 +13327,24 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "a4f6eecf1e91": {
+    "src": "<p><span style=\"font-family: Arial;\">В Саратове прошла конференция «Технологические инновации в травматологии, ортопедии и нейрохирургии: интеграция науки и практики». Она была посвящена 60-летию кафедры травматологии и ортопедии Саратовского ГМУ им. В. И. Разумовского. Мероприятие объединило практикующих врачей, преподавателей и научных сотрудников из разных регионов России. В нем также приняли участие специалисты из-за рубежа. Оренбургский государственный медицинский университет представлял заведующий кафедрой травматологии и ортопедии, кандидат медицинских наук Андрей Гурьянов.</span></p>\r\n<p><span style=\"font-family: Arial;\">Программа конференции включала пленарные заседания и доклады по развитию травматологии и ортопедии, инновационным технологиям в образовании и медицине, применению искусственного интеллекта, диагностике и терапии остеопороза, современным методам хирургического лечения и эндопротезированию крупных суставов.&nbsp;</span></p>\r\n<p><span style=\"font-family: Arial;\">Андрей Гурьянов выступил с двумя докладами: «Кафедра травматологии и ортопедии ФГБОУ ВО ОрГМУ Минздрава России: вчера, сегодня, завтра» и «Роль МРТ в предоперационном планировании хирургической тактики при повреждениях пяточного сухожилия».</span></p>\r\n<p><span style=\"font-family: Arial;\">- Конференция стала важной площадкой для обмена опытом педагогической и научной работы, обсуждения инновационных решений в преподавании травматологии-ортопедии и налаживания профессиональных межвузовских контактов, &nbsp;- отметил Андрей Михайлович.&nbsp;</span></p>",
+    "text": "<p><span style=\"font-family: Arial;\">The conference \"Technological Innovations in Traumatology, Orthopedics and neurosurgery: Integration of science and practice\" was held in Saratov. It was dedicated to the 60th anniversary of the Department of Traumatology and Orthopedics of Saratov State Medical University named after V. I. Razumovsky. The event brought together practitioners, teachers and researchers from different regions of Russia. It was also attended by experts from abroad. Orenburg State Medical University was represented by Andrey Guryanov, Head of the Department of Traumatology and Orthopedics, Candidate of Medical Sciences.</span></p>\r\n<p><span style=\"font-family: Arial;\">The conference program included plenary sessions and reports on the development of traumatology and orthopedics, innovative technologies in education and medicine, the use of artificial intelligence, diagnosis and therapy of osteoporosis, modern methods of surgical treatment and endoprosthetics of large joints.</span></p>\r\n<p><span style=\"font-family: Arial;\">Andrey Guryanov made two presentations: \"Department of Traumatology and Orthopedics of the Russian Ministry of Health: Yesterday, Today, tomorrow\" and \"The role of MRI in preoperative planning of surgical tactics for calcaneal tendon injuries\".</span></p>\r\n<p><span style=\"font-family: Arial;\">\"The conference has become an important platform for sharing pedagogical and scientific experience, discussing innovative solutions in teaching traumatology and orthopedics, and establishing professional interuniversity contacts,\" said Andrey Mikhailovich.</span></p>",
+    "status": "machine",
+    "at": "2026-10-01",
+    "html": true
+  },
   "a518863d063d": {
     "src": "16 лет",
     "text": "16 years old",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "a53efb492335": {
+    "src": "В Саратове прошла конференция «Технологические инновации в травматологии, ортопедии и нейрохирургии: интеграция науки и практики». Она была посвящена 60-летию кафедры травматологии и ортопедии Саратовского ГМУ им. В. И…",
+    "text": "The conference \"Technological Innovations in Traumatology, Orthopedics and neurosurgery: Integration of science and practice\" was held in Saratov. It was dedicated to the 60th anniversary of the Department of Traumatology and Orthopedics of Saratov State Medical University named after V. I.…",
+    "status": "machine",
+    "at": "2026-10-01"
   },
   "a5432ffb9a09": {
     "src": "Микробиологическое исследование слизи с задней стенки глотки на палочку коклюша/паракоклюша (при отсутствии микроорганизмов)(основное исследование)",
@@ -17537,6 +17582,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "da3130e99a2b": {
+    "src": "Стали участниками увлекательного «Медицинского детектива»",
+    "text": "We became participants of the fascinating \"Medical detective\"",
+    "status": "machine",
+    "at": "2026-10-01"
+  },
   "da48e773527e": {
     "src": "старший преподаватель (внутреннее совместительство)",
     "text": "Senior lecturer (internal part-time)",
@@ -19569,6 +19620,12 @@
     "text": "33 years old",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "f4fd93fc65f7": {
+    "src": "Мероприятие прошло в салоне-гостиной образовательного центра истории университета. Гостей приветствовали проректор по воспитательной и социальной работе и связям с общественностью Андрей Пахомов и основатель и идейный…",
+    "text": "The event was held in the salon-lounge of the University's History Education Center. The guests were welcomed by Vice-rector for Educational and Social Work and Public Relations Andrey Pakhomov and the founder and ideologist…",
+    "status": "machine",
+    "at": "2026-10-01"
   },
   "f50c718c4469": {
     "src": "ФГБОУ ВО ОрГМУ Минздрава России, «Актуальные вопросы антикоррупционной политики в сфере здравоохранения и образования» (2 ч.), дата выдачи 09.12.2024",
