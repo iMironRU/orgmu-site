@@ -4324,6 +4324,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "349e4871c74b": {
+    "src": "Приняли участие в спортивно-массовом мероприятии «Всероссийский день ходьбы»",
+    "text": "Took part in the sports and mass event \"All-Russian Walking Day\"",
+    "status": "machine",
+    "at": "2026-10-02"
+  },
   "34b5252e93b8": {
     "src": "Информационная безопасность",
     "text": "Information security",
@@ -5652,6 +5658,13 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "4629a7af1895": {
+    "src": "<p><span style=\"font-family: 'Times New Roman', 'serif';\">Состоялось оно сегодня в рамках регионального проекта «Спортивный актив Оренбуржья». На дистанцию вышли 35 студентов Оренбургского государственного медицинского университета. </span></p>\r\n<p><span style=\"font-family: 'Times New Roman', 'serif';\">Собравшихся приветствовал министр физической культуры и спорта области Олег Панькин. Участники прошли 1,5-километровую дистанцию по Набережной - ровно столько, чтобы почувствовать легкую бодрость и не устать.</span></p>\r\n<p><span style=\"font-family: 'Times New Roman', 'serif';\">Всероссийский день ходьбы проводится с 2015 года и призван популяризировать ходьбу как самый доступный и полезный вид физической активности.</span></p>",
+    "text": "<p><span style=\"font-family: 'Times New Roman', 'serif';\">It took place today as part of the regional project \"Sports asset of Orenburg region\". 35 students of Orenburg State Medical University took part in the race.</span></p>\r\n<p><span style=\"font-family: 'Times New Roman', 'serif';\">Oleg Pankin, the Minister of Physical Culture and Sports of the region, greeted the audience. The participants walked a 1.5-kilometer distance along the Embankment - just enough to feel a little cheerful and not get tired.</span></p>\r\n<p><span style=\"font-family: 'Times New Roman', 'serif';\">The All-Russian Walking Day has been held since 2015 and is designed to promote walking as the most accessible and useful type of physical activity.</span></p>",
+    "status": "machine",
+    "at": "2026-10-02",
+    "html": true
+  },
   "463efb9113d6": {
     "src": "<p><span style=\"font-family: Arial; color: #000000;\">17 июля министр здравоохранения Российской Федерации дал онлайн-старт Всероссийскому трудовому семестру студенческих медицинских отрядов России. Участниками ВКС стали студентки лечебного факультета Оренбургского государственного медицинского университета Полина Коробейникова (3-й курс) и Дарья Гирина (4-й курс) - бойцы СМО «36,6».</span></p>\r\n<p><span style=\"font-family: Arial; color: #000000;\">Михаил Мурашко выступил с приветственным словом, после чего собравшиеся заслушали доклады о всероссийских студенческих медицинских проектах по всей России. Министр здравоохранения Оренбургской области Андрей Шатилов рассказал о реализации проекта «Яшма» на территории Оренбургской области. </span></p>\r\n<p><span style=\"font-family: Arial; color: #000000;\">Он отметил, что в рамках трудового семестра студентам предстоит не только оттачивать практические навыки, которые они приобрели в рамках обучения в вузах. Для них подготовлена обширная развлекательная программа в виде спортивных и досуговых мероприятий, а также запланированы практико-ориентированные занятия, мастер-классы, которые проведут главные врачи и специалисты.</span></p>\r\n<p><span style=\"font-family: Arial; color: #000000;\">С 13 июля студенты-медики уже приступили к работе на местах. 100 будущих врачей из 12 субъектов страны распределены по 13 медицинским организациям области. Они помогают коллегам на позициях младшего и среднего медицинского персонала.</span></p>",
     "text": "<p><span style=\"font-family: Arial; color: #000000;\">On July 17, the Minister of Health of the Russian Federation launched the online All-Russian Labor Semester of student medical teams in Russia. Students of the medical faculty of Orenburg State Medical University Polina Korobeynikova (3rd year) and Daria Girina (4th year), fighters of the CFR \"36.6\", became participants of the VKS.</span></p>\r\n<p><span style=\"font-family: Arial; color: #000000;\">Mikhail Murashko made a welcoming speech, after which the audience listened to reports on All-Russian student medical projects throughout Russia. Andrey Shatilov, Minister of Health of the Orenburg Region, spoke about the implementation of the Jasper project in the Orenburg Region.</span></p>\r\n<p><span style=\"font-family: Arial; color: #000000;\">He noted that during the work semester, students will not only have to hone the practical skills they acquired during their studies at universities. An extensive entertainment program has been prepared for them in the form of sports and leisure activities, as well as practice-oriented classes, master classes, which will be conducted by chief doctors and specialists.</span></p>\r\n<p><span style=\"font-family: Arial; color: #000000;\">Since July 13, medical students have already started working in the field. 100 future doctors from 12 regions of the country are distributed among 13 medical organizations of the region. They help colleagues in the positions of junior and secondary medical staff.</span></p>",
@@ -6201,6 +6214,13 @@
     "text": "State Educational Institution of Higher Professional Education OrGMA Roszdrava PP Neonatology (576 hours) from 1.3.2008-30.06.2008",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "4d7485d86451": {
+    "src": "<p>1 и 2 октября в спортивно-оздоровительном центре «Гиппократ» состоялся отборочный (вузовский) этап игры. Приняли участие 210 студентов медуниверситета (21 команда). Они соревновались в военизированной эстафете и тактической подготовке «Штурм опорного пункта».</p>\r\n<p>Участники выступали в составе полноценных тактических групп: в каждой команде были командир, военкор, медики, штурмовики, операторы БПЛА, инженер-сапер и связист.</p>\r\n<p>В рамках военизированной эстафеты команды преодолели определенный маршрут, делая остановки на «станциях», чтобы выполнить специальные задания. В их числе стрельба из электронного оружия, эвакуация «пострадавшего», спортивная игра с элементами ролевой механики, свойственной для условно военной специальности штурмовик, боевая задача, проверка общевойсковой грамотности и решение кроссвордов на тему «Компьютерные вирусы и черви».</p>\r\n<p>Тактическая подготовка «Штурм опорного пункта» выявила лучших в лазертаге. По итогам состязаний победила команда «Сборная ОрГМУ». Теперь ей предстоит второй этап – межвузовский. Региональный финал состоится 12-15 октября в региональном молодежном центре «Авангард» (СНТ «Дубки – 2»).</p>\r\n<p>Проект реализуется ОрГМУ при грантовой поддержке Федерального агентства по делам молодёжи (Росмолодёжь).</p>\r\n<p>#Росмолодёжь #РосмолодёжьГранты #ОренбургскийГарнизон #ОрГМУ #МедМол</p>\r\n<p>&nbsp;</p>",
+    "text": "<p>On October 1 and 2, the qualifying (university) stage of the game took place at the Hippocrates Sports and Recreation Center. 210 students of the medical university (21 teams) took part. They competed in a paramilitary relay race and tactical training \"Storming a strongpoint.\"</p>\r\n<p>The participants performed as part of full-fledged tactical groups: each team had a commander, a military commander, medics, attack aircraft, UAV operators, a sapper engineer and a signalman.</p>\r\n<p>As part of the paramilitary relay race, the teams overcame a certain route, making stops at \"stations\" to complete special tasks. Among them are shooting from electronic weapons, evacuation of the \"victim\", a sports game with elements of role-playing mechanics typical of the military specialty stormtrooper, combat mission, checking military literacy and solving crosswords on the topic \"Computer viruses and worms\".</p>\r\n<p>Tactical training \"Storming the strongpoint\" revealed the best in laser tag. According to the results of the competition, the OrGMU National Team won. Now she faces the second stage – the interuniversity one. The regional final will be held on October 12-15 at the Avangard Regional Youth Center (Dubki – 2 SNT).</p>\r\n<p>The project is being implemented by OrGMU with the grant support of the Federal Agency for Youth Affairs (Rosmolodezh).</p>\r\n<p>#Rosmolodezh #RosmolodezhGrants #Orenburg Garrison #OrGMU #MedMol</p>\r\n<p> </p>",
+    "status": "machine",
+    "at": "2026-10-02",
+    "html": true
   },
   "4d8bc1e24f44": {
     "src": "<p><span style=\"font-family: Arial, sans-serif;\">Она приурочена к 50</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">летию наркологической службы региона. Событие объединило ведущих специалистов отрасли для обсуждения актуальных вызовов в системе наркологической помощи страны и путей ее развития.</span> <span style=\"font-family: Arial, sans-serif;\">В работе конференции принимают участие эксперты из Оренбургского областного клинического наркологического диспансера, Национального медицинского исследовательского центра психиатрии и наркологии имени В.П. Сербского, Кировского областного наркологического диспансера, Национального медицинского исследовательского центра психиатрии и неврологии имени В.М. Бехтерева, а также других профильных учреждений.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Торжественное открытие прошло при участии представителей органов власти: заместителя председателя правительства Оренбургской области по социальной политике Ларисы Боярской, министра здравоохранения региона Андрея Шатилова, сенатора от Оренбургской области Андрея Шевченко.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Ректор ОрГМУ Игорь Мирошниченко совместно с коллегами вручил специалистам наркологической службы благодарственные письма — за многолетний труд и значимый вклад в развитие системы помощи населению.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Сегодня, в первый день мероприятия, обсуждаются доклады по самым острым темам: от модернизации наркологической помощи и работы с участниками СВО до терапии аддикций, подростковой заболеваемости и факторов риска рецидивов. Завтра участники конференции посетят стационарные отделения Оренбургского областного клинического наркологического диспансера, чтобы увидеть, как выстроены процессы на практике. Завершится день разбором реальных клинических случаев в научно-образовательном центре ОрГМУ.</span></p>",
@@ -15947,6 +15967,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "c55a5ed8f96a": {
+    "src": "1 и 2 октября в спортивно-оздоровительном центре «Гиппократ» состоялся отборочный (вузовский) этап игры. Приняли участие 210 студентов медуниверситета (21 команда). Они соревновались в военизированной эстафете и…",
+    "text": "On October 1 and 2, the qualifying (university) stage of the game took place at the Hippocrates Sports and Recreation Center. 210 students of the medical university (21 teams) took part. They competed in a paramilitary relay race and…",
+    "status": "machine",
+    "at": "2026-10-02"
+  },
   "c5623a9465ce": {
     "src": "Ботанический сад",
     "text": "The Botanical Garden",
@@ -17895,6 +17921,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "de46955033ac": {
+    "src": "В ОрГМУ выявили команду, которая представит университет в региональном финале военно-тактической игры «Оренбургский гарнизон»",
+    "text": "OrGMU has identified a team that will represent the university in the regional final of the Orenburg Garrison military tactical game",
+    "status": "machine",
+    "at": "2026-10-02"
+  },
   "de52e382f2b7": {
     "src": "Федеральные государственные требования",
     "text": "Federal government requirements",
@@ -19057,6 +19089,12 @@
     "text": "An intellectual game dedicated to the fight against corruption was held at the OrGMU Scientific and educational center. The jury consisted of Ruslan Kaipov, Deputy Prosecutor of the Leninsky district of Orenburg, Vice-rector for Academic Affairs.…",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "ed0d828c4550": {
+    "src": "Состоялось оно сегодня в рамках регионального проекта «Спортивный актив Оренбуржья». На дистанцию вышли 35 студентов Оренбургского государственного медицинского университета. Собравшихся приветствовал министр физической…",
+    "text": "It took place today as part of the regional project \"Sports asset of Orenburg region\". 35 students of Orenburg State Medical University took part in the race. The Minister of Physical Culture greeted the audience.…",
+    "status": "machine",
+    "at": "2026-10-02"
   },
   "ed38effaaabc": {
     "src": "«Сведения об образовательной организации»",
