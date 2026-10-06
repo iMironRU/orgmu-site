@@ -138,6 +138,13 @@
     "at": "2026-07-22",
     "html": true
   },
+  "0179c957b389": {
+    "src": "<p><span style=\"font-family: Arial;\">Международный благотворительный легкоатлетический забег состоялся 3 октября. В нем</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">приняли участие около 2000 спортсменов из </span></span><span style=\"font-family: Arial;\">России</span><span style=\"font-family: Arial;\">, Индии, Казахстана, Китая, Судана, Таджикистана</span><span style=\"font-family: Arial;\">. </span></p>\r\n<p><span style=\"font-family: Arial;\">Первое место в беге на 1</span><span style=\"font-family: Arial;\">км заняла студентка </span><span style=\"font-family: Arial;\">Оренбургского государственного медицинского университета</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">Эвелина&nbsp;</span></span><span style=\"font-family: Arial;\">Хамзина</span><span style=\"font-family: Arial;\"> (</span><span style=\"font-family: Arial;\">групп</span><span style=\"font-family: Arial;\">а</span><span style=\"font-family: Arial;\"> 23М-01</span><span style=\"font-family: Arial;\">). М</span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">инистр физической культуры и спорта Оренбургской области Олег Панькин</span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"> <span style=\"font-family: Arial;\">лично поздравил команду с успехом.&nbsp;</span></span></p>",
+    "text": "<p><span style=\"font-family: Arial;\">Халықаралық қайырымдылық жеңіл атлетика жарысы 3 қазанда өтті. Оған</span><span style=\"font-family: Arial;\"> Ресей, Үндістан, Қазақстан, Қытай, Судан, Тәжікстаннан <span style=\"font-family: Arial;\">2000-ға жуық спортшы қатысты</span></span><span style=\"font-family: Arial;\"></span><span style=\"font-family: Arial;\"></span><span style=\"font-family: Arial;\">. </span></p>\r\n<p><span style=\"font-family: Arial;\">1 км жүгіруде бірінші орынды</span><span style=\"font-family: Arial;\"> Орынбор мемлекеттік медицина университетінің студенті</span><span style=\"font-family: Arial;\"></span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">Эвелина</span></span><span style=\"font-family: Arial;\"> Хамзина</span><span style=\"font-family: Arial;\"> (</span><span style=\"font-family: Arial;\">А тобы</span><span style=\"font-family: Arial;\"></span><span style=\"font-family: Arial;\"> 23М-01</span><span style=\"font-family: Arial;\">) иеленді. Орынбор облысының дене шынықтыру және спорт инистрі Олег Панькин </span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">команданы табыспен жеке құттықтады</span><span style=\"font-family: Arial; color: #000000; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\"><span style=\"font-family: Arial;\">. </span></span></p>",
+    "status": "machine",
+    "at": "2026-10-06",
+    "html": true
+  },
   "01817becc2ef": {
     "src": "ОрГМУ – ТПП: на круглом столе намечены перспективы сотрудничества",
     "text": "ОрГМУ-ТПП: дөңгелек үстелде ынтымақтастық перспективалары белгіленген",
@@ -6992,6 +6999,12 @@
     "status": "machine",
     "at": "2026-08-19",
     "html": true
+  },
+  "56d3f2248ad1": {
+    "src": "Студентка ОрГМУ завоевала золото «Новотроицкого полумарафона - 2026»",
+    "text": "ОрГМУ студенті \"Новотроицк жартылай марафоны - 2026\" алтынын жеңіп алды",
+    "status": "machine",
+    "at": "2026-10-06"
   },
   "56f15f74049c": {
     "src": "Институт",
@@ -18859,6 +18872,12 @@
     "text": "Жоғары білім-мамандық, Педиатрия, дәрігер",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "e8e9a58811b9": {
+    "src": "Международный благотворительный легкоатлетический забег состоялся 3 октября. В нем приняли участие около 2000 спортсменов из России , Индии, Казахстана, Китая, Судана, Таджикистана . Первое место в беге на 1 км заняла…",
+    "text": "Халықаралық қайырымдылық жеңіл атлетика жарысы 3 қазанда өтті. Оған Ресей , Үндістан, Қазақстан, Қытай, Судан, Тәжікстаннан 2000-ға жуық спортшы қатысты . 1 км жүгіруде бірінші орынды иеленді…",
+    "status": "machine",
+    "at": "2026-10-06"
   },
   "e90a48fd63eb": {
     "src": "высшее образование - магистратура, 32.04.01 Общественное здравоохранение.",
