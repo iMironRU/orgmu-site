@@ -1896,6 +1896,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "1765cc9dec63": {
+    "src": "7 октября в Оренбургском государственном медицинском университете завершился первый этап состязаний. В отборочных соревнованиях приняли участие более 200 студентов. Ребята показали спортивную подготовку, настоящую…",
+    "text": "On October 7, the first stage of the competition ended at Orenburg State Medical University. More than 200 students took part in the qualifying competitions. The guys showed athletic training, real…",
+    "status": "machine",
+    "at": "2026-10-08"
+  },
   "1778a87ea142": {
     "src": "Перечень мероприятий по улучшению условий труда",
     "text": "List of measures to improve working conditions",
@@ -13526,6 +13532,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "a4349f501db4": {
+    "src": "В ОрГМУ сформирована сборная команда для участия в региональном этапе студенческого фестиваля «Спортивный сегодня — успешный завтра»",
+    "text": "OrGMU has formed a national team to participate in the regional stage of the student festival \"Sports Today — successful Tomorrow\"",
+    "status": "machine",
+    "at": "2026-10-08"
+  },
   "a45a43bff37a": {
     "src": "Команда ОрГМУ стала призером «УниверЛиги Оренбуржья»",
     "text": "OrGMU team became the winner of the Orenburg Region Universal League",
@@ -14783,6 +14795,13 @@
     "text": "Tuition fees",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "b3e08c93c829": {
+    "src": "<p><span style=\"font-family: Arial;\">7 октября в Оренбургском государственном медицинском университете завершился первый этап состязаний. В отборочных соревнованиях приняли участие более 200 студентов. Ребята показали спортивную подготовку, настоящую сплоченность и умение бороться до конца. </span></p>\r\n<p><span style=\"font-family: Arial;\">Участники состязались в самых разных дисциплинах - от командных игр до точных и тактических видов спорта: мини-футболе, волейболе, баскетболе 3×3, перетягивании каната, дартсе, шахматах, настольном теннисе, физическом полиатлоне. По итогам напряженной борьбы сформирована сборная команда ОрГМУ из</span><span style=\"font-family: Arial;\"> 20 человек </span><span style=\"font-family: Arial;\">— она представит университет на региональном этапе фестиваля. </span></p>\r\n<p><span style=\"font-family: Arial;\">Проект реализуется </span><span style=\"font-family: Arial;\">Государственн</span><span style=\"font-family: Arial;\">ым</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">автономн</span></span><span style=\"font-family: Arial;\">ым</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">учреждение</span></span><span style=\"font-family: Arial;\">м </span><span style=\"font-family: Arial;\">Оренбургской области «Региональное агентство молодежных программ и проектов» при грантовой поддержке Движения Первых.</span></p>",
+    "text": "<p><span style=\"font-family: Arial;\">On October 7, the first stage of the competition ended at Orenburg State Medical University. More than 200 students took part in the qualifying competitions. The guys showed athletic training, real solidarity and the ability to fight to the end.</span></p>\r\n<p><span style=\"font-family: Arial;\">The participants competed in a wide variety of disciplines, from team games to precision and tactical sports: mini-football, volleyball, 3x3 basketball, tug of war, darts, chess, table tennis, and physical polyathlon. As a result of the intense struggle, an OrGMU team of</span><span style=\"font-family: Arial;\"> 20 people</span><span style=\"font-family: Arial;\"> has been formed to represent the university at the regional stage of the festival.</span></p>\r\n<p><span style=\"font-family: Arial;\">The project is being implemented</span><span style=\"font-family: Arial;\"> by the State</span><span style=\"font-family: Arial;\"></span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">Autonomous</span></span><span style=\"font-family: Arial;\"> </span><span style=\"font-family: Arial;\">Institution<span style=\"font-family: Arial;\"> of the Orenburg region \"Regional Agency for Youth Programs and Projects\" with the grant</span></span><span style=\"font-family: Arial;\"></span><span style=\"font-family: Arial;\"> support of the Movement of the First.</span></p>",
+    "status": "machine",
+    "at": "2026-10-08",
+    "html": true
   },
   "b3e98f65ea56": {
     "src": "Электронная информационно-образовательная среда",
