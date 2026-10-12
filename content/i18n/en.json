@@ -2755,6 +2755,13 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "20641fe11ba2": {
+    "src": "<p><span style=\"font-family: Arial;\">Соревнования прошли </span><span style=\"font-family: Arial;\">11 октября</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">в СК «Олимпийский». За победу боролась 21 команда - 159 спортсменов области. В итоге у сборной команды Оренбургского государственного медицинского университета четыре медали: Тамерлан </span></span><span style=\"font-family: Arial;\">Косумов</span><span style=\"font-family: Arial;\"> (24Л-07) занял первое место</span><span style=\"font-family: Arial;\">&nbsp;<span style=\"font-family: Arial;\">в категории «</span></span><span style=\"font-family: Arial;\">юниоры, 19–21 год, до 65 кг</span><span style=\"font-family: Arial;\">», Елена</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">Петрова</span></span><span style=\"font-family: Arial;\"> (С25СД-04) также стала лучшей в своей категории &nbsp;&nbsp;- «</span><span style=\"font-family: Arial;\">юниорки, 16–18 лет, до 50 кг</span><span style=\"font-family: Arial;\">». Дамир </span><span style=\"font-family: Arial;\">Жумабаев</span><span style=\"font-family: Arial;\"> (25П -01) занял вторую ступень пьедестала почета в категории «</span><span style=\"font-family: Arial;\">юниоры, 19–21 год, до 55 кг</span><span style=\"font-family: Arial;\">», Олег</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">Зубарев</span></span><span style=\"font-family: Arial;\"> (23Л-17), выступающий в категории «</span><span style=\"font-family: Arial;\">юниоры, 19–21 год, до 90 кг</span><span style=\"font-family: Arial;\">»,&nbsp;</span><span style=\"font-family: Arial;\">тоже взял «серебро» состязаний.&nbsp;</span></p>",
+    "text": "<p><span style=\"font-family: Arial;\">The competition was held</span><span style=\"font-family: Arial;\"> on October 11</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">at the Olympic Sports Complex. 21 teams competed for the victory - 159 athletes from the region. As a result, the national team of Orenburg State Medical University won four medals: Tamerlan</span></span><span style=\"font-family: Arial;\"> Kosumov</span><span style=\"font-family: Arial;\"> (24L-07) took first place</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">in the category \"</span></span><span style=\"font-family: Arial;\">juniors, 19-21 years old, up to 65 kg</span><span style=\"font-family: Arial;\">\", Elena</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">Petrova</span></span><span style=\"font-family: Arial;\"> (C25SD-04) also became the best in her category - \"</span><span style=\"font-family: Arial;\">juniors, 16-18 years old, up to 50 kg</span><span style=\"font-family: Arial;\">\". Damir</span><span style=\"font-family: Arial;\"> Zhumabaev</span><span style=\"font-family: Arial;\"> (25P -01) took the second step of the podium in the category \"</span><span style=\"font-family: Arial;\">juniors, 19-21 years old, up to 55 kg</span><span style=\"font-family: Arial;\">\", Oleg</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">Zubarev</span></span><span style=\"font-family: Arial;\"> (23L-17), competing in the category \"</span><span style=\"font-family: Arial;\">juniors, 19-21 years old, up to 90 kg</span><span style=\"font-family: Arial;\">\",</span><span style=\"font-family: Arial;\"> also took the \"silver\" of the competition. </span></p>",
+    "status": "machine",
+    "at": "2026-10-12",
+    "html": true
+  },
   "20767e778d84": {
     "src": "\"Школа здоровья для больных сахарным диабетом\"",
     "text": "\"School of health for patients with diabetes\"",
@@ -6058,6 +6065,12 @@
     "text": "Practice in obtaining professional skills in positions of secondary medical personnel (educational)",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "4a7d0feb3ae5": {
+    "src": "Соревнования прошли 11 октября в СК «Олимпийский». За победу боролась 21 команда - 159 спортсменов области. В итоге у сборной команды Оренбургского государственного медицинского университета четыре медали: Тамерлан…",
+    "text": "The competition was held on October 11 at the Olympic Sports Complex. 21 teams competed for the victory - 159 athletes from the region. As a result, the national team of Orenburg State Medical University has four medals: Tamerlane…",
+    "status": "machine",
+    "at": "2026-10-12"
   },
   "4a86d4aa8dc5": {
     "src": "ФГБОУ ВО ОГПУ Минздрава россии, \"English for Socializing and professional use (Pre-Intermediate\" (72 часа), удосьоверение О ПК 563103266553, дата выдачи 17.05.2023",
@@ -9830,6 +9843,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "79a76bec64d1": {
+    "src": "Завоевали медали на чемпионате области по армрестлингу",
+    "text": "We won medals at the regional arm wrestling championship",
+    "status": "machine",
+    "at": "2026-10-12"
+  },
   "79b1ebae0723": {
     "src": ", «Тренер-преподаватель», 576 час., ФГБОУ ВО \"Оренбургский государственный педагогический университет\". Диплом о профессиональной переподготовке № 561800282857 от 14.07.2021",
     "text": ", \"Trainer-teacher\", 576 hours, Orenburg State Pedagogical University. Diploma of professional retraining No. 561800282857 dated 07/14/2021",
@@ -12197,6 +12216,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "9529c5d71cfc": {
+    "src": "9 октября состоялась встреча студентов с главным врачом Областной клинической больницы им. В. И. Войнова Александром Редюковым – наставником студенческого клуба ОрГМУ «Врач 21 века». Александр Викторович поделился своим…",
+    "text": "On October 9, students met with Alexander Redyukov, Chief Physician of the V. I. Voynov Regional Clinical Hospital, mentor of the 21st Century Doctor OrGMU student club. Alexander Viktorovich shared his…",
+    "status": "machine",
+    "at": "2026-10-12"
+  },
   "954046106ae3": {
     "src": "Удостоверение о повышении квалификации ПК №974487 от 25.11.2024, Институт дополнительного профессионального образования ФГБОУ ВО \"КНИТУ\", \"Цифровые технологии в высшем профессиональном образовании и науке\" (36ч)",
     "text": "Certificate of advanced training PC No. 974487 dated 11/25/2024, Institute of Additional Professional Education of the Federal State Budgetary Educational Institution of Higher Education \"KNRTU\", \"Digital Technologies in Higher Professional Education and Science\" (36h)",
@@ -12397,6 +12422,13 @@
     "text": "Department of Pre-University Education",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "9746387034e7": {
+    "src": "<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">10 октября на базе Областной детской клинической больницы состоялся форум «Из рук в руки: опыт Коммунарки».&nbsp;</span><span style=\"font-family: Arial; color: #000000;\">Мероприятие объединило около 200 специалистов: анестезиологов-реаниматологов, акушеров-гинекологов, педиатров и терапевтов. От ОрГМУ в нем приняли участие сотрудники кафедр анестезиологии и реаниматологии, акушерства и гинекологии во главе с заведующими профессором Вадимом Ершовым и профессором Ольгой Константиновой.</span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">Группу лекторов возглавили директор ММКЦ «Коммунарка», главный внештатный специалист по анестезиологии-реаниматологии Департамента здравоохранения Москвы, заведующий кафедрой анестезиологии и реаниматологии Российского национального исследовательского медицинского университета им.</span><span style=\"font-family: Arial; color: #000000;\">Н.И.</span><span style=\"font-family: Arial; color: #000000;\">Пирогова, доктор медицинских наук Денис Проценко и профессор</span><span style=\"font-family: Arial; color: #000000;\">кафедры анестезиологии и реаниматологии </span><span class=\"15\" style=\"font-family: Arial;\">Института непрерывного образования и профессионального развития</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">Российского национального исследовательского медицинского университета имени Н.И. Пирогова</span></span><span style=\"font-family: Arial; color: #000000;\">, президент Ассоциации акушерских анестезиологов-реаниматологов, доктор медицинских наук Ефим Шифман.</span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">Форум открыла </span><span style=\"font-family: Arial; color: #000000;\">вице-губернатор</span><span style=\"font-family: Arial; color: #000000;\"> -</span><span style=\"font-family: Arial; color: #000000;\"> <span style=\"font-family: Arial;\">заместитель</span></span><span style=\"font-family: Arial; color: #000000;\"> <span style=\"font-family: Arial;\">председателя правительства Оренбургской области по социальной политике Лариса Боярская. </span></span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">- Очень радует, что именно наше Оренбуржье стало площадкой обмена опытом федеральных и региональных коллег, - отметила Лариса Александровна. - Благодарю организаторов и всех докладчиков за готовность делиться своим опытом, а участников - за вовлеченность и стремление к профессиональному росту.</span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">Форум стал ценной площадкой обмена опытом между ведущими специалистами&nbsp;</span><span style=\"font-family: Arial; color: #000000;\">многопрофильного клинического центра «Коммунарка» и специалистами Оренбургской области. Лекторы поделились своим видением&nbsp;</span><span style=\"font-family: Arial; color: #000000;\">и опытом работы&nbsp;</span><span style=\"font-family: Arial; color: #000000;\">в области современной анестезиологии и реаниматологии: персонализированной терапии сепсиса, лечения массивного акушерского кровотечения, диагностики и лечения ТЭЛА высокого риска, фармакокинетики и ЭКМО, а также новых горизонтов регионарной анальгезии.</span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">Мероприятие прошло в формате активного обсуждения и атмосферы профессионального взаимодействия. С обеих сторон была отмечена его высокая продуктивность для развития клинической практики в регионе.</span></p>",
+    "text": "<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">On October 10, the forum \"From hand to hand: the experience of a communal apartment\" was held on the basis of the Regional Children's Clinical Hospital. </span><span style=\"font-family: Arial; color: #000000;\">The event brought together about 200 specialists: anesthesiologists, intensive care physicians, obstetricians, gynecologists, pediatricians and internists. The OrGMU was attended by employees of the Departments of Anesthesiology and Intensive Care, Obstetrics and Gynecology, headed by the heads of Professor Vadim Ershov and Professor Olga Konstantinova.</span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">The group of lecturers was led by Denis Protsenko, Director of the MMCC Kommunarka, Chief freelance Specialist in Anesthesiology and Intensive Care at the Moscow Department of Health, Head of the Department of Anesthesiology and Intensive Care at the Pirogov Russian National Research Medical University, MD, and Professor at the Department of Anesthesiology and Intensive Care at the Institute of Continuing Education and Professional Development of the </span><span style=\"font-family: Arial; color: #000000;\">Russian National Research Medical University.</span><span style=\"font-family: Arial; color: #000000;\"></span><span style=\"font-family: Arial; color: #000000;\"></span><span class=\"15\" style=\"font-family: Arial;\"></span><span style=\"font-family: Arial;\"><span style=\"font-family: Arial;\"> N.I. Pirogov</span></span><span style=\"font-family: Arial; color: #000000;\">, President of the Association of Obstetric Anesthesiologists and Intensive Care Physicians, Doctor of Medical Sciences Efim Shifman.</span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">The forum was opened</span><span style=\"font-family: Arial; color: #000000;\"> by </span><span style=\"font-family: Arial; color: #000000;\">Larisa Boyarskaya, Vice Governor</span><span style=\"font-family: Arial; color: #000000;\"><span style=\"font-family: Arial;\"> and </span></span><span style=\"font-family: Arial; color: #000000;\">Deputy<span style=\"font-family: Arial;\"> Chairman of the Government of the Orenburg Region for Social Policy.</span></span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">- I am very pleased that our Orenburg region has become a platform for sharing the experience of federal and regional colleagues, - said Larisa Alexandrovna. - I would like to thank the organizers and all the speakers for their willingness to share their experiences, and the participants for their commitment and commitment to professional growth.</span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">The Forum has become a valuable platform for the exchange of experience between leading specialists</span><span style=\"font-family: Arial; color: #000000;\"> of the multidisciplinary clinical center \"Kommunarka\" and specialists from the Orenburg region. The lecturers shared their vision</span><span style=\"font-family: Arial; color: #000000;\"> and experience</span><span style=\"font-family: Arial; color: #000000;\"> in the field of modern anesthesiology and intensive care: personalized sepsis therapy, treatment of massive obstetric bleeding, diagnosis and treatment of high-risk PE, pharmacokinetics and ECMO, as well as new horizons of regional analgesia.</span></p>\r\n<p class=\"p\"><span style=\"font-family: Arial; color: #000000;\">The event was held in the format of an active discussion and an atmosphere of professional interaction. Both sides noted its high productivity for the development of clinical practice in the region.</span></p>",
+    "status": "machine",
+    "at": "2026-10-12",
+    "html": true
   },
   "9748fedd2a2b": {
     "src": "Тип объекта",
@@ -13813,6 +13845,13 @@
     "text": "The cipher of the Council",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "a6a99e7ffc1c": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">9&nbsp;октября состоялась встреча студентов с главным врачом Областной клинической больницы им.&nbsp;В.&nbsp;И.&nbsp;Войнова Александром Редюковым&nbsp;– наставником студенческого клуба ОрГМУ «Врач 21&nbsp;века». </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Александр Викторович поделился своим профессиональным опытом, рассказал о структуре больницы и о том, как в её работу внедряется искусственный интеллект. Отдельное внимание было уделено качествам и навыкам, которые необходимы руководителю в медицине.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Студенты смогли задать вопросы и получить ответы из первых уст. Мероприятие помогло им лучше понять, какими компетенциями должен обладать врач и управленец XXI&nbsp;века.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">On October 9, students met with Alexander Redyukov, Chief Physician of the V. I. Voynov Regional Clinical Hospital, mentor of the 21st Century Doctor OrGMU student club.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Alexander Viktorovich shared his professional experience, talked about the structure of the hospital and how artificial intelligence is being introduced into its work. Special attention was paid to the qualities and skills that are necessary for a leader in medicine.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The students were able to ask questions and get first-hand answers. The event helped them to better understand what competencies a doctor and a manager of the 21st century should have.</span></p>",
+    "status": "machine",
+    "at": "2026-10-12",
+    "html": true
   },
   "a6c991b2fdc5": {
     "src": "Направления работ",
@@ -17257,6 +17296,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "d27a4a3fafdb": {
+    "src": "Встреча с главным врачом: студенты узнали, как работает современная больница",
+    "text": "Meeting with the chief physician: students learned how a modern hospital works",
+    "status": "machine",
+    "at": "2026-10-12"
+  },
   "d27b339bbcaa": {
     "src": "Определение иммуноглобулинов класса G к возбудителю описторхоза (Opisthorchis felineus) в сыворотке крови (при групповой постановке не менее 5 проб)",
     "text": "Determination of class G immunoglobulins to the causative agent of opisthorchiasis (Opisthorchis felineus) in blood serum (with a group of at least 5 samples)",
@@ -17590,6 +17635,12 @@
     "text": "Graduates of the Faculty of Medicine and Prevention received higher education documents",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "d5ead5e79e89": {
+    "src": "10 октября на базе Областной детской клинической больницы состоялся форум «Из рук в руки: опыт Коммунарки». Мероприятие объединило около 200 специалистов: анестезиологов-реаниматологов, акушеров-гинекологов, педиатров и…",
+    "text": "On October 10, the forum \"From hand to hand: the experience of a communal apartment\" was held on the basis of the Regional Children's Clinical Hospital. The event brought together about 200 specialists: anesthesiologists, intensive care physicians, obstetricians, gynecologists, pediatricians and…",
+    "status": "machine",
+    "at": "2026-10-12"
   },
   "d5fb0781fd2f": {
     "src": "ФГБОУ ВО ОрГМУ Минздрава России, «Организация здравоохранения и общественное здоровье» (144 ч.), удостоверение о ПК 563102 792031, дата выдачи 29.09.2025",
@@ -18078,6 +18129,12 @@
     "text": "Contacts",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "dbae5e90213a": {
+    "src": "Сотрудники ОрГМУ приняли участие в форуме «Из рук в руки: опыт Коммунарки»",
+    "text": "OrGMU employees took part in the forum \"From hand to hand: the experience of a communal apartment\"",
+    "status": "machine",
+    "at": "2026-10-12"
   },
   "dbc1a0c8b644": {
     "src": "Организациям",
