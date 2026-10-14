@@ -1553,6 +1553,12 @@
     "at": "2026-07-22",
     "html": true
   },
+  "127438c438a9": {
+    "src": "Идет активная подготовка к основным обучающим мероприятиям в рамках проекта ОрГМУ «Студенческая академия туризма \"География объединяет\"»",
+    "text": "Active preparations are underway for the main training events within the framework of the OrGMU Student Academy of Tourism \"Geography Unites\" project\"",
+    "status": "machine",
+    "at": "2026-10-14"
+  },
   "12b29e6246ed": {
     "src": "Для бойцов студенческого отряда «Яшма» зарядку провел заместитель министра здравоохранения области",
     "text": "The training was conducted by the Deputy Minister of Health of the region for the fighters of the student detachment \"Jasper\".",
@@ -5611,6 +5617,13 @@
     "text": "The Secretariat of the Academic Council",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "4379cd89d90a": {
+    "src": "<p><span style=\"font-family: Arial;\">12 октября на спортивной базе университета в Зауральной роще состоялся обучающий интенсив для добровольцев, который проводил руководитель проектного решения студент лечебного факультета Азамат Байганов с наставником старшим преподавателем кафедры физической культуры, мастером спорта России по спортивному туризму Лейлой Девяткиной.</span></p>\r\n<p><span style=\"font-family: Arial;\">Состоялась подготовка площадок, пешеходных, велосипедных и водных дистанций. Все участники были распределены по обязанностям, они отработали действия в нештатных ситуациях и оказание первой помощи пострадавшим.</span></p>\r\n<p><span style=\"font-family: Arial;\">Команда проекта и активисты турклуба «Вагант» ОрГМУ на станциях показывали добровольцам, как пользоваться снаряжением и оборудованием.</span></p>\r\n<p><span style=\"font-family: Arial;\">Проектное решение «Студенческая академия туризма \"География объединяет\"» реализуется при грантовой поддержке Федерального агентства по делам молодёжи Росмолодёжь.Гранты, Росмолодёжь.&nbsp;</span></p>",
+    "text": "<p><span style=\"font-family: Arial;\">On October 12, an intensive training course for volunteers took place at the university's sports base in Zauralnaya Grove, which was conducted by the head of the project solution, Azamat Baiganov, a student of the Faculty of Medicine, with his mentor, Leila Devyatkina, senior lecturer at the Department of Physical Education, Master of Sports of Russia in sports tourism.</span></p>\r\n<p><span style=\"font-family: Arial;\">The preparation of playgrounds, walking, cycling and water courses took place. All participants were assigned duties, they worked out actions in emergency situations and first aid to victims.</span></p>\r\n<p><span style=\"font-family: Arial;\">The project team and activists of the Vagant tourism club of OrGMU showed the volunteers how to use the equipment at the stations.</span></p>\r\n<p><span style=\"font-family: Arial;\">The project solution \"Geography Unites Student Academy of Tourism\" is being implemented with the grant support of the Federal Agency for Youth Affairs Rosmolodezh.Grants, Rosmolodezh.</span></p>",
+    "status": "machine",
+    "at": "2026-10-14",
+    "html": true
   },
   "438b6ccaebb4": {
     "src": "Должностные лица вправе привлекать в качестве экспертов сотрудников профильных структурных подразделений",
@@ -15660,6 +15673,12 @@
     "text": "The XIV Olympiad (2025-2026) has been completed. The lists of winners and prize—winners are published in the file below. Certificates for the participants of the 2nd stage will be sent to the email address specified in the application.",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "bc8cae0d5f97": {
+    "src": "12 октября на спортивной базе университета в Зауральной роще состоялся обучающий интенсив для добровольцев, который проводил руководитель проектного решения студент лечебного факультета Азамат Байганов с наставником…",
+    "text": "On October 12, an intensive training course for volunteers was held at the university's sports base in Zauralnaya Grove, which was conducted by the head of the project solution, Azamat Baiganov, a student of the Faculty of Medicine, with a mentor…",
+    "status": "machine",
+    "at": "2026-10-14"
   },
   "bc940992a5ab": {
     "src": "Студотрядовцы напомнили, как обезопасить себя и близких в сезон активности клещей",
