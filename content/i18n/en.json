@@ -1952,6 +1952,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "179857ce3d2a": {
+    "src": "Профессор ОрГМУ Александр Шехтман выступил с открытой лекцией",
+    "text": "OrGMU Professor Alexander Shekhtman gave an open lecture",
+    "status": "machine",
+    "at": "2026-10-16"
+  },
   "17c509528af7": {
     "src": "ФГБОУ ВО ОрГМУ Минздрава России, «Анатомия человека. Интеграция современных и традиционных методов преподавания (18 ч.), удостоверение о ПК 1910/2025, дата выдачи 29.05.2025",
     "text": "Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation, \"Human Anatomy. Integration of modern and traditional teaching methods (18 hours), certificate of PC 1910/2025, issue date 05/29/2025",
@@ -3993,6 +3999,12 @@
     "text": "Urine testing for phosphates",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "30069a12976a": {
+    "src": "15 октября на базе Областной детской клинической больницы (ОДКБ) заведующий кафедрой рентгенологии и радиационной медицины ОрГМУ, доктор медицинских наук Александр Шехтман провел открытую лекцию по теме «Лучевая…",
+    "text": "On October 15, Alexander Shekhtman, Head of the Department of Radiology and Radiation Medicine of OrGMU, MD, held an open lecture on the topic \"Radiation therapy\" at the Regional Children's Clinical Hospital (CSTO).…",
+    "status": "machine",
+    "at": "2026-10-16"
   },
   "30212d155431": {
     "src": "Биохимия",
@@ -6386,6 +6398,13 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "4cffeab2e955": {
+    "src": "<p><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">С 28 сентября по 16 октября кафедра русского языка организовала мероприятие «Языковой компас</span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">: </span><span style=\"font-family: Arial;\">по следам оренбургского байбака</span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">», превратив исторический центр города в тренажер. Студенты из Индии искали фигурки сурков - символы края, отражающие историю и традиции Оренбуржья, и учили русский язык.&nbsp;</span></p>\r\n<p><span style=\"font-family: Arial;\">Для преподавателей это стало блестящей возможностью перенести обучение в городскую среду. Каждый переход между точками стал практикой глаголов движения: студенты расшифровывали карты и координировали маршрут команды на русском языке.</span></p>\r\n<p><span style=\"font-family: Arial;\">У каждой скульптуры ребят ждала проблемно-поисковая задача. Рассматривая детали костюмов и атрибуты (скафандр, веретено, доспехи), будущие врачи осваивали лексику профессий и внешности, а главное &nbsp;– &nbsp;размышляли и объясняли, почему фигурка установлена именно в этом месте.</span></p>\r\n<p><span style=\"font-family: Arial;\">Студенты увлеченно соблюдали и новый ритуал – наперебой гладили бронзовые носики байбаков, загадывая желания на легкую сессию и дружбу.</span></p>",
+    "text": "<p><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">From September 28 to October 16, the Department of Russian Language organized the event \"Language Compass</span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">:</span><span style=\"font-family: Arial;\"> following in the footsteps of the Orenburg Bayback</span><span style=\"font-family: Arial; background-image: initial; background-position: initial; background-repeat: initial; background-attachment: initial;\">\", turning the historical center of the city into a simulator. Students from India were looking for figurines of marmots, symbols of the region reflecting the history and traditions of Orenburg region, and learned Russian. </span></p>\r\n<p><span style=\"font-family: Arial;\">This was a great opportunity for teachers to transfer their education to an urban environment. Each transition between points became a practice of movement verbs: students deciphered maps and coordinated the team's route in Russian.</span></p>\r\n<p><span style=\"font-family: Arial;\">Each sculpture had a problem-searching task waiting for the children. Considering the details of costumes and attributes (spacesuit, spindle, armor), future doctors mastered the vocabulary of professions and appearance, and most importantly, they reflected and explained why the figure was installed in this particular place.</span></p>\r\n<p><span style=\"font-family: Arial;\">The students enthusiastically observed a new ritual – they vied with each other stroking the bronze noses of the baibaks, making wishes for an easy session and friendship.</span></p>",
+    "status": "machine",
+    "at": "2026-10-16",
+    "html": true
+  },
   "4d1b7ce18e66": {
     "src": "кандидат медицинских наук, 14.00.10 \"Инфекционные болезни\"",
     "text": "Candidate of Medical Sciences, 14.00.10 \"Infectious diseases\"",
@@ -6811,6 +6830,12 @@
     "text": "First-year students of the Faculty of Medicine of OrGMU took part in the cross-cultural project \"Threads of Friendship\"",
     "status": "machine",
     "at": "2026-10-13"
+  },
+  "52affd27bee2": {
+    "src": "Провели для иностранных студентов цикл квест-экскурсий в поисках оренбургских байбаков",
+    "text": "We conducted a series of quest excursions for international students in search of Orenburg baibaks",
+    "status": "machine",
+    "at": "2026-10-16"
   },
   "52c7752c1e90": {
     "src": "Учебная практика \"Практика диагностического профиля\"",
@@ -15945,6 +15970,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "be6cdc498b19": {
+    "src": "С 28 сентября по 16 октября кафедра русского языка организовала мероприятие «Языковой компас : по следам оренбургского байбака », превратив исторический центр города в тренажер. Студенты из Индии искали фигурки сурков …",
+    "text": "From September 28 to October 16, the Russian Language Department organized the event \"Language Compass : Following in the footsteps of the Orenburg Bayback\", turning the historical center of the city into a simulator. Students from India were looking for groundhog figurines …",
+    "status": "machine",
+    "at": "2026-10-16"
+  },
   "be7baa850194": {
     "src": "ФГБОУ ВО ОГПУ, ПК \"Совершенствование профессиональной деятельности преподавателя медицинского ВУЗа в современных условиях\" (72 часа), дата выдачи 24.05.2024",
     "text": "OGPU, PC \"Improving the professional activity of a medical university teacher in modern conditions\" (72 hours), issue date 05/24/2024",
@@ -18702,6 +18733,13 @@
     "text": "The emergence and termination of educational relations",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "e09b9a98ecbf": {
+    "src": "<p><span style=\"font-family: Arial, 'sans-serif';\">15 октября <span style=\"color: #2c2d2e; background: white;\">на базе Областной детской клинической больницы</span> (ОДКБ) <span style=\"background: white;\">заведующий кафедрой рентгенологии и радиационной медицины </span>ОрГМУ, доктор медицинских наук Александр Шехтман провел открытую лекцию по теме «Лучевая диагностика в детской пульмонологии и торакальной хирургии». </span></p>\r\n<p style=\"margin-bottom: 0.0001pt; line-height: normal; background: white;\"><span style=\"font-family: Arial, 'sans-serif';\">Во время лекции были освещены актуальные вопросы лучевой диагностики патологий органов грудной клетки у детей. Александр Геннадьевич сделал акцент на том, что в педиатрической практике очень важно соблюдать дозовые нагрузки на пациентов. </span></p>\r\n<p style=\"margin-bottom: 0.0001pt; line-height: normal; background: white;\"><span style=\"font-family: Arial, 'sans-serif';\">Во время встречи врачи ОДКБ и коллеги-педиатры обсудили ряд важных проблем в контексте лучевой диагностики. Так, заведующая кафедрой педиатрии ОрГМУ, </span><span style=\"font-family: Arial, 'sans-serif'; color: #333333; background: white;\">профессор, доктор медицинских наук</span><span style=\"font-family: Arial, 'sans-serif';\"> Галина Евстифеева предложила стандартизировать протокол описания рентгенологических исследований. Она отметила, что особое внимание в этом вопросе необходимо уделить протоколам реанимационных больных. </span></p>\r\n<p style=\"margin-bottom: 0.0001pt; line-height: normal; background: white;\"><span style=\"font-family: Arial, 'sans-serif';\">Лекция завершилась экскурсией в отделение лучевой диагностики, где Александр Геннадьевич проконсультировал коллег по нескольким сложным диагностическим случаям. </span></p>",
+    "text": "<p><span style=\"font-family: Arial, 'sans-serif';\">On October 15, Alexander Shekhtman, <span style=\"color: #2c2d2e; background: white;\">Head of the Department of Radiology and Radiation Medicine</span> at the OrGMU, MD, held an open lecture on the topic \"Radiation diagnostics in pediatric Pulmonology and Thoracic Surgery\" <span style=\"background: white;\">at the Regional Children's Clinical Hospital</span> (CSTO).</span></p>\r\n<p style=\"margin-bottom: 0.0001pt; line-height: normal; background: white;\"><span style=\"font-family: Arial, 'sans-serif';\">During the lecture, topical issues of radiation diagnostics of chest pathologies in children were highlighted. Alexander Gennadievich emphasized that in pediatric practice it is very important to observe dose loads on patients.</span></p>\r\n<p style=\"margin-bottom: 0.0001pt; line-height: normal; background: white;\"><span style=\"font-family: Arial, 'sans-serif';\">During the meeting, CSTO doctors and fellow pediatricians discussed a number of important issues in the context of radiation diagnostics. For example, Galina Evstifeeva, Head of the Department of Pediatrics at OrGMU,</span><span style=\"font-family: Arial, 'sans-serif'; color: #333333; background: white;\"> Professor, Doctor of Medicine</span><span style=\"font-family: Arial, 'sans-serif';\">, proposed standardizing the protocol for describing X-ray examinations. She noted that special attention in this matter should be paid to the protocols of intensive care patients.</span></p>\r\n<p style=\"margin-bottom: 0.0001pt; line-height: normal; background: white;\"><span style=\"font-family: Arial, 'sans-serif';\">The lecture ended with an excursion to the radiation diagnostics department, where Alexander Gennadievich advised colleagues on several complex diagnostic cases.</span></p>",
+    "status": "machine",
+    "at": "2026-10-16",
+    "html": true
   },
   "e0aa98a4c0eb": {
     "src": "Семеро студентов ОрГМУ стали победителями конкурса на присуждение стипендий губернатора",
