@@ -6095,6 +6095,12 @@
     "status": "machine",
     "at": "2026-10-05"
   },
+  "49cd34089229": {
+    "src": "Волонтеры-медики провели уроки о медицине в школах",
+    "text": "Medical volunteers conducted lessons about medicine in schools",
+    "status": "machine",
+    "at": "2026-10-16"
+  },
   "49d479df19db": {
     "src": "Медицинские системы",
     "text": "Medical systems",
@@ -8630,6 +8636,12 @@
     "text": "Department of Social Work",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "687a287f3b77": {
+    "src": "С 5 по 12 октября студенты Оренбургского государственного медицинского университета провели серию профориентационных уроков в школах № 16, № 46, гимназии № 5 и гимназии № 7 в рамках Всероссийской недели профориентации…",
+    "text": "From October 5 to October 12, students of Orenburg State Medical University conducted a series of career guidance classes in schools No. 16, No. 46, Gymnasium No. 5 and Gymnasium No. 7 as part of the All-Russian Career Guidance Week.…",
+    "status": "machine",
+    "at": "2026-10-16"
   },
   "6882099b4fb8": {
     "src": "Определение показателей гормонального статуса",
@@ -18179,6 +18191,13 @@
     "text": "Microbiological examination of wound discharge- transudates- exudates- of bile for aerobic and facultative anaerobic microorganisms (fungi) (when isolating microorganisms and determining sensitivity to antimicrobial drugs) (additional study)",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "d9fb473383ac": {
+    "src": "<p><span style=\"font-size: 10pt; line-height: 107%; font-family: Arial, 'sans-serif'; color: black; letter-spacing: -0.05pt;\">С 5 по 12 октября студенты Оренбургского государственного медицинского университета провели серию профориентационных уроков в школах № 16, № 46, гимназии № 5 и гимназии № 7 в рамках Всероссийской недели профориентации. Мероприятия были направлены на знакомство школьников с многообразием медицинских профессий и помощь в осознанном выборе будущего пути.<br /> </span></p>\r\n<p><span style=\"font-size: 10pt; line-height: 107%; font-family: Arial, 'sans-serif'; color: black; letter-spacing: -0.05pt;\">В ходе уроков ребята узнали о редких и необычных медицинских специальностях, а также получили полезную информацию о поступлении в медицинские университеты и о том, какой путь предстоит пройти будущим медикам. Студенты вуза поделились собственным опытом, ответили на вопросы школьников и показали, насколько интересной и значимой может быть работа в сфере здравоохранения. Такие встречи помогают детям сделать первый шаг к профессии мечты. </span></p>",
+    "text": "<p><span style=\"font-size: 10pt; line-height: 107%; font-family: Arial, 'sans-serif'; color: black; letter-spacing: -0.05pt;\">From October 5 to October 12, students of Orenburg State Medical University conducted a series of career guidance classes in schools No. 16, No. 46, Gymnasium No. 5 and Gymnasium No. 7 as part of the All-Russian Career Guidance Week. The events were aimed at introducing schoolchildren to the diversity of medical professions and helping them make informed choices about their future path.<br /> </span></p>\r\n<p><span style=\"font-size: 10pt; line-height: 107%; font-family: Arial, 'sans-serif'; color: black; letter-spacing: -0.05pt;\">During the lessons, the students learned about rare and unusual medical specialties, as well as received useful information about admission to medical universities and the path that future doctors will have to take. The university students shared their own experiences, answered the students' questions and showed how interesting and meaningful work in the healthcare sector can be. Such meetings help children take the first step towards their dream profession.</span></p>",
+    "status": "machine",
+    "at": "2026-10-16",
+    "html": true
   },
   "da216df73c3e": {
     "src": "Специальные технические средства обучения",
