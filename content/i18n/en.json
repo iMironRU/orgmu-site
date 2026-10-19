@@ -3432,6 +3432,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "27d76ac1d9cb": {
+    "src": "Профориентационная встреча «ОрГМУ — мой выбор!» прошла в школе №2 в Кувандыке",
+    "text": "The career guidance meeting \"OrGMU is my choice!\" was held at school No. 2 in Kuvandyk",
+    "status": "machine",
+    "at": "2026-10-19"
+  },
   "281ab10c5135": {
     "src": "Высшее образование - специалитет, Лечебное дело, Врач",
     "text": "Higher education - specialty, Medical practice, Doctor",
@@ -5403,6 +5409,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "3f911ad1192b": {
+    "src": "В мероприятии, организованном специалистами кафедры физической культуры ОрГМУ, приняли участие более 80 обучающихся 9-11-х классов. В рамках встречи студент второго курса лечебного факультета Михаил Григорьев рассказал…",
+    "text": "The event, organized by specialists of the Department of Physical Culture of OrGMU, was attended by more than 80 students in grades 9-11. During the meeting, Mikhail Grigoriev, a second-year student at the Faculty of Medicine, told…",
+    "status": "machine",
+    "at": "2026-10-19"
+  },
   "3f9929e1a519": {
     "src": "Студенческие активисты вуза обменялись опытом, пообщались с ректором и отдохнули",
     "text": "The university's student activists exchanged experiences, talked with the rector and had a rest.",
@@ -5781,6 +5793,13 @@
     "text": "The results of a special assessment of working conditions",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "453ffb3e1b14": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">В мероприятии, организованном специалистами кафедры физической культуры ОрГМУ, приняли участие более 80 обучающихся 9-11-х&nbsp;классов. В рамках встречи студент второго курса лечебного факультета Михаил Григорьев рассказал об особенностях обучения в ОрГМУ, возможностях профессионального развития и преимуществах выбора медицинской профессии.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Школьники проявили высокий интерес к условиям поступления и обучения в вузе. В ходе диалога прозвучали вопросы о наличии общежитий, сложности освоения образовательной программы, целевом обучении. Отдельное внимание было уделено системе балльно</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">рейтинговой оценки обучающихся, программам среднего профессионального образования, а также льготам при поступлении и обучении.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">The event, organized by specialists of the Department of Physical Culture of OrGMU, was attended by more than 80 students in grades 9-11. During the meeting, Mikhail Grigoriev, a second-year student of the Faculty of Medicine, spoke about the specifics of studying at OrGMU, the possibilities of professional development and the advantages of choosing a medical profession.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The students showed great interest in the conditions of admission and study at the university. During the dialogue, questions were raised about the availability of dormitories, the difficulty of mastering the educational program, and targeted training. Special attention was paid to the system of point</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">rating assessment of students, secondary vocational education programs, as well as benefits for admission and training.</span></p>",
+    "status": "machine",
+    "at": "2026-10-19",
+    "html": true
   },
   "4554acaca36a": {
     "src": "Альдостерон",
