@@ -3826,6 +3826,13 @@
     "status": "human",
     "at": "2026-07-23"
   },
+  "2cf06880f973": {
+    "src": "<p style=\"background: white;\"><span style=\"font-size: 12pt; font-family: Arial, 'sans-serif';\">21 октября на главной сцене мегамолла «Мармелад», состоялся Региональный форум Российского центра оборота прав на результаты творческой деятельности (РЦИС) под названием «Интеллектуальная собственность: основа инновационно-креативной экономики». Организаторами форума выступили Правительство Оренбургской области, РЦИС и Министерство экономического развития, инвестиций, туризма и внешних связей. </span></p>\r\n<p style=\"background: white;\"><span style=\"font-size: 12pt; font-family: Arial, 'sans-serif';\">В мероприятии, направленном на поддержку научного и предпринимательского сообщества региона, приняла участие представитель Оренбургского государственного медицинского университета — Мария Шевцова, инженер по патентной и изобретательской работе. </span></p>\r\n<p style=\"background: white;\"><span style=\"font-size: 12pt;\"><span style=\"font-family: Arial, 'sans-serif';\">Ключевым событием форума стал запуск регионального цифрового инструмента на базе блокчейн-инфраструктуры сети РЦИС.РФ, <span style=\"background: white;\">системы для управления правами на результаты интеллектуальной деятельности</span></span>. Также была подписана дорожная карта по реализации соглашения между регионом и Российским центром оборота прав на результаты творческой деятельности.</span></p>\r\n<p><span style=\"font-size: 12pt; line-height: 107%; font-family: Arial, 'sans-serif';\">Для специалистов в области медицины и биотехнологий подобные инструменты открывают новые возможности, такие как оперативная фиксация прав на уникальные разработки, методики и программное обеспечение.</span></p>",
+    "text": "<p style=\"background: white;\"><span style=\"font-size: 12pt; font-family: Arial, 'sans-serif';\">On October 21, the Regional Forum of the Russian Center for the Turnover of Rights to the Results of Creative Activity (RCIS) entitled \"Intellectual Property: the basis of the innovative and creative economy\" took place on the main stage of the Marmelad megamall. The forum was organized by the Government of the Orenburg Region, the RCIS and the Ministry of Economic Development, Investment, Tourism and External Relations.</span></p>\r\n<p style=\"background: white;\"><span style=\"font-size: 12pt; font-family: Arial, 'sans-serif';\">Maria Shevtsova, a representative of Orenburg State Medical University, an engineer for patent and inventive work, took part in the event aimed at supporting the scientific and business community of the region.</span></p>\r\n<p style=\"background: white;\"><span style=\"font-size: 12pt;\"><span style=\"font-family: Arial, 'sans-serif';\">The key event of the forum was the launch of a regional digital tool based on the blockchain infrastructure of the RCIS network.Russian Federation, <span style=\"background: white;\">systems for managing intellectual</span></span> property rights. A roadmap for the implementation of the agreement between the region and the Russian Center for the Turnover of Rights to the results of Creative Activity was also signed.</span></p>\r\n<p><span style=\"font-size: 12pt; line-height: 107%; font-family: Arial, 'sans-serif';\">For specialists in the field of medicine and biotechnology, such tools open up new opportunities, such as the operational registration of rights to unique developments, techniques and software.</span></p>",
+    "status": "machine",
+    "at": "2026-10-22",
+    "html": true
+  },
   "2d05568b2338": {
     "src": "высшее образование - специалитет, Микробиолог",
     "text": "higher education - specialty, Microbiologist",
@@ -4549,6 +4556,12 @@
     "text": "The contract contains: - information about the contractor:",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "3569a1efbff7": {
+    "src": "В Оренбурге прошел региональный форум РЦИС",
+    "text": "The regional RCIS Forum was held in Orenburg",
+    "status": "machine",
+    "at": "2026-10-22"
   },
   "356b795be438": {
     "src": "Выделение нуклеиновых кислот",
@@ -8144,6 +8157,12 @@
     "status": "machine",
     "at": "2026-07-23"
   },
+  "60d925e5768c": {
+    "src": "Приняли участие в стратегической сессии по кооперации науки и бизнеса",
+    "text": "Participated in a strategic session on cooperation between science and business",
+    "status": "machine",
+    "at": "2026-10-22"
+  },
   "60e60d8d591e": {
     "src": "ФГБОУ ВО ОГПУ, \"Актуальные вопросы дополнительного образования...\" (72ч), удостоверение 129739, дата выдачи 25.12.2024",
     "text": "OGPU, \"Current issues of additional education...\" (72h), certificate 129739, issue date 12/25/2024",
@@ -9446,6 +9465,12 @@
     "text": "Internship in Pediatrics 01.08.1992-30.06.1993 Certificate No. 116. Issued on 06/28/1993. Residency in Pediatrics on 09/01/1995-08/31/1997. Certificate Registration number 42(853), issued on 08/31/1997.",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "71d346c1931f": {
+    "src": "Студенты ОрГМУ приняли участие в XVI Слете студенческих отрядов Приволжского федерального округа",
+    "text": "OrGMU students took part in the XVI Meeting of student groups of the Volga Federal District",
+    "status": "machine",
+    "at": "2026-10-22"
   },
   "71e1ea68bbc8": {
     "src": "Срок",
@@ -15896,6 +15921,13 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "bc2b4e48d504": {
+    "src": "<p><span style=\"font-family: Arial, sans-serif;\">В мероприятии, организованном при поддержке Государственной корпорации «Ростех» и Центра компетенций Минобрнауки России, приняли участие ректор ОрГМУ Игорь Мирошниченко и проректор по научной, инновационной и международной деятельности Елена Луцай. Событие объединило представителей региональных министерств, ведущих высших учебных заведений Оренбурга, Самары и Уфы, а также промышленных предприятий региона. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Основная цель встречи — создание эффективной площадки для диалога между наукой и бизнесом. В рамках мероприятия образовательные учреждения представили свои ключевые научные достижения и инновационные разработки, которые могут быть успешно интегрированы в реальный сектор экономики.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Руководитель направления кооперации науки и бизнеса Госкорпорации «Ростех» Андрей Толмачев отметил, что сотрудничество университетов с федеральными структурами позволяет расширить возможности для продвижения научных разработок и исследований, получить доступ к актуальным заказам от предприятий реального сектора экономики и ускорить процесс внедрения научных разработок в практическое применение. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Министр образования Оренбургской области Алексей Пахомов отметил, что правительство области поддерживает инициативы высших учебных заведений и содействует их участию в федеральных грантовых конкурсах и программах финансирования. В частности, регион совместно с вузами подавал заявку на участие в программе по созданию кампусов: на текущий момент она находится в шорт</span><span style=\"font-family: 'Cambria Math', serif;\">‑</span><span style=\"font-family: Arial, sans-serif;\">листе, ожидается решение в ноябре. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">В свою очередь, первый замминистра промышленности и энергетики Оренбургской области Дмитрий Кулаков подчеркнул, что у области есть вся необходимая база для запуска совместных проектов, а «Ростех» здесь выступает ключевым стратегическим партнером, способным обеспечить трансфер компетенций, доступ к технологиям и координацию отраслевого развития. </span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Ректор Игорь Мирошниченко обозначил ключевые направления, над которыми сегодня работают ученые Оренбургского медуниверситета. В центре внимания вуза - психиатрия и нейронауки, создание лекарственных средств на основе уникальных растений Оренбургской области, создание инновационных хирургических инструментов, реабилитационная медицина, внедрение современных методов диагностики и лечения и совершенствование системы медицинского образования.</span></p>",
+    "text": "<p><span style=\"font-family: Arial, sans-serif;\">The event, organized with the support of the Rostec State Corporation and the Competence Center of the Ministry of Education and Science of the Russian Federation, was attended by Igor Miroshnichenko, Rector of OrGMU, and Elena Lutsai, Vice Rector for Science, Innovation and International Affairs. The event brought together representatives of regional ministries, leading higher education institutions in Orenburg, Samara and Ufa, as well as industrial enterprises in the region.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">The main purpose of the meeting is to create an effective platform for dialogue between science and business. During the event, educational institutions presented their key scientific achievements and innovative developments that can be successfully integrated into the real sector of the economy.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Andrey Tolmachev, Head of Science and Business Cooperation at Rostec State Corporation, noted that cooperation between universities and federal agencies makes it possible to expand opportunities for promoting scientific research and development, gain access to relevant orders from enterprises in the real sector of the economy, and accelerate the process of putting scientific developments into practical use.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Alexey Pakhomov, Minister of Education of the Orenburg Region, noted that the regional government supports the initiatives of higher education institutions and promotes their participation in federal grant competitions and funding programs. In particular, the region, together with universities, applied for participation in the campus creation program: it is currently on the shortlist</span><span style=\"font-family: 'Cambria Math', serif;\"></span><span style=\"font-family: Arial, sans-serif;\">, and a decision is expected in November.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">In turn, Dmitry Kulakov, First Deputy Minister of Industry and Energy of the Orenburg Region, stressed that the region has all the necessary facilities to launch joint projects, and Rostec is a key strategic partner here, able to ensure the transfer of competencies, access to technology and coordination of industry development.</span></p>\r\n<p><span style=\"font-family: Arial, sans-serif;\">Rector Igor Miroshnichenko outlined the key areas that scientists at Orenburg Medical University are working on today. The university focuses on psychiatry and neuroscience, the creation of medicines based on unique plants of the Orenburg region, the creation of innovative surgical instruments, rehabilitation medicine, the introduction of modern diagnostic and treatment methods and the improvement of the medical education system.</span></p>",
+    "status": "machine",
+    "at": "2026-10-22",
+    "html": true
+  },
   "bc3c6a94b9f1": {
     "src": "Определение креатинкиназы общей",
     "text": "Determination of total creatine kinase",
@@ -17995,6 +18027,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "d5fefe34f182": {
+    "src": "С 16 по 18 октября в Самаре состоялся XVI Слет студенческих отрядов Приволжского федерального округа. Мероприятие объединило около 400 лучших представителей движения из 14 регионов России. В состав делегации…",
+    "text": "From October 16 to 18, the XVI Meeting of Student groups of the Volga Federal District took place in Samara. The event brought together about 400 of the best representatives of the movement from 14 regions of Russia. The composition of the delegation…",
+    "status": "machine",
+    "at": "2026-10-22"
+  },
   "d608a3920cd5": {
     "src": "высшее образование - подготовка кадров высшей квалификации: аспирантура, Экология",
     "text": "higher education - training of highly qualified personnel: postgraduate studies, Ecology",
@@ -19359,6 +19397,13 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "e65f27d02441": {
+    "src": "<p style=\"margin-bottom: 0.0001pt; text-align: justify; line-height: normal; background: white;\"><span style=\"font-family: Arial, 'sans-serif';\">С 16 по 18 октября в Самаре состоялся XVI Слет студенческих отрядов Приволжского федерального округа. Мероприятие объединило около 400 лучших представителей движения из 14 регионов России. </span><span style=\"font-family: Arial, 'sans-serif';\">В состав делегации Оренбургской области вошли представители местного штаба студенческих отрядов, включая студентов из отряда «36,6», созданного на базе ОрГМУ.</span></p>\r\n<p><span style=\"font-family: Arial, 'sans-serif'; color: black; letter-spacing: -0.3pt;\">Программа слета включала интерактивные площадки, конкурсы профессионального мастерства, фестиваль юмора </span><span style=\"font-family: Arial, 'sans-serif'; background: white;\">«Целина смеха»</span><span style=\"font-family: Arial, 'sans-serif'; letter-spacing: -0.3pt;\"> <span style=\"color: black;\">и рабочие совещания. Участники обменялись опытом и обсудили планы на будущее. </span></span><span style=\"font-family: Arial, 'sans-serif'; background: white;\">Ключевым событием слета стала передача эстафеты будущим организаторам. В следующем году принимать весь Приволжский федеральный округ будут студенческие отряды Пензенской области.</span><span style=\"font-family: Arial, 'sans-serif';\">Мероприятие завершилось торжественной церемонией, на которой были отмечены лучшие участники.</span></p>",
+    "text": "<p style=\"margin-bottom: 0.0001pt; text-align: justify; line-height: normal; background: white;\"><span style=\"font-family: Arial, 'sans-serif';\">From October 16 to 18, the XVI Meeting of Student groups of the Volga Federal District took place in Samara. The event brought together about 400 of the best representatives of the movement from 14 regions of Russia. </span><span style=\"font-family: Arial, 'sans-serif';\">The delegation of the Orenburg region included representatives of the local headquarters of student groups, including students from the 36.6 detachment, created on the basis of OrGMU.</span></p>\r\n<p><span style=\"font-family: Arial, 'sans-serif'; color: black; letter-spacing: -0.3pt;\">The program of the rally included interactive platforms, professional skills competitions, the \"Virgin of Laughter\" humor festival</span><span style=\"font-family: Arial, 'sans-serif'; background: white;\"></span><span style=\"font-family: Arial, 'sans-serif'; letter-spacing: -0.3pt;\"> <span style=\"color: black;\">and workshops. The participants exchanged experiences and discussed plans for the future. </span></span><span style=\"font-family: Arial, 'sans-serif'; background: white;\">The key event of the rally was the passing of the baton to future organizers. Next year, student groups from the Penza Region will host the entire Volga Federal District.</span><span style=\"font-family: Arial, 'sans-serif';\">The event ended with a ceremony where the best participants were awarded.</span></p>",
+    "status": "machine",
+    "at": "2026-10-22",
+    "html": true
+  },
   "e6628a4ba2e8": {
     "src": "Поделились опытом подготовки кадров для детского здравоохранения Оренбуржья на всероссийской конференции",
     "text": "Shared their experience in training personnel for children's healthcare in Orenburg region at the All-Russian conference",
@@ -20172,6 +20217,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "f0064e54f5e3": {
+    "src": "В мероприятии, организованном при поддержке Государственной корпорации «Ростех» и Центра компетенций Минобрнауки России, приняли участие ректор ОрГМУ Игорь Мирошниченко и проректор по научной, инновационной и…",
+    "text": "The event, organized with the support of the Rostec State Corporation and the Competence Center of the Ministry of Education and Science of the Russian Federation, was attended by Igor Miroshnichenko, Rector of OrGMU, and Vice Rector for Science, Innovation and…",
+    "status": "machine",
+    "at": "2026-10-22"
+  },
   "f00f504cbdb4": {
     "src": "Подразделений",
     "text": "Divisions",
@@ -20333,6 +20384,12 @@
     "text": "Dean's Office",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "f25f4b7d90c6": {
+    "src": "21 октября на главной сцене мегамолла «Мармелад», состоялся Региональный форум Российского центра оборота прав на результаты творческой деятельности (РЦИС) под названием «Интеллектуальная собственность: основа…",
+    "text": "On October 21, on the main stage of the Marmelad megamall, a Regional forum of the Russian Center for the Turnover of Rights to the Results of Creative Activity (RCIS) was held under the title \"Intellectual Property: the basis…",
+    "status": "machine",
+    "at": "2026-10-22"
   },
   "f28db13a0f8d": {
     "src": "Определение активности аланинаминотрансферазы в сыворотке крови (АЛАТ)",
