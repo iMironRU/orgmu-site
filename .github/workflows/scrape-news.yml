@@ -30,6 +30,9 @@ concurrency:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    # Жёсткий потолок CI поверх собственного --max-seconds скрипта (8 мин):
+    # если что-то всё же зависнет, шаг упадёт внятно, а не молча по дефолту.
+    timeout-minutes: 15
     outputs:
       changed: ${{ steps.commit.outputs.changed }}
     steps:
