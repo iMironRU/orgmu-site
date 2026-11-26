@@ -566,6 +566,12 @@
     "status": "machine",
     "at": "2026-07-22"
   },
+  "05b656a257f5": {
+    "src": "Избран новый состав ученого совета",
+    "text": "A new Academic council has been elected",
+    "status": "machine",
+    "at": "2026-11-26"
+  },
   "05dc1e113731": {
     "src": "В конце мая в Москве состоялся XI ( XXXII ) Национальный конгресс эндокринологов с международным участием «Персонализированная медицина в эндокринологии: от фун даментальной науки до практического здравоохранения»…",
     "text": "At the end of May, the XI (XXXII) National Congress of Endocrinologists with international participation \"Personalized Medicine in Endocrinology: from fundamental science to practical healthcare\" was held in Moscow…",
@@ -2684,6 +2690,13 @@
     "text": "Microbiological examination of blood for anaerobic microorganisms with their subsequent identification",
     "status": "machine",
     "at": "2026-07-22"
+  },
+  "1cb30c2cc7ae": {
+    "src": "<p><span style=\"font-family: Arial;\">2</span><span style=\"font-family: Arial;\">5</span><span style=\"font-family: Arial;\"> <span style=\"font-family: Arial;\">ноября состоялась конференция трудового коллектива по выборам нового состава ученого совета университета</span></span><span style=\"font-family: Arial;\">.</span></p>\r\n<p><span style=\"font-family: Arial;\">В состав президиума конференции вошли ректор Игорь Мирошниченко, проректор по воспитательной, социальной работе и связям с общественностью Андрей Пахомов и председатель профкома сотрудников университета Валерий Ким. Также были избраны секретариат, мандатная и счетная комиссии.</span><span style=\"font-family: Arial;\">Председателем конференции избрали Игоря Мирошниченко, секретарем - начальника юридического отдела Елену Бютнер.</span></p>\r\n<p><span style=\"font-family: Arial;\">Игорь Васильевич напомнил собравшимся, что выборы членов ученого совета проводятся в соответствии с уставом университета, положением об ученом совете и положением о конференции научно-педагогических работников, других категорий работников и обучающихся. В состав ученого совета ОрГМУ входят ректор, который является его председателем, проректоры, а также по решению ученого совета деканы факультетов. Другие члены совета избираются путем тайного голосования. Общее количество членов ученого совета в соответствии с положением составляет 45 человек.</span></p>\r\n<p><span style=\"font-family: Arial;\">Процедура выборов нового состава главного представительного органа вуза состоялась в полном соответствии с нормативными документами. </span></p>\r\n<p><span style=\"font-family: Arial;\">27 ноября состоится первое заседание совета &nbsp;в новом составе. Ректор пожелал собравшимся эффективно трудиться на благо университета.</span></p>",
+    "text": "<p><span style=\"font-family: Arial;\">On November </span><span style=\"font-family: Arial;\">2-5</span><span style=\"font-family: Arial;\"><span style=\"font-family: Arial;\">, a conference of the labor collective on the election of a new composition of the academic council of the university</span></span><span style=\"font-family: Arial;\"> was held.</span></p>\r\n<p><span style=\"font-family: Arial;\">The presidium of the conference included Rector Igor Miroshnichenko, Vice-rector for Educational, Social Work and Public Relations Andrey Pakhomov and Chairman of the university staff's trade union committee Valery Kim. The secretariat, the mandate and counting commissions were also elected.</span><span style=\"font-family: Arial;\">Igor Miroshnichenko was elected Chairman of the conference, and Elena Byutner, Head of the Legal Department, was elected Secretary.</span></p>\r\n<p><span style=\"font-family: Arial;\">Igor Vasilyevich reminded the audience that the election of members of the Academic Council is conducted in accordance with the university's charter, the regulations on the Academic Council and the regulations on the conference of scientific and pedagogical staff, other categories of employees and students. The Academic Council of OrGMU includes the rector, who is its chairman, vice-rectors, as well as deans of faculties by decision of the Academic Council. Other members of the Council are elected by secret ballot. The total number of members of the Academic Council in accordance with the regulations is 45 people.</span></p>\r\n<p><span style=\"font-family: Arial;\">The procedure for electing a new composition of the main representative body of the university took place in full compliance with regulatory documents.</span></p>\r\n<p><span style=\"font-family: Arial;\">The first meeting of the new council will be held on November 27. The Rector wished the audience to work effectively for the benefit of the university.</span></p>",
+    "status": "machine",
+    "at": "2026-11-26",
+    "html": true
   },
   "1cb539e9cb13": {
     "src": "Определение иммуноглобулинов класса G к Trichomonas vaginalis в сыворотке крови (при групповой постановке не менее 5 проб)",
@@ -20894,6 +20907,12 @@
     "text": ",\"Obstetrics and Gynecology\",144h.Federal State Budgetary Educational Institution of Higher Medical Education of the Ministry of Health of the Russian Federation",
     "status": "machine",
     "at": "2026-07-23"
+  },
+  "e36851902833": {
+    "src": "2 5 ноября состоялась конференция трудового коллектива по выборам нового состава ученого совета университета . В состав президиума конференции вошли ректор Игорь Мирошниченко, проректор по воспитательной, социальной…",
+    "text": "On November 2-5, a conference of the labor collective on the election of a new composition of the academic council of the university was held . The presidium of the conference included Rector Igor Miroshnichenko, Vice-rector for Educational, Social…",
+    "status": "machine",
+    "at": "2026-11-26"
   },
   "e36a6cca8828": {
     "src": "Определение иммуноглобулинов класса G к главному белку наружной мембраны (MOMP) и плазмидному белку Pgp3 Chlamydia trachomatis в сыворотке крови (при групповой постановке не менее 5 проб)",
